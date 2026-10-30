@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FCFCF7">
+<title>Yazılı Antrenman</title>
+<link rel="icon" href="img/capy-circle.png">
+<link rel="apple-touch-icon" href="img/capy-circle.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Caveat:wght@600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FCFCF7;
+    --grid: #DEE6EE;
+    --ink: #1A2434;
+    --ink-soft: #64748B;
+    --rule: #E8344E;
+    --red: #E8344E;
+    --red-wash: #FDE9EC;
+    --green: #1E9E5A;
+    --green-wash: #E3F6EB;
+    --bio: #B6F03C;
+    --kim: #FF5FA2;
+    --hl: var(--bio);
+    --shadow: 3px 3px 0 var(--ink);
+    --display: "Bricolage Grotesque", system-ui, sans-serif;
+    --body: "Work Sans", system-ui, sans-serif;
+    --hand: "Caveat", "Segoe Script", cursive;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #11161E;
+      --grid: #1E2733;
+      --ink: #E9EFF6;
+      --ink-soft: #8DA0B5;
+      --rule: #FF5068;
+      --red: #FF6478;
+      --red-wash: #2C1620;
+      --green: #4BD489;
+      --green-wash: #10281D;
+      --shadow: 3px 3px 0 #000;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #11161E; --grid: #1E2733; --ink: #E9EFF6; --ink-soft: #8DA0B5;
+    --rule: #FF5068; --red: #FF6478; --red-wash: #2C1620;
+    --green: #4BD489; --green-wash: #10281D; --shadow: 3px 3px 0 #000;
+  }
+  [data-subject="bio"] { --hl: var(--bio); }
+  [data-subject="kim"] { --hl: var(--kim); }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 26px 26px;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+
+  .shell { max-width: 620px; margin: 0 auto; padding: 0 16px; }
+  #app {
+    max-width: 620px; margin: 0 auto;
+    border-left: 2px solid var(--rule);
+    padding: 0 16px 160px 18px;
+    min-height: 100vh;
+  }
+
+  /* ---- başlık ---- */
+  /* ---- açılış ekranı ---- */
+  #intro {
+    position: fixed; inset: 0; z-index: 50; background: var(--paper);
+    display: grid; place-content: center; justify-items: center; gap: 16px;
+    transition: opacity .4s ease;
+  }
+  #intro.gone { opacity: 0; pointer-events: none; }
+  #intro img { width: 132px; height: 132px; border-radius: 50%; border: 3px solid var(--ink); }
+  #intro .introname { font-family: var(--hand); font-weight: 700; font-size: 38px; color: var(--red); margin: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    #intro img { animation: pop .5s cubic-bezier(.2,1.5,.4,1) both; }
+    #intro .introname { animation: rise .45s .22s ease both; }
+  }
+  @keyframes pop { from { transform: scale(.55) rotate(-12deg); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes rise { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+  /* ---- ekran üstü gezinme ---- */
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 8px 0 0; min-height: 44px; }
+  .backbtn {
+    background: none; border: 0; color: var(--ink-soft); cursor: pointer;
+    font-family: var(--body); font-size: 15px; padding: 10px 12px 10px 0;
+  }
+  .step { font-size: 14px; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+
+  /* ---- vurgu kalemi ---- */
+  /* fosforlu kalem izi: metnin altını kaplayan, üstte ince boşluk bırakan bant */
+  .hl {
+    background-image: linear-gradient(to top, var(--hl) 0 88%, transparent 88%);
+    color: #11161E;
+    padding: 0 .12em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* ---- ana ekran ---- */
+  .hero { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 9vw, 42px); line-height: 1.04; letter-spacing: -.03em; margin: 22px 0 6px; }
+  .hero-note { color: var(--ink-soft); font-size: 15px; margin-bottom: 26px; }
+
+  .credit { display: flex; flex-wrap: wrap; align-items: baseline; font-size: 14px; color: var(--ink-soft); margin: 12px 0 22px; }
+  .hand {
+    font-family: var(--hand); font-weight: 700; font-size: 29px; line-height: .9;
+    color: whitesmoke; transform: rotate(-2deg);
+  }
+  .peekrow { position: relative; height: 72px; margin-top: 22px; border-bottom: 1px dashed var(--ink-soft); }
+  .peekrow img { position: absolute; right: 2px; bottom: -1px; width: 118px; }
+
+  .subject {
+    display: block; width: 100%; text-align: left; cursor: pointer;
+    background: var(--paper); color: var(--ink);
+    border: 2px solid var(--ink); border-radius: 2px;
+    box-shadow: var(--shadow);
+    padding: 18px 16px; margin: 0 0 18px;
+    font-family: var(--display); font-weight: 800; font-size: 30px; letter-spacing: -.02em;
+  }
+  .subject:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+  .subject .count { display: block; font-family: var(--body); font-weight: 400; font-size: 14px; letter-spacing: 0; color: var(--ink-soft); margin-top: 6px; }
+
+  .scribble { font-size: 14px; color: var(--ink-soft); padding-top: 12px; margin: 0; }
+
+  /* ---- konu listesi ---- */
+  .unit {
+    display: block; width: 100%; text-align: left; cursor: pointer;
+    background: none; border: 0; border-bottom: 1px solid var(--grid);
+    padding: 14px 0; color: var(--ink); font-family: var(--body); font-size: 16px;
+  }
+  .unit .row { display: flex; align-items: baseline; gap: 12px; }
+  .unit .nm { flex: 1; font-weight: 500; }
+  .unit .pct { font-variant-numeric: tabular-nums; font-size: 14px; color: var(--ink-soft); }
+  .unit .mini { height: 7px; margin-top: 8px; background: var(--grid); }
+  .unit .mini > i { display: block; height: 100%; background: var(--hl); }
+  .unit .cnt { font-size: 13px; color: var(--ink-soft); margin-top: 5px; }
+
+  /* ---- genel buton ---- */
+  .btn {
+    display: block; width: 100%; min-height: 54px; padding: 14px 16px; cursor: pointer;
+    font-family: var(--body); font-size: 16px; font-weight: 500; text-align: center;
+    background: var(--paper); color: var(--ink);
+    border: 2px solid var(--ink); border-radius: 2px; margin: 10px 0;
+  }
+  .btn.solid { background: var(--ink); color: var(--paper); font-weight: 600; box-shadow: var(--shadow); }
+  .btn.solid:active { transform: translate(2px, 2px); box-shadow: none; }
+  .btn.ghost { border-color: var(--grid); color: var(--ink-soft); }
+
+  /* ---- soru ---- */
+  .track { height: 8px; background: var(--grid); margin: 16px 0 18px; }
+  .track > i { display: block; height: 100%; background: var(--hl); transition: width .3s ease; }
+  .unitname { font-size: 13px; color: var(--ink-soft); }
+  .qtext { font-family: var(--display); font-weight: 700; font-size: clamp(21px, 5.6vw, 26px); line-height: 1.22; letter-spacing: -.02em; margin: 8px 0 4px; }
+  .hint { font-size: 14px; color: var(--ink-soft); margin: 8px 0 14px; }
+
+  .choice {
+    display: flex; align-items: flex-start; gap: 12px; width: 100%; text-align: left; cursor: pointer;
+    background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.4;
+    border: 2px solid var(--grid); border-radius: 2px; padding: 13px 14px; margin: 9px 0; min-height: 52px;
+  }
+  .choice .key {
+    flex: none; width: 26px; height: 26px; border: 2px solid currentColor; border-radius: 50%;
+    display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .choice.sel { border-color: var(--ink); }
+  .choice.sel .key { color: var(--ink); background: var(--hl); border-color: var(--ink); }
+  .choice.ok { border-color: var(--green); background: var(--green-wash); }
+  .choice.ok .key { color: var(--green); border-color: var(--green); background: none; }
+  .choice.bad { border-color: var(--red); background: var(--red-wash); }
+  .choice.bad .key { color: var(--red); border-color: var(--red); background: none; }
+  .choice.bad .label { text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 2px; }
+  .choice[disabled] { cursor: default; opacity: 1; }
+
+  /* ---- eşleştirme ---- */
+  .pair { display: flex; align-items: stretch; gap: 10px; margin: 10px 0; }
+  .pair .left {
+    flex: 1; padding: 12px 13px; border: 2px dashed var(--grid); border-right: 0; font-size: 15px;
+    display: flex; align-items: center; background: none; color: var(--ink);
+  }
+  .pair .right {
+    flex: 1; padding: 12px 13px; min-height: 52px; cursor: pointer; font-size: 15px; text-align: left;
+    font-family: var(--body); color: var(--ink);
+    background: var(--paper); border: 2px solid var(--grid); border-radius: 2px;
+  }
+  .pair .right.empty { color: var(--ink-soft); }
+  .pair .right.active { border-color: var(--ink); background: var(--hl); color: #11161E; }
+  .pair .right.filled { border-color: var(--ink); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+  .chip {
+    padding: 11px 14px; min-height: 46px; cursor: pointer; font-family: var(--body); font-size: 15px; text-align: left;
+    background: var(--paper); color: var(--ink); border: 2px solid var(--ink); border-radius: 2px;
+  }
+  .chip:active { transform: translate(1px, 1px); }
+  .slot {
+    min-height: 60px; padding: 9px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    border: 2px dashed var(--ink-soft); background: none;
+  }
+  .slot:empty::after { content: "Sırayı buraya kur"; color: var(--ink-soft); font-size: 14px; padding-left: 6px; }
+  .slot .chip { border-style: solid; }
+  .slot .chip .n { font-family: var(--display); font-weight: 700; color: var(--hl-text, var(--ink-soft)); margin-right: 7px; }
+
+  /* ---- alt çubuk ---- */
+  footer {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 6;
+    background: var(--paper); border-top: 2px solid var(--ink);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  footer .shell { padding-top: 12px; padding-bottom: 12px; }
+  footer.ok { background: var(--green-wash); border-top-color: var(--green); }
+  footer.bad { background: var(--red-wash); border-top-color: var(--red); }
+  .verdictrow { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .verdictrow img { width: 58px; flex: none; }
+  .verdict {
+    font-family: var(--display); font-weight: 800; font-size: 26px; letter-spacing: -.02em;
+    display: inline-block; transform: rotate(-2.2deg);
+  }
+  footer.ok .verdict { color: var(--green); }
+  footer.bad .verdict { color: var(--red); }
+  .answer { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .why { font-size: 14.5px; line-height: 1.45; color: var(--ink); margin-bottom: 12px; }
+  footer .btn { margin: 0; }
+
+  /* ---- sonuç ---- */
+  .resultart { display: block; width: 136px; margin: 10px auto -4px; }
+  .sign {
+    text-align: right; font-family: var(--hand); font-weight: 700; font-size: 30px;
+    color: var(--red); transform: rotate(-2deg); margin: 24px 0 0;
+  }
+  .grade { text-align: center; padding: 14px 0 4px; }
+  .stamp { position: relative; display: inline-block; padding: 24px 54px; }
+  .stamp .num {
+    position: relative; z-index: 1; font-family: var(--display); font-weight: 800;
+    font-size: 68px; line-height: 1; letter-spacing: -.04em; color: var(--red);
+    display: block; transform: rotate(-4deg);
+  }
+  .stamp .ring {
+    position: absolute; inset: -6px -10px;
+    border: 2.6px solid var(--red); border-radius: 50%;
+    transform: rotate(-5deg); transform-origin: 50% 50%;
+  }
+  /* daire çizili durur; çizilme animasyonunu JS ekler, hareket kapalıysa eklemez */
+  .grade .note { margin-top: 18px; font-size: 15px; color: var(--ink-soft); }
+
+  .review h2 { font-family: var(--display); font-weight: 700; font-size: 19px; margin: 26px 0 4px; }
+  .miss { border-left: 3px solid var(--red); padding: 2px 0 2px 12px; margin: 16px 0; }
+  .miss .q { font-weight: 600; font-size: 15px; line-height: 1.35; }
+  .miss .a { font-size: 14px; color: var(--red); margin-top: 3px; }
+  .miss .e { font-size: 14px; color: var(--ink-soft); margin-top: 3px; }
+  .warn { color: var(--red); font-size: 14px; }
+</style>
+</head>
+<body>
+<div id="intro">
+  <img src="img/capy-circle.png" alt="ahmojunior">
+</div>
+<main id="app"></main>
+<footer id="foot" hidden><div class="shell" id="footinner"></div></footer>
+
+<script>
+"use strict";
+
+const SUBJECTS = [
+  { key: "bio", name: "Biyoloji", file: "questions-bio.json" },
+  { key: "kim", name: "Kimya",    file: "questions-kim.json" }
+];
+const ROUND_SIZE = 10;
+const KEYS = ["a", "b", "c", "d", "e"];
+
+const app = document.getElementById("app");
+const foot = document.getElementById("foot");
+const footinner = document.getElementById("footinner");
+
+let banks = {};
+let loadErrors = [];
+let state = null;
+
+/* ---------- kalıcı ilerleme ---------- */
+
+const STORE_KEY = "yazili-antrenman-v1";
+let store = { q: {}, day: null, rounds: 0 };
+
+function loadStore() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (raw) store = Object.assign(store, JSON.parse(raw));
+  } catch (e) { /* depolama kapalı: ilerleme tutulmaz */ }
+}
+function saveStore() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch (e) {}
+}
+function today() { return new Date().toISOString().slice(0, 10); }
+function touchDay() {
+  const d = today();
+  if (store.day === d) return;
+  store.day = d;
+  store.rounds = 0;
+  saveStore();
+}
+function stat(id) { return store.q[id] || { c: 0, w: 0 }; }
+function record(id, correct) {
+  const s = store.q[id] || { c: 0, w: 0 };
+  if (correct) s.c++; else s.w++;
+  store.q[id] = s;
+  saveStore();
+}
+
+/* ---------- veri yükleme ve doğrulama ---------- */
+
+function validate(q, i, key) {
+  const where = key + "[" + i + "] " + (q && q.id ? q.id : "");
+  const bad = (m) => { loadErrors.push(where + ": " + m); return false; };
+  if (!q || typeof q !== "object") return bad("nesne değil");
+  if (!q.id || !q.q || !q.why || !q.unit) return bad("id/q/why/unit eksik");
+  if (q.type === "mc" || q.type === "fill") {
+    if (!Array.isArray(q.choices) || q.choices.length < 2) return bad("choices eksik");
+    if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= q.choices.length) return bad("answer index geçersiz");
+  } else if (q.type === "tf") {
+    if (typeof q.answer !== "boolean") return bad("answer boolean değil");
+  } else if (q.type === "match") {
+    if (!Array.isArray(q.pairs) || q.pairs.length < 2) return bad("pairs eksik");
+    if (q.pairs.some(p => !Array.isArray(p) || p.length !== 2)) return bad("pair biçimi bozuk");
+  } else if (q.type === "order") {
+    if (!Array.isArray(q.items) || q.items.length < 2) return bad("items eksik");
+  } else {
+    return bad("bilinmeyen type: " + q.type);
+  }
+  return true;
+}
+
+async function loadBanks() {
+  for (const s of SUBJECTS) {
+    try {
+      const res = await fetch(s.file, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      banks[s.key] = data.filter((q, i) => validate(q, i, s.key));
+    } catch (e) {
+      banks[s.key] = [];
+      loadErrors.push(s.name + " yüklenemedi: " + e.message);
+    }
+  }
+  if (loadErrors.length) console.warn("Soru bankası uyarıları:\n" + loadErrors.join("\n"));
+}
+
+/* ---------- yardımcılar ---------- */
+
+function shuffle(a) {
+  const r = a.slice();
+  for (let i = r.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [r[i], r[j]] = [r[j], r[i]];
+  }
+  return r;
+}
+function el(tag, props, kids) {
+  const n = document.createElement(tag);
+  if (props) for (const k in props) {
+    if (k === "class") n.className = props[k];
+    else if (k === "text") n.textContent = props[k];
+    else if (k.startsWith("on")) n.addEventListener(k.slice(2), props[k]);
+    else if (props[k] === true) n.setAttribute(k, "");
+    else if (props[k] !== false && props[k] != null) n.setAttribute(k, props[k]);
+  }
+  (kids || []).forEach(c => n.appendChild(typeof c === "string" ? document.createTextNode(c) : c));
+  return n;
+}
+function highlight(text) {
+  return el("span", { class: "hl" }, [text]);
+}
+function units(key) {
+  const m = new Map();
+  for (const q of banks[key]) {
+    const u = m.get(q.unit) || { name: q.unit, n: 0, c: 0, w: 0 };
+    const s = stat(q.id);
+    u.n++; u.c += s.c; u.w += s.w;
+    m.set(q.unit, u);
+  }
+  return [...m.values()];
+}
+function pct(u) {
+  const t = u.c + u.w;
+  return t ? Math.round(100 * u.c / t) : null;
+}
+function setSubject(key) {
+  if (key) document.body.dataset.subject = key;
+  else delete document.body.dataset.subject;
+}
+
+/* ---------- ekranlar ---------- */
+
+function topbar(onBack, rightText) {
+  return el("div", { class: "topbar" }, [
+    el("button", { class: "backbtn", onclick: onBack }, ["← Geri"]),
+    el("span", { class: "step", text: rightText || "" })
+  ]);
+}
+
+function renderHome() {
+  state = null;
+  setSubject(null);
+  foot.hidden = true;
+  app.innerHTML = "";
+
+  app.appendChild(el("h1", { class: "hero" }, ["Bugün ne ", highlight("çalışıyoruz"), "?"]));
+  app.appendChild(el("p", { class: "credit" }, [
+    el("span", { class: "hand", text: "ahmojunior.  " }), "ㅤtarafından yapıldı"
+  ]));
+  app.appendChild(el("p", { class: "hero-note", text: "Bir ders seç, 10 soruluk tur başlasın." }));
+
+  if (loadErrors.length) {
+    app.appendChild(el("p", { class: "warn", text: loadErrors.length + " soru uyarısı var, ayrıntısı tarayıcı konsolunda." }));
+  }
+
+  for (const s of SUBJECTS) {
+    const b = el("button", { class: "subject", "data-subject": s.key, onclick: () => renderSubject(s.key) }, [
+      highlight(s.name),
+      el("span", { class: "count", text: banks[s.key].length + " soru" })
+    ]);
+    app.appendChild(b);
+  }
+
+  const done = store.rounds || 0;
+  app.appendChild(el("div", { class: "peekrow" }, [
+    el("img", { src: "img/capy-peek.png", alt: "", "aria-hidden": "true" }, [])
+  ]));
+  app.appendChild(el("p", {
+    class: "scribble",
+    text: done ? "Bugün " + done + " tur bitirdin." : "Bugün henüz tur yapmadın."
+  }));
+}
+
+function renderSubject(key) {
+  const subj = SUBJECTS.find(s => s.key === key);
+  setSubject(key);
+  foot.hidden = true;
+  app.innerHTML = "";
+
+  app.appendChild(topbar(renderHome));
+  app.appendChild(el("h1", { class: "hero" }, [highlight(subj.name)]));
+  app.appendChild(el("p", { class: "hero-note", text: "Karışık çalış ya da tek konu seç." }));
+  app.appendChild(el("button", { class: "btn solid", onclick: () => startRound(key, null) }, ["Karışık çalış"]));
+
+  for (const u of units(key)) {
+    const p = pct(u);
+    app.appendChild(el("button", { class: "unit", onclick: () => startRound(key, u.name) }, [
+      el("div", { class: "row" }, [
+        el("span", { class: "nm", text: u.name }),
+        el("span", { class: "pct", text: p == null ? "yeni" : "%" + p })
+      ]),
+      el("div", { class: "mini" }, [el("i", { style: "width:" + (p == null ? 0 : p) + "%" })]),
+      el("div", { class: "cnt", text: u.n + " soru" })
+    ]));
+  }
+}
+
+/* ---------- tur seçimi ---------- */
+
+function pickQuestions(key, unit) {
+  let pool = banks[key].filter(q => !unit || q.unit === unit);
+  if (!pool.length) return [];
+  // ağırlık: yanlış yapılanlar 3x, hiç görülmemiş 2x, bilinenler 1x
+  const weighted = [];
+  for (const q of pool) {
+    const s = stat(q.id);
+    let w = 1;
+    if (s.w > s.c) w = 3;
+    else if (s.c + s.w === 0) w = 2;
+    for (let i = 0; i < w; i++) weighted.push(q);
+  }
+  const picked = [];
+  const seen = new Set();
+  for (const q of shuffle(weighted)) {
+    if (seen.has(q.id)) continue;
+    seen.add(q.id);
+    picked.push(q);
+    if (picked.length === ROUND_SIZE) break;
+  }
+  return picked;
+}
+
+function startRound(key, unit, fixedList) {
+  const list = fixedList && fixedList.length ? shuffle(fixedList) : pickQuestions(key, unit);
+  if (!list.length) { renderSubject(key); return; }
+  touchDay();
+  state = { key, unit, list, i: 0, correct: 0, wrong: [], answered: false, sel: null };
+  renderQuestion();
+}
+
+/* ---------- soru ekranı ---------- */
+
+function renderQuestion() {
+  const q = state.list[state.i];
+  setSubject(state.key);
+
+  state.answered = false;
+  state.sel = null;
+  app.innerHTML = "";
+
+  app.appendChild(topbar(
+    () => { if (confirm("Turu bırakıyor musun?")) renderSubject(state.key); },
+    (state.i + 1) + "/" + state.list.length
+  ));
+  app.appendChild(el("div", { class: "track" }, [el("i", { style: "width:" + (100 * state.i / state.list.length) + "%" })]));
+  app.appendChild(el("div", { class: "unitname", text: q.unit }));
+  app.appendChild(el("h1", { class: "qtext", text: q.q }));
+
+  const body = el("div", {}, []);
+  app.appendChild(body);
+
+  if (q.type === "mc" || q.type === "fill") renderChoices(body, q);
+  else if (q.type === "tf") renderTF(body, q);
+  else if (q.type === "match") renderMatch(body, q);
+  else if (q.type === "order") renderOrder(body, q);
+
+  setFooterCheck();
+}
+
+function setFooterCheck() {
+  foot.hidden = false;
+  foot.className = "";
+  footinner.innerHTML = "";
+  const btn = el("button", { class: "btn solid", id: "checkbtn", onclick: submit }, ["Kontrol et"]);
+  btn.disabled = !hasAnswer();
+  btn.style.opacity = btn.disabled ? ".45" : "1";
+  footinner.appendChild(btn);
+}
+function refreshCheck() {
+  const btn = document.getElementById("checkbtn");
+  if (!btn) return;
+  btn.disabled = !hasAnswer();
+  btn.style.opacity = btn.disabled ? ".45" : "1";
+}
+function hasAnswer() {
+  const q = state.list[state.i];
+  const s = state.sel;
+  if (q.type === "mc" || q.type === "fill" || q.type === "tf") return s !== null && s !== undefined;
+  if (q.type === "match") return s && s.map && q.pairs.every((_, i) => s.map[i] != null);
+  if (q.type === "order") return s && s.placed && s.placed.length === q.items.length;
+  return false;
+}
+
+function choiceButton(body, label, key, value) {
+  const b = el("button", { class: "choice", onclick: () => {
+    if (state.answered) return;
+    state.sel = value;
+    [...body.querySelectorAll(".choice")].forEach(x => x.classList.remove("sel"));
+    b.classList.add("sel");
+    refreshCheck();
+  } }, [
+    el("span", { class: "key", text: key }),
+    el("span", { class: "label", text: label })
+  ]);
+  body.appendChild(b);
+  return b;
+}
+
+function renderChoices(body, q) {
+  shuffle(q.choices.map((c, i) => i)).forEach((idx, pos) => {
+    const b = choiceButton(body, q.choices[idx], KEYS[pos], idx);
+    b.dataset.idx = idx;
+  });
+}
+
+function renderTF(body, q) {
+  [["Doğru", true, "D"], ["Yanlış", false, "Y"]].forEach(([label, val, k]) => {
+    const b = choiceButton(body, label, k, val);
+    b.dataset.val = String(val);
+  });
+}
+
+function renderMatch(body, q) {
+  body.appendChild(el("div", { class: "hint", text: "Soldakine karşılık gelen kutuya dokun, sonra doğru eşini seç." }));
+  const rights = shuffle(q.pairs.map((p, i) => ({ text: p[1], i })));
+  state.sel = { map: {}, pending: null };
+
+  const slots = [];
+  q.pairs.forEach((p, li) => {
+    const right = el("button", { class: "right empty", text: "seç", onclick: () => {
+      if (state.answered) return;
+      state.sel.pending = state.sel.pending === li ? null : li;
+      redraw(); drawPicker();
+    } });
+    body.appendChild(el("div", { class: "pair" }, [
+      el("div", { class: "left", text: p[0] }),
+      right
+    ]));
+    slots.push({ right, li });
+  });
+
+  const picker = el("div", { class: "chips" }, []);
+  body.appendChild(picker);
+
+  function redraw() {
+    slots.forEach(({ right, li }) => {
+      const r = state.sel.map[li];
+      right.textContent = r == null ? "seç" : q.pairs[r][1];
+      right.className = "right" + (r == null ? " empty" : " filled") + (state.sel.pending === li ? " active" : "");
+    });
+  }
+  function drawPicker() {
+    picker.innerHTML = "";
+    if (state.sel.pending == null) return;
+    const used = new Set(Object.values(state.sel.map));
+    rights.forEach(r => {
+      if (used.has(r.i) && state.sel.map[state.sel.pending] !== r.i) return;
+      picker.appendChild(el("button", { class: "chip", text: r.text, onclick: () => {
+        if (state.answered) return;
+        state.sel.map[state.sel.pending] = r.i;
+        state.sel.pending = null;
+        picker.innerHTML = "";
+        redraw();
+        refreshCheck();
+      } }));
+    });
+  }
+  state.sel.redraw = redraw;
+  redraw();
+}
+
+function renderOrder(body, q) {
+  body.appendChild(el("div", { class: "hint", text: "Doğru sırayla dokun. Kaldırmak için üstteki kutudan dokun." }));
+  const slot = el("div", { class: "slot" }, []);
+  const pool = el("div", { class: "chips" }, []);
+  body.appendChild(slot);
+  body.appendChild(pool);
+  state.sel = { placed: [] };
+
+  const shuffled = shuffle(q.items.map((t, i) => ({ t, i })));
+  function draw() {
+    slot.innerHTML = "";
+    state.sel.placed.forEach((it, pos) => {
+      const c = el("button", { class: "chip", onclick: () => {
+        if (state.answered) return;
+        state.sel.placed.splice(pos, 1);
+        draw(); refreshCheck();
+      } }, []);
+      c.appendChild(el("span", { class: "n", text: (pos + 1) }));
+      c.appendChild(document.createTextNode(it.t));
+      slot.appendChild(c);
+    });
+    pool.innerHTML = "";
+    const used = new Set(state.sel.placed.map(p => p.i));
+    shuffled.forEach(it => {
+      if (used.has(it.i)) return;
+      pool.appendChild(el("button", { class: "chip", text: it.t, onclick: () => {
+        if (state.answered) return;
+        state.sel.placed.push(it);
+        draw(); refreshCheck();
+      } }));
+    });
+  }
+  state.sel.draw = draw;
+  draw();
+}
+
+/* ---------- cevap kontrolü ---------- */
+
+function isCorrect(q) {
+  const s = state.sel;
+  if (q.type === "mc" || q.type === "fill" || q.type === "tf") return s === q.answer;
+  // metne göre karşılaştır: aynı karşılığı taşıyan iki çift (ör. iki "Fiziksel") de doğru sayılsın
+  if (q.type === "match") return q.pairs.every((p, i) => q.pairs[s.map[i]][1] === p[1]);
+  if (q.type === "order") return s.placed.every((p, i) => p.i === i);
+  return false;
+}
+
+function correctText(q) {
+  if (q.type === "mc" || q.type === "fill") return q.choices[q.answer];
+  if (q.type === "tf") return q.answer ? "Doğru" : "Yanlış";
+  if (q.type === "match") return q.pairs.map(p => p[0] + " = " + p[1]).join(", ");
+  if (q.type === "order") return q.items.map((t, i) => (i + 1) + ". " + t).join("  ");
+  return "";
+}
+
+function submit() {
+  if (state.answered || !hasAnswer()) return;
+  const q = state.list[state.i];
+  state.answered = true;
+  const ok = isCorrect(q);
+  record(q.id, ok);
+  if (ok) state.correct++;
+  else state.wrong.push(q);
+
+  if (q.type === "mc" || q.type === "fill") {
+    app.querySelectorAll(".choice").forEach(b => {
+      const idx = Number(b.dataset.idx);
+      b.disabled = true;
+      b.classList.remove("sel");
+      if (idx === q.answer) b.classList.add("ok");
+      else if (idx === state.sel) b.classList.add("bad");
+    });
+  } else if (q.type === "tf") {
+    app.querySelectorAll(".choice").forEach(b => {
+      const val = b.dataset.val === "true";
+      b.disabled = true;
+      b.classList.remove("sel");
+      if (val === q.answer) b.classList.add("ok");
+      else if (val === state.sel) b.classList.add("bad");
+    });
+  }
+
+  foot.className = ok ? "ok" : "bad";
+  footinner.innerHTML = "";
+  footinner.appendChild(el("div", { class: "verdictrow" }, [
+    el("img", { src: ok ? "img/capy-flex.png" : "img/capy-hat.png", alt: "", "aria-hidden": "true" }, []),
+    el("div", { class: "verdict", text: ok ? "Doğru" : "Yanlış" })
+  ]));
+  if (!ok) footinner.appendChild(el("div", { class: "answer", text: "Doğru cevap: " + correctText(q) }));
+  footinner.appendChild(el("div", { class: "why", text: q.why }));
+  footinner.appendChild(el("button", { class: "btn solid", onclick: nextQuestion }, [
+    state.i + 1 < state.list.length ? "Devam" : "Turu bitir"
+  ]));
+  footinner.querySelector(".btn").focus({ preventScroll: true });
+}
+
+function nextQuestion() {
+  state.i++;
+  if (state.i >= state.list.length) renderResult();
+  else renderQuestion();
+}
+
+/* ---------- tur sonu ---------- */
+
+function renderResult() {
+  store.rounds = (store.rounds || 0) + 1;
+  saveStore();
+  foot.hidden = true;
+  app.innerHTML = "";
+  app.appendChild(topbar(() => renderSubject(state.key)));
+
+  const n = state.list.length;
+  const wrongCount = state.wrong.length;
+  app.appendChild(el("img", {
+    class: "resultart", alt: "", "aria-hidden": "true",
+    src: wrongCount === 0 ? "img/capy-hands.png" : "img/capy-flex.png"
+  }, []));
+  const stamp = el("div", { class: "stamp" }, [
+    el("div", { class: "ring", "aria-hidden": "true" }, []),
+    el("div", { class: "num", text: state.correct + "/" + n })
+  ]);
+  app.appendChild(el("div", { class: "grade" }, [
+    stamp,
+    el("p", { class: "note", text: wrongCount === 0 ? "Hepsi doğru." : wrongCount + " soruyu kaçırdın, aşağıda duruyorlar." })
+  ]));
+  // turun tek animasyonu: daire kalemle çizilmiş gibi oturur
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    stamp.querySelector(".ring").animate(
+      [
+        { transform: "scale(.7) rotate(-14deg)", opacity: 0 },
+        { transform: "rotate(-5deg)", opacity: 1 }
+      ],
+      { duration: 480, delay: 120, easing: "cubic-bezier(.2,1.5,.4,1)", fill: "backwards" }
+    );
+  }
+
+  const key = state.key, unit = state.unit;
+
+  if (wrongCount) {
+    const wrongs = state.wrong.slice();
+    app.appendChild(el("button", { class: "btn solid", onclick: () => startRound(key, unit, wrongs) }, ["Yanlışları tekrar et"]));
+    const box = el("div", { class: "review" }, [el("h2", { text: "Kaçırdıkların" })]);
+    state.wrong.forEach(q => {
+      box.appendChild(el("div", { class: "miss" }, [
+        el("div", { class: "q", text: q.q }),
+        el("div", { class: "a", text: correctText(q) }),
+        el("div", { class: "e", text: q.why })
+      ]));
+    });
+    app.appendChild(box);
+    app.appendChild(el("button", { class: "btn", onclick: () => startRound(key, unit) }, ["Yeni tur"]));
+  } else {
+    app.appendChild(el("button", { class: "btn solid", onclick: () => startRound(key, unit) }, ["Yeni tur"]));
+  }
+  app.appendChild(el("button", { class: "btn ghost", onclick: () => renderSubject(key) }, ["Konulara dön"]));
+  app.appendChild(el("p", { class: "sign", text: "ahmojunior" }));
+}
+
+/* ---------- başlat ---------- */
+
+loadStore();
+const introAt = Date.now();
+loadBanks().then(() => {
+  renderHome();
+  // açılış ekranı en az bu kadar durur, yoksa yükleme hızlıysa göz kırpıp geçer
+  setTimeout(() => {
+    const intro = document.getElementById("intro");
+    intro.classList.add("gone");
+    setTimeout(() => intro.remove(), 450);
+  }, Math.max(0, 1200 - (Date.now() - introAt)));
+});
+</script>
+</body>
+</html>
