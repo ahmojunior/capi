@@ -1,6 +1,6 @@
 <div align="center">
 
-# Yazılı Antrenman
+# capi
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -11,7 +11,7 @@
 
 ## <div align="center">About the Project</div>
 
-**Yazılı Antrenman** is a Turkish-language study app for reviewing biology and chemistry with short, interactive quizzes. Choose a subject, practice across all its topics or focus on one, and review explanations after each answer.
+**capi** is a Turkish-language study app for reviewing biology and chemistry with short, interactive quizzes. Choose a subject, practice across all its topics or focus on one, and review explanations after each answer.
 
 ## <div align="center">Features</div>
 
