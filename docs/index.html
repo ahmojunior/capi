@@ -268,6 +268,83 @@
   .miss .e { font-size: 14px; color: var(--ink-soft); margin-top: 3px; }
   .warn { color: var(--red); font-size: 14px; }
 
+  /* ---- şekil ve tablo ---- */
+  .fig { display: block; width: 100%; height: auto; margin: 12px auto 4px; overflow: visible; }
+  .fig text { font-family: var(--body); text-anchor: middle; dominant-baseline: central; fill: var(--ink); }
+  .fig .pt { font-family: var(--display); font-weight: 700; font-size: 14px; }
+  .fig .ms { font-size: 13px; font-weight: 600; }
+  .fig .msr { font-size: 13px; font-weight: 600; fill: var(--red); }
+  .fig .sm, .fig .sml { font-size: 11px; fill: var(--ink-soft); }
+  .fig .sml { text-anchor: start; }
+  .fig .smw { font-size: 12px; font-weight: 600; fill: #fff; }
+  .fig .smd { font-size: 12px; font-weight: 600; fill: #555; }
+  .fig .ln { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .fig .lt { fill: none; stroke: var(--ink); stroke-width: 1.2; }
+  .fig .lw { fill: none; stroke: var(--ink); stroke-width: 3.4; stroke-linecap: round; }
+  .fig .ld { fill: none; stroke: var(--ink-soft); stroke-width: 1.4; stroke-dasharray: 4 3; }
+  .fig .lc { fill: none; stroke: var(--red); stroke-width: 1.8; }
+  .fig .lc2 { fill: none; stroke: var(--ink-soft); stroke-width: 1.2; stroke-dasharray: 3 3; }
+  .fig .lg { stroke: var(--grid); stroke-width: 1; }
+  .fig .lg2 { stroke: #5DBB4A; stroke-width: 3; }
+  .fig .lpole { stroke: #7A5230; stroke-width: 4; stroke-linecap: round; }
+  .fig .la { fill: none; stroke: var(--red); stroke-width: 1.5; }
+  .fig .fa { fill: var(--hl); fill-opacity: .35; }
+  .fig .fb { fill: var(--ink-soft); fill-opacity: .2; }
+  .fig .fp { fill: #F4A7A7; }
+  .fig .fn { fill: #3B4A6B; }
+  .fig .fr { fill: #C9443E; }
+  .fig .fw { fill: #FFFFFF; }
+  .fig .fi { fill: var(--ink); }
+  .fig .b1 { fill: #8A9AB0; }
+  .fig .b2 { fill: #F2994A; }
+  .tablewrap { overflow-x: auto; margin: 12px 0 4px; }
+  .dtable { border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; min-width: 100%; }
+  .dtable th, .dtable td { border: 1.5px solid var(--ink-soft); padding: 6px 8px; text-align: center; }
+  .dtable th { background: var(--grid); font-weight: 600; }
+  .dtable td:first-child { font-weight: 600; text-align: left; }
+  .dtable td:empty::after { content: "?"; color: var(--ink-soft); }
+
+  /* ---- konu listesi: anlatım düğmesi ---- */
+  .unitrow { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--grid); }
+  .unitrow .unit { border-bottom: 0; flex: 1; min-width: 0; }
+  .lessonbtn {
+    flex: none; cursor: pointer; text-align: center;
+    font-family: var(--body); font-size: 13px; font-weight: 600; line-height: 1.15;
+    background: var(--hl); color: #11161E;
+    border: 2px solid var(--ink); border-radius: 2px; box-shadow: 2px 2px 0 var(--ink);
+    padding: 8px 10px; min-height: 44px;
+  }
+  .lessonbtn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--ink); }
+
+  /* ---- konu anlatımı ---- */
+  .lessontitle { font-family: var(--display); font-weight: 800; font-size: clamp(24px, 6.6vw, 30px); line-height: 1.1; letter-spacing: -.02em; margin: 4px 0 0; }
+  .lcard {
+    border: 2px solid var(--ink); border-radius: 2px; box-shadow: var(--shadow);
+    background: var(--paper); padding: 14px 16px 12px; margin: 14px 0 8px;
+  }
+  .lcard h2 { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: -.01em; margin: 0 0 8px; }
+  .lcard p { margin: 0 0 10px; }
+  .lcard ul { margin: 0 0 10px; padding-left: 20px; }
+  .lcard li { margin: 4px 0; }
+  .formula {
+    font-family: var(--display); font-weight: 700; font-size: 17px; line-height: 1.5;
+    background: var(--hl); color: #11161E; padding: 8px 12px; margin: 10px 0; border-radius: 2px;
+  }
+  .tip { border-left: 3px solid var(--red); padding: 2px 0 2px 10px; margin: 10px 0 4px; font-size: 15px; }
+  .tip b { color: var(--red); }
+
+  /* ---- alt çubuk düğme sırası ve boş bırakma ---- */
+  .btnrow { display: flex; gap: 10px; }
+  .btnrow .btn { margin: 0; }
+  .btnrow .btn.side { flex: 0 0 36%; }
+  .btnrow .btn.main { flex: 1; }
+  footer.skip { background: var(--grid); border-top-color: var(--ink-soft); }
+  footer.skip .verdict { color: var(--ink-soft); }
+  .miss.skipped { border-left-color: var(--ink-soft); }
+  .miss .tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 0 6px; margin-bottom: 3px; border: 1.5px solid currentColor; border-radius: 2px; }
+  .miss .tag.w { color: var(--red); }
+  .miss .tag.s { color: var(--ink-soft); }
+
   /* ---- maskot: Mikey ---- */
   /* tüm ruh hâlleri tek SVG'de durur; data-mood hangisinin görüneceğini seçer */
   .buddy { display: flex; align-items: center; gap: 10px; margin: 14px 0 4px; }
@@ -364,9 +441,9 @@
 "use strict";
 
 const SUBJECTS = [
-  { key: "bio", name: "Biyoloji", file: "questions-bio.json" },
-  { key: "kim", name: "Kimya",    file: "questions-kim.json" },
-  { key: "mat", name: "Matematik", file: "questions-mat.json" }
+  { key: "bio", name: "Biyoloji",  file: "questions-bio.json", lessons: "lessons-bio.json" },
+  { key: "kim", name: "Kimya",     file: "questions-kim.json", lessons: "lessons-kim.json" },
+  { key: "mat", name: "Matematik", file: "questions-mat.json", lessons: "lessons-mat.json" }
 ];
 const ROUND_SIZE = 10;
 const KEYS = ["a", "b", "c", "d", "e"];
@@ -376,6 +453,7 @@ const foot = document.getElementById("foot");
 const footinner = document.getElementById("footinner");
 
 let banks = {};
+let lessons = {};
 let loadErrors = [];
 let state = null;
 
@@ -408,6 +486,13 @@ function record(id, correct) {
   store.q[id] = s;
   saveStore();
 }
+// boş bırakılan soru doğruluk yüzdesini etkilemez, ama sonraki turlarda daha sık gelir
+function recordSkip(id) {
+  const s = store.q[id] || { c: 0, w: 0 };
+  s.s = (s.s || 0) + 1;
+  store.q[id] = s;
+  saveStore();
+}
 
 /* ---------- veri yükleme ve doğrulama ---------- */
 
@@ -429,7 +514,15 @@ function validate(q, i, key) {
   } else {
     return bad("bilinmeyen type: " + q.type);
   }
+  if (q.fig && !validFig(q.fig)) return bad("fig biçimi bozuk");
+  if (q.table && !validTable(q.table)) return bad("table biçimi bozuk");
   return true;
+}
+function validFig(f) {
+  return f && typeof f === "object" && f.w > 0 && f.h > 0 && Array.isArray(f.e);
+}
+function validTable(t) {
+  return t && Array.isArray(t.h) && Array.isArray(t.r) && t.r.every(Array.isArray);
 }
 
 async function loadBanks() {
@@ -442,6 +535,21 @@ async function loadBanks() {
     } catch (e) {
       banks[s.key] = [];
       loadErrors.push(s.name + " yüklenemedi: " + e.message);
+    }
+    // konu anlatımı isteğe bağlıdır: dosya yoksa düğme görünmez
+    try {
+      const res = await fetch(s.lessons, { cache: "no-store" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      lessons[s.key] = {};
+      for (const unit in data) {
+        const steps = (data[unit] || []).filter(st => st && st.title && st.say &&
+          (!st.fig || validFig(st.fig)) && (!st.table || validTable(st.table)));
+        if (steps.length) lessons[s.key][unit] = steps;
+      }
+    } catch (e) {
+      lessons[s.key] = {};
+      loadErrors.push(s.name + " konu anlatımı yüklenemedi: " + e.message);
     }
   }
   if (loadErrors.length) console.warn("Soru bankası uyarıları:\n" + loadErrors.join("\n"));
@@ -489,6 +597,40 @@ function pct(u) {
 function setSubject(key) {
   if (key) document.body.dataset.subject = key;
   else delete document.body.dataset.subject;
+}
+
+/* ---------- şekil ve tablo ---------- */
+
+// fig: {w, h, e: [komut]}; komutlar soru bankasını üreten betikte hesaplanır
+const SVGNS = "http://www.w3.org/2000/svg";
+function svgEl(tag, attrs, text) {
+  const n = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (text != null) n.textContent = text;
+  return n;
+}
+function renderFig(f) {
+  const svg = svgEl("svg", { class: "fig", viewBox: (f.x || 0) + " " + (f.y || 0) + " " + f.w + " " + f.h, role: "img", "aria-label": "Şekil" });
+  svg.style.maxWidth = Math.round(f.w * 1.25) + "px";
+  for (const op of f.e) {
+    const [k] = op;
+    if (k === "l") svg.appendChild(svgEl("line", { x1: op[1], y1: op[2], x2: op[3], y2: op[4], class: op[5] }));
+    else if (k === "pg") svg.appendChild(svgEl("polygon", { points: op[1], class: op[2] }));
+    else if (k === "p") svg.appendChild(svgEl("path", { d: op[1], class: op[2] }));
+    else if (k === "c") svg.appendChild(svgEl("circle", { cx: op[1], cy: op[2], r: op[3], class: op[4] }));
+    else if (k === "r") svg.appendChild(svgEl("rect", { x: op[1], y: op[2], width: op[3], height: op[4], class: op[5] }));
+    else if (k === "t") svg.appendChild(svgEl("text", { x: op[1], y: op[2], class: op[4] }, op[3]));
+  }
+  return svg;
+}
+function renderTable(t) {
+  const head = el("tr", {}, t.h.map(c => el("th", { text: c })));
+  const rows = t.r.map(r => el("tr", {}, r.map(c => el("td", { text: c }))));
+  return el("div", { class: "tablewrap" }, [el("table", { class: "dtable" }, [el("thead", {}, [head]), el("tbody", {}, rows)])]);
+}
+function appendMedia(parent, item) {
+  if (item.fig) parent.appendChild(renderFig(item.fig));
+  if (item.table) parent.appendChild(renderTable(item.table));
 }
 
 /* ---------- maskot: Mikey ---------- */
@@ -554,7 +696,8 @@ const MIKEY_LINES = {
   start: ["Hadi bakalım!", "Bunu birlikte çözelim.", "Dikkatlice oku, acele yok.", "Sen yaparsın!", "Hazırım, ya sen?"],
   think: ["Hmm, emin misin?", "Kontrol etmeye hazır!", "Güzel bir seçim gibi…", "İstersen bir daha bak."],
   happy: ["Harika!", "Süpersin!", "Aynen böyle!", "Bravo!", "Çok iyi gidiyorsun!"],
-  sad:   ["Olsun, birlikte öğreniyoruz.", "Az kaldı!", "Açıklamaya bir göz at.", "Bir dahakine olacak.", "Moral bozmak yok!"]
+  sad:   ["Olsun, birlikte öğreniyoruz.", "Az kaldı!", "Açıklamaya bir göz at.", "Bir dahakine olacak.", "Moral bozmak yok!"],
+  skip:  ["Sorun değil, cevaba birlikte bakalım.", "Boş bırakmak da bir seçim. Açıklamaya göz at!", "Bunu birlikte öğrenelim.", "Bir dahakine deneriz!"]
 };
 function mikeyLine(kind) {
   const a = MIKEY_LINES[kind];
@@ -637,19 +780,65 @@ function renderSubject(key) {
   app.appendChild(topbar(renderHome));
   app.appendChild(el("h1", { class: "hero" }, [highlight(subj.name)]));
   app.appendChild(el("p", { class: "hero-note", text: "Karışık çalış ya da tek konu seç." }));
+  const hasLessons = Object.keys(lessons[key] || {}).length > 0;
+  if (hasLessons) app.appendChild(buddy("idle", "İstersen önce konuyu ben anlatayım!").row);
   app.appendChild(el("button", { class: "btn solid", onclick: () => startRound(key, null) }, ["Karışık çalış"]));
 
   for (const u of units(key)) {
     const p = pct(u);
-    app.appendChild(el("button", { class: "unit", onclick: () => startRound(key, u.name) }, [
+    const main = el("button", { class: "unit", onclick: () => startRound(key, u.name) }, [
       el("div", { class: "row" }, [
         el("span", { class: "nm", text: u.name }),
         el("span", { class: "pct", text: p == null ? "yeni" : "%" + p })
       ]),
       el("div", { class: "mini" }, [el("i", { style: "width:" + (p == null ? 0 : p) + "%" })]),
       el("div", { class: "cnt", text: u.n + " soru" })
-    ]));
+    ]);
+    const kids = [main];
+    if (lessons[key] && lessons[key][u.name]) {
+      kids.push(el("button", {
+        class: "lessonbtn", "aria-label": u.name + " konu anlatımı",
+        onclick: () => renderLesson(key, u.name, 0)
+      }, ["Konu", el("br"), "anlatımı"]));
+    }
+    app.appendChild(el("div", { class: "unitrow" }, kids));
   }
+}
+
+/* ---------- konu anlatımı ---------- */
+
+function renderLesson(key, unit, i) {
+  const steps = lessons[key][unit];
+  const st = steps[i];
+  const last = i === steps.length - 1;
+  state = null;
+  setSubject(key);
+  app.innerHTML = "";
+  window.scrollTo(0, 0);
+
+  app.appendChild(topbar(() => renderSubject(key), (i + 1) + "/" + steps.length));
+  app.appendChild(el("div", { class: "track" }, [el("i", { style: "width:" + (100 * (i + 1) / steps.length) + "%" })]));
+  app.appendChild(el("div", { class: "unitname", text: "Konu anlatımı" }));
+  app.appendChild(el("h1", { class: "lessontitle", text: unit }));
+  app.appendChild(buddy(st.mood || (i === 0 || last ? "happy" : "idle"), st.say).row);
+
+  const card = el("div", { class: "lcard" }, [el("h2", { text: st.title })]);
+  (st.text || []).forEach(t => card.appendChild(el("p", { text: t })));
+  if (st.f && st.f.length) card.appendChild(el("div", { class: "formula" }, st.f.flatMap((t, k) => k ? [el("br"), t] : [t])));
+  if (st.list && st.list.length) card.appendChild(el("ul", {}, st.list.map(t => el("li", { text: t }))));
+  appendMedia(card, st);
+  if (st.tip) card.appendChild(el("p", { class: "tip" }, [el("b", { text: "Dikkat: " }), st.tip]));
+  app.appendChild(card);
+
+  foot.hidden = false;
+  foot.className = "";
+  footinner.innerHTML = "";
+  const back = el("button", { class: "btn side", onclick: () => i ? renderLesson(key, unit, i - 1) : renderSubject(key) },
+    [i ? "Önceki" : "Konular"]);
+  const next = last
+    ? el("button", { class: "btn solid main", onclick: () => startRound(key, unit) }, ["Bu konudan soru çöz"])
+    : el("button", { class: "btn solid main", onclick: () => renderLesson(key, unit, i + 1) }, ["Devam"]);
+  footinner.appendChild(el("div", { class: "btnrow" }, [back, next]));
 }
 
 /* ---------- tur seçimi ---------- */
@@ -657,13 +846,13 @@ function renderSubject(key) {
 function pickQuestions(key, unit) {
   let pool = banks[key].filter(q => !unit || q.unit === unit);
   if (!pool.length) return [];
-  // ağırlık: yanlış yapılanlar 3x, hiç görülmemiş 2x, bilinenler 1x
+  // ağırlık: yanlış ya da hiç doğru yapılmadan boş bırakılanlar 3x, hiç görülmemiş 2x, bilinenler 1x
   const weighted = [];
   for (const q of pool) {
     const s = stat(q.id);
     let w = 1;
-    if (s.w > s.c) w = 3;
-    else if (s.c + s.w === 0) w = 2;
+    if (s.w > s.c || (s.s && !s.c)) w = 3;
+    else if (s.c + s.w + (s.s || 0) === 0) w = 2;
     for (let i = 0; i < w; i++) weighted.push(q);
   }
   const picked = [];
@@ -681,7 +870,7 @@ function startRound(key, unit, fixedList) {
   const list = fixedList && fixedList.length ? shuffle(fixedList) : pickQuestions(key, unit);
   if (!list.length) { renderSubject(key); return; }
   touchDay();
-  state = { key, unit, list, i: 0, correct: 0, wrong: [], answered: false, sel: null, streak: 0, buddy: null };
+  state = { key, unit, list, i: 0, correct: 0, wrong: [], skipped: [], answered: false, sel: null, streak: 0, buddy: null };
   renderQuestion();
 }
 
@@ -707,6 +896,7 @@ function renderQuestion() {
   app.appendChild(state.buddy.row);
   app.appendChild(el("div", { class: "unitname", text: q.unit }));
   app.appendChild(el("h1", { class: "qtext", text: q.q }));
+  appendMedia(app, q);
 
   const body = el("div", {}, []);
   app.appendChild(body);
@@ -723,10 +913,11 @@ function setFooterCheck() {
   foot.hidden = false;
   foot.className = "";
   footinner.innerHTML = "";
-  const btn = el("button", { class: "btn solid", id: "checkbtn", onclick: submit }, ["Kontrol et"]);
+  const btn = el("button", { class: "btn solid main", id: "checkbtn", onclick: submit }, ["Kontrol et"]);
   btn.disabled = !hasAnswer();
   btn.style.opacity = btn.disabled ? ".45" : "1";
-  footinner.appendChild(btn);
+  const skip = el("button", { class: "btn side", onclick: skipQuestion }, ["Boş bırak"]);
+  footinner.appendChild(el("div", { class: "btnrow" }, [skip, btn]));
 }
 function refreshCheck() {
   const btn = document.getElementById("checkbtn");
@@ -891,6 +1082,12 @@ function submit() {
       ok ? (state.streak >= 3 ? state.streak + " doğru üst üste!" : mikeyLine("happy")) : mikeyLine("sad"));
   }
 
+  revealChoices(q);
+  showVerdict(q, ok ? "ok" : "bad");
+}
+
+// seçenekli sorularda doğru seçeneği yeşil, işaretlenen yanlışı kırmızı gösterir
+function revealChoices(q) {
   if (q.type === "mc" || q.type === "fill") {
     app.querySelectorAll(".choice").forEach(b => {
       const idx = Number(b.dataset.idx);
@@ -908,19 +1105,39 @@ function submit() {
       else if (val === state.sel) b.classList.add("bad");
     });
   }
+}
 
-  foot.className = ok ? "ok" : "bad";
+function showVerdict(q, kind) {
+  const look = {
+    ok:   ["img/capy-flex.png", "Doğru"],
+    bad:  ["img/capy-hat.png", "Yanlış"],
+    skip: ["img/capy-circle.png", "Boş bıraktın"]
+  }[kind];
+  foot.className = kind;
   footinner.innerHTML = "";
   footinner.appendChild(el("div", { class: "verdictrow" }, [
-    el("img", { src: ok ? "img/capy-flex.png" : "img/capy-hat.png", alt: "", "aria-hidden": "true" }, []),
-    el("div", { class: "verdict", text: ok ? "Doğru" : "Yanlış" })
+    el("img", { src: look[0], alt: "", "aria-hidden": "true" }, []),
+    el("div", { class: "verdict", text: look[1] })
   ]));
-  if (!ok) footinner.appendChild(el("div", { class: "answer", text: "Doğru cevap: " + correctText(q) }));
+  if (kind !== "ok") footinner.appendChild(el("div", { class: "answer", text: "Doğru cevap: " + correctText(q) }));
   footinner.appendChild(el("div", { class: "why", text: q.why }));
   footinner.appendChild(el("button", { class: "btn solid", onclick: nextQuestion }, [
     state.i + 1 < state.list.length ? "Devam" : "Turu bitir"
   ]));
   footinner.querySelector(".btn").focus({ preventScroll: true });
+}
+
+function skipQuestion() {
+  if (state.answered) return;
+  const q = state.list[state.i];
+  state.answered = true;
+  state.sel = null;
+  state.skipped.push(q);
+  state.streak = 0;
+  recordSkip(q.id);
+  if (state.buddy) state.buddy.say("think", mikeyLine("skip"));
+  revealChoices(q);
+  showVerdict(q, "skip");
 }
 
 function nextQuestion() {
@@ -940,9 +1157,11 @@ function renderResult() {
 
   const n = state.list.length;
   const wrongCount = state.wrong.length;
+  const skipCount = state.skipped.length;
+  const missCount = wrongCount + skipCount;
   app.appendChild(el("img", {
     class: "resultart", alt: "", "aria-hidden": "true",
-    src: wrongCount === 0 ? "img/capy-hands.png" : "img/capy-flex.png"
+    src: missCount === 0 ? "img/capy-hands.png" : "img/capy-flex.png"
   }, []));
   const stamp = el("div", { class: "stamp" }, [
     el("div", { class: "ring", "aria-hidden": "true" }, []),
@@ -950,11 +1169,12 @@ function renderResult() {
   ]);
   app.appendChild(el("div", { class: "grade" }, [
     stamp,
-    el("p", { class: "note", text: wrongCount === 0 ? "Hepsi doğru." : wrongCount + " soruyu kaçırdın, aşağıda duruyorlar." })
+    el("p", { class: "note", text: missCount === 0 ? "Hepsi doğru."
+      : [wrongCount ? wrongCount + " yanlış" : "", skipCount ? skipCount + " boş" : ""].filter(Boolean).join(", ") + "; aşağıda duruyorlar." })
   ]));
   const ratio = state.correct / n;
   const [mood, line] =
-    wrongCount === 0 ? ["happy", "Mükemmel, hepsi doğru!"]
+    missCount === 0 ? ["happy", "Mükemmel, hepsi doğru!"]
     : ratio >= 0.7 ? ["happy", "Çok iyiydi, böyle devam!"]
     : ratio >= 0.4 ? ["think", "Fena değil, yanlışlara bakalım."]
     : ["sad", "Olsun, tekrar edince oturacak."];
@@ -972,12 +1192,17 @@ function renderResult() {
 
   const key = state.key, unit = state.unit;
 
-  if (wrongCount) {
-    const wrongs = state.wrong.slice();
-    app.appendChild(el("button", { class: "btn solid", onclick: () => startRound(key, unit, wrongs) }, ["Yanlışları tekrar et"]));
+  if (missCount) {
+    // kaçırılanlar turdaki sırasıyla: yanlışlar ve boşlar birlikte
+    const misses = state.list.filter(q => state.wrong.includes(q) || state.skipped.includes(q));
+    app.appendChild(el("button", { class: "btn solid", onclick: () => startRound(key, unit, misses) }, [
+      skipCount && !wrongCount ? "Boşları tekrar et" : skipCount ? "Yanlış ve boşları tekrar et" : "Yanlışları tekrar et"
+    ]));
     const box = el("div", { class: "review" }, [el("h2", { text: "Kaçırdıkların" })]);
-    state.wrong.forEach(q => {
-      box.appendChild(el("div", { class: "miss" }, [
+    misses.forEach(q => {
+      const skipped = state.skipped.includes(q);
+      box.appendChild(el("div", { class: "miss" + (skipped ? " skipped" : "") }, [
+        el("span", { class: "tag " + (skipped ? "s" : "w"), text: skipped ? "Boş" : "Yanlış" }),
         el("div", { class: "q", text: q.q }),
         el("div", { class: "a", text: correctText(q) }),
         el("div", { class: "e", text: q.why })
