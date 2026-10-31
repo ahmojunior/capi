@@ -21,7 +21,7 @@ Start a mixed round or choose a specific topic. Each round contains up to 10 que
 Practice with multiple-choice, fill-in-the-blank, true/false, matching, and ordering questions. Every answer includes feedback and an explanation; missed questions can be repeated at the end of a round.
 
 ### Study Buddy
-Capi, a little capybara mascot, joins every question across all subjects. It cheers when you get an answer right, gets sad when you miss one, and celebrates answer streaks and finished rounds.
+Mikey, a cheerful little mascot with a round golden head, joins every question across all subjects. It cheers when you get an answer right, gets sad when you miss one, and celebrates answer streaks and finished rounds.
 
 ### Progress Tracking
 See your topic accuracy and daily study streak. Progress is saved in your browser, so it stays available on the same browser and device.
