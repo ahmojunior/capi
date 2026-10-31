@@ -10,7 +10,7 @@
 
 ## <div align="center">About the Project</div>
 
-**capi** is a Turkish-language study app for reviewing biology and chemistry with short, interactive quizzes. Choose a subject, practice across all its topics or focus on one, and review explanations after each answer.
+**capi** is a Turkish-language study app for reviewing biology, chemistry, and math with short, interactive quizzes. Choose a subject, practice across all its topics or focus on one, and review explanations after each answer.
 
 ## <div align="center">Features</div>
 
@@ -20,6 +20,9 @@ Start a mixed round or choose a specific topic. Each round contains up to 10 que
 ### Multiple Question Types
 Practice with multiple-choice, fill-in-the-blank, true/false, matching, and ordering questions. Every answer includes feedback and an explanation; missed questions can be repeated at the end of a round.
 
+### Study Buddy
+Capi, a little capybara mascot, joins every question across all subjects. It cheers when you get an answer right, gets sad when you miss one, and celebrates answer streaks and finished rounds.
+
 ### Progress Tracking
 See your topic accuracy and daily study streak. Progress is saved in your browser, so it stays available on the same browser and device.
 
@@ -27,8 +30,9 @@ See your topic accuracy and daily study streak. Progress is saved in your browse
 
 - **Biology:** 90 questions across 4 topics
 - **Chemistry:** 201 questions across 7 topics
+- **Math:** 79 questions across 4 topics
 
-Question banks live in `docs/questions-bio.json` and `docs/questions-kim.json`. Each entry includes an `id`, `unit`, `type`, question text (`q`), and explanation (`why`), plus fields specific to its question type:
+Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, and `docs/questions-mat.json`. Each entry includes an `id`, `unit`, `type`, question text (`q`), and explanation (`why`), plus fields specific to its question type:
 
 | Type | Answer data |
 | --- | --- |
@@ -61,7 +65,8 @@ The app uses `fetch` to load the question banks, so it must be served over HTTP 
 docs/
 ├── index.html
 ├── questions-bio.json
-└── questions-kim.json
+├── questions-kim.json
+└── questions-mat.json
 ```
 
 <div align="center">
