@@ -1,0 +1,9 @@
+{
+  "students": [
+    { "alias": "Mikey",  "admin": true  },
+    { "alias": "Deniz",  "admin": false },
+    { "alias": "Çağlar", "admin": false },
+    { "alias": "Elif",   "admin": false },
+    { "alias": "Barış",  "admin": false }
+  ]
+}

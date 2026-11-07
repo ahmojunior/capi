@@ -491,6 +491,124 @@
   @keyframes mikey-drop-l { from { transform: none; } to { transform: rotate(-52deg); } }
   @keyframes mikey-drop-r { from { transform: none; } to { transform: rotate(52deg); } }
   @keyframes mikey-tear { 0% { transform: none; opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(16px); opacity: 0; } }
+
+  /* ---- sınıf sayfaları: hesap satırı ve sekmeler ---- */
+  [data-page="timer"] { --hl: var(--mat); }
+  [data-page="board"] { --hl: var(--alm); }
+  [data-page="tasks"] { --hl: var(--kim); }
+  .acct { display: flex; align-items: center; gap: 8px; padding: 8px 0 0; min-height: 44px; font-size: 14px; }
+  .acct > * { flex: none; }
+  .acct .who { flex: 1 1 0; min-width: 0; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .acct .who b { color: var(--ink); font-weight: 600; }
+  .linkbtn {
+    background: none; border: 0; padding: 10px 2px; min-height: 44px; cursor: pointer;
+    font-family: var(--body); font-size: 14px; color: var(--ink-soft);
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .timerchip {
+    min-height: 32px; padding: 2px 6px; cursor: pointer;
+    font-family: var(--body); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums;
+    background: var(--mat); color: #11161E; border: 2px solid var(--ink); border-radius: 2px;
+  }
+  .timerchip.off { background: var(--paper); color: var(--ink-soft); border-color: var(--ink-soft); }
+  /* sekmeler yazılarına göre genişler, kalan yer paylaşılır: "Zamanlayıcı" dar ekranda da kesilmez */
+  .tabs { display: flex; gap: 6px; margin: 6px 0 4px; }
+  .tab {
+    flex: 1 1 auto; min-width: 0; min-height: 44px; padding: 8px 4px; cursor: pointer; white-space: nowrap;
+    font-family: var(--body); font-size: clamp(13px, 3.7vw, 15px); font-weight: 600;
+    background: var(--paper); color: var(--ink);
+    border: 2px solid var(--ink); border-radius: 2px;
+  }
+  .tab[aria-current="page"] { background: var(--hl); color: #11161E; box-shadow: var(--shadow); }
+  .tab:active { transform: translate(1px, 1px); }
+
+  .note { border: 2px dashed var(--ink-soft); padding: 10px 12px; margin: 14px 0; font-size: 14.5px; color: var(--ink-soft); }
+  .note .linkbtn { padding: 0 2px; min-height: 0; color: var(--ink); font-size: 14.5px; font-weight: 600; }
+  .errbox { border: 2px solid var(--red); background: var(--red-wash); color: var(--ink); padding: 12px 14px; margin: 16px 0; font-size: 15px; font-weight: 500; }
+  .loading { color: var(--ink-soft); font-size: 15px; padding: 18px 0; }
+  .okmsg { color: var(--green); font-size: 15px; font-weight: 600; }
+
+  /* ---- düğme grubu (sekme seçimi, filtre) ---- */
+  .seg { display: flex; border: 2px solid var(--ink); border-radius: 2px; margin: 10px 0; background: var(--paper); }
+  .seg button {
+    flex: 1; min-width: 0; min-height: 44px; padding: 6px 4px; cursor: pointer;
+    border: 0; background: none; color: var(--ink);
+    font-family: var(--body); font-size: 14px; font-weight: 600;
+  }
+  .seg button + button { border-left: 2px solid var(--ink); }
+  .seg button[aria-pressed="true"] { background: var(--hl); color: #11161E; }
+
+  /* ---- form ---- */
+  .field { margin: 14px 0; }
+  .field > label, .field > .lbl { display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+  .field input, .field textarea {
+    display: block; width: 100%; padding: 12px; font-family: var(--body); font-size: 16px; line-height: 1.4;
+    color: var(--ink); background: var(--paper); border: 2px solid var(--ink); border-radius: 2px;
+  }
+  .field textarea { min-height: 96px; resize: vertical; }
+  .field input:focus, .field textarea:focus { outline: none; box-shadow: var(--shadow); }
+  .field .cnt { font-size: 12px; color: var(--ink-soft); text-align: right; margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .field .seg { margin: 0; }
+  .formerr { color: var(--red); font-size: 15px; font-weight: 500; min-height: 22px; margin: 8px 0 0; }
+  .pin { letter-spacing: .3em; font-variant-numeric: tabular-nums; }
+  .btn[disabled] { opacity: .5; cursor: default; }
+
+  /* ---- zamanlayıcı ---- */
+  .clock {
+    font-family: var(--display); font-weight: 800; font-size: clamp(54px, 18vw, 96px);
+    line-height: 1; letter-spacing: -.03em; text-align: center; font-variant-numeric: tabular-nums;
+    margin: 22px 0 8px;
+  }
+  .clock.still { color: var(--ink-soft); }
+  .tstatus { text-align: center; font-size: 15px; color: var(--ink-soft); min-height: 46px; margin: 0 0 6px; }
+  .tstatus b { color: var(--ink); }
+  .tsave { font-size: 14px; color: var(--ink-soft); margin: 10px 0; }
+  .tsave p { margin: 4px 0; }
+  .tsave .bad { color: var(--red); }
+
+  /* ---- sıralama ---- */
+  .lbhead { display: flex; align-items: center; gap: 10px; margin: 14px 0 0; }
+  .lbhead .cap { flex: 1; font-size: 14px; color: var(--ink-soft); }
+  .lbhead .minibtn { flex: none; }
+  .lb { list-style: none; padding: 0; margin: 6px 0 0; }
+  .lb li { display: flex; align-items: center; gap: 12px; padding: 12px 10px; border-bottom: 1px solid var(--grid); }
+  .lb .rk { flex: none; width: 34px; text-align: center; font-family: var(--display); font-weight: 800; font-size: 20px; font-variant-numeric: tabular-nums; }
+  .lb .nm { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; }
+  .lb .val { flex: none; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .lb li.first .rk { color: var(--red); }
+  .lb li.zero { color: var(--ink-soft); }
+  .lb li.zero .rk { font-size: 15px; }
+  .lb li.me { background: var(--hl); color: #11161E; border: 2px solid var(--ink); box-shadow: var(--shadow); margin: 4px 0; }
+  .lb li.me .rk { color: #11161E; }
+
+  /* ---- ödevler ---- */
+  .minibtn {
+    min-height: 40px; padding: 6px 14px; cursor: pointer;
+    font-family: var(--body); font-size: 14px; font-weight: 600;
+    background: var(--paper); color: var(--ink); border: 2px solid var(--ink); border-radius: 2px;
+  }
+  .minibtn:active { transform: translate(1px, 1px); }
+  .minibtn.warn { color: var(--red); border-color: var(--red); }
+  .task {
+    border: 2px solid var(--ink); border-radius: 2px; box-shadow: var(--shadow);
+    background: var(--paper); padding: 12px 14px; margin: 14px 0;
+  }
+  .task.past { box-shadow: none; border-style: dashed; }
+  .task .kind {
+    display: inline-block; font-size: 12px; font-weight: 600; padding: 0 6px; margin-bottom: 6px;
+    border: 1.5px solid var(--ink); border-radius: 2px; background: var(--hl); color: #11161E;
+  }
+  .task .kind.event { background: var(--mat); }
+  .task .line { margin: 0; font-size: 16px; line-height: 1.45; overflow-wrap: anywhere; }
+  .task .line b { font-family: var(--display); font-weight: 700; }
+  .task .rel { font-weight: 600; white-space: nowrap; }
+  .task .rel.soon { color: var(--red); }
+  .task .rel.late { color: var(--red); text-decoration: underline; text-decoration-thickness: 2px; }
+  .task .meta { font-size: 13px; color: var(--ink-soft); margin-top: 6px; }
+  .task .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .trash { margin: 26px 0 0; border-top: 1px dashed var(--ink-soft); padding-top: 6px; }
+  .trash summary { cursor: pointer; font-weight: 600; padding: 10px 0; min-height: 44px; }
+  .trash .task { box-shadow: none; border-color: var(--ink-soft); }
 </style>
 </head>
 <body>
@@ -852,11 +970,13 @@ function renderHome() {
   foot.hidden = true;
   app.innerHTML = "";
 
+  app.appendChild(chrome("home"));
   app.appendChild(el("h1", { class: "hero" }, ["Bugün ne ", highlight("çalışıyoruz"), "?"]));
   app.appendChild(el("p", { class: "credit" }, [
     el("span", { class: "hand", text: "ahmojunior.  " }), "ㅤtarafından yapıldı"
   ]));
   app.appendChild(el("p", { class: "hero-note", text: "Bir ders seç, 10 soruluk tur başlasın." }));
+  homeGreeting();
 
   if (loadErrors.length) {
     app.appendChild(el("p", { class: "warn", text: loadErrors.length + " soru uyarısı var, ayrıntısı tarayıcı konsolunda." }));
@@ -1299,6 +1419,7 @@ function submit() {
   state.answered = true;
   const ok = isCorrect(q);
   record(q.id, ok);
+  if (ok) countCorrect();
   if (ok) { state.correct++; state.streak++; }
   else { state.wrong.push(q); state.streak = 0; }
   if (state.buddy) {
@@ -1455,12 +1576,999 @@ function renderResult() {
   app.appendChild(el("p", { class: "sign", text: "ahmojunior" }));
 }
 
+/* ---------- sınıf: ortak özellikler ---------- */
+// Giriş, çalışma süresi, sıralama ve ödevler Firebase ile çalışır. Firebase sayfanın sonundaki modül betiğinde yüklenir
+// ve buraya window.capiCloudReady ile bağlanır. Yüklenemez ya da bağlanamazsa uygulama misafir modunda açılır:
+// sorular her zaman çalışır, ortak sayfalar yalnızca bağlantı hatasını gösterir.
+
+const NET_ERR = "Sunucuya bağlanırken hata oluştu, ahmojunior ile iletişime geç.";
+const PERM_ERR = "Bunun için iznin yok. Hesabın sınıf listesinde olmayabilir, ahmojunior ile iletişime geç.";
+const NOT_LISTED = "Hesabın sınıf listesinde görünmüyor, bu yüzden süren ve doğruların kaydedilemiyor. ahmojunior ile iletişime geç.";
+const SAVE_EVERY_MS = 2 * 60 * 1000;
+const DAY_MS = 864e5;
+const TASK_KEEP_DAYS = 7;
+const LIMITS = { subject: 40, title: 120, description: 500 }; // firestore.rules ile aynı
+const SUBJECT_HINTS = ["Matematik", "Biyoloji", "Kimya", "Fizik", "Almanca", "İngilizce", "Türk Dili ve Edebiyatı",
+  "Tarih", "Coğrafya", "Felsefe", "Din Kültürü", "Beden Eğitimi", "Görsel Sanatlar", "Müzik"];
+
+let cloud = null;          // modülden gelen Firebase API'si; null ise misafir modu
+let cloudFailed = false;   // Firebase yüklenemedi ya da zamanında gelmedi
+let authKnown = false;     // ilk oturum bilgisi geldi mi
+let me = null;             // giriş yapan öğrenci: { id, alias, admin, member }
+let myStats = null;        // kendi istatistik belgemizin son bilinen hâli
+let greetPending = false;  // girişten hemen sonra ana sayfada Mikey selam verir
+let started = false;       // ilk ekran çizildi mi
+let roster = { list: [], byId: new Map(), error: null };
+
+let authReadyResolve;
+const authReady = new Promise(r => { authReadyResolve = r; });
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+function withTimeout(p, ms) {
+  return Promise.race([p, new Promise((_, reject) => setTimeout(() =>
+    reject(Object.assign(new Error("zaman aşımı"), { code: "timeout" })), ms))]);
+}
+function errCode(e) { return (e && (e.code || e.name)) || "bilinmiyor"; }
+function errMessage(e) { return e && e.code === "permission-denied" ? PERM_ERR : NET_ERR; }
+function errbox(text) { return el("p", { class: "errbox", role: "alert", text }); }
+function loadingLine(text) { return el("p", { class: "loading", role: "status", text }); }
+
+/* ---------- Firebase bağlantısı ---------- */
+
+window.capiCloudReady = (api) => {
+  cloud = api;
+  cloudFailed = false;
+  try { api.onAuth(handleAuth); }
+  catch (e) { cloud = null; cloudFail(e); }
+};
+window.capiCloudFailed = (e) => cloudFail(e);
+function cloudFail() {
+  if (cloud) return;
+  cloudFailed = true;
+  authReadyResolve();
+  if (started) refreshView();
+}
+// modül hiç cevap vermezse (ağ çok yavaş, betik engellendi) misafir moduna geçilir; sonradan gelirse yine bağlanır
+setTimeout(() => { if (!cloud) cloudFail(); }, 10000);
+
+function idFromEmail(email) {
+  const m = /^([a-z0-9]{1,40})@capi-study\.app$/.exec(String(email || "").toLowerCase());
+  return m ? m[1] : null;
+}
+function handleAuth(user) {
+  const id = user ? idFromEmail(user.email) : null;
+  const first = !authKnown;
+  authKnown = true;
+  authReadyResolve();
+  if ((me ? me.id : null) === id) { if (first && started) refreshView(); return; }
+  timerCommit(); // önceki hesabın (ya da misafirin) süresi yeni hesaba yazılmaz
+  timer.carryMs = 0;
+  myStats = null;
+  if (id) {
+    const r = roster.byId.get(id);
+    me = { id, alias: r ? r.alias : id, admin: false, member: null };
+    forgetGuest();
+    checkMembership();
+  } else {
+    me = null;
+  }
+  if (started) refreshView();
+}
+// Firestore'daki sınıf listesi kuralların kaynağıdır: takma ad ve yönetici bilgisi oradan okunur
+let membershipCheck = null;
+function checkMembership() {
+  if (!cloud || !me) return Promise.resolve();
+  if (membershipCheck) return membershipCheck;
+  const who = me;
+  membershipCheck = (async () => {
+    try {
+      const s = await withTimeout(cloud.getStudent(who.id), 15000);
+      if (s) Object.assign(who, { alias: s.alias || who.alias, admin: s.admin, member: true });
+      else who.member = false;
+    } catch (e) {
+      who.member = e && e.code === "permission-denied" ? false : null;
+      if (who.member === null) console.warn("Sınıf listesi kontrol edilemedi, sonra yeniden denenecek:", errCode(e));
+    }
+    membershipCheck = null;
+    if (me !== who) return;
+    if (who.member) flushStats();
+    refreshChrome();
+    paintMemberWarn();
+    updateTimerViews();
+  })();
+  return membershipCheck;
+}
+
+/* ---------- sınıf listesi (students.json) ---------- */
+
+// takma addan kimlik: Türkçe küçük harf, ç ğ ı ö ş ü → c g i o s u, kalan aksanlar atılır, yalnızca a-z ve 0-9 kalır.
+// "Çağlar", "çağlar" ve "CAGLAR" hepsi "caglar" olur
+const TR_ASCII = { "ç": "c", "ğ": "g", "ı": "i", "ö": "o", "ş": "s", "ü": "u" };
+function aliasToId(alias) {
+  return String(alias == null ? "" : alias)
+    .toLocaleLowerCase("tr")
+    .replace(/[çğıöşü]/g, c => TR_ASCII[c])
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+function parseRoster(data) {
+  const list = [], byId = new Map();
+  const arr = data && Array.isArray(data.students) ? data.students : null;
+  if (!arr) {
+    console.error('students.json: "students" dizisi bulunamadı.');
+    return { list, byId };
+  }
+  arr.forEach((s, i) => {
+    const alias = s && typeof s.alias === "string" ? s.alias.trim() : "";
+    const id = aliasToId(alias);
+    if (!id) { console.error(`students.json[${i}]: "${alias}" takma adından kimlik çıkmadı, atlandı.`); return; }
+    if (alias.length > 40 || id.length > 40) { console.error(`students.json[${i}]: "${alias}" 40 karakterden uzun, atlandı.`); return; }
+    if (byId.has(id)) {
+      console.error(`students.json[${i}]: "${alias}" ile "${byId.get(id).alias}" aynı kimliği (${id}) veriyor, "${alias}" atlandı.`);
+      return;
+    }
+    const st = { id, alias, admin: !!s && s.admin === true };
+    list.push(st);
+    byId.set(id, st);
+  });
+  return { list, byId };
+}
+async function loadRoster() {
+  try {
+    const res = await fetch("students.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    roster = Object.assign(parseRoster(await res.json()), { error: null });
+  } catch (e) {
+    roster = { list: [], byId: new Map(), error: e.message };
+    console.warn("Sınıf listesi (students.json) yüklenemedi: " + e.message);
+  }
+  if (me && me.alias === me.id && roster.byId.has(me.id)) me.alias = roster.byId.get(me.id).alias;
+  return roster;
+}
+function aliasOf(id) {
+  if (me && me.id === id) return me.alias;
+  const r = roster.byId.get(id);
+  return r ? r.alias : id || "?";
+}
+
+/* ---------- misafir modu ---------- */
+
+const GUEST_KEY = "capi-misafir-v1";
+function guestChosen() { try { return localStorage.getItem(GUEST_KEY) === "1"; } catch (e) { return false; } }
+function rememberGuest() { try { localStorage.setItem(GUEST_KEY, "1"); } catch (e) {} }
+function forgetGuest() { try { localStorage.removeItem(GUEST_KEY); } catch (e) {} }
+
+/* ---------- kaydedilmeyi bekleyenler ---------- */
+
+// süre ve doğru sayısı önce burada birikir, sonra topluca Firestore'a yazılır.
+// öğrenci kimliğine göre tutulur; içinde yalnızca sayılar vardır, PIN ya da başka gizli bilgi asla yoktur
+const QUEUE_KEY = "capi-bekleyen-v1";
+let memQueue = {};
+function readQueue() {
+  try {
+    const raw = localStorage.getItem(QUEUE_KEY);
+    const q = raw ? JSON.parse(raw) : {};
+    return q && typeof q === "object" ? q : {};
+  } catch (e) { return memQueue; }
+}
+function writeQueue(q) {
+  memQueue = q;
+  try { localStorage.setItem(QUEUE_KEY, JSON.stringify(q)); } catch (e) { /* depolama kapalı: bellekte kalır */ }
+}
+function cleanCount(n) {
+  n = Math.floor(Number(n));
+  return Number.isFinite(n) && n > 0 ? Math.min(n, 1e7) : 0;
+}
+function queueGet(id) {
+  const e = readQueue()[id] || {};
+  return { sec: cleanCount(e.sec), correct: cleanCount(e.correct) };
+}
+function queueSet(id, sec, correct) {
+  const q = readQueue();
+  if (sec > 0 || correct > 0) q[id] = { sec, correct };
+  else delete q[id];
+  writeQueue(q);
+}
+function queueAdd(id, sec, correct) {
+  const p = queueGet(id);
+  queueSet(id, p.sec + cleanCount(sec), p.correct + cleanCount(correct));
+}
+function queueTake(id, sec, correct) {
+  const p = queueGet(id);
+  queueSet(id, Math.max(0, p.sec - sec), Math.max(0, p.correct - correct));
+}
+// soru ekranından çağrılır: yalnızca doğru cevaplar sayılır
+function countCorrect() {
+  try { if (me) queueAdd(me.id, 0, 1); } catch (e) { /* sayaç hiçbir zaman soruyu bozmaz */ }
+}
+
+let flushing = null;
+let statsEnsuredFor = null; // bu oturumda istatistik belgesi var olduğu bilinen öğrenci
+let lastSaveAt = 0;
+let saveFailed = false;
+// biriken süreyi ve doğruları yazar; aynı anda tek yazma olur (birden çok sekme de olsa)
+function flushStats() {
+  if (flushing) return flushing;
+  if (!cloud || !me || me.member !== true) return Promise.resolve();
+  const who = me;
+  const p = queueGet(who.id);
+  if (!p.sec && !p.correct && statsEnsuredFor === who.id) return Promise.resolve();
+  flushing = runFlush(who).finally(() => { flushing = null; updateTimerViews(); });
+  return flushing;
+}
+async function runFlush(who) {
+  const job = async () => {
+    // kurallar bir yazmada sınırlı artışa izin verir; artan kısım sonraki yazmaya kalır
+    for (let i = 0; i < 4; i++) {
+      const p = queueGet(who.id);
+      if (statsEnsuredFor === who.id && !p.sec && !p.correct) break;
+      const res = await cloud.addStats(who.id, who.alias, p.sec, p.correct, weekKey(Date.now()));
+      statsEnsuredFor = who.id;
+      queueTake(who.id, res.sec, res.correct);
+      if (me === who) myStats = res.doc;
+      if (res.sec || res.correct) lastSaveAt = Date.now();
+      if (!res.sec && !res.correct) break;
+      if (res.sec < p.sec && res.correct >= p.correct) break; // süre sınırına takıldı: kalanı sonra
+    }
+  };
+  try {
+    if (navigator.locks && navigator.locks.request) await navigator.locks.request("capi-istatistik", job);
+    else await job();
+    saveFailed = false;
+  } catch (e) {
+    saveFailed = true;
+    console.warn("İstatistik kaydedilemedi, sonra yeniden denenecek:", errCode(e));
+  }
+}
+
+/* ---------- tarih ve süre yardımcıları ---------- */
+
+// tüm tarihler Europe/Istanbul takvimine göredir; saat dilimi verisi yoksa Türkiye'nin sabit UTC+3 farkı kullanılır
+let istFmt = null;
+try { istFmt = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Istanbul", year: "numeric", month: "2-digit", day: "2-digit" }); } catch (e) {}
+function istParts(ms) {
+  if (istFmt) {
+    try {
+      const p = {};
+      for (const x of istFmt.formatToParts(new Date(ms))) p[x.type] = x.value;
+      if (p.year && p.month && p.day) return { y: +p.year, m: +p.month, d: +p.day };
+    } catch (e) {}
+  }
+  const t = new Date(ms + 3 * 3600e3);
+  return { y: t.getUTCFullYear(), m: t.getUTCMonth() + 1, d: t.getUTCDate() };
+}
+// İstanbul takvim gününün sıra numarası; iki tarih arasındaki gün farkı için
+function istDay(ms) {
+  const { y, m, d } = istParts(ms);
+  return Date.UTC(y, m - 1, d) / DAY_MS;
+}
+function istMidnight(y, m, d) { return Date.UTC(y, m - 1, d) - 3 * 3600e3; }
+// ISO hafta anahtarı, ör. 2026-W45: hafta pazartesi başlar, perşembenin düştüğü yıla aittir (firestore.rules ile aynı hesap)
+function weekKey(ms) {
+  const { y, m, d } = istParts(ms);
+  const t = new Date(Date.UTC(y, m - 1, d));
+  t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7));
+  const wy = t.getUTCFullYear();
+  const w = Math.floor((t - Date.UTC(wy, 0, 1)) / DAY_MS / 7) + 1;
+  return wy + "-W" + String(w).padStart(2, "0");
+}
+const MONTHS = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+function weekRange(ms) {
+  const day = istDay(ms);
+  const dow = new Date(day * DAY_MS).getUTCDay() || 7;
+  const a = new Date((day - dow + 1) * DAY_MS), b = new Date((day - dow + 7) * DAY_MS);
+  return a.getUTCMonth() === b.getUTCMonth()
+    ? a.getUTCDate() + "–" + b.getUTCDate() + " " + MONTHS[b.getUTCMonth()]
+    : a.getUTCDate() + " " + MONTHS[a.getUTCMonth()] + " – " + b.getUTCDate() + " " + MONTHS[b.getUTCMonth()];
+}
+function pad2(n) { return String(n).padStart(2, "0"); }
+function fmtDate(ms) { const { y, m, d } = istParts(ms); return pad2(d) + "/" + pad2(m) + "/" + y; }
+function isoDate(ms) { const { y, m, d } = istParts(ms); return y + "-" + pad2(m) + "-" + pad2(d); }
+// "3 sa 12 dk"
+function fmtDuration(sec) {
+  sec = Math.max(0, Math.floor(sec || 0));
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60);
+  if (h) return h + " sa" + (m ? " " + m + " dk" : "");
+  if (m) return m + " dk";
+  return sec ? "1 dk'dan az" : "0 dk";
+}
+// "1 dk 20 sn"
+function fmtShort(sec) {
+  sec = Math.max(0, Math.floor(sec || 0));
+  if (sec >= 3600) return fmtDuration(sec);
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return m ? m + " dk" + (s ? " " + s + " sn" : "") : s + " sn";
+}
+// "01:02:03"
+function fmtClock(ms) {
+  const s = Math.floor(Math.max(0, ms) / 1000);
+  return pad2(Math.floor(s / 3600)) + ":" + pad2(Math.floor(s % 3600 / 60)) + ":" + pad2(s % 60);
+}
+function fmtHour(ms) { const d = new Date(ms); return pad2(d.getHours()) + ":" + pad2(d.getMinutes()); }
+
+/* ---------- hesap satırı ve sekmeler ---------- */
+
+const TABS = [["home", "Çalış"], ["timer", "Zamanlayıcı"], ["board", "Sıralama"], ["tasks", "Ödevler"]];
+const VIEWS = {
+  home: () => renderHome(), timer: () => renderTimer(), board: () => renderBoard(),
+  tasks: () => renderTasks(), settings: () => renderSettings(), signin: () => renderSignIn()
+};
+function go(view) {
+  (VIEWS[view] || VIEWS.home)();
+  window.scrollTo(0, 0);
+}
+function currentView() {
+  const n = app.querySelector("[data-view]");
+  return n ? n.dataset.view : null;
+}
+// oturum değişince açık ekranı tazeler; soru, konu anlatımı ve form ekranları yarıda kesilmez
+function refreshView() {
+  const v = currentView();
+  if (v === "signin" && me) { renderHome(); return; }
+  if (!v || v === "taskform") { refreshChrome(); return; }
+  VIEWS[v]();
+}
+function chrome(view) {
+  const box = el("div", { class: "chrome", "data-view": view }, []);
+  fillChrome(box);
+  return box;
+}
+function fillChrome(box) {
+  const view = box.dataset.view;
+  box.innerHTML = "";
+  const acct = el("div", { class: "acct" }, []);
+  if (me) acct.appendChild(el("span", { class: "who" }, ["Merhaba, ", el("b", { text: me.alias }), "!"]));
+  else acct.appendChild(el("span", { class: "who", text: cloud || cloudFailed ? "Misafir modundasın" : "Bağlanıyor…" }));
+  if (timer.running || timer.accMs > 0) {
+    acct.appendChild(el("button", {
+      class: "timerchip" + (timer.running ? "" : " off"), id: "timerchip",
+      "aria-label": "Zamanlayıcıya git", onclick: () => go("timer"), text: fmtClock(timerElapsedMs())
+    }));
+  }
+  if (me && me.admin) acct.appendChild(el("button", { class: "linkbtn", onclick: () => go("settings"), text: "Ayarlar" }));
+  if (me) acct.appendChild(el("button", { class: "linkbtn", onclick: doSignOut, text: "Çıkış yap" }));
+  else acct.appendChild(el("button", { class: "linkbtn", onclick: () => renderSignIn("in"), text: "Giriş yap" }));
+  box.appendChild(acct);
+  box.appendChild(el("nav", { class: "tabs", "aria-label": "Sayfalar" }, TABS.map(([v, label]) =>
+    el("button", { class: "tab", "aria-current": v === view ? "page" : false, onclick: () => go(v), text: label }))));
+}
+function refreshChrome() {
+  const box = app.querySelector(".chrome");
+  if (box) fillChrome(box);
+}
+// ortak sayfaların iskeleti: hesap satırı, sekmeler ve sayfanın vurgu rengi
+function sharedPage(view) {
+  state = null;
+  setSubject(null);
+  foot.hidden = true;
+  app.innerHTML = "";
+  const page = el("div", { class: "page", "data-page": view }, [chrome(view)]);
+  app.appendChild(page);
+  return page;
+}
+// sunucu ve giriş gerektiren sayfalar için ortak kapı; içerik çizilebilecekse true döner
+function sharedGate(page, guestText) {
+  if (!cloud && cloudFailed) { page.appendChild(errbox(NET_ERR)); return false; }
+  if (!cloud) { page.appendChild(loadingLine("Sunucuya bağlanılıyor…")); return false; }
+  if (!me) {
+    page.appendChild(buddy("idle", "Bunun için önce giriş yapmalısın.").row);
+    page.appendChild(el("p", { class: "note", text: guestText }));
+    page.appendChild(el("button", { class: "btn solid", onclick: () => renderSignIn("in") }, ["Giriş yap"]));
+    return false;
+  }
+  if (me.member === null) checkMembership();
+  return true;
+}
+function homeGreeting() {
+  if (me && greetPending) {
+    greetPending = false;
+    app.appendChild(buddy("happy", "Merhaba, " + me.alias + "! Hadi çalışalım.").row);
+  } else if (!me && !cloudFailed) {
+    app.appendChild(el("p", { class: "note" }, [
+      "Misafir olarak çalışıyorsun. Sorular aynen çalışır ama sıralamaya girmek için giriş yapmalısın. ",
+      el("button", { class: "linkbtn", onclick: () => renderSignIn("in"), text: "Giriş yap" })
+    ]));
+  }
+  app.appendChild(el("div", { id: "memberwarn" }, []));
+  paintMemberWarn();
+}
+// sınıf listesi kontrolü ekran çizildikten sonra bitebilir; uyarı kendi yerine sonradan yazılır
+function paintMemberWarn() {
+  const box = document.getElementById("memberwarn");
+  if (box) box.replaceChildren(...(me && me.member === false ? [errbox(NOT_LISTED)] : []));
+}
+
+/* ---------- giriş ---------- */
+
+let signinMode = "in";
+function pinInput(id, autocomplete) {
+  return el("input", {
+    id, class: "pin", type: "password", inputmode: "numeric", pattern: "[0-9]*", maxlength: "6", autocomplete,
+    oninput: (e) => { const v = e.target.value.replace(/\D/g, "").slice(0, 6); if (v !== e.target.value) e.target.value = v; }
+  });
+}
+function field(label, input, extra) {
+  return el("div", { class: "field" }, [el("label", { for: input.id, text: label }), input].concat(extra || []));
+}
+// tahmin edilmesi çok kolay PIN'ler: 000000, 123456, 654321, 121212, 123123 gibi
+function weakPin(p) {
+  return /^(\d)\1{5}$/.test(p) || /^(\d\d)\1\1$/.test(p) || /^(\d\d\d)\1$/.test(p)
+    || "01234567890".includes(p) || "09876543210".includes(p);
+}
+function authMessage(e, signup) {
+  const c = errCode(e);
+  if (["auth/invalid-credential", "auth/invalid-login-credentials", "auth/wrong-password", "auth/user-not-found", "auth/invalid-email"].includes(c)) {
+    return signup ? "Bu isimle hesap açılamadı, ahmojunior ile iletişime geç."
+      : "İsim ya da PIN yanlış. İlk kez giriyorsan “İlk kez giriyorum” sekmesini seç.";
+  }
+  if (c === "auth/email-already-in-use") return "Bu isim zaten alınmış. Giriş yap ya da ahmojunior ile iletişime geç.";
+  if (c === "auth/too-many-requests") return "Çok fazla deneme, biraz bekle.";
+  if (c === "auth/network-request-failed" || c === "timeout" || c.startsWith("auth/api-key")) return NET_ERR;
+  if (c === "auth/weak-password" || c === "auth/password-does-not-meet-requirements") return "Bu PIN kabul edilmedi, başka bir 6 haneli PIN dene.";
+  if (c === "auth/user-disabled") return "Bu hesap kapatılmış, ahmojunior ile iletişime geç.";
+  if (c === "auth/operation-not-allowed") return "Giriş şu an kapalı, ahmojunior ile iletişime geç.";
+  console.warn("Giriş hatası:", c);
+  return "Bir şeyler ters gitti (" + c + "). ahmojunior ile iletişime geç.";
+}
+function renderSignIn(mode) {
+  if (mode) signinMode = mode;
+  const up = signinMode === "up";
+  state = null;
+  setSubject(null);
+  foot.hidden = true;
+  app.innerHTML = "";
+  window.scrollTo(0, 0);
+  const page = el("div", { class: "page", "data-view": "signin" }, []);
+  app.appendChild(page);
+
+  page.appendChild(el("h1", { class: "hero" }, ["Sınıfa ", highlight("hoş geldin"), "!"]));
+  page.appendChild(buddy(up ? "happy" : "idle", up
+    ? "Yeni misin? Adını yaz, kendine bir PIN seç."
+    : "Ben Mikey! Adını ve PIN'ini yaz, birlikte çalışalım.").row);
+  if (cloudFailed && !cloud) page.appendChild(errbox(NET_ERR));
+  page.appendChild(el("div", { class: "seg", role: "group", "aria-label": "Giriş türü" }, [
+    el("button", { type: "button", "aria-pressed": String(!up), onclick: () => renderSignIn("in"), text: "Giriş" }),
+    el("button", { type: "button", "aria-pressed": String(up), onclick: () => renderSignIn("up"), text: "İlk kez giriyorum" })
+  ]));
+
+  const alias = el("input", { id: "f-alias", type: "text", autocomplete: "username", autocapitalize: "words", spellcheck: "false", maxlength: "40" });
+  const pin = pinInput("f-pin", up ? "new-password" : "current-password");
+  const pin2 = up ? pinInput("f-pin2", "new-password") : null;
+  const errp = el("p", { class: "formerr", role: "alert" });
+  const label = up ? "Hesabımı oluştur" : "Giriş yap";
+  const submitBtn = el("button", { class: "btn solid", type: "submit", text: label });
+  const kids = [
+    field("Adın (sınıf listesindeki gibi)", alias),
+    field(up ? "Kendine 6 haneli bir PIN seç" : "PIN (6 rakam)", pin)
+  ];
+  if (up) kids.push(field("PIN'i tekrar yaz", pin2));
+  kids.push(errp, submitBtn);
+  let busy = false;
+  const form = el("form", { novalidate: true, onsubmit: onSubmit }, kids);
+  page.appendChild(form);
+  page.appendChild(el("p", { class: "hint", text: up
+    ? "PIN'ini kimseyle paylaşma. Unutursan ahmojunior hesabını sıfırlar, puanların kaybolmaz."
+    : "PIN'ini unuttuysan ahmojunior ile iletişime geç." }));
+  page.appendChild(el("button", { class: "btn ghost", onclick: () => { rememberGuest(); renderHome(); } }, ["Giriş yapmadan devam et"]));
+  page.appendChild(el("p", { class: "hint", text: "Giriş yapmadan da bütün sorular çalışır; yalnızca süren ve doğruların sıralamaya yazılmaz." }));
+
+  async function onSubmit(ev) {
+    ev.preventDefault();
+    if (busy) return;
+    const say = (t) => { errp.textContent = t; };
+    const clearPins = () => { pin.value = ""; if (pin2) pin2.value = ""; };
+    say("");
+    const name = alias.value.trim();
+    if (!name) return say("Adını yaz.");
+    if (!roster.list.length) return say(roster.error ? "Sınıf listesi yüklenemedi. " + NET_ERR : "Sınıf listesi boş, ahmojunior ile iletişime geç.");
+    const st = roster.byId.get(aliasToId(name));
+    if (!st) return say("Bu isim sınıf listesinde yok.");
+    if (!/^\d{6}$/.test(pin.value)) return say("PIN tam 6 rakam olmalı.");
+    if (up && pin.value !== pin2.value) { clearPins(); return say("İki PIN aynı değil, tekrar yaz."); }
+    if (up && weakPin(pin.value)) { clearPins(); return say("Bu PIN çok kolay tahmin edilir, başka bir PIN seç."); }
+    if (!cloud) return say(NET_ERR);
+    busy = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Bekle…";
+    greetPending = true;
+    try {
+      const call = up ? cloud.signUp(st.id, pin.value) : cloud.signIn(st.id, pin.value);
+      clearPins();
+      const user = await withTimeout(call, 20000);
+      handleAuth(user);
+      if (currentView() === "signin") renderHome();
+    } catch (e) {
+      greetPending = false;
+      clearPins();
+      say(authMessage(e, up));
+      busy = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = label;
+    }
+  }
+}
+async function doSignOut() {
+  if (!confirm("Çıkış yapmak istiyor musun?")) return;
+  if (timer.running) timerPause(); else timerCommit();
+  try { await withTimeout(flushStats(), 6000); } catch (e) { /* kalanı bekleyenlerde durur, sonraki girişte yazılır */ }
+  try { if (cloud) await withTimeout(cloud.signOut(), 6000); } catch (e) { console.warn("Çıkış hatası:", errCode(e)); }
+  timerReset();
+  me = null;
+  myStats = null;
+  statsEnsuredFor = null;
+  greetPending = false;
+  renderSignIn("in");
+}
+
+/* ---------- zamanlayıcı ---------- */
+
+// süre performance.now() farklarıyla ölçülür; setInterval yalnızca ekranı tazeler ve kaydı tetikler.
+// sayaç yalnızca Başlat'a basılmışken ve sayfa görünürken sayar
+const timer = { running: false, accMs: 0, segStart: null, lastTick: 0, carryMs: 0, autoPaused: false, tick: null };
+function timerElapsedMs() {
+  return timer.accMs + (timer.segStart != null ? Math.max(0, performance.now() - timer.segStart) : 0);
+}
+// şu ana kadarki parçayı toplama ekler; giriş yapılmışsa tam saniyeleri bekleyenlere yazar
+function timerCommit() {
+  if (timer.segStart == null) return;
+  const now = performance.now();
+  // tik 10 sn'den uzun gelmediyse cihaz uyumuş demektir: aradaki süre sayılmaz
+  const end = timer.lastTick && now - timer.lastTick > 10000 ? timer.lastTick + 1000 : now;
+  const d = Math.max(0, end - timer.segStart);
+  timer.accMs += d;
+  timer.segStart = timer.running && document.visibilityState === "visible" ? now : null;
+  timer.lastTick = now;
+  if (me) {
+    timer.carryMs += d;
+    const s = Math.floor(timer.carryMs / 1000);
+    if (s > 0) { timer.carryMs -= s * 1000; queueAdd(me.id, s, 0); }
+  }
+}
+function timerTick() {
+  const now = performance.now();
+  if (timer.segStart != null && timer.lastTick && now - timer.lastTick > 10000) timerCommit();
+  timer.lastTick = now;
+  updateTimerViews();
+}
+function syncTick() {
+  if (timer.running && !timer.tick) timer.tick = setInterval(timerTick, 1000);
+  if (!timer.running && timer.tick) { clearInterval(timer.tick); timer.tick = null; }
+}
+function timerStart() {
+  if (timer.running) return;
+  timer.running = true;
+  timer.autoPaused = false;
+  if (document.visibilityState === "visible") { timer.segStart = performance.now(); timer.lastTick = timer.segStart; }
+  syncTick();
+  updateTimerViews();
+  refreshChrome();
+}
+function timerPause() {
+  if (!timer.running) return;
+  timerCommit();
+  timer.running = false;
+  timer.segStart = null;
+  timer.autoPaused = false;
+  syncTick();
+  flushStats();
+  updateTimerViews();
+  refreshChrome();
+}
+function timerReset() {
+  if (timer.running) timerPause();
+  timer.accMs = 0;
+  timer.carryMs = 0;
+  updateTimerViews();
+  refreshChrome();
+}
+function resumeIfVisible() {
+  if (timer.running && timer.segStart == null && document.visibilityState === "visible") {
+    timer.segStart = performance.now();
+    timer.lastTick = timer.segStart;
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    if (timer.segStart != null) { timerCommit(); timer.autoPaused = true; }
+    flushStats();
+  } else {
+    resumeIfVisible();
+  }
+  updateTimerViews();
+});
+window.addEventListener("pageshow", () => { resumeIfVisible(); updateTimerViews(); });
+window.addEventListener("pagehide", () => { timerCommit(); flushStats(); });
+setInterval(() => {
+  timerCommit();
+  if (me && me.member === null) checkMembership();
+  flushStats();
+}, SAVE_EVERY_MS);
+
+function timerStatus() {
+  if (timer.running && timer.segStart != null) {
+    return timer.autoPaused
+      ? ["Sen başka yerdeyken sayaç durdu; şimdi kaldığı yerden devam ediyor."]
+      : [el("b", { text: "Sayıyor." }), " Sekmeden ya da uygulamadan çıkarsan kendiliğinden durur."];
+  }
+  if (timer.running) return ["Sayfa gizli olduğu için sayaç durdu, geri gelince devam eder."];
+  if (timer.accMs > 0) return [el("b", { text: "Duraklatıldı." })];
+  return ["Başlat'a bas, süre saymaya başlasın."];
+}
+function timerSaveInfo() {
+  if (!me) {
+    return [el("p", { class: "note" }, [
+      "Misafir modundasın: süren kaydedilmez. ",
+      el("button", { class: "linkbtn", onclick: () => renderSignIn("in"), text: "Giriş yap" })
+    ])];
+  }
+  if (me.member === false) return [errbox(NOT_LISTED)];
+  const out = [el("p", { text: "Süren 2 dakikada bir kaydedilir; duraklatınca ve sayfadan çıkınca da kaydetmeye çalışırım. Henüz yazılamayan kısım bu cihazda bekler, sonra eklenir." })];
+  const live = timer.segStart != null ? performance.now() - timer.segStart : 0;
+  const pending = queueGet(me.id).sec + Math.floor((timer.carryMs + live) / 1000);
+  if (pending > 0) out.push(el("p", { text: "Kaydedilmeyi bekleyen: " + fmtShort(pending) }));
+  if (saveFailed) out.push(el("p", { class: "bad", text: "Son kayıt denemesi olmadı; internet gelince yeniden denenecek." }));
+  else if (lastSaveAt) out.push(el("p", { text: "Son kayıt: " + fmtHour(lastSaveAt) }));
+  if (myStats) {
+    const wk = myStats.weekKey === weekKey(Date.now()) ? myStats.weekSeconds : 0;
+    out.push(el("p", { text: "Bu hafta: " + fmtDuration(wk) + " · Toplam: " + fmtDuration(myStats.totalSeconds) }));
+  }
+  return out;
+}
+// zamanlayıcı ekranını ve hesap satırındaki küçük sayacı tazeler
+function updateTimerViews() {
+  const ms = timerElapsedMs();
+  const chip = document.getElementById("timerchip");
+  if (chip) chip.textContent = fmtClock(ms);
+  const clock = document.getElementById("clock");
+  if (!clock) return;
+  clock.textContent = fmtClock(ms);
+  clock.classList.toggle("still", !(timer.running && timer.segStart != null));
+  const st = document.getElementById("tstatus");
+  st.replaceChildren(...timerStatus());
+  const start = document.getElementById("tstart");
+  start.textContent = timer.running ? "Duraklat" : "Başlat";
+  document.getElementById("treset").disabled = !timer.running && timer.accMs === 0;
+  const save = document.getElementById("tsave");
+  const info = timerSaveInfo();
+  const sig = info.map(n => n.textContent).join("|");
+  if (save.dataset.sig !== sig) { save.dataset.sig = sig; save.replaceChildren(...info); }
+}
+function renderTimer() {
+  const page = sharedPage("timer");
+  page.appendChild(el("h1", { class: "hero" }, ["Çalışma ", highlight("süresi")]));
+  page.appendChild(buddy("idle", "Sen çalış, ben süreyi tutayım!").row);
+  page.appendChild(el("div", { class: "clock", id: "clock", role: "timer", "aria-label": "Geçen süre" }));
+  page.appendChild(el("p", { class: "tstatus", id: "tstatus", "aria-live": "polite" }));
+  page.appendChild(el("div", { class: "btnrow" }, [
+    el("button", { class: "btn side", id: "treset", onclick: timerReset }, ["Sıfırla"]),
+    el("button", { class: "btn solid main", id: "tstart", onclick: () => timer.running ? timerPause() : timerStart() }, ["Başlat"])
+  ]));
+  page.appendChild(el("div", { class: "tsave", id: "tsave" }));
+  if (me && me.member === true) flushStats();
+  updateTimerViews();
+}
+
+/* ---------- sıralama ---------- */
+
+let boardMetric = "correct";
+let boardPeriod = "week";
+function segGroup(label, options, current, onPick) {
+  return el("div", { class: "seg", role: "group", "aria-label": label }, options.map(([v, text]) =>
+    el("button", { type: "button", "aria-pressed": String(v === current), onclick: () => onPick(v), text })));
+}
+function renderBoard() {
+  const page = sharedPage("board");
+  page.appendChild(el("h1", { class: "hero" }, ["Sınıf ", highlight("sıralaması")]));
+  if (!sharedGate(page, "Sıralamayı görmek ve sıralamaya girmek için giriş yap.")) return;
+
+  const controls = el("div", {}, []);
+  const cap = el("span", { class: "cap" });
+  const refreshBtn = el("button", { class: "minibtn", onclick: () => load() }, ["Yenile"]);
+  const list = el("div", {}, []);
+  page.append(controls, el("div", { class: "lbhead" }, [cap, refreshBtn]), list);
+  let rows = null;
+
+  function value(r, wk) {
+    if (boardPeriod === "week" && r.weekKey !== wk) return 0;
+    if (boardMetric === "correct") return boardPeriod === "week" ? r.weekCorrect : r.totalCorrect;
+    return boardPeriod === "week" ? r.weekSeconds : r.totalSeconds;
+  }
+  function draw() {
+    controls.replaceChildren(
+      segGroup("Ölçüt", [["correct", "Doğru soru"], ["time", "Çalışma süresi"]], boardMetric, v => { boardMetric = v; draw(); }),
+      segGroup("Dönem", [["week", "Haftalık"], ["all", "Tüm zamanlar"]], boardPeriod, v => { boardPeriod = v; draw(); })
+    );
+    const now = Date.now();
+    cap.textContent = boardPeriod === "week" ? "Bu hafta · " + weekRange(now) + " (pazartesi sıfırlanır)" : "Tüm zamanlar";
+    if (!rows) return;
+    const wk = weekKey(now);
+    const data = rows.slice();
+    if (me && !data.some(r => r.id === me.id)) {
+      data.push({ id: me.id, alias: me.alias, totalCorrect: 0, totalSeconds: 0, weekKey: "", weekCorrect: 0, weekSeconds: 0 });
+    }
+    data.sort((a, b) => value(b, wk) - value(a, wk) || a.alias.localeCompare(b.alias, "tr"));
+    const kids = [];
+    if (data.every(r => value(r, wk) === 0)) {
+      kids.push(buddy("idle", boardPeriod === "week" ? "Bu hafta henüz puan yok. İlk sen ol!" : "Henüz puan yok. İlk sen ol!").row);
+    }
+    // eşit değerler aynı sırayı paylaşır: 1, 2, 2, 4
+    let rank = 0;
+    const ol = el("ol", { class: "lb" }, []);
+    data.forEach((r, i) => {
+      const v = value(r, wk);
+      if (i === 0 || v !== value(data[i - 1], wk)) rank = i + 1;
+      const mine = me && r.id === me.id;
+      const cls = [v === 0 ? "zero" : "", v > 0 && rank === 1 ? "first" : "", mine ? "me" : ""].filter(Boolean).join(" ");
+      ol.appendChild(el("li", { class: cls, "aria-current": mine ? "true" : false }, [
+        el("span", { class: "rk", text: v === 0 ? "–" : String(rank) }),
+        el("span", { class: "nm", text: r.alias + (mine ? " (sen)" : "") }),
+        el("span", { class: "val", text: boardMetric === "correct" ? v + " doğru" : fmtDuration(v) })
+      ]));
+    });
+    kids.push(ol);
+    list.replaceChildren(...kids);
+  }
+  async function load() {
+    refreshBtn.disabled = true;
+    list.replaceChildren(loadingLine("Sıralama yükleniyor…"));
+    try {
+      // kendi bekleyen süren ve doğruların önce yazılsın ki listede güncel görün
+      timerCommit();
+      await Promise.race([flushStats(), sleep(5000)]);
+      rows = await withTimeout(cloud.listStats(), 15000);
+      draw();
+    } catch (e) {
+      console.warn("Sıralama yüklenemedi:", errCode(e));
+      list.replaceChildren(errbox(errMessage(e)));
+    }
+    refreshBtn.disabled = false;
+  }
+  draw();
+  load();
+}
+
+/* ---------- ödevler ve etkinlikler ---------- */
+
+let taskFilter = "all";
+function renderTasks() {
+  const page = sharedPage("tasks");
+  page.appendChild(el("h1", { class: "hero" }, ["Ödevler ve ", highlight("etkinlikler")]));
+  if (!sharedGate(page, "Ödevleri görmek ve eklemek için giriş yap.")) return;
+
+  page.appendChild(el("button", { class: "btn solid", onclick: () => renderTaskForm(null) }, ["+ Yeni ekle"]));
+  const controls = el("div", {}, []);
+  const list = el("div", {}, []);
+  page.append(controls, list);
+  let tasks = null;
+
+  function draw() {
+    controls.replaceChildren(segGroup("Tür", [["all", "Hepsi"], ["homework", "Ödev"], ["event", "Etkinlik"]], taskFilter,
+      v => { taskFilter = v; draw(); }));
+    if (!tasks) return;
+    const now = Date.now();
+    const today = istDay(now);
+    // son tarihinden 7 gün sonrasına kadar görünür; veritabanından silinmez
+    const active = tasks
+      .filter(t => !t.deletedAtMs && istDay(t.dueMs) - today >= -TASK_KEEP_DAYS)
+      .filter(t => taskFilter === "all" || t.type === taskFilter)
+      .sort((a, b) => a.dueMs - b.dueMs || (a.createdAtMs || 0) - (b.createdAtMs || 0));
+    // silinenler 7 gün boyunca geri alınabilir, sonra gizlenir
+    const trash = tasks
+      .filter(t => t.deletedAtMs && now - t.deletedAtMs < TASK_KEEP_DAYS * DAY_MS)
+      .sort((a, b) => b.deletedAtMs - a.deletedAtMs);
+    const kids = [];
+    if (!active.length) {
+      kids.push(buddy("happy", taskFilter === "event" ? "Yaklaşan etkinlik yok."
+        : taskFilter === "homework" ? "Yaklaşan ödev yok. Keyfine bak!" : "Yaklaşan ödev ya da etkinlik yok. Keyfine bak!").row);
+    }
+    active.forEach(t => kids.push(taskCard(t, false, load)));
+    if (trash.length) {
+      kids.push(el("details", { class: "trash" }, [
+        el("summary", { text: "Silinenler (" + trash.length + ")" }),
+        el("p", { class: "hint", text: "Silinenler 7 gün boyunca burada durur; bu sürede herkes geri alabilir." })
+      ].concat(trash.map(t => taskCard(t, true, load)))));
+    }
+    list.replaceChildren(...kids);
+  }
+  async function load() {
+    list.replaceChildren(loadingLine("Ödevler yükleniyor…"));
+    try {
+      tasks = await withTimeout(cloud.listTasks(), 15000);
+      draw();
+    } catch (e) {
+      console.warn("Ödevler yüklenemedi:", errCode(e));
+      list.replaceChildren(errbox(errMessage(e)));
+    }
+  }
+  draw();
+  load();
+}
+// "Matematik Ders Kitabı – 55 ile 60. sayfaları tamamla – Son: 11/11/2026 – 4 gün kaldı"
+function taskCard(t, inTrash, reload) {
+  const left = istDay(t.dueMs) - istDay(Date.now());
+  const ev = t.type === "event";
+  const rel = left === 0 ? "Bugün" : left === 1 ? "Yarın" : left > 1 ? left + " gün kaldı"
+    : ev ? -left + " gün geçti" : -left + " gün gecikti";
+  const line = el("p", { class: "line" }, [
+    el("b", { text: (t.subject + " " + t.title).trim() }),
+    t.description ? " – " + t.description : "",
+    " – " + (ev ? "Tarih: " : "Son: ") + fmtDate(t.dueMs) + " – ",
+    el("span", { class: "rel" + (left < 0 ? " late" : left <= 1 ? " soon" : ""), text: rel })
+  ]);
+  const meta = ["Ekleyen: " + (t.createdByAlias || aliasOf(t.createdBy))];
+  if (t.editedBy) meta.push("Düzenleyen: " + (t.editedByAlias || aliasOf(t.editedBy)));
+  if (inTrash) meta.push("Silen: " + aliasOf(t.deletedBy));
+  const errp = el("p", { class: "formerr", role: "alert" });
+  const acts = el("div", { class: "acts" }, []);
+  const card = el("article", { class: "task" + (left < 0 ? " past" : "") }, [
+    el("span", { class: "kind" + (ev ? " event" : ""), text: ev ? "Etkinlik" : "Ödev" }),
+    line,
+    el("div", { class: "meta", text: meta.join(" · ") }),
+    acts
+  ]);
+  async function act(work) {
+    errp.textContent = "";
+    acts.querySelectorAll("button").forEach(b => { b.disabled = true; });
+    try {
+      await withTimeout(work(), 15000);
+      reload();
+    } catch (e) {
+      console.warn("Ödev güncellenemedi:", errCode(e));
+      errp.textContent = errMessage(e);
+      acts.querySelectorAll("button").forEach(b => { b.disabled = false; });
+      card.appendChild(errp);
+    }
+  }
+  if (me && !inTrash) {
+    acts.appendChild(el("button", { class: "minibtn", onclick: () => renderTaskForm(t) }, ["Düzenle"]));
+    const del = el("button", { class: "minibtn warn", onclick: () => {
+      if (confirm("Emin misin?")) act(() => cloud.softDeleteTask(t.id, me));
+    } }, ["Sil"]);
+    acts.appendChild(del);
+  } else if (me && inTrash) {
+    acts.appendChild(el("button", { class: "minibtn", onclick: () => act(() => cloud.restoreTask(t.id, me)) }, ["Geri al"]));
+  }
+  return card;
+}
+function renderTaskForm(task) {
+  state = null;
+  setSubject(null);
+  foot.hidden = true;
+  app.innerHTML = "";
+  window.scrollTo(0, 0);
+  const page = el("div", { class: "page", "data-page": "tasks", "data-view": "taskform" }, []);
+  app.appendChild(page);
+  page.appendChild(topbar(() => renderTasks()));
+  page.appendChild(el("h1", { class: "lessontitle", text: task ? "Düzenle" : "Yeni ödev ya da etkinlik" }));
+  if (!cloud || !me) { page.appendChild(errbox(cloud ? "Bunun için giriş yapmalısın." : NET_ERR)); return; }
+
+  let type = task ? task.type : "homework";
+  const typeBox = el("div", {}, []);
+  const dueLabel = el("label", { for: "t-due" });
+  function drawType() {
+    typeBox.replaceChildren(segGroup("Tür", [["homework", "Ödev"], ["event", "Etkinlik"]], type, v => { type = v; drawType(); }));
+    dueLabel.textContent = type === "event" ? "Tarih" : "Son tarih";
+  }
+  const counter = (input, max) => {
+    const c = el("div", { class: "cnt" });
+    const upd = () => { c.textContent = input.value.length + "/" + max; };
+    input.addEventListener("input", upd);
+    upd();
+    return c;
+  };
+  const subject = el("input", { id: "t-subject", type: "text", list: "t-subjects", maxlength: String(LIMITS.subject), autocomplete: "off" });
+  const title = el("input", { id: "t-title", type: "text", maxlength: String(LIMITS.title), autocomplete: "off" });
+  const desc = el("textarea", { id: "t-desc", maxlength: String(LIMITS.description), rows: "3" });
+  const due = el("input", { id: "t-due", type: "date" });
+  subject.value = task ? task.subject : "";
+  title.value = task ? task.title : "";
+  desc.value = task ? task.description : "";
+  due.value = isoDate(task ? task.dueMs : Date.now() + DAY_MS);
+  drawType();
+
+  const errp = el("p", { class: "formerr", role: "alert" });
+  const save = el("button", { class: "btn solid", type: "submit" }, ["Kaydet"]);
+  const form = el("form", { novalidate: true, onsubmit: onSave }, [
+    el("div", { class: "field" }, [el("span", { class: "lbl", text: "Tür" }), typeBox]),
+    field("Ders", subject, [el("datalist", { id: "t-subjects" }, SUBJECT_HINTS.map(s => el("option", { value: s })))]),
+    field("Başlık", title, [counter(title, LIMITS.title)]),
+    field("Açıklama (isteğe bağlı)", desc, [counter(desc, LIMITS.description)]),
+    el("div", { class: "field" }, [dueLabel, due]),
+    errp,
+    save,
+    el("button", { class: "btn ghost", type: "button", onclick: () => renderTasks() }, ["Vazgeç"])
+  ]);
+  page.appendChild(form);
+  if (!task) subject.focus();
+
+  let busy = false;
+  async function onSave(ev) {
+    ev.preventDefault();
+    if (busy) return;
+    const say = (t) => { errp.textContent = t; };
+    const v = { type, subject: subject.value.trim(), title: title.value.trim(), description: desc.value.trim() };
+    if (!v.subject) return say("Dersi yaz.");
+    if (v.subject.length > LIMITS.subject) return say("Ders en fazla " + LIMITS.subject + " karakter olabilir.");
+    if (!v.title) return say("Başlık yaz.");
+    if (v.title.length > LIMITS.title) return say("Başlık en fazla " + LIMITS.title + " karakter olabilir.");
+    if (v.description.length > LIMITS.description) return say("Açıklama en fazla " + LIMITS.description + " karakter olabilir.");
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(due.value);
+    if (!m) return say("Tarihi seç.");
+    v.dueMs = istMidnight(+m[1], +m[2], +m[3]);
+    if (+m[1] < 2020 || +m[1] > 2100 || isoDate(v.dueMs) !== due.value) return say("Geçerli bir tarih seç.");
+    if (istDay(v.dueMs) - istDay(Date.now()) < -TASK_KEEP_DAYS) return say("Bu tarih 7 günden eski; listede görünmez.");
+    busy = true;
+    save.disabled = true;
+    say("");
+    try {
+      await withTimeout(task ? cloud.updateTask(task.id, v, me) : cloud.addTask(v, me), 15000);
+      renderTasks();
+    } catch (e) {
+      console.warn("Ödev kaydedilemedi:", errCode(e));
+      say(errMessage(e));
+      busy = false;
+      save.disabled = false;
+    }
+  }
+}
+
+/* ---------- ayarlar (yönetici) ---------- */
+
+function renderSettings() {
+  const page = sharedPage("settings");
+  page.appendChild(el("h1", { class: "hero" }, [highlight("Ayarlar")]));
+  if (!sharedGate(page, "Bu sayfa için giriş yap.")) return;
+  page.appendChild(el("p", {}, ["Hesap kimliğin: ", el("b", { text: me.id })]));
+  if (!me.admin) {
+    page.appendChild(el("p", { class: "note", text: "Sınıf listesini yalnızca yöneticiler senkronize edebilir." }));
+    return;
+  }
+  const result = el("div", { "aria-live": "polite" }, []);
+  const btn = el("button", { class: "btn solid", onclick: sync }, ["Sınıf listesini senkronize et"]);
+  page.appendChild(el("div", { class: "lcard" }, [
+    el("h2", { text: "Sınıf listesi" }),
+    el("p", { text: "docs/students.json dosyasındaki öğrencileri Firestore'daki sınıf listesine yazar. Yeni öğrenciler eklenir, var olanlar güncellenir; listeden çıkarılanlar silinmez." }),
+    btn, result
+  ]));
+  async function sync() {
+    btn.disabled = true;
+    result.replaceChildren(loadingLine("Senkronize ediliyor…"));
+    try {
+      const fresh = await loadRoster();
+      if (fresh.error) throw Object.assign(new Error(fresh.error), { code: "unavailable" });
+      if (!fresh.list.length) { result.replaceChildren(errbox("students.json içinde geçerli öğrenci yok.")); return; }
+      const self = fresh.byId.get(me.id);
+      if ((!self || !self.admin) && !confirm("students.json içinde yönetici olarak sen yoksun. Senkronize edersen yönetici yetkin gider. Devam edilsin mi?")) {
+        result.replaceChildren();
+        return;
+      }
+      await withTimeout(cloud.syncStudents(fresh.list), 20000);
+      const remote = await withTimeout(cloud.listStudents(), 15000);
+      const extra = remote.filter(r => !fresh.byId.has(r.id)).map(r => r.alias + " (" + r.id + ")");
+      const out = [el("p", { class: "okmsg", text: fresh.list.length + " öğrenci senkronize edildi." })];
+      if (extra.length) out.push(el("p", { class: "note", text: "Firestore'da olup listede olmayanlar (silinmedi): " + extra.join(", ") }));
+      out.push(el("p", { class: "hint", text: "Konsolda uyarı varsa (aynı kimliği veren isimler gibi) tarayıcı konsoluna bak." }));
+      result.replaceChildren(...out);
+      checkMembership();
+    } catch (e) {
+      console.warn("Senkronizasyon olmadı:", errCode(e));
+      result.replaceChildren(errbox(errMessage(e)));
+    } finally {
+      btn.disabled = false;
+    }
+  }
+}
+
 /* ---------- başlat ---------- */
 
 loadStore();
 const introAt = Date.now();
-loadBanks().then(() => {
-  renderHome();
+Promise.all([loadBanks(), loadRoster()]).then(async () => {
+  // oturum bilgisi en fazla birkaç saniye beklenir; Firebase gelmezse uygulama misafir modunda açılır
+  await Promise.race([authReady, sleep(4000)]);
+  started = true;
+  if (!me && cloud && !guestChosen()) renderSignIn("in");
+  else renderHome();
   // açılış ekranı en az bu kadar durur, yoksa yükleme hızlıysa göz kırpıp geçer
   setTimeout(() => {
     const intro = document.getElementById("intro");
@@ -1468,6 +2576,200 @@ loadBanks().then(() => {
     setTimeout(() => intro.remove(), 450);
   }, Math.max(0, 1200 - (Date.now() - introAt)));
 });
+</script>
+<script type="module">
+// Firebase yalnızca sınıf özellikleri içindir: giriş, çalışma süresi, sıralama, ödevler.
+// Modüller import() ile try içinde yüklenir; ağ yoksa ya da bir şey ters giderse yukarıdaki uygulamaya
+// capiCloudFailed haber verilir ve uygulama misafir modunda sorularla çalışmaya devam eder.
+const FIREBASE_VERSION = "13.1.0";
+// web yapılandırması herkese açık olacak şekilde tasarlanmıştır; erişimi firebase/firestore.rules korur
+const firebaseConfig = {
+  apiKey: "BURAYA_FIREBASE_API_ANAHTARINI_YAPISTIR",
+  authDomain: "capi-study.firebaseapp.com",
+  projectId: "capi-study",
+  storageBucket: "capi-study.firebasestorage.app",
+  messagingSenderId: "418678598982",
+  appId: "1:418678598982:web:a3e0c1175f468f0b2f8947"
+};
+const EMAIL_DOMAIN = "capi-study.app";
+// firestore.rules ile aynı sınırlar (bkz. o dosyadaki açıklama)
+const MAX_CORRECT_PER_WRITE = 25;
+const TIME_GAP_MS = 60000;      // süre eklemek için iki kayıt arası en az
+const TIME_SLACK_MS = 60000;    // süre artışı: geçen süre + bu kadar
+const CORRECT_GAP_MS = 10000;   // doğru eklemek için iki kayıt arası en az
+const CORRECT_EVERY_MS = 2000;  // sürekli hızda en fazla 2 sn'de bir doğru
+const CORRECT_BURST_MS = 10000; // bunun üstüne 5 doğruluk pay
+const CLOCK_MARGIN_MS = 30000;  // cihaz saati sunucudan biraz ileri olabilir
+
+function report(ok, value) {
+  const fn = ok ? window.capiCloudReady : window.capiCloudFailed;
+  try { if (typeof fn === "function") fn(value); } catch (e) { console.error(e); }
+}
+
+try {
+  if (!/^AIza[0-9A-Za-z_-]{35}$/.test(firebaseConfig.apiKey)) {
+    throw new Error("firebaseConfig.apiKey eksik: docs/index.html içine gerçek Web API anahtarını yaz");
+  }
+  const base = "https://www.gstatic.com/firebasejs/" + FIREBASE_VERSION + "/";
+  const [fbApp, fbAuth, fs] = await Promise.all([
+    import(base + "firebase-app.js"),
+    import(base + "firebase-auth.js"),
+    import(base + "firebase-firestore.js")
+  ]);
+  const app = fbApp.initializeApp(firebaseConfig);
+  const auth = fbAuth.initializeAuth(app, { persistence: fbAuth.browserLocalPersistence });
+  const db = fs.getFirestore(app);
+  // yerelde deneme: localhost'ta adresin sonuna ?emulator eklenince Firebase emülatörlerine bağlanır
+  if (["localhost", "127.0.0.1"].includes(location.hostname) && new URLSearchParams(location.search).has("emulator")) {
+    fbAuth.connectAuthEmulator(auth, "http://127.0.0.1:9099", { disableWarnings: true });
+    fs.connectFirestoreEmulator(db, "127.0.0.1", 8080);
+  }
+  // ortak listeler her zaman sunucudan okunur: çevrimdışıyken eski ya da boş önbellek gösterilmez, hata gösterilir
+  const { doc, collection, getDocFromServer, getDocsFromServer, runTransaction, writeBatch, addDoc, updateDoc, serverTimestamp, deleteField, Timestamp } = fs;
+
+  const emailOf = (id) => id + "@" + EMAIL_DOMAIN;
+  const millis = (v) => (v && typeof v.toMillis === "function" ? v.toMillis() : null);
+  const count = (v) => (Number.isFinite(v) && v > 0 ? Math.floor(v) : 0);
+  const text = (v) => (typeof v === "string" ? v : "");
+  const plainStats = (id, x) => ({
+    id, alias: text(x.alias) || id,
+    totalCorrect: count(x.totalCorrect), totalSeconds: count(x.totalSeconds),
+    weekKey: text(x.weekKey), weekCorrect: count(x.weekCorrect), weekSeconds: count(x.weekSeconds)
+  });
+  const edited = (by) => ({ editedBy: by.id, editedByAlias: by.alias, editedAt: serverTimestamp() });
+  const taskFields = (t) => ({
+    type: t.type, subject: t.subject, title: t.title, description: t.description,
+    dueDate: Timestamp.fromMillis(t.dueMs)
+  });
+
+  // bu sekmenin son başarılı istatistik yazması: geçen süre cihaz saatiyle değil, performance.now() ile ölçülür
+  let lastWrite = null; // { id, at, u }: at = yazmanın bittiği an, u = o yazmanın sunucu zaman damgası (sonradan öğrenilir)
+
+  // biriken süreyi ve doğruları kuralların izin verdiği kadar ekler; artan kısım çağırana geri kalır.
+  // kurallar yine de reddederse (ör. cihaz saati yanlış) önce hafta anahtarına dokunmadan, sonra hiçbir şey
+  // eklemeden yazılır; bu son yazma sonraki kayıtlar için cihazın kendi ölçtüğü bir başlangıç noktası olur
+  async function addStats(id, alias, wantSec, wantCorrect, weekKey) {
+    const ref = doc(db, "stats", id);
+    const attempt = (mode) => runTransaction(db, async (tx) => {
+      const snap = await tx.get(ref);
+      const o = snap.exists() ? snap.data() : null;
+      const u = o ? millis(o.updatedAt) : null;
+      if (o && !wantSec && !wantCorrect && mode !== "baseline") return { sec: 0, correct: 0, doc: plainStats(id, o), wrote: false };
+      // son kayıttan beri geçen süre, sunucu saatine göre temkinli bir tahmin
+      const local = !!o && !!lastWrite && lastWrite.id === id && (lastWrite.u == null || lastWrite.u === u);
+      const since = !o ? 0 : local ? performance.now() - lastWrite.at : u == null ? 0 : Date.now() - u - CLOCK_MARGIN_MS;
+      let sec = 0, correct = 0;
+      if (mode !== "baseline" && !o) {
+        sec = Math.min(count(wantSec), TIME_SLACK_MS / 1000);
+        correct = Math.min(count(wantCorrect), MAX_CORRECT_PER_WRITE);
+      } else if (mode !== "baseline") {
+        if (since >= TIME_GAP_MS) sec = Math.min(count(wantSec), Math.floor((since + TIME_SLACK_MS) / 1000));
+        if (since >= CORRECT_GAP_MS) correct = Math.min(count(wantCorrect), MAX_CORRECT_PER_WRITE, Math.floor((since + CORRECT_BURST_MS) / CORRECT_EVERY_MS));
+        // şimdilik eklenecek bir şey yoksa yazılmaz: boş yazma bekleme süresini baştan başlatırdı
+        if (!sec && !correct) return { sec: 0, correct: 0, doc: plainStats(id, o), wrote: false, local, u };
+      }
+      const key = o && mode !== "normal" ? text(o.weekKey) : weekKey;
+      const sameWeek = !!o && o.weekKey === key;
+      const n = {
+        alias,
+        totalCorrect: (o ? count(o.totalCorrect) : 0) + correct,
+        totalSeconds: (o ? count(o.totalSeconds) : 0) + sec,
+        weekKey: key,
+        weekCorrect: (sameWeek ? count(o.weekCorrect) : 0) + correct,
+        weekSeconds: (sameWeek ? count(o.weekSeconds) : 0) + sec,
+        updatedAt: serverTimestamp()
+      };
+      tx.set(ref, n);
+      return { sec, correct, doc: plainStats(id, n), wrote: true };
+    });
+    const run = async (mode) => {
+      const res = await attempt(mode);
+      if (res.wrote) lastWrite = { id, at: performance.now(), u: null };
+      else if (res.local && lastWrite) lastWrite.u = res.u;
+      return res;
+    };
+    try {
+      return await run("normal");
+    } catch (e) {
+      if (e.code !== "permission-denied") throw e;
+      try {
+        return await run("keepWeek");
+      } catch (e2) {
+        if (e2.code !== "permission-denied") throw e2;
+        return await run("baseline");
+      }
+    }
+  }
+
+  const api = {
+    onAuth(cb) {
+      return fbAuth.onAuthStateChanged(auth, (u) => cb(u ? { email: u.email || "" } : null));
+    },
+    async signIn(id, pin) {
+      const c = await fbAuth.signInWithEmailAndPassword(auth, emailOf(id), pin);
+      return { email: c.user.email || "" };
+    },
+    async signUp(id, pin) {
+      const c = await fbAuth.createUserWithEmailAndPassword(auth, emailOf(id), pin);
+      return { email: c.user.email || "" };
+    },
+    signOut() { return fbAuth.signOut(auth); },
+
+    async getStudent(id) {
+      const s = await getDocFromServer(doc(db, "students", id));
+      return s.exists() ? { id, alias: text(s.data().alias), admin: s.data().admin === true } : null;
+    },
+    async listStudents() {
+      const qs = await getDocsFromServer(collection(db, "students"));
+      return qs.docs.map((d) => ({ id: d.id, alias: text(d.data().alias), admin: d.data().admin === true }));
+    },
+    async syncStudents(list) {
+      const batch = writeBatch(db);
+      list.forEach((s) => batch.set(doc(db, "students", s.id), { alias: s.alias, admin: s.admin === true }));
+      await batch.commit();
+      return list.length;
+    },
+
+    async listStats() {
+      const qs = await getDocsFromServer(collection(db, "stats"));
+      return qs.docs.map((d) => plainStats(d.id, d.data()));
+    },
+    addStats,
+
+    async listTasks() {
+      const qs = await getDocsFromServer(collection(db, "tasks"));
+      return qs.docs.map((d) => {
+        const x = d.data();
+        return {
+          id: d.id, type: x.type === "event" ? "event" : "homework",
+          subject: text(x.subject), title: text(x.title), description: text(x.description),
+          dueMs: millis(x.dueDate) || 0,
+          createdBy: text(x.createdBy), createdByAlias: text(x.createdByAlias), createdAtMs: millis(x.createdAt),
+          editedBy: text(x.editedBy), editedByAlias: text(x.editedByAlias), editedAtMs: millis(x.editedAt),
+          deletedAtMs: millis(x.deletedAt), deletedBy: text(x.deletedBy)
+        };
+      });
+    },
+    addTask(t, by) {
+      return addDoc(collection(db, "tasks"), {
+        ...taskFields(t), createdBy: by.id, createdByAlias: by.alias, createdAt: serverTimestamp()
+      });
+    },
+    updateTask(id, t, by) {
+      return updateDoc(doc(db, "tasks", id), { ...taskFields(t), ...edited(by) });
+    },
+    softDeleteTask(id, by) {
+      return updateDoc(doc(db, "tasks", id), { deletedAt: serverTimestamp(), deletedBy: by.id, ...edited(by) });
+    },
+    restoreTask(id, by) {
+      return updateDoc(doc(db, "tasks", id), { deletedAt: deleteField(), deletedBy: deleteField(), ...edited(by) });
+    }
+  };
+  report(true, api);
+} catch (e) {
+  console.warn("Firebase yüklenemedi, misafir modunda devam ediliyor:", e && e.message ? e.message : e);
+  report(false, e);
+}
 </script>
 </body>
 </html>

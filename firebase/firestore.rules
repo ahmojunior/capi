@@ -1,0 +1,186 @@
+rules_version = '2';
+
+// capi — Firestore güvenlik kuralları
+// Bu dosyayı Firebase konsolunda Firestore Database → Rules sekmesine yapıştır ve "Publish" de.
+// Sabitler istemcideki docs/index.html (Firebase modülü) ile aynı olmalı:
+//   süre: iki kayıt arası en az 60 sn, artış en fazla geçen süre + 60 sn;
+//   doğru: bir yazmada en fazla 25, iki kayıt arası en az 10 sn, sürekli hızda 2 sn'de 1 (+5 pay);
+//   e-posta alanı capi-study.app.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- kimlik ----------
+
+    // hesap e-postası <kimlik>@capi-study.app; kimlik yalnızca küçük harf ve rakamdır
+    function email() {
+      return request.auth.token.get('email', '');
+    }
+    function myId() {
+      return email().split('@')[0];
+    }
+    function rosterPath(id) {
+      return /databases/$(database)/documents/students/$(id);
+    }
+    // üye: giriş yapmış, e-postası bizim alanımızda ve kimliği students koleksiyonunda
+    function isMember() {
+      return request.auth != null
+        && email().matches('^[a-z0-9]{1,40}@capi-study[.]app$')
+        && exists(rosterPath(myId()));
+    }
+    function roster() {
+      return get(rosterPath(myId())).data;
+    }
+    function isAdmin() {
+      return isMember() && roster().admin == true;
+    }
+
+    // ---------- hafta anahtarı ----------
+
+    // Europe/Istanbul saatine göre ISO hafta anahtarı, ör. 2026-W45 (Türkiye 2016'dan beri sabit UTC+3).
+    // dayOfWeek(): Pazartesi 1 … Pazar 7. ISO haftası, haftanın perşembesinin düştüğü yıla aittir.
+    function isWeekKeyAt(k, t) {
+      let thu = t + duration.value(4 - t.dayOfWeek(), 'd');
+      let w = int(math.floor((thu.dayOfYear() - 1) / 7)) + 1;
+      let pre = string(thu.year()) + '-W';
+      return (w < 10 && k == pre + '0' + string(w)) || (w >= 10 && k == pre + string(w));
+    }
+    function isCurrentWeekKey(k) {
+      return isWeekKeyAt(k, request.time + duration.value(3, 'h'));
+    }
+
+    // ---------- sınıf listesi ----------
+
+    match /students/{sid} {
+      allow read: if isMember();
+      allow create, update: if isAdmin()
+        && sid.matches('^[a-z0-9]{1,40}$')
+        && request.resource.data.keys().hasOnly(['alias', 'admin'])
+        && request.resource.data.keys().hasAll(['alias', 'admin'])
+        && request.resource.data.alias is string
+        && request.resource.data.alias.size() >= 1
+        && request.resource.data.alias.size() <= 40
+        && request.resource.data.admin is bool;
+      allow delete: if false;
+    }
+
+    // ---------- istatistikler ----------
+
+    function statKeys() {
+      return ['alias', 'totalCorrect', 'totalSeconds', 'weekKey', 'weekCorrect', 'weekSeconds', 'updatedAt'];
+    }
+    // alan adları, türler ve takma ad: takma ad sınıf listesindekiyle aynı olmalı (başkası gibi görünemez)
+    function validStatsShape(d) {
+      return d.keys().hasOnly(statKeys())
+        && d.keys().hasAll(statKeys())
+        && d.alias is string
+        && d.alias == roster().alias
+        && d.totalCorrect is int && d.totalSeconds is int
+        && d.weekCorrect is int && d.weekSeconds is int
+        && d.weekKey is string && d.weekKey.matches('^[0-9]{4}-W[0-9]{2}$')
+        && d.updatedAt == request.time
+        && d.weekCorrect >= 0 && d.weekSeconds >= 0
+        && d.weekCorrect <= d.totalCorrect && d.weekSeconds <= d.totalSeconds;
+    }
+    // ilk kayıt: en fazla bir yazmalık artış kadar değer taşıyabilir
+    function validStatsCreate(n) {
+      return validStatsShape(n)
+        && isCurrentWeekKey(n.weekKey)
+        && n.totalCorrect >= 0 && n.totalCorrect <= 25
+        && n.totalSeconds >= 0 && n.totalSeconds <= 60
+        && n.weekCorrect == n.totalCorrect
+        && n.weekSeconds == n.totalSeconds;
+    }
+    // güncelleme: toplamlar azalmaz.
+    // süre: önceki kayıttan en az 60 sn sonra eklenebilir ve geçen gerçek süre + 60 sn'yi aşamaz.
+    //   (tolerans her yazmada yeniden verildiği için aralık şarttır: art arda yazarak en fazla gerçek sürenin 2 katı)
+    // doğru: bir yazmada en fazla 25; önceki kayıttan en az 10 sn sonra; sürekli hızda 2 sn'de 1'den hızlı olamaz.
+    // haftalık alanlar toplamlarla birlikte artar; yalnızca hafta değişince (yeni hafta = şu anki hafta) sıfırlanır.
+    function validStatsUpdate(n, o) {
+      let dC = n.totalCorrect - o.totalCorrect;
+      let dS = n.totalSeconds - o.totalSeconds;
+      let elapsedMs = request.time.toMillis() - o.updatedAt.toMillis();
+      return validStatsShape(n)
+        && dC >= 0 && dC <= 25
+        && (dC == 0 || (elapsedMs >= 10000 && dC * 2000 <= elapsedMs + 10000))
+        && dS >= 0
+        && (dS == 0 || (elapsedMs >= 60000 && dS * 1000 <= elapsedMs + 60000))
+        && (
+          (n.weekKey == o.weekKey
+            && n.weekCorrect == o.weekCorrect + dC
+            && n.weekSeconds == o.weekSeconds + dS)
+          || (n.weekKey != o.weekKey
+            && isCurrentWeekKey(n.weekKey)
+            && n.weekCorrect == dC
+            && n.weekSeconds == dS)
+        );
+    }
+
+    match /stats/{sid} {
+      allow read: if isMember();
+      allow create: if isMember() && sid == myId() && validStatsCreate(request.resource.data);
+      allow update: if isMember() && sid == myId() && validStatsUpdate(request.resource.data, resource.data);
+      allow delete: if false;
+    }
+
+    // ---------- ödevler ve etkinlikler ----------
+
+    function taskKeys() {
+      return ['type', 'subject', 'title', 'description', 'dueDate', 'createdBy', 'createdByAlias', 'createdAt'];
+    }
+    function taskOptionalKeys() {
+      return ['editedBy', 'editedByAlias', 'editedAt', 'deletedAt', 'deletedBy'];
+    }
+    function validTaskContent(d) {
+      return d.type in ['homework', 'event']
+        && d.subject is string && d.subject.size() >= 1 && d.subject.size() <= 40
+        && d.title is string && d.title.size() >= 1 && d.title.size() <= 120
+        && d.description is string && d.description.size() <= 500
+        && d.dueDate is timestamp;
+    }
+    function isDeleted(d) {
+      return d.keys().hasAny(['deletedAt', 'deletedBy']);
+    }
+    // silme yalnızca deletedAt + deletedBy ile işaretlemedir; geri alma ikisini de kaldırır (silindikten sonra 7 gün içinde)
+    function validDeletion(n, o) {
+      return (!isDeleted(o) && !isDeleted(n))
+        || (!isDeleted(o)
+          && n.keys().hasAll(['deletedAt', 'deletedBy'])
+          && n.deletedAt == request.time
+          && n.deletedBy == myId())
+        || (isDeleted(o) && isDeleted(n)
+          && n.deletedAt == o.deletedAt
+          && n.deletedBy == o.deletedBy)
+        || (isDeleted(o) && !isDeleted(n)
+          && request.time < o.deletedAt + duration.value(7, 'd'));
+    }
+
+    match /tasks/{tid} {
+      allow read: if isMember();
+      allow create: if isMember()
+        && request.resource.data.keys().hasOnly(taskKeys())
+        && request.resource.data.keys().hasAll(taskKeys())
+        && validTaskContent(request.resource.data)
+        && request.resource.data.createdBy == myId()
+        && request.resource.data.createdByAlias == roster().alias
+        && request.resource.data.createdAt == request.time;
+      allow update: if isMember()
+        && request.resource.data.keys().hasOnly(taskKeys().concat(taskOptionalKeys()))
+        && request.resource.data.keys().hasAll(taskKeys().concat(['editedBy', 'editedByAlias', 'editedAt']))
+        && validTaskContent(request.resource.data)
+        && request.resource.data.createdBy == resource.data.createdBy
+        && request.resource.data.createdByAlias == resource.data.createdByAlias
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.editedBy == myId()
+        && request.resource.data.editedByAlias == roster().alias
+        && request.resource.data.editedAt == request.time
+        && validDeletion(request.resource.data, resource.data);
+      allow delete: if false;
+    }
+
+    // ---------- geri kalan her şey kapalı ----------
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
