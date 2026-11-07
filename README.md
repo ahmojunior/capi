@@ -10,7 +10,7 @@
 
 ## <div align="center">About the Project</div>
 
-**capi** is a Turkish-language study app for reviewing biology, chemistry, and math with short, interactive quizzes. Choose a subject, practice across all its topics or focus on one, and review explanations after each answer.
+**capi** is a Turkish-language study app for reviewing biology, chemistry, math, and German with short, interactive quizzes. Choose a subject, practice across all its topics or focus on one, and review explanations after each answer.
 
 ## <div align="center">Features</div>
 
@@ -19,6 +19,14 @@ Start a mixed round or choose a specific topic. Each round contains up to 10 que
 
 ### Multiple Question Types
 Practice with multiple-choice, fill-in-the-blank, true/false, matching, and ordering questions. Many math questions come with a geometric figure, chart, or data table. Every answer includes feedback and an explanation.
+
+### German Practice
+The German course follows the *Essen und Trinken* unit: food vocabulary and articles, plurals, meals, likes and dislikes, shopping, prices, and recipes. Besides the usual question types it adds two Duolingo-style exercises:
+
+- **Sentence building:** tap word blocks to build a sentence. The bank includes distractor blocks, a used block leaves an empty space behind, and other correct word orders are accepted too.
+- **Tile matching:** match pictures or words in a two-column grid. Correct pairs turn green right away, wrong pairs shake red, and the question counts as correct only without mistakes.
+
+German sentences can be played aloud with the speaker button, using the browser's built-in speech synthesis.
 
 ### Skipping Questions
 Not sure about an answer? Leave the question blank with **Boş bırak**. The correct answer and explanation are shown right away, skipped questions do not lower your accuracy, and they come back more often in later rounds. Wrong and skipped questions can be repeated together at the end of a round.
@@ -37,19 +45,21 @@ See your topic accuracy and daily study streak. Progress is saved in your browse
 - **Biology:** 90 questions across 4 topics
 - **Chemistry:** 201 questions across 7 topics
 - **Math:** 192 questions across 6 topics
+- **German:** 172 questions across 7 topics
 
-Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, and `docs/questions-mat.json`. Each entry includes an `id`, `unit`, `type`, question text (`q`), and explanation (`why`), plus fields specific to its question type:
+Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, `docs/questions-mat.json`, and `docs/questions-alm.json`. Each entry includes an `id`, `unit`, `type`, question text (`q`), and explanation (`why`), plus fields specific to its question type:
 
 | Type | Answer data |
 | --- | --- |
 | `mc`, `fill` | `choices` and a zero-based `answer` index |
 | `tf` | Boolean `answer` (`true` or `false`) |
-| `match` | `pairs`, each containing two values to match |
+| `match`, `tiles` | `pairs`, each containing two values to match |
 | `order` | `items` in the correct order |
+| `build` | `words` in the correct order, optional distractor `extra` words, and optional `alt` word orders that also count as correct |
 
-Any question can also carry an optional `fig` (a figure as a list of drawing commands) or `table` (`h` for the header row and `r` for the rows). Figure coordinates are precomputed from the actual measurements given in each question.
+Any question can also carry an optional `fig` (a figure as a list of drawing commands) or `table` (`h` for the header row and `r` for the rows), plus a `src` sentence shown in a card and a `tts` text that can be played aloud in the subject's language. In `build` questions, words other than nouns are stored in lowercase; the app capitalizes the first word of the sentence, and answers are compared without regard to case or punctuation. Figure coordinates are precomputed from the actual measurements given in each question.
 
-Topic lessons live in `docs/lessons-bio.json`, `docs/lessons-kim.json`, and `docs/lessons-mat.json`, keyed by topic name. Each step has Mikey's line (`say`) and a `title`, plus optional `text`, formulas (`f`), a bullet `list`, `fig`, `table`, a `tip`, and a mascot `mood`.
+Topic lessons live in `docs/lessons-bio.json`, `docs/lessons-kim.json`, `docs/lessons-mat.json`, and `docs/lessons-alm.json`, keyed by topic name. Each step has Mikey's line (`say`) and a `title`, plus optional `text`, formulas (`f`), a bullet `list`, `fig`, `table`, a `tip`, and a mascot `mood`.
 
 The app validates question and lesson entries when loading them and skips invalid entries.
 
@@ -74,9 +84,11 @@ The app uses `fetch` to load the question banks, so it must be served over HTTP 
 ```text
 docs/
 ├── index.html
+├── lessons-alm.json
 ├── lessons-bio.json
 ├── lessons-kim.json
 ├── lessons-mat.json
+├── questions-alm.json
 ├── questions-bio.json
 ├── questions-kim.json
 └── questions-mat.json
