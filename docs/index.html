@@ -24,6 +24,7 @@
     --bio: #B6F03C;
     --kim: #FF5FA2;
     --mat: #6CCBFF;
+    --alm: #FFC93C;
     --hl: var(--bio);
     --shadow: 3px 3px 0 var(--ink);
     --display: "Bricolage Grotesque", system-ui, sans-serif;
@@ -52,6 +53,7 @@
   [data-subject="bio"] { --hl: var(--bio); }
   [data-subject="kim"] { --hl: var(--kim); }
   [data-subject="mat"] { --hl: var(--mat); }
+  [data-subject="alm"] { --hl: var(--alm); }
 
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
@@ -218,6 +220,67 @@
   .slot:empty::after { content: "Sırayı buraya kur"; color: var(--ink-soft); font-size: 14px; padding-left: 6px; }
   .slot .chip { border-style: solid; }
   .slot .chip .n { font-family: var(--display); font-weight: 700; color: var(--hl-text, var(--ink-soft)); margin-right: 7px; }
+
+  /* ---- kaynak cümle kartı ve sesli dinleme ---- */
+  .srccard {
+    display: flex; align-items: center; gap: 12px;
+    border: 2px solid var(--ink); border-radius: 14px; box-shadow: var(--shadow);
+    background: var(--paper); padding: 12px 14px; margin: 14px 0 8px;
+    font-size: 17px; line-height: 1.4; font-weight: 500;
+  }
+  .srccard .txt { flex: 1; min-width: 0; }
+  .speak {
+    flex: none; width: 42px; height: 42px; padding: 0; cursor: pointer;
+    display: grid; place-items: center;
+    background: var(--hl); color: #11161E;
+    border: 2px solid var(--ink); border-radius: 50%; box-shadow: 2px 2px 0 var(--ink);
+  }
+  .speak:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--ink); }
+  .speak svg { width: 22px; height: 22px; display: block; }
+  .verdictrow .speak { margin-left: auto; }
+
+  /* ---- cümle kurma: kelime blokları ---- */
+  /* cevap satırları defter çizgisi gibi; her blok sırası bir çizgiye oturur */
+  .buildline {
+    min-height: 116px; display: flex; flex-wrap: wrap; gap: 10px 8px; align-content: flex-start;
+    padding: 4px 0 6px; margin: 8px 0 18px;
+    background-image: repeating-linear-gradient(to bottom, transparent 0 53px, var(--ink-soft) 53px 55px, transparent 55px 56px);
+  }
+  .wbank { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 8px; margin: 6px 0 4px; }
+  .wchip {
+    min-height: 46px; padding: 9px 14px; cursor: pointer;
+    font-family: var(--body); font-size: 16px; font-weight: 500; line-height: 1.2;
+    background: var(--paper); color: var(--ink);
+    border: 2px solid var(--ink); border-radius: 10px; box-shadow: 0 3px 0 var(--ink);
+  }
+  .wchip:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ink); }
+  .wchip.used { background: var(--grid); border-color: var(--grid); color: transparent; box-shadow: none; cursor: default; }
+  .buildline.ok .wchip { border-color: var(--green); background: var(--green-wash); box-shadow: 0 3px 0 var(--green); }
+  .buildline.bad .wchip { border-color: var(--red); background: var(--red-wash); box-shadow: 0 3px 0 var(--red); }
+  .wchip[disabled] { cursor: default; }
+
+  /* ---- kutu eşleştirme ---- */
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 4px; }
+  .tcol { display: flex; flex-direction: column; gap: 12px; }
+  .tile {
+    min-height: 66px; padding: 10px 8px; cursor: pointer;
+    display: grid; place-items: center; text-align: center;
+    font-family: var(--body); font-size: 16px; font-weight: 500; line-height: 1.25;
+    background: var(--paper); color: var(--ink);
+    border: 2px solid var(--ink); border-radius: 12px; box-shadow: 0 4px 0 var(--ink);
+    transition: background-color .15s ease, transform .1s ease;
+  }
+  .tile.big { font-size: 38px; line-height: 1; }
+  .tile.sel { background: var(--hl); color: #11161E; transform: translateY(2px); box-shadow: 0 2px 0 var(--ink); }
+  .tile.done { border-color: var(--green); background: var(--green-wash); color: var(--green); box-shadow: 0 2px 0 var(--green); cursor: default; }
+  .tile.done.big { opacity: .75; }
+  .tile.err { border-color: var(--red); background: var(--red-wash); color: var(--red); box-shadow: 0 4px 0 var(--red); }
+  @media (prefers-reduced-motion: no-preference) {
+    .tile.err { animation: tileshake .35s ease; }
+    .tile.done { animation: tilepop .3s ease; }
+  }
+  @keyframes tileshake { 0%, 100% { transform: none; } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+  @keyframes tilepop { 50% { transform: scale(1.05); } }
 
   /* ---- alt çubuk ---- */
   footer {
@@ -443,7 +506,8 @@
 const SUBJECTS = [
   { key: "bio", name: "Biyoloji",  file: "questions-bio.json", lessons: "lessons-bio.json" },
   { key: "kim", name: "Kimya",     file: "questions-kim.json", lessons: "lessons-kim.json" },
-  { key: "mat", name: "Matematik", file: "questions-mat.json", lessons: "lessons-mat.json" }
+  { key: "mat", name: "Matematik", file: "questions-mat.json", lessons: "lessons-mat.json" },
+  { key: "alm", name: "Almanca",   file: "questions-alm.json", lessons: "lessons-alm.json", lang: "de-DE" }
 ];
 const ROUND_SIZE = 10;
 const KEYS = ["a", "b", "c", "d", "e"];
@@ -509,8 +573,16 @@ function validate(q, i, key) {
   } else if (q.type === "match") {
     if (!Array.isArray(q.pairs) || q.pairs.length < 2) return bad("pairs eksik");
     if (q.pairs.some(p => !Array.isArray(p) || p.length !== 2)) return bad("pair biçimi bozuk");
+  } else if (q.type === "tiles") {
+    if (!Array.isArray(q.pairs) || q.pairs.length < 2) return bad("pairs eksik");
+    if (q.pairs.some(p => !Array.isArray(p) || p.length !== 2)) return bad("pair biçimi bozuk");
   } else if (q.type === "order") {
     if (!Array.isArray(q.items) || q.items.length < 2) return bad("items eksik");
+  } else if (q.type === "build") {
+    const words = (a) => Array.isArray(a) && a.length > 0 && a.every(w => typeof w === "string" && w);
+    if (!words(q.words) || q.words.length < 2) return bad("words eksik");
+    if (q.extra != null && !(Array.isArray(q.extra) && (!q.extra.length || words(q.extra)))) return bad("extra biçimi bozuk");
+    if (q.alt != null && !(Array.isArray(q.alt) && q.alt.every(words))) return bad("alt biçimi bozuk");
   } else {
     return bad("bilinmeyen type: " + q.type);
   }
@@ -597,6 +669,36 @@ function pct(u) {
 function setSubject(key) {
   if (key) document.body.dataset.subject = key;
   else delete document.body.dataset.subject;
+}
+
+/* ---------- sesli dinleme ---------- */
+
+// tarayıcının konuşma sentezi; destek yoksa dinleme düğmesi hiç görünmez
+const canSpeak = "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function";
+function speak(text, lang) {
+  if (!canSpeak || !text) return;
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    const base = lang.slice(0, 2).toLowerCase();
+    const voice = speechSynthesis.getVoices().find(v => (v.lang || "").toLowerCase().startsWith(base));
+    if (voice) u.voice = voice;
+    u.rate = 0.9;
+    speechSynthesis.speak(u);
+  } catch (e) { /* ses kapalı ya da desteklenmiyor */ }
+}
+const SPEAK_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 9h4l5-4v14l-5-4H4z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>`;
+function speakButton(text, lang) {
+  if (!canSpeak || !lang || !text) return null;
+  const b = el("button", { class: "speak", type: "button", "aria-label": "Sesli dinle", title: "Dinle",
+    onclick: (e) => { e.stopPropagation(); speak(text, lang); } });
+  b.innerHTML = SPEAK_ICON;
+  return b;
+}
+function subjectLang(key) {
+  const s = SUBJECTS.find(x => x.key === key);
+  return s && s.lang;
 }
 
 /* ---------- şekil ve tablo ---------- */
@@ -699,8 +801,15 @@ const MIKEY_LINES = {
   sad:   ["Olsun, birlikte öğreniyoruz.", "Az kaldı!", "Açıklamaya bir göz at.", "Bir dahakine olacak.", "Moral bozmak yok!"],
   skip:  ["Sorun değil, cevaba birlikte bakalım.", "Boş bırakmak da bir seçim. Açıklamaya göz at!", "Bunu birlikte öğrenelim.", "Bir dahakine deneriz!"]
 };
+// Almanca derste Mikey ara sıra Almanca konuşur
+const MIKEY_LINES_ALM = {
+  start: ["Los geht's! Hadi başlayalım!", "Du schaffst das! Yaparsın!"],
+  happy: ["Sehr gut! Çok iyi!", "Super!", "Toll! Harika!", "Prima!"],
+  sad:   ["Kein Problem! Sorun yok.", "Weiter so, devam!"]
+};
 function mikeyLine(kind) {
-  const a = MIKEY_LINES[kind];
+  let a = MIKEY_LINES[kind];
+  if (document.body.dataset.subject === "alm" && MIKEY_LINES_ALM[kind]) a = a.concat(MIKEY_LINES_ALM[kind]);
   return a[Math.floor(Math.random() * a.length)];
 }
 function mikey(mood) {
@@ -896,6 +1005,14 @@ function renderQuestion() {
   app.appendChild(state.buddy.row);
   app.appendChild(el("div", { class: "unitname", text: q.unit }));
   app.appendChild(el("h1", { class: "qtext", text: q.q }));
+  // src: çevrilecek ya da okunacak cümle; tts varsa yanında dinleme düğmesi çıkar
+  if (q.src) {
+    const card = el("div", { class: "srccard" }, []);
+    const sp = q.tts ? speakButton(q.tts, subjectLang(state.key)) : null;
+    if (sp) card.appendChild(sp);
+    card.appendChild(el("div", { class: "txt", text: q.src }));
+    app.appendChild(card);
+  }
   appendMedia(app, q);
 
   const body = el("div", {}, []);
@@ -904,7 +1021,9 @@ function renderQuestion() {
   if (q.type === "mc" || q.type === "fill") renderChoices(body, q);
   else if (q.type === "tf") renderTF(body, q);
   else if (q.type === "match") renderMatch(body, q);
+  else if (q.type === "tiles") renderTiles(body, q);
   else if (q.type === "order") renderOrder(body, q);
+  else if (q.type === "build") renderBuild(body, q);
 
   setFooterCheck();
 }
@@ -933,6 +1052,8 @@ function hasAnswer() {
   if (q.type === "mc" || q.type === "fill" || q.type === "tf") return s !== null && s !== undefined;
   if (q.type === "match") return s && s.map && q.pairs.every((_, i) => s.map[i] != null);
   if (q.type === "order") return s && s.placed && s.placed.length === q.items.length;
+  if (q.type === "build") return s && s.placed && s.placed.length > 0;
+  if (q.type === "tiles") return s && s.done === q.pairs.length;
   return false;
 }
 
@@ -1050,6 +1171,103 @@ function renderOrder(body, q) {
   draw();
 }
 
+// kutu eşleştirme: iki sütun karışık dizilir; bir kutuya, sonra karşı sütundaki eşine dokunulur.
+// doğru eş anında yeşile döner, yanlış eş kırmızı sallanır ve hata sayılır; hepsi bulununca cevap kendiliğinden kontrol edilir
+const EMOJI_ONLY = /^[\p{Extended_Pictographic}‍️\s]+$/u;
+function renderTiles(body, q) {
+  body.appendChild(el("div", { class: "hint", text: "Bir kutuya, sonra karşı sütundaki eşine dokun." }));
+  state.sel = { done: 0, mistakes: 0, pick: null };
+  const sel = state.sel;
+  const cols = [el("div", { class: "tcol" }, []), el("div", { class: "tcol" }, [])];
+  body.appendChild(el("div", { class: "tiles" }, cols));
+
+  [0, 1].forEach(side => {
+    shuffle(q.pairs.map(p => p[side])).forEach(t => {
+      const it = { t, side };
+      it.b = el("button", { class: "tile" + (EMOJI_ONLY.test(t) ? " big" : ""), text: t, onclick: () => tap(it) });
+      if (EMOJI_ONLY.test(t)) it.b.setAttribute("aria-label", "Resim: " + t);
+      cols[side].appendChild(it.b);
+    });
+  });
+
+  function tap(it) {
+    if (state.answered || state.sel !== sel || it.b.disabled) return;
+    const p = sel.pick;
+    if (!p || p.side === it.side) {
+      if (p) p.b.classList.remove("sel");
+      sel.pick = p === it ? null : it;
+      if (sel.pick) it.b.classList.add("sel");
+      return;
+    }
+    sel.pick = null;
+    p.b.classList.remove("sel");
+    const l = p.side === 0 ? p : it, r = p.side === 0 ? it : p;
+    // metne göre karşılaştır: aynı metni taşıyan iki kutudan hangisi seçilirse seçilsin doğru sayılır
+    const ok = q.pairs.some(pr => pr[0] === l.t && pr[1] === r.t);
+    if (ok) {
+      [l, r].forEach(x => { x.b.classList.add("done"); x.b.disabled = true; });
+      sel.done++;
+      if (sel.done === q.pairs.length) {
+        refreshCheck();
+        setTimeout(() => { if (state && state.sel === sel && !state.answered) submit(); }, 450);
+      }
+    } else {
+      sel.mistakes++;
+      [l, r].forEach(x => {
+        x.b.classList.remove("err");
+        void x.b.offsetWidth;
+        x.b.classList.add("err");
+        setTimeout(() => x.b.classList.remove("err"), 600);
+      });
+    }
+  }
+}
+
+// cümle kurma: bankadaki kelime bloklarına dokunarak cevap satırına dizilir.
+// kullanılan bloğun yeri bankada boş kalır, böylece bloklar kaymaz; satırdaki bloğa dokununca geri döner
+function renderBuild(body, q) {
+  body.appendChild(el("div", { class: "hint", text: "Kelimelere sırayla dokun. Geri almak için satırdaki kelimeye dokun." }));
+  const line = el("div", { class: "buildline", "aria-label": "Cevap satırı" }, []);
+  const bank = el("div", { class: "wbank" }, []);
+  body.appendChild(line);
+  body.appendChild(bank);
+  state.sel = { placed: [] };
+  const sel = state.sel;
+  const tokens = shuffle(q.words.concat(q.extra || []).map((t, i) => ({ t, i })));
+
+  function draw() {
+    line.innerHTML = "";
+    sel.placed.forEach((it, pos) => {
+      line.appendChild(el("button", { class: "wchip", text: pos === 0 ? capFirst(it.t) : it.t, onclick: () => {
+        if (state.answered) return;
+        sel.placed.splice(pos, 1);
+        draw(); refreshCheck();
+      } }));
+    });
+    bank.innerHTML = "";
+    const used = new Set(sel.placed.map(p => p.i));
+    tokens.forEach(it => {
+      if (used.has(it.i)) {
+        bank.appendChild(el("span", { class: "wchip used", "aria-hidden": "true", text: it.t }));
+        return;
+      }
+      bank.appendChild(el("button", { class: "wchip", text: it.t, onclick: () => {
+        if (state.answered) return;
+        sel.placed.push(it);
+        draw(); refreshCheck();
+      } }));
+    });
+  }
+  draw();
+}
+// isim olmayan bloklar veride küçük harfle durur; cümlenin başına gelen blok büyük harfle gösterilir
+function capFirst(t) { return t ? t.charAt(0).toLocaleUpperCase("de") + t.slice(1) : t; }
+function buildSentence(words) { return capFirst(words.join(" ")); }
+// karşılaştırmada büyük/küçük harf ve noktalama yok sayılır; bloklar sabit olduğu için yalnızca sıra önemlidir
+function normSentence(words) {
+  return words.join(" ").toLocaleLowerCase("de").replace(/[.,!?;:]/g, "").replace(/\s+/g, " ").trim();
+}
+
 /* ---------- cevap kontrolü ---------- */
 
 function isCorrect(q) {
@@ -1058,14 +1276,20 @@ function isCorrect(q) {
   // metne göre karşılaştır: aynı karşılığı taşıyan iki çift (ör. iki "Fiziksel") de doğru sayılsın
   if (q.type === "match") return q.pairs.every((p, i) => q.pairs[s.map[i]][1] === p[1]);
   if (q.type === "order") return s.placed.every((p, i) => p.i === i);
+  if (q.type === "tiles") return s.mistakes === 0;
+  if (q.type === "build") {
+    const got = normSentence(s.placed.map(p => p.t));
+    return [q.words].concat(q.alt || []).some(a => normSentence(a) === got);
+  }
   return false;
 }
 
 function correctText(q) {
   if (q.type === "mc" || q.type === "fill") return q.choices[q.answer];
   if (q.type === "tf") return q.answer ? "Doğru" : "Yanlış";
-  if (q.type === "match") return q.pairs.map(p => p[0] + " = " + p[1]).join(", ");
+  if (q.type === "match" || q.type === "tiles") return q.pairs.map(p => p[0] + " = " + p[1]).join(", ");
   if (q.type === "order") return q.items.map((t, i) => (i + 1) + ". " + t).join("  ");
+  if (q.type === "build") return buildSentence(q.words);
   return "";
 }
 
@@ -1104,6 +1328,12 @@ function revealChoices(q) {
       if (val === q.answer) b.classList.add("ok");
       else if (val === state.sel) b.classList.add("bad");
     });
+  } else if (q.type === "build") {
+    app.querySelectorAll(".wchip").forEach(b => { b.disabled = true; });
+    const line = app.querySelector(".buildline");
+    if (line && state.sel) line.classList.add(isCorrect(q) ? "ok" : "bad");
+  } else if (q.type === "tiles") {
+    app.querySelectorAll(".tile").forEach(b => { b.disabled = true; b.classList.remove("sel"); });
   }
 }
 
@@ -1115,11 +1345,19 @@ function showVerdict(q, kind) {
   }[kind];
   foot.className = kind;
   footinner.innerHTML = "";
-  footinner.appendChild(el("div", { class: "verdictrow" }, [
+  const row = el("div", { class: "verdictrow" }, [
     el("img", { src: look[0], alt: "", "aria-hidden": "true" }, []),
     el("div", { class: "verdict", text: look[1] })
-  ]));
-  if (kind !== "ok") footinner.appendChild(el("div", { class: "answer", text: "Doğru cevap: " + correctText(q) }));
+  ]);
+  // kurulan cümlenin doğrusu dersin dilinde dinlenebilir
+  const sp = q.type === "build" ? speakButton(buildSentence(q.words), subjectLang(state.key)) : null;
+  if (sp) row.appendChild(sp);
+  footinner.appendChild(row);
+  if (kind === "bad" && q.type === "tiles" && state.sel) {
+    footinner.appendChild(el("div", { class: "answer", text: state.sel.mistakes + " hatalı eşleştirme denedin. Doğrusu: " + correctText(q) }));
+  } else if (kind !== "ok") {
+    footinner.appendChild(el("div", { class: "answer", text: "Doğru cevap: " + correctText(q) }));
+  }
   footinner.appendChild(el("div", { class: "why", text: q.why }));
   footinner.appendChild(el("button", { class: "btn solid", onclick: nextQuestion }, [
     state.i + 1 < state.list.length ? "Devam" : "Turu bitir"
@@ -1203,7 +1441,7 @@ function renderResult() {
       const skipped = state.skipped.includes(q);
       box.appendChild(el("div", { class: "miss" + (skipped ? " skipped" : "") }, [
         el("span", { class: "tag " + (skipped ? "s" : "w"), text: skipped ? "Boş" : "Yanlış" }),
-        el("div", { class: "q", text: q.q }),
+        el("div", { class: "q", text: q.src ? q.q + " " + q.src : q.q }),
         el("div", { class: "a", text: correctText(q) }),
         el("div", { class: "e", text: q.why })
       ]));
