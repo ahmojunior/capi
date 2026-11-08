@@ -24,7 +24,7 @@ Practice with multiple-choice, fill-in-the-blank, true/false, matching, and orde
 The German course follows the *Essen und Trinken* unit: food vocabulary and articles, plurals, meals, likes and dislikes, shopping, prices, and recipes. Besides the usual question types it adds two Duolingo-style exercises:
 
 - **Sentence building:** tap word blocks to build a sentence. The bank includes distractor blocks, a used block leaves an empty space behind, and other correct word orders are accepted too.
-- **Tile matching:** match pictures or words in a two-column grid. Correct pairs turn green right away, wrong pairs shake red, and the question counts as correct only without mistakes.
+- **Tile matching:** match pictures or words in a two-column grid. Correct pairs turn green right away, wrong pairs flash red and shake so the student can try again, and the question counts as correct once every pair is found.
 
 The German course also has a **★ Altın Sorular** (golden questions) topic with the questions the teacher announced for the exam: a recipe with its ingredients and key verbs, *Was kostet / Was kosten*, *gerne / nicht gerne*, and breakfast and favorite food. It sits at the top of the topic list with its own lesson, and its questions carry an *Altın soru* badge in mixed rounds too.
 
