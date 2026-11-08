@@ -414,6 +414,79 @@
   .tip { border-left: 3px solid var(--red); padding: 2px 0 2px 10px; margin: 10px 0 4px; font-size: 15px; }
   .tip b { color: var(--red); }
 
+  /* ---- etkileşimli ders: parça parça açılma ---- */
+  @media (prefers-reduced-motion: no-preference) {
+    .beatin { animation: beatin .35s cubic-bezier(.2,1.2,.4,1); }
+  }
+  @keyframes beatin { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .beatlist { margin: 0 0 10px; }
+  /* yeni açılan parça sabit alt çubuğun altında kalmasın */
+  .lcard > * { scroll-margin-bottom: 140px; }
+
+  /* kelime kartları */
+  .fchead { font-size: 13px; font-weight: 600; color: var(--ink-soft); margin: 4px 0 8px; }
+  .fcgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fc { perspective: 700px; cursor: pointer; min-height: 74px; outline-offset: 3px; }
+  .fcinner { position: relative; height: 100%; min-height: 74px; transform-style: preserve-3d; transition: transform .45s cubic-bezier(.3,1.3,.5,1); }
+  .fc.on .fcinner { transform: rotateY(180deg); }
+  .fcface {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 8px 10px; text-align: center; font-size: 15px; font-weight: 600; line-height: 1.25;
+    border: 2px solid var(--ink); border-radius: 12px; box-shadow: 0 4px 0 var(--ink);
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    background: var(--paper); color: var(--ink);
+  }
+  .fcface.back { transform: rotateY(180deg); background: var(--hl); color: #11161E; }
+  .fcface .speak { flex: none; width: 34px; height: 34px; padding: 5px; }
+  .fcface .speak svg { width: 18px; height: 18px; }
+  .fcinfo { font-size: 13px; color: var(--ink-soft); margin: 10px 0 6px; }
+  .fcinfo.done { color: var(--green); font-weight: 600; }
+  @media (prefers-reduced-motion: reduce) {
+    .fcinner { transition: none; }
+  }
+
+  /* dokununca açılan tablo */
+  .dtable.reveal td.hid { cursor: pointer; background: repeating-linear-gradient(45deg, var(--grid) 0 6px, transparent 6px 12px); }
+  .dtable.reveal td.hid span { visibility: hidden; }
+  .dtable.reveal td.hid::after { content: "?"; font-weight: 700; color: var(--ink-soft); }
+  .dtable.reveal td.hid { position: relative; }
+  .dtable.reveal td.hid::after { position: absolute; inset: 0; display: grid; place-items: center; }
+  .dtable.reveal td.shown { background: color-mix(in srgb, var(--hl) 30%, transparent); }
+  @media (prefers-reduced-motion: no-preference) {
+    .dtable.reveal td.shown span { display: inline-block; animation: beatin .3s ease; }
+  }
+  .revealall {
+    cursor: pointer; font-family: var(--body); font-size: 14px; font-weight: 600; color: var(--ink);
+    background: none; border: 2px dashed var(--ink-soft); border-radius: 2px; padding: 8px 12px; margin: 10px 0 4px;
+  }
+
+  /* ders içi hızlı kontrol */
+  .lcheck { border: 2px solid var(--ink); border-radius: 12px; padding: 12px 12px 6px; margin: 14px 0 6px; background: color-mix(in srgb, var(--hl) 14%, var(--paper)); }
+  .lcheck.good { border-color: var(--green); }
+  .lcheck.miss { border-color: var(--red); }
+  .lchead { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); }
+  .lcq { font-family: var(--display); font-weight: 700; font-size: 18px; line-height: 1.25; margin: 4px 0 6px; }
+  .lcsrc { font-style: italic; border-left: 3px solid var(--hl); padding-left: 8px; margin: 6px 0; }
+  .lcheck .choice { margin: 7px 0; min-height: 46px; padding: 10px 12px; }
+  .lcverdict { font-family: var(--display); font-weight: 800; font-size: 18px; margin: 8px 0 2px; display: flex; align-items: center; gap: 10px; }
+  .lcheck.good .lcverdict { color: var(--green); }
+  .lcheck.miss .lcverdict { color: var(--red); }
+  .lcfb .why { font-size: 14px; margin-bottom: 8px; }
+  .xp { font-family: var(--body); font-size: 13px; font-weight: 700; color: #11161E; background: var(--alm); border: 1.5px solid var(--ink); border-radius: 999px; padding: 1px 9px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .xp { animation: xppop .6s cubic-bezier(.2,1.6,.4,1); }
+  }
+  @keyframes xppop { 0% { transform: scale(.3) translateY(8px); opacity: 0; } 100% { transform: none; opacity: 1; } }
+
+  /* ders sonu */
+  .donetitle { text-align: center; margin-top: 6px; }
+  .resultbuddy + .donetitle + .hero-note { text-align: center; margin-bottom: 18px; }
+  .lstats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0 20px; }
+  .lstat { border: 2px solid var(--ink); border-radius: 12px; box-shadow: 0 4px 0 var(--ink); padding: 12px 6px; text-align: center; background: var(--paper); }
+  .lstat b { display: block; font-family: var(--display); font-weight: 800; font-size: 24px; }
+  .lstat span { font-size: 12px; color: var(--ink-soft); }
+  .lessonbtn.done { background: var(--green-wash); color: var(--green); border-color: var(--green); box-shadow: 2px 2px 0 var(--green); }
+
   /* ---- alt çubuk düğme sırası ve boş bırakma ---- */
   .btnrow { display: flex; gap: 10px; }
   .btnrow .btn { margin: 0; }
@@ -636,6 +709,13 @@ async function loadBanks() {
       for (const unit in data) {
         const steps = (data[unit] || []).filter(st => st && st.title && st.say &&
           (!st.fig || validFig(st.fig)) && (!st.table || validTable(st.table)));
+        steps.forEach(st => {
+          if (st.check != null) {
+            const ok = [].concat(st.check).filter(validCheck);
+            if (ok.length < [].concat(st.check).length) loadErrors.push(s.key + " ders " + unit + ": geçersiz check atlandı");
+            st.check = ok;
+          }
+        });
         if (steps.length) lessons[s.key][unit] = steps;
       }
     } catch (e) {
@@ -928,9 +1008,10 @@ function renderSubject(key) {
     const kids = [main];
     if (lessons[key] && lessons[key][u.name]) {
       kids.push(el("button", {
-        class: "lessonbtn", "aria-label": u.name + " konu anlatımı",
-        onclick: () => renderLesson(key, u.name, 0)
-      }, ["Konu", el("br"), "anlatımı"]));
+        "aria-label": u.name + " konu anlatımı" + (lessonDone(key, u.name) ? " (tamamlandı)" : ""),
+        class: "lessonbtn" + (lessonDone(key, u.name) ? " done" : ""),
+        onclick: () => { lessonRun = null; renderLesson(key, u.name, 0); }
+      }, lessonDone(key, u.name) ? ["✓ Konu", el("br"), "anlatımı"] : ["Konu", el("br"), "anlatımı"]));
     }
     app.appendChild(el("div", { class: "unitrow" + (u.gold ? " gold" : "") }, kids));
   }
@@ -938,38 +1019,357 @@ function renderSubject(key) {
 
 /* ---------- konu anlatımı ---------- */
 
+// Ders, dil uygulamalarındaki gibi küçük parçalar hâlinde ilerler:
+// her adımın içeriği "vuruş"lara (beat) bölünür ve Devam'a her basışta bir sonraki parça açılır.
+// İki sütunlu tablolar çevrilebilir kartlara, çok sütunlu tablolar dokununca açılan hücrelere dönüşür;
+// araya hızlı kontrol soruları girer ve ders sonunda kısa bir son kontrol ile kutlama ekranı gelir.
+const LESSON_XP = 10;
+
+function lessonKey(key, unit) { return key + "/" + unit; }
+function lessonDone(key, unit) { return !!(store.les && store.les[lessonKey(key, unit)]); }
+
+// adım içeriğini sırayla gösterilecek parçalara böler
+function lessonBeats(key, st, si) {
+  const beats = [];
+  (st.text || []).forEach(t => beats.push({ k: "text", t }));
+  if (st.f && st.f.length) beats.push({ k: "f", f: st.f });
+  if (st.list && st.list.length) {
+    for (let i = 0; i < st.list.length; i += 3) beats.push({ k: "list", items: st.list.slice(i, i + 3), start: i });
+  }
+  if (st.fig) beats.push({ k: "fig" });
+  if (st.table) {
+    const t = st.table;
+    if (t.h.length === 2) {
+      beats.push({ k: "cards" });
+      const auto = tableCheck(t, si);
+      if (auto) beats.push({ k: "check", c: auto, auto: true });
+    } else {
+      beats.push({ k: "table" });
+    }
+  }
+  if (st.tip) beats.push({ k: "tip" });
+  [].concat(st.check || []).forEach(c => beats.push({ k: "check", c }));
+  return beats;
+}
+
+// iki sütunlu tablodan kendiliğinden bir hızlı kontrol sorusu üretir
+function tableCheck(t, seed) {
+  if (t.r.length < 4) return null;
+  const rows = t.r.filter(r => r[0] && r[1]);
+  const row = rows[(seed * 7 + 3) % rows.length];
+  const others = [...new Set(rows.map(r => r[1]).filter(v => v !== row[1]))];
+  if (others.length < 2) return null;
+  const choices = [row[1]].concat(shuffle(others).slice(0, 2));
+  const tr = /türkçe/i.test(t.h[1]);
+  return {
+    q: tr ? "“" + row[0] + "” ne demek?" : "“" + row[0] + "” → " + (t.h[1] || "karşılığı") + "?",
+    choices, answer: 0,
+    why: row[0] + " = " + row[1]
+  };
+}
+
+function validCheck(c) {
+  if (!c || typeof c !== "object" || !c.q) return false;
+  if (typeof c.answer === "boolean") return true;
+  return Array.isArray(c.choices) && c.choices.length >= 2 && Number.isInteger(c.answer) && c.answer >= 0 && c.answer < c.choices.length;
+}
+
+// ders sonundaki son kontrol: konunun soru bankasından iki kısa soru
+function finalChecks(key, unit) {
+  const pool = (banks[key] || []).filter(q => q.unit === unit && (q.type === "mc" || q.type === "fill" || q.type === "tf"));
+  return shuffle(pool).slice(0, 2).map(q => ({
+    q: q.q, src: q.src, table: q.table, fig: q.fig,
+    choices: q.type === "tf" ? null : q.choices, answer: q.answer, why: q.why
+  }));
+}
+
 function renderLesson(key, unit, i) {
   const steps = lessons[key][unit];
-  const st = steps[i];
-  const last = i === steps.length - 1;
   state = null;
+  // ders boyunca kontrol sonuçları burada birikir; ilk adıma dönülse de sıfırlanmaz
+  if (!lessonRun || lessonRun.key !== key || lessonRun.unit !== unit || lessonRun.finished) {
+    lessonRun = { key, unit, ok: 0, total: 0, xp: 0, seen: {}, finished: false };
+  }
+  lessonRun.i = i;
+  if (i >= steps.length) return renderLessonFinal(key, unit);
+  const st = steps[i];
+  const revisit = !!lessonRun.seen[i];
+  lessonRun.seen[i] = true;
+  const beats = lessonBeats(key, st, i);
+  let shown = 0;
+  const lang = subjectLang(key);
+
   setSubject(key);
   app.innerHTML = "";
   window.scrollTo(0, 0);
 
-  app.appendChild(topbar(() => renderSubject(key), (i + 1) + "/" + steps.length));
-  app.appendChild(el("div", { class: "track" }, [el("i", { style: "width:" + (100 * (i + 1) / steps.length) + "%" })]));
-  app.appendChild(el("div", { class: "unitname", text: "Konu anlatımı" }));
-  app.appendChild(el("h1", { class: "lessontitle", text: unit }));
-  app.appendChild(buddy(st.mood || (i === 0 || last ? "happy" : "idle"), st.say).row);
+  const total = steps.length + 1;
+  const bar = el("i", {});
+  app.appendChild(topbar(() => renderSubject(key), (i + 1) + "/" + total));
+  app.appendChild(el("div", { class: "track" }, [bar]));
+  app.appendChild(el("div", { class: "unitname", text: "Konu anlatımı · " + unit }));
+  const mate = buddy(st.mood || (i === 0 ? "happy" : "idle"), st.say);
+  app.appendChild(mate.row);
 
   const card = el("div", { class: "lcard" }, [el("h2", { text: st.title })]);
-  (st.text || []).forEach(t => card.appendChild(el("p", { text: t })));
-  if (st.f && st.f.length) card.appendChild(el("div", { class: "formula" }, st.f.flatMap((t, k) => k ? [el("br"), t] : [t])));
-  if (st.list && st.list.length) card.appendChild(el("ul", {}, st.list.map(t => el("li", { text: t }))));
-  appendMedia(card, st);
-  if (st.tip) card.appendChild(el("p", { class: "tip" }, [el("b", { text: "Dikkat: " }), st.tip]));
   app.appendChild(card);
+
+  let waiting = false; // açık bir kontrol sorusu cevaplanmadan Devam kapalı
+  let next = null;
+  function progress() {
+    const part = beats.length ? shown / beats.length : 1;
+    bar.style.width = (100 * (i + part) / total) + "%";
+  }
+
+  function addBeat(b, animate) {
+    const node = beatNode(b);
+    if (animate) node.classList.add("beatin");
+    card.appendChild(node);
+    shown++;
+    progress();
+    if (animate && node.scrollIntoView) {
+      setTimeout(() => node.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest" }), 30);
+    }
+  }
+
+  function beatNode(b) {
+    if (b.k === "text") return el("p", { text: b.t });
+    if (b.k === "f") return el("div", { class: "formula" }, b.f.flatMap((t, k) => k ? [el("br"), t] : [t]));
+    if (b.k === "list") return el("ul", { class: "beatlist" }, b.items.map(t => el("li", { text: t })));
+    if (b.k === "fig") return el("div", {}, [renderFig(st.fig)]);
+    if (b.k === "tip") return el("p", { class: "tip" }, [el("b", { text: "Dikkat: " }), st.tip]);
+    if (b.k === "cards") return flipCards(st.table, lang, mate);
+    if (b.k === "table") return revealTable(st.table, mate);
+    if (b.k === "check") {
+      if (!revisit) { waiting = true; refreshNext(); }
+      return lessonCheck(b.c, mate, revisit, () => { waiting = false; refreshNext(); });
+    }
+    return el("div", {});
+  }
+
+  // ilk parça hemen; daha önce görülen adımda hepsi açık gelir
+  if (beats.length) {
+    if (revisit) beats.forEach(b => addBeat(b, false));
+    else addBeat(beats[0], false);
+  }
+  progress();
 
   foot.hidden = false;
   foot.className = "";
   footinner.innerHTML = "";
   const back = el("button", { class: "btn side", onclick: () => i ? renderLesson(key, unit, i - 1) : renderSubject(key) },
     [i ? "Önceki" : "Konular"]);
-  const next = last
-    ? el("button", { class: "btn solid main", onclick: () => startRound(key, unit) }, ["Bu konudan soru çöz"])
-    : el("button", { class: "btn solid main", onclick: () => renderLesson(key, unit, i + 1) }, ["Devam"]);
+  next = el("button", { class: "btn solid main", onclick: () => {
+    if (waiting) return;
+    if (shown < beats.length) addBeat(beats[shown], true);
+    else renderLesson(key, unit, i + 1);
+    refreshNext();
+  } }, ["Devam"]);
+  function refreshNext() {
+    if (!next) return;
+    next.disabled = waiting;
+    next.style.opacity = waiting ? ".45" : "1";
+    next.textContent = waiting ? "Önce cevapla" : "Devam";
+  }
   footinner.appendChild(el("div", { class: "btnrow" }, [back, next]));
+  refreshNext();
+}
+let lessonRun = null;
+
+// iki sütunlu tablo → çevrilebilir kelime kartları
+function flipCards(t, lang, mate) {
+  const wrap = el("div", { class: "fcwrap" }, []);
+  const info = el("div", { class: "fcinfo" }, []);
+  const grid = el("div", { class: "fcgrid" }, []);
+  let flipped = 0;
+  const label = () => {
+    info.textContent = flipped === t.r.length
+      ? "Hepsini çevirdin! ✓"
+      : "Kartlara dokun ve çevir · " + flipped + "/" + t.r.length;
+    info.classList.toggle("done", flipped === t.r.length);
+  };
+  t.r.forEach(r => {
+    const front = el("div", { class: "fcface front" }, [el("span", { class: "fctext", text: r[0] })]);
+    const sp = lang ? speakButton(r[0], lang) : null;
+    if (sp) front.appendChild(sp);
+    const backFace = el("div", { class: "fcface back" }, [el("span", { class: "fctext", text: r[1] })]);
+    const c = el("div", { class: "fc", role: "button", tabindex: "0", "aria-label": r[0] + " kartını çevir" }, [
+      el("div", { class: "fcinner" }, [front, backFace])
+    ]);
+    let seen = false;
+    const flip = () => {
+      c.classList.toggle("on");
+      c.setAttribute("aria-label", c.classList.contains("on") ? r[0] + ": " + r[1] : r[0] + " kartını çevir");
+      if (!seen) {
+        seen = true; flipped++; label();
+        if (flipped === t.r.length) mate.say("happy", "Hepsini çevirdin, süper!");
+      }
+    };
+    c.addEventListener("click", flip);
+    c.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
+    grid.appendChild(c);
+  });
+  // başlık satırı ipucu: hangi taraf ön yüz?
+  if (t.h[0] || t.h[1]) wrap.appendChild(el("div", { class: "fchead", text: (t.h[0] || "") + " → " + (t.h[1] || "") }));
+  wrap.appendChild(grid);
+  wrap.appendChild(info);
+  label();
+  return wrap;
+}
+
+// çok sütunlu tablo: ilk sütun açık, diğer hücreler dokununca açılır (önce tahmin et, sonra bak)
+function revealTable(t, mate) {
+  const named = t.h.slice(1).some(h => h);
+  if (!named || t.r.length > 8) return renderTable(t);
+  let hidden = 0;
+  const cells = [];
+  const head = el("tr", {}, t.h.map(c => el("th", { text: c })));
+  const rows = t.r.map(r => el("tr", {}, r.map((c, ci) => {
+    if (ci === 0 || !c) return el("td", { text: c });
+    hidden++;
+    const td = el("td", { class: "hid", tabindex: "0", role: "button", "aria-label": "Gizli hücre, açmak için dokun" }, [el("span", { text: c })]);
+    const open = () => {
+      if (!td.classList.contains("hid")) return;
+      td.classList.remove("hid"); td.classList.add("shown");
+      td.removeAttribute("role"); td.removeAttribute("tabindex"); td.removeAttribute("aria-label");
+      if (--hidden === 0) { allBtn.remove(); mate.say("happy", "Tablonun tamamı açıldı!"); }
+    };
+    td.addEventListener("click", open);
+    td.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    cells.push(open);
+    return td;
+  })));
+  const allBtn = el("button", { class: "revealall", onclick: () => cells.forEach(f => f()) }, ["Hepsini göster"]);
+  return el("div", { class: "revealwrap" }, [
+    el("div", { class: "fcinfo", text: "Önce tahmin et, sonra hücreye dokunup kontrol et." }),
+    el("div", { class: "tablewrap" }, [el("table", { class: "dtable reveal" }, [el("thead", {}, [head]), el("tbody", {}, rows)])]),
+    allBtn
+  ]);
+}
+
+// ders içi hızlı kontrol: hemen geri bildirim, doğruya XP
+function lessonCheck(c, mate, practiceOnly, onDone) {
+  const box = el("div", { class: "lcheck" }, [el("div", { class: "lchead" }, ["⚡ Hızlı kontrol"])]);
+  box.appendChild(el("div", { class: "lcq", text: c.q }));
+  if (c.src) box.appendChild(el("div", { class: "lcsrc", text: c.src }));
+  if (c.fig || c.table) appendMedia(box, c);
+  const opts = c.choices
+    ? shuffle(c.choices.map((t, idx) => ({ t, v: idx })))
+    : [{ t: "Doğru", v: true }, { t: "Yanlış", v: false }];
+  const btns = [];
+  let answered = false;
+  opts.forEach((o, pos) => {
+    const b = el("button", { class: "choice", onclick: () => pick(o, b) }, [
+      el("span", { class: "key", text: c.choices ? KEYS[pos] : (o.v ? "D" : "Y") }),
+      el("span", { class: "label", text: o.t })
+    ]);
+    b.dataset.v = String(o.v);
+    btns.push(b);
+    box.appendChild(b);
+  });
+  const fb = el("div", { class: "lcfb" }, []);
+  box.appendChild(fb);
+  function pick(o, b) {
+    if (answered) return;
+    answered = true;
+    const ok = o.v === c.answer;
+    btns.forEach(x => {
+      x.disabled = true;
+      if (x.dataset.v === String(c.answer)) x.classList.add("ok");
+    });
+    if (!ok) b.classList.add("bad");
+    if (!practiceOnly && lessonRun) {
+      lessonRun.total++;
+      if (ok) { lessonRun.ok++; lessonRun.xp += LESSON_XP; }
+    }
+    box.classList.add(ok ? "good" : "miss");
+    fb.innerHTML = "";
+    fb.appendChild(el("div", { class: "lcverdict" }, [ok ? "Doğru!" : "Olmadı."].concat(ok && !practiceOnly ? [el("span", { class: "xp", text: "+" + LESSON_XP + " XP" })] : [])));
+    if (c.why) fb.appendChild(el("div", { class: "why", text: c.why }));
+    mate.say(ok ? "happy" : "sad", mikeyLine(ok ? "happy" : "sad"));
+    onDone();
+  }
+  return box;
+}
+
+// son adım: konunun bankasından iki soru, ardından kutlama
+function renderLessonFinal(key, unit) {
+  const steps = lessons[key][unit];
+  const total = steps.length + 1;
+  const checks = lessonRun.finalChecks || (lessonRun.finalChecks = finalChecks(key, unit));
+  if (!checks.length) return renderLessonDone(key, unit);
+  setSubject(key);
+  app.innerHTML = "";
+  window.scrollTo(0, 0);
+  app.appendChild(topbar(() => renderSubject(key), total + "/" + total));
+  const bar = el("i", { style: "width:" + (100 * (total - 1) / total) + "%" });
+  app.appendChild(el("div", { class: "track" }, [bar]));
+  app.appendChild(el("div", { class: "unitname", text: "Konu anlatımı · " + unit }));
+  const mate = buddy("idle", "Son kontrol! Bakalım ne kadar aklında kaldı.");
+  app.appendChild(mate.row);
+  const card = el("div", { class: "lcard" }, [el("h2", { text: "Son kontrol" })]);
+  app.appendChild(card);
+  const revisit = !!lessonRun.finalSeen;
+  lessonRun.finalSeen = true;
+  let left = revisit ? 0 : checks.length;
+  checks.forEach(c => card.appendChild(lessonCheck(c, mate, revisit, () => {
+    left--;
+    bar.style.width = (100 * (total - left / checks.length) / total) + "%";
+    refresh();
+  })));
+
+  foot.hidden = false;
+  foot.className = "";
+  footinner.innerHTML = "";
+  const back = el("button", { class: "btn side", onclick: () => renderLesson(key, unit, steps.length - 1) }, ["Önceki"]);
+  const next = el("button", { class: "btn solid main", onclick: () => { if (left <= 0) renderLessonDone(key, unit); } }, ["Bitir"]);
+  function refresh() {
+    next.disabled = left > 0;
+    next.style.opacity = left > 0 ? ".45" : "1";
+    next.textContent = left > 0 ? "Önce cevapla" : "Dersi bitir";
+  }
+  footinner.appendChild(el("div", { class: "btnrow" }, [back, next]));
+  refresh();
+}
+
+function renderLessonDone(key, unit) {
+  const run = lessonRun || { ok: 0, total: 0, xp: 0 };
+  run.finished = true;
+  store.les = store.les || {};
+  const k = lessonKey(key, unit);
+  const prev = store.les[k] || { n: 0, best: 0 };
+  store.les[k] = { n: prev.n + 1, best: Math.max(prev.best, run.xp) };
+  touchDay();
+  saveStore();
+
+  setSubject(key);
+  app.innerHTML = "";
+  window.scrollTo(0, 0);
+  app.appendChild(topbar(() => renderSubject(key), ""));
+  app.appendChild(el("div", { class: "track" }, [el("i", { style: "width:100%" })]));
+  const perfect = run.total > 0 && run.ok === run.total;
+  app.appendChild(buddy("happy", perfect ? "Kusursuz! Hepsini bildin!" : "Dersi bitirdin, harikasın!", "resultbuddy").row);
+  app.appendChild(el("h1", { class: "lessontitle donetitle" }, [highlight("Ders tamamlandı!")]));
+  app.appendChild(el("p", { class: "hero-note", text: unit }));
+  const stats = el("div", { class: "lstats" }, [
+    el("div", { class: "lstat" }, [el("b", { text: "+" + run.xp }), el("span", { text: "XP" })]),
+    el("div", { class: "lstat" }, [el("b", { text: run.ok + "/" + run.total }), el("span", { text: "kontrol doğru" })]),
+    el("div", { class: "lstat" }, [el("b", { text: run.total ? Math.round(100 * run.ok / run.total) + "%" : "–" }), el("span", { text: "isabet" })])
+  ]);
+  app.appendChild(stats);
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    stats.querySelectorAll(".lstat").forEach((s, n) => s.animate(
+      [{ transform: "translateY(12px) scale(.9)", opacity: 0 }, { transform: "none", opacity: 1 }],
+      { duration: 380, delay: 150 + n * 120, easing: "cubic-bezier(.2,1.5,.4,1)", fill: "backwards" }));
+  }
+
+  foot.hidden = false;
+  foot.className = "";
+  footinner.innerHTML = "";
+  footinner.appendChild(el("div", { class: "btnrow" }, [
+    el("button", { class: "btn side", onclick: () => { lessonRun = null; renderSubject(key); } }, ["Konular"]),
+    el("button", { class: "btn solid main", onclick: () => { lessonRun = null; startRound(key, unit); } }, ["Bu konudan soru çöz"])
+  ]));
 }
 
 /* ---------- tur seçimi ---------- */

@@ -34,7 +34,13 @@ German sentences can be played aloud with the speaker button, using the browser'
 Not sure about an answer? Leave the question blank with **Boş bırak**. The correct answer and explanation are shown right away, skipped questions do not lower your accuracy, and they come back more often in later rounds. Wrong and skipped questions can be repeated together at the end of a round.
 
 ### Topic Lessons
-Every topic has a short, step-by-step lesson narrated by Mikey. Open it with the **Konu anlatımı** button next to a topic; each step has a key idea, formulas, examples, and figures where helpful, and the last step leads straight into a practice round for that topic.
+Every topic has a short, step-by-step lesson narrated by Mikey. Open it with the **Konu anlatımı** button next to a topic. Lessons borrow tricks from popular language apps to stay short and interactive:
+
+- **Bite-sized steps:** each step opens one piece at a time; **Devam** reveals the next paragraph, formula, short list, or figure before moving on.
+- **Flip cards:** two-column vocabulary tables become cards you tap to flip. German words can be played aloud.
+- **Guess, then reveal:** in larger tables such as verb conjugations, only the first column is shown; tap a cell to check your guess, or use **Hepsini göster**.
+- **Quick checks:** short questions appear inside the lesson with instant feedback and XP. They come from the step's `check` field or are generated from its vocabulary table, and **Devam** waits until you answer.
+- **Final check and celebration:** each lesson ends with two questions from the topic's question bank and a summary of XP and accuracy. Finished lessons are marked with a check on the topic list, and the last screen leads straight into a practice round.
 
 ### Study Buddy
 Mikey, a cheerful little mascot with a round golden head, joins every question and lesson across all subjects. It cheers when you get an answer right, gets sad when you miss one, stays calm when you skip, and celebrates answer streaks and finished rounds.
@@ -61,7 +67,7 @@ Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, `do
 
 Any question can also carry an optional `fig` (a figure as a list of drawing commands) or `table` (`h` for the header row and `r` for the rows), a `gold` flag (`true` for golden exam questions), plus a `src` sentence shown in a card and a `tts` text that can be played aloud in the subject's language. In `build` questions, words other than nouns are stored in lowercase; the app capitalizes the first word of the sentence, and answers are compared without regard to case or punctuation. Figure coordinates are precomputed from the actual measurements given in each question.
 
-Topic lessons live in `docs/lessons-bio.json`, `docs/lessons-kim.json`, `docs/lessons-mat.json`, and `docs/lessons-alm.json`, keyed by topic name. Each step has Mikey's line (`say`) and a `title`, plus optional `text`, formulas (`f`), a bullet `list`, `fig`, `table`, a `tip`, and a mascot `mood`.
+Topic lessons live in `docs/lessons-bio.json`, `docs/lessons-kim.json`, `docs/lessons-mat.json`, and `docs/lessons-alm.json`, keyed by topic name. Each step has Mikey's line (`say`) and a `title`, plus optional `text`, formulas (`f`), a bullet `list`, `fig`, `table`, a `tip`, a mascot `mood`, and a quick `check` (a question with `q`, `choices`, a zero-based `answer`, and `why`; leave out `choices` and use a boolean `answer` for true/false). A check can also be a list of such questions.
 
 The app validates question and lesson entries when loading them and skips invalid entries.
 
