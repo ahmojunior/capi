@@ -259,6 +259,34 @@
   .buildline.bad .wchip { border-color: var(--red); background: var(--red-wash); box-shadow: 0 3px 0 var(--red); }
   .wchip[disabled] { cursor: default; }
 
+  /* ---- dinleme ---- */
+  .listenrow { display: flex; gap: 10px; margin: 12px 0 4px; }
+  .listenbtn {
+    display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+    min-height: 56px; padding: 10px 16px; flex: 1;
+    font-family: var(--body); font-size: 17px; font-weight: 700;
+    background: var(--hl); color: #11161E; border: 2px solid var(--ink); border-radius: 12px; box-shadow: 0 4px 0 var(--ink);
+  }
+  .listenbtn svg { width: 26px; height: 26px; }
+  .listenbtn.slow { flex: 0 0 auto; background: var(--paper); color: var(--ink); font-size: 15px; font-weight: 600; }
+  .listenbtn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+  .lgrid { display: flex; flex-direction: column; gap: 8px; margin: 6px 0 4px; }
+  .lrow { display: flex; align-items: center; gap: 12px; padding: 6px 10px; border: 2px solid var(--grid); border-radius: 10px; }
+  .lbin {
+    width: 82px; min-height: 44px; flex: none; text-align: center;
+    font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--ink);
+    background: var(--paper); border: 2px solid var(--ink); border-radius: 8px;
+  }
+  .lbin:focus { outline: none; background: color-mix(in srgb, var(--hl) 30%, var(--paper)); }
+  .lunit { flex: 1; font-size: 16px; }
+  .lrow.ok { border-color: var(--green); background: var(--green-wash); }
+  .lrow.ok .lbin { border-color: var(--green); color: var(--green); }
+  .lrow.bad { border-color: var(--red); background: var(--red-wash); }
+  .lrow.bad .lbin { border-color: var(--red); color: var(--red); text-decoration: line-through; }
+  .lfix { font-family: var(--display); font-weight: 800; color: var(--green); }
+  .transcript { font-size: 15px; margin: 12px 0 6px; display: flex; gap: 10px; align-items: flex-start; }
+  .transcript .speak { flex: none; }
+
   /* ---- kutu eşleştirme ---- */
   .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 4px; }
   .tcol { display: flex; flex-direction: column; gap: 12px; }
@@ -606,6 +634,12 @@ const KEYS = ["a", "b", "c", "d", "e"];
 const app = document.getElementById("app");
 const foot = document.getElementById("foot");
 const footinner = document.getElementById("footinner");
+// sabit alt çubuk uzadıkça (ör. uzun açıklamalar) sayfanın altı onun arkasında kalmasın
+if ("ResizeObserver" in window) {
+  new ResizeObserver(() => {
+    app.style.paddingBottom = foot.hidden ? "" : Math.max(160, foot.offsetHeight + 24) + "px";
+  }).observe(foot);
+}
 
 let banks = {};
 let lessons = {};
@@ -670,6 +704,10 @@ function validate(q, i, key) {
     if (q.pairs.some(p => !Array.isArray(p) || p.length !== 2)) return bad("pair biçimi bozuk");
   } else if (q.type === "order") {
     if (!Array.isArray(q.items) || q.items.length < 2) return bad("items eksik");
+  } else if (q.type === "listen") {
+    if (typeof q.tts !== "string" || !q.tts) return bad("tts eksik");
+    if (!Array.isArray(q.blanks) || !q.blanks.length) return bad("blanks eksik");
+    if (q.blanks.some(b => !b || !b.label || normNumber(b.answer) === "")) return bad("blank biçimi bozuk");
   } else if (q.type === "build") {
     const words = (a) => Array.isArray(a) && a.length > 0 && a.every(w => typeof w === "string" && w);
     if (!words(q.words) || q.words.length < 2) return bad("words eksik");
@@ -777,7 +815,7 @@ function setSubject(key) {
 
 // tarayıcının konuşma sentezi; destek yoksa dinleme düğmesi hiç görünmez
 const canSpeak = "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function";
-function speak(text, lang) {
+function speak(text, lang, rate) {
   if (!canSpeak || !text) return;
   try {
     speechSynthesis.cancel();
@@ -786,7 +824,7 @@ function speak(text, lang) {
     const base = lang.slice(0, 2).toLowerCase();
     const voice = speechSynthesis.getVoices().find(v => (v.lang || "").toLowerCase().startsWith(base));
     if (voice) u.voice = voice;
-    u.rate = 0.9;
+    u.rate = rate || 0.9;
     speechSynthesis.speak(u);
   } catch (e) { /* ses kapalı ya da desteklenmiyor */ }
 }
@@ -1446,6 +1484,7 @@ function renderQuestion() {
   else if (q.type === "tiles") renderTiles(body, q);
   else if (q.type === "order") renderOrder(body, q);
   else if (q.type === "build") renderBuild(body, q);
+  else if (q.type === "listen") renderListen(body, q);
 
   setFooterCheck();
 }
@@ -1471,6 +1510,7 @@ function refreshCheck() {
 function hasAnswer() {
   const q = state.list[state.i];
   const s = state.sel;
+  if (q.type === "listen") return s && s.vals.every(v => normNumber(v) !== "");
   if (q.type === "mc" || q.type === "fill" || q.type === "tf") return s !== null && s !== undefined;
   if (q.type === "match") return s && s.map && q.pairs.every((_, i) => s.map[i] != null);
   if (q.type === "order") return s && s.placed && s.placed.length === q.items.length;
@@ -1646,6 +1686,49 @@ function renderTiles(body, q) {
   }
 }
 
+// dinleme: metin sesli okunur (yazısı gizli), öğrenci her satırdaki miktarı rakamla yazar.
+// "zweihundert" duyulunca 200 yazılır; rakam dışındaki her şey (birim, boşluk) karşılaştırmada yok sayılır
+const NUMBER_WORDS = { ein: "1", eins: "1", eine: "1", bir: "1" };
+function normNumber(v) {
+  const t = String(v == null ? "" : v).trim().toLocaleLowerCase("tr");
+  if (NUMBER_WORDS[t]) return NUMBER_WORDS[t];
+  return t.replace(/[^0-9]/g, "").replace(/^0+(?=\d)/, "");
+}
+function renderListen(body, q) {
+  const lang = subjectLang(state.key);
+  state.sel = { vals: q.blanks.map(() => "") };
+  const sel = state.sel;
+  const played = () => { if (state.buddy && state.buddy.mood() === "idle") state.buddy.say("think", "İyi dinle, sayılara dikkat!"); };
+  if (canSpeak && lang) {
+    const play = el("button", { class: "listenbtn", type: "button", onclick: () => { speak(q.tts, lang, 0.85); played(); } }, []);
+    play.innerHTML = SPEAK_ICON + "<span>Dinle</span>";
+    const slow = el("button", { class: "listenbtn slow", type: "button", onclick: () => { speak(q.tts, lang, 0.55); played(); } }, ["🐢 Yavaş dinle"]);
+    body.appendChild(el("div", { class: "listenrow" }, [play, slow]));
+  } else {
+    // ses yoksa metni yazılı göster: sayılar yine kelimeyle yazılı olduğu için soru anlamını korur
+    body.appendChild(el("div", { class: "srccard" }, [q.tts]));
+  }
+  body.appendChild(el("div", { class: "hint", text: "Duyduğun miktarları rakamla yaz. Örneğin „zweihundert“ → 200." }));
+  const list = el("div", { class: "lgrid" }, []);
+  const inputs = [];
+  q.blanks.forEach((b, i) => {
+    const inp = el("input", {
+      type: "text", inputmode: "numeric", autocomplete: "off", class: "lbin",
+      "aria-label": b.label + " miktarı", maxlength: "6"
+    });
+    inp.addEventListener("input", () => { sel.vals[i] = inp.value; refreshCheck(); });
+    inp.addEventListener("keydown", e => {
+      if (e.key !== "Enter") return;
+      e.preventDefault();
+      if (inputs[i + 1]) inputs[i + 1].focus();
+      else { inp.blur(); if (hasAnswer()) submit(); }
+    });
+    inputs.push(inp);
+    list.appendChild(el("label", { class: "lrow" }, [inp, el("span", { class: "lunit", text: b.label })]));
+  });
+  body.appendChild(list);
+}
+
 // cümle kurma: bankadaki kelime bloklarına dokunarak cevap satırına dizilir.
 // kullanılan bloğun yeri bankada boş kalır, böylece bloklar kaymaz; satırdaki bloğa dokununca geri döner
 function renderBuild(body, q) {
@@ -1695,6 +1778,7 @@ function normSentence(words) {
 
 function isCorrect(q) {
   const s = state.sel;
+  if (q.type === "listen") return q.blanks.every((b, i) => normNumber(s.vals[i]) === normNumber(b.answer));
   if (q.type === "mc" || q.type === "fill" || q.type === "tf") return s === q.answer;
   // metne göre karşılaştır: aynı karşılığı taşıyan iki çift (ör. iki "Fiziksel") de doğru sayılsın
   if (q.type === "match") return q.pairs.every((p, i) => q.pairs[s.map[i]][1] === p[1]);
@@ -1713,6 +1797,7 @@ function correctText(q) {
   if (q.type === "match" || q.type === "tiles") return q.pairs.map(p => p[0] + " = " + p[1]).join(", ");
   if (q.type === "order") return q.items.map((t, i) => (i + 1) + ". " + t).join("  ");
   if (q.type === "build") return buildSentence(q.words);
+  if (q.type === "listen") return q.blanks.map(b => b.answer + " " + b.label).join(", ");
   return "";
 }
 
@@ -1757,6 +1842,23 @@ function revealChoices(q) {
     if (line && state.sel) line.classList.add(isCorrect(q) ? "ok" : "bad");
   } else if (q.type === "tiles") {
     app.querySelectorAll(".tile").forEach(b => { b.disabled = true; b.classList.remove("sel"); });
+  } else if (q.type === "listen") {
+    // her kutu ayrı ayrı: doğrular yeşil, yanlış ya da boş olanların yanında doğrusu
+    app.querySelectorAll(".lrow").forEach((row, i) => {
+      const inp = row.querySelector("input");
+      inp.disabled = true;
+      const good = normNumber(inp.value) === normNumber(q.blanks[i].answer);
+      row.classList.add(good ? "ok" : "bad");
+      if (!good) row.appendChild(el("span", { class: "lfix", text: "→ " + q.blanks[i].answer }));
+    });
+    // cevaptan sonra metnin yazılısı soru alanında açılır
+    const grid = app.querySelector(".lgrid");
+    if (grid && !app.querySelector(".transcript")) {
+      const tr = el("div", { class: "transcript srccard" }, [el("div", {}, [el("b", { text: "Dinlediğin metin: " }), q.tts])]);
+      const sp = speakButton(q.tts, subjectLang(state.key));
+      if (sp) tr.prepend(sp);
+      grid.after(tr);
+    }
   }
 }
 
@@ -1778,6 +1880,8 @@ function showVerdict(q, kind) {
   footinner.appendChild(row);
   if (kind === "ok" && q.type === "tiles" && state.sel && state.sel.mistakes) {
     footinner.appendChild(el("div", { class: "answer", text: "Hepsini buldun! Arada " + state.sel.mistakes + " kez yanlış eşleştirme denedin." }));
+  } else if (kind !== "ok" && q.type === "listen") {
+    footinner.appendChild(el("div", { class: "answer", text: "Doğrularını kutuların yanında görebilirsin." }));
   } else if (kind !== "ok") {
     footinner.appendChild(el("div", { class: "answer", text: "Doğru cevap: " + correctText(q) }));
   }

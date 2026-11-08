@@ -24,6 +24,7 @@ Practice with multiple-choice, fill-in-the-blank, true/false, matching, and orde
 The German course follows the *Essen und Trinken* unit: food vocabulary and articles, plurals, meals, likes and dislikes, shopping, prices, and recipes. Besides the usual question types it adds two Duolingo-style exercises:
 
 - **Sentence building:** tap word blocks to build a sentence. The bank includes distractor blocks, a used block leaves an empty space behind, and other correct word orders are accepted too.
+- **Listening:** a German text is read aloud (normal or slow) without showing it, and the student types the amounts they hear as digits, for example *zweihundert* → 200. Each box is checked separately, and the text appears after answering. Without speech support the text is shown instead.
 - **Tile matching:** match pictures or words in a two-column grid. Correct pairs turn green right away, wrong pairs flash red and shake so the student can try again, and the question counts as correct once every pair is found.
 
 The German course also has a **★ Altın Sorular** (golden questions) topic with the questions the teacher announced for the exam: a recipe with its ingredients and key verbs, *Was kostet / Was kosten*, *gerne / nicht gerne*, and breakfast and favorite food. It sits at the top of the topic list with its own lesson, and its questions carry an *Altın soru* badge in mixed rounds too.
@@ -53,7 +54,7 @@ See your topic accuracy and daily study streak. Progress is saved in your browse
 - **Biology:** 90 questions across 4 topics
 - **Chemistry:** 201 questions across 7 topics
 - **Math:** 192 questions across 6 topics
-- **German:** 211 questions across 8 topics
+- **German:** 212 questions across 8 topics
 
 Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, `docs/questions-mat.json`, and `docs/questions-alm.json`. Each entry includes an `id`, `unit`, `type`, question text (`q`), and explanation (`why`), plus fields specific to its question type:
 
@@ -64,6 +65,7 @@ Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, `do
 | `match`, `tiles` | `pairs`, each containing two values to match |
 | `order` | `items` in the correct order |
 | `build` | `words` in the correct order, optional distractor `extra` words, and optional `alt` word orders that also count as correct |
+| `listen` | `tts` text read aloud and `blanks`, each with a `label` shown next to the box and a numeric `answer` |
 
 Any question can also carry an optional `fig` (a figure as a list of drawing commands) or `table` (`h` for the header row and `r` for the rows), a `gold` flag (`true` for golden exam questions), plus a `src` sentence shown in a card and a `tts` text that can be played aloud in the subject's language. In `build` questions, words other than nouns are stored in lowercase; the app capitalizes the first word of the sentence, and answers are compared without regard to case or punctuation. Figure coordinates are precomputed from the actual measurements given in each question.
 
