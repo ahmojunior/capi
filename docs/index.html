@@ -259,6 +259,61 @@
   .buildline.bad .wchip { border-color: var(--red); background: var(--red-wash); box-shadow: 0 3px 0 var(--red); }
   .wchip[disabled] { cursor: default; }
 
+  /* ---- kelime ipuçları ---- */
+  .gw {
+    font: inherit; color: inherit; letter-spacing: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+    text-decoration: underline dotted; text-decoration-thickness: 2px; text-underline-offset: .2em;
+    text-decoration-color: var(--ink-soft); border-radius: 3px;
+  }
+  .gw:hover, .gw.open { text-decoration-color: var(--ink); background: color-mix(in srgb, var(--hl) 35%, transparent); }
+  .gpop {
+    position: absolute; z-index: 20; max-width: min(280px, calc(100vw - 16px));
+    background: var(--ink); color: var(--paper); border-radius: 12px; padding: 9px 12px 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25); font-family: var(--body); font-size: 15px; line-height: 1.3;
+  }
+  .gpop::after {
+    content: ""; position: absolute; left: calc(var(--ax) - 7px); border: 7px solid transparent;
+  }
+  .gpop.up::after { top: 100%; border-top-color: var(--ink); }
+  .gpop.down::after { bottom: 100%; border-bottom-color: var(--ink); }
+  .gtop { display: flex; align-items: center; gap: 10px; justify-content: space-between; }
+  .gtop b { font-family: var(--display); font-size: 16px; }
+  .gmean { margin-top: 2px; }
+  .gpop .speak { width: 32px; height: 32px; padding: 4px; flex: none; }
+  .gpop .speak svg { width: 18px; height: 18px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .gpop { animation: gpopin .18s ease-out; }
+  }
+  @keyframes gpopin { from { opacity: 0; transform: translateY(4px) scale(.96); } to { opacity: 1; transform: none; } }
+
+  /* ---- dinleme ---- */
+  .listenrow { display: flex; gap: 10px; margin: 12px 0 4px; }
+  .listenbtn {
+    display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+    min-height: 56px; padding: 10px 16px; flex: 1;
+    font-family: var(--body); font-size: 17px; font-weight: 700;
+    background: var(--hl); color: #11161E; border: 2px solid var(--ink); border-radius: 12px; box-shadow: 0 4px 0 var(--ink);
+  }
+  .listenbtn svg { width: 26px; height: 26px; }
+  .listenbtn.slow { flex: 0 0 auto; background: var(--paper); color: var(--ink); font-size: 15px; font-weight: 600; }
+  .listenbtn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+  .lgrid { display: flex; flex-direction: column; gap: 8px; margin: 6px 0 4px; }
+  .lrow { display: flex; align-items: center; gap: 12px; padding: 6px 10px; border: 2px solid var(--grid); border-radius: 10px; }
+  .lbin {
+    width: 82px; min-height: 44px; flex: none; text-align: center;
+    font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--ink);
+    background: var(--paper); border: 2px solid var(--ink); border-radius: 8px;
+  }
+  .lbin:focus { outline: none; background: color-mix(in srgb, var(--hl) 30%, var(--paper)); }
+  .lunit { flex: 1; font-size: 16px; }
+  .lrow.ok { border-color: var(--green); background: var(--green-wash); }
+  .lrow.ok .lbin { border-color: var(--green); color: var(--green); }
+  .lrow.bad { border-color: var(--red); background: var(--red-wash); }
+  .lrow.bad .lbin { border-color: var(--red); color: var(--red); text-decoration: line-through; }
+  .lfix { font-family: var(--display); font-weight: 800; color: var(--green); }
+  .transcript { font-size: 15px; margin: 12px 0 6px; display: flex; gap: 10px; align-items: flex-start; }
+  .transcript .speak { flex: none; }
+
   /* ---- kutu eşleştirme ---- */
   .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 4px; }
   .tcol { display: flex; flex-direction: column; gap: 12px; }
@@ -598,7 +653,7 @@ const SUBJECTS = [
   { key: "bio", name: "Biyoloji",  file: "questions-bio.json", lessons: "lessons-bio.json" },
   { key: "kim", name: "Kimya",     file: "questions-kim.json", lessons: "lessons-kim.json" },
   { key: "mat", name: "Matematik", file: "questions-mat.json", lessons: "lessons-mat.json" },
-  { key: "alm", name: "Almanca",   file: "questions-alm.json", lessons: "lessons-alm.json", lang: "de-DE" }
+  { key: "alm", name: "Almanca",   file: "questions-alm.json", lessons: "lessons-alm.json", lang: "de-DE", glossary: "glossary-alm.json" }
 ];
 const ROUND_SIZE = 10;
 const KEYS = ["a", "b", "c", "d", "e"];
@@ -606,9 +661,16 @@ const KEYS = ["a", "b", "c", "d", "e"];
 const app = document.getElementById("app");
 const foot = document.getElementById("foot");
 const footinner = document.getElementById("footinner");
+// sabit alt çubuk uzadıkça (ör. uzun açıklamalar) sayfanın altı onun arkasında kalmasın
+if ("ResizeObserver" in window) {
+  new ResizeObserver(() => {
+    app.style.paddingBottom = foot.hidden ? "" : Math.max(160, foot.offsetHeight + 24) + "px";
+  }).observe(foot);
+}
 
 let banks = {};
 let lessons = {};
+let glossaries = {};
 let loadErrors = [];
 let state = null;
 
@@ -670,6 +732,10 @@ function validate(q, i, key) {
     if (q.pairs.some(p => !Array.isArray(p) || p.length !== 2)) return bad("pair biçimi bozuk");
   } else if (q.type === "order") {
     if (!Array.isArray(q.items) || q.items.length < 2) return bad("items eksik");
+  } else if (q.type === "listen") {
+    if (typeof q.tts !== "string" || !q.tts) return bad("tts eksik");
+    if (!Array.isArray(q.blanks) || !q.blanks.length) return bad("blanks eksik");
+    if (q.blanks.some(b => !b || !b.label || normNumber(b.answer) === "")) return bad("blank biçimi bozuk");
   } else if (q.type === "build") {
     const words = (a) => Array.isArray(a) && a.length > 0 && a.every(w => typeof w === "string" && w);
     if (!words(q.words) || q.words.length < 2) return bad("words eksik");
@@ -699,6 +765,19 @@ async function loadBanks() {
     } catch (e) {
       banks[s.key] = [];
       loadErrors.push(s.name + " yüklenemedi: " + e.message);
+    }
+    // kelime sözlüğü isteğe bağlıdır: yoksa kelimelerin altı çizilmez
+    if (s.glossary) {
+      try {
+        const res = await fetch(s.glossary, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        const g = new Map();
+        for (const k in data) if (typeof data[k] === "string" && data[k]) g.set(k.toLocaleLowerCase("de"), data[k]);
+        glossaries[s.key] = g;
+      } catch (e) {
+        loadErrors.push(s.name + " sözlüğü yüklenemedi: " + e.message);
+      }
     }
     // konu anlatımı isteğe bağlıdır: dosya yoksa düğme görünmez
     try {
@@ -777,7 +856,7 @@ function setSubject(key) {
 
 // tarayıcının konuşma sentezi; destek yoksa dinleme düğmesi hiç görünmez
 const canSpeak = "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function";
-function speak(text, lang) {
+function speak(text, lang, rate) {
   if (!canSpeak || !text) return;
   try {
     speechSynthesis.cancel();
@@ -786,7 +865,7 @@ function speak(text, lang) {
     const base = lang.slice(0, 2).toLowerCase();
     const voice = speechSynthesis.getVoices().find(v => (v.lang || "").toLowerCase().startsWith(base));
     if (voice) u.voice = voice;
-    u.rate = 0.9;
+    u.rate = rate || 0.9;
     speechSynthesis.speak(u);
   } catch (e) { /* ses kapalı ya da desteklenmiyor */ }
 }
@@ -802,6 +881,96 @@ function subjectLang(key) {
   const s = SUBJECTS.find(x => x.key === key);
   return s && s.lang;
 }
+
+/* ---------- kelime ipuçları ---------- */
+
+// sözlükteki kelimelerin altı noktalı çizilir; dokununca küçük bir balonda anlamı çıkar.
+// cevabı ele verecek ipuçları gösterilmez: anlamı soran sorular ve anlamı soruda/şıklarda geçen kelimeler
+const MEANING_ASK = /demek|anlam|nasıl söylenir|nasıl okunur|kaçtır|kaç\?/i;
+function glossParts(gloss) {
+  const tr = gloss.includes("·") ? gloss.split("·").pop() : gloss;
+  return tr.split(/[,/()]/).map(t => t.trim().toLocaleLowerCase("tr")).filter(t => t.length >= 2);
+}
+function hintFilter(key, q) {
+  if (!glossaries[key] || q.nohint || MEANING_ASK.test(q.q)) return () => false;
+  const pool = [q.q, (q.choices || []).join(" | "), correctText(q), (q.pairs || []).flat().join(" | ")]
+    .join(" | ").toLocaleLowerCase("tr");
+  // tek kelimelik cevap balonun başlığında geçmesin (ör. "___ Apfel" sorusunda "der Apfel")
+  const ans = String(correctText(q)).trim().toLocaleLowerCase("de");
+  const inHead = gloss => gloss.includes("·") && gloss.split("·")[0].toLocaleLowerCase("de").split(/\s+/).includes(ans);
+  return (gloss) => !inHead(gloss) && !glossParts(gloss).some(t => pool.includes(t));
+}
+// metni kelimelere böler; sözlükte olanlar (iki kelimelik kalıplar önce) düğmeye dönüşür
+function glossText(text, key, allow) {
+  const g = glossaries[key];
+  if (!g || !text) return [text || ""];
+  const re = /[\p{L}]+(?:['’][\p{L}]+)?/gu;
+  const toks = [];
+  let m;
+  while ((m = re.exec(text))) toks.push({ w: m[0], i: m.index, end: m.index + m[0].length });
+  const out = [];
+  let pos = 0;
+  const base = w => w.split(/['’]/)[0].toLocaleLowerCase("de");
+  for (let k = 0; k < toks.length; k++) {
+    let hit = null;
+    // iki kelimelik kalıp (ör. "wie viel", "guten Appetit") yalnızca arada sadece boşluk varsa
+    if (k + 1 < toks.length && /^\s+$/.test(text.slice(toks[k].end, toks[k + 1].i))) {
+      const two = base(toks[k].w) + " " + base(toks[k + 1].w);
+      if (g.has(two) && allow(g.get(two))) hit = { from: toks[k].i, to: toks[k + 1].end, gloss: g.get(two), skip: 1 };
+    }
+    if (!hit) {
+      const one = base(toks[k].w);
+      const word = toks[k].w.split(/['’]/)[0];
+      if (g.has(one) && allow(g.get(one))) hit = { from: toks[k].i, to: toks[k].i + word.length, gloss: g.get(one), skip: 0 };
+    }
+    if (!hit) continue;
+    if (hit.from > pos) out.push(text.slice(pos, hit.from));
+    out.push(glossWord(text.slice(hit.from, hit.to), hit.gloss, key));
+    pos = hit.to;
+    k += hit.skip;
+  }
+  if (pos < text.length) out.push(text.slice(pos));
+  return out;
+}
+function glossWord(word, gloss, key) {
+  const b = el("button", { class: "gw", type: "button", "aria-haspopup": "dialog", "aria-label": word + ": anlamını göster" }, [word]);
+  b.addEventListener("click", e => { e.stopPropagation(); openGloss(b, word, gloss, key); });
+  return b;
+}
+let glossPop = null;
+function closeGloss() {
+  if (!glossPop) return;
+  glossPop.btn.classList.remove("open");
+  glossPop.node.remove();
+  glossPop = null;
+}
+function openGloss(btn, word, gloss, key) {
+  const same = glossPop && glossPop.btn === btn;
+  closeGloss();
+  if (same) return;
+  const [head, mean] = gloss.includes("·") ? gloss.split("·").map(t => t.trim()) : [word, gloss];
+  const node = el("div", { class: "gpop", role: "dialog", "aria-label": word }, [
+    el("div", { class: "gtop" }, [el("b", { text: head })]),
+    el("div", { class: "gmean", text: mean })
+  ]);
+  const sp = speakButton(head, subjectLang(key));
+  if (sp) node.firstChild.appendChild(sp);
+  node.addEventListener("click", e => e.stopPropagation());
+  document.body.appendChild(node);
+  btn.classList.add("open");
+  glossPop = { btn, node };
+  // kelimenin üstüne (yer yoksa altına) ve ekran içine yerleştir
+  const r = btn.getBoundingClientRect(), w = node.offsetWidth, h = node.offsetHeight;
+  const left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), innerWidth - w - 8);
+  const above = r.top - h - 10 > 8;
+  node.style.left = left + scrollX + "px";
+  node.style.top = (above ? r.top - h - 10 : r.bottom + 10) + scrollY + "px";
+  node.classList.add(above ? "up" : "down");
+  node.style.setProperty("--ax", (r.left + r.width / 2 - left) + "px");
+}
+document.addEventListener("click", closeGloss);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeGloss(); });
+addEventListener("resize", closeGloss);
 
 /* ---------- şekil ve tablo ---------- */
 
@@ -983,6 +1152,7 @@ function renderHome() {
 }
 
 function renderSubject(key) {
+  closeGloss();
   const subj = SUBJECTS.find(s => s.key === key);
   setSubject(key);
   foot.hidden = true;
@@ -1084,6 +1254,7 @@ function finalChecks(key, unit) {
 }
 
 function renderLesson(key, unit, i) {
+  closeGloss();
   const steps = lessons[key][unit];
   state = null;
   // ders boyunca kontrol sonuçları burada birikir; ilk adıma dönülse de sıfırlanmaz
@@ -1408,6 +1579,7 @@ function startRound(key, unit, fixedList) {
 /* ---------- soru ekranı ---------- */
 
 function renderQuestion() {
+  closeGloss();
   const q = state.list[state.i];
   setSubject(state.key);
 
@@ -1426,13 +1598,14 @@ function renderQuestion() {
   state.buddy = buddy("idle", opener);
   app.appendChild(state.buddy.row);
   app.appendChild(el("div", { class: "unitname" }, q.gold ? [q.unit, el("span", { class: "goldtag", text: "★ Altın soru" })] : [q.unit]));
-  app.appendChild(el("h1", { class: "qtext", text: q.q }));
+  const hints = hintFilter(state.key, q);
+  app.appendChild(el("h1", { class: "qtext" }, glossText(q.q, state.key, hints)));
   // src: çevrilecek ya da okunacak cümle; tts varsa yanında dinleme düğmesi çıkar
   if (q.src) {
     const card = el("div", { class: "srccard" }, []);
     const sp = q.tts ? speakButton(q.tts, subjectLang(state.key)) : null;
     if (sp) card.appendChild(sp);
-    card.appendChild(el("div", { class: "txt", text: q.src }));
+    card.appendChild(el("div", { class: "txt" }, glossText(q.src, state.key, hints)));
     app.appendChild(card);
   }
   appendMedia(app, q);
@@ -1446,6 +1619,7 @@ function renderQuestion() {
   else if (q.type === "tiles") renderTiles(body, q);
   else if (q.type === "order") renderOrder(body, q);
   else if (q.type === "build") renderBuild(body, q);
+  else if (q.type === "listen") renderListen(body, q);
 
   setFooterCheck();
 }
@@ -1471,6 +1645,7 @@ function refreshCheck() {
 function hasAnswer() {
   const q = state.list[state.i];
   const s = state.sel;
+  if (q.type === "listen") return s && s.vals.every(v => normNumber(v) !== "");
   if (q.type === "mc" || q.type === "fill" || q.type === "tf") return s !== null && s !== undefined;
   if (q.type === "match") return s && s.map && q.pairs.every((_, i) => s.map[i] != null);
   if (q.type === "order") return s && s.placed && s.placed.length === q.items.length;
@@ -1646,6 +1821,49 @@ function renderTiles(body, q) {
   }
 }
 
+// dinleme: metin sesli okunur (yazısı gizli), öğrenci her satırdaki miktarı rakamla yazar.
+// "zweihundert" duyulunca 200 yazılır; rakam dışındaki her şey (birim, boşluk) karşılaştırmada yok sayılır
+const NUMBER_WORDS = { ein: "1", eins: "1", eine: "1", bir: "1" };
+function normNumber(v) {
+  const t = String(v == null ? "" : v).trim().toLocaleLowerCase("tr");
+  if (NUMBER_WORDS[t]) return NUMBER_WORDS[t];
+  return t.replace(/[^0-9]/g, "").replace(/^0+(?=\d)/, "");
+}
+function renderListen(body, q) {
+  const lang = subjectLang(state.key);
+  state.sel = { vals: q.blanks.map(() => "") };
+  const sel = state.sel;
+  const played = () => { if (state.buddy && state.buddy.mood() === "idle") state.buddy.say("think", "İyi dinle, sayılara dikkat!"); };
+  if (canSpeak && lang) {
+    const play = el("button", { class: "listenbtn", type: "button", onclick: () => { speak(q.tts, lang, 0.85); played(); } }, []);
+    play.innerHTML = SPEAK_ICON + "<span>Dinle</span>";
+    const slow = el("button", { class: "listenbtn slow", type: "button", onclick: () => { speak(q.tts, lang, 0.55); played(); } }, ["🐢 Yavaş dinle"]);
+    body.appendChild(el("div", { class: "listenrow" }, [play, slow]));
+  } else {
+    // ses yoksa metni yazılı göster: sayılar yine kelimeyle yazılı olduğu için soru anlamını korur
+    body.appendChild(el("div", { class: "srccard" }, [q.tts]));
+  }
+  body.appendChild(el("div", { class: "hint", text: "Duyduğun miktarları rakamla yaz. Örneğin „zweihundert“ → 200." }));
+  const list = el("div", { class: "lgrid" }, []);
+  const inputs = [];
+  q.blanks.forEach((b, i) => {
+    const inp = el("input", {
+      type: "text", inputmode: "numeric", autocomplete: "off", class: "lbin",
+      "aria-label": b.label + " miktarı", maxlength: "6"
+    });
+    inp.addEventListener("input", () => { sel.vals[i] = inp.value; refreshCheck(); });
+    inp.addEventListener("keydown", e => {
+      if (e.key !== "Enter") return;
+      e.preventDefault();
+      if (inputs[i + 1]) inputs[i + 1].focus();
+      else { inp.blur(); if (hasAnswer()) submit(); }
+    });
+    inputs.push(inp);
+    list.appendChild(el("label", { class: "lrow" }, [inp, el("span", { class: "lunit", text: b.label })]));
+  });
+  body.appendChild(list);
+}
+
 // cümle kurma: bankadaki kelime bloklarına dokunarak cevap satırına dizilir.
 // kullanılan bloğun yeri bankada boş kalır, böylece bloklar kaymaz; satırdaki bloğa dokununca geri döner
 function renderBuild(body, q) {
@@ -1695,6 +1913,7 @@ function normSentence(words) {
 
 function isCorrect(q) {
   const s = state.sel;
+  if (q.type === "listen") return q.blanks.every((b, i) => normNumber(s.vals[i]) === normNumber(b.answer));
   if (q.type === "mc" || q.type === "fill" || q.type === "tf") return s === q.answer;
   // metne göre karşılaştır: aynı karşılığı taşıyan iki çift (ör. iki "Fiziksel") de doğru sayılsın
   if (q.type === "match") return q.pairs.every((p, i) => q.pairs[s.map[i]][1] === p[1]);
@@ -1713,6 +1932,7 @@ function correctText(q) {
   if (q.type === "match" || q.type === "tiles") return q.pairs.map(p => p[0] + " = " + p[1]).join(", ");
   if (q.type === "order") return q.items.map((t, i) => (i + 1) + ". " + t).join("  ");
   if (q.type === "build") return buildSentence(q.words);
+  if (q.type === "listen") return q.blanks.map(b => b.answer + " " + b.label).join(", ");
   return "";
 }
 
@@ -1757,6 +1977,23 @@ function revealChoices(q) {
     if (line && state.sel) line.classList.add(isCorrect(q) ? "ok" : "bad");
   } else if (q.type === "tiles") {
     app.querySelectorAll(".tile").forEach(b => { b.disabled = true; b.classList.remove("sel"); });
+  } else if (q.type === "listen") {
+    // her kutu ayrı ayrı: doğrular yeşil, yanlış ya da boş olanların yanında doğrusu
+    app.querySelectorAll(".lrow").forEach((row, i) => {
+      const inp = row.querySelector("input");
+      inp.disabled = true;
+      const good = normNumber(inp.value) === normNumber(q.blanks[i].answer);
+      row.classList.add(good ? "ok" : "bad");
+      if (!good) row.appendChild(el("span", { class: "lfix", text: "→ " + q.blanks[i].answer }));
+    });
+    // cevaptan sonra metnin yazılısı soru alanında açılır
+    const grid = app.querySelector(".lgrid");
+    if (grid && !app.querySelector(".transcript")) {
+      const tr = el("div", { class: "transcript srccard" }, [el("div", {}, [el("b", { text: "Dinlediğin metin: " })].concat(glossText(q.tts, state.key, () => true)))]);
+      const sp = speakButton(q.tts, subjectLang(state.key));
+      if (sp) tr.prepend(sp);
+      grid.after(tr);
+    }
   }
 }
 
@@ -1778,6 +2015,8 @@ function showVerdict(q, kind) {
   footinner.appendChild(row);
   if (kind === "ok" && q.type === "tiles" && state.sel && state.sel.mistakes) {
     footinner.appendChild(el("div", { class: "answer", text: "Hepsini buldun! Arada " + state.sel.mistakes + " kez yanlış eşleştirme denedin." }));
+  } else if (kind !== "ok" && q.type === "listen") {
+    footinner.appendChild(el("div", { class: "answer", text: "Doğrularını kutuların yanında görebilirsin." }));
   } else if (kind !== "ok") {
     footinner.appendChild(el("div", { class: "answer", text: "Doğru cevap: " + correctText(q) }));
   }
