@@ -29,6 +29,8 @@ The German course follows the *Essen und Trinken* unit: food vocabulary and arti
 
 The German course also has a **★ Altın Sorular** (golden questions) topic with the questions the teacher announced for the exam: a recipe with its ingredients and key verbs, *Was kostet / Was kosten*, *gerne / nicht gerne*, and breakfast and favorite food. It sits at the top of the topic list with its own lesson, and its questions carry an *Altın soru* badge in mixed rounds too.
 
+German words in questions have **word hints**: words found in the German glossary are underlined with a dotted line, and tapping one opens a small pop-up with its meaning (nouns with their article) and a button to hear it. To avoid giving answers away, hints are hidden in questions that ask for a meaning and for words whose meaning appears in the question or its choices. The glossary lives in `docs/glossary-alm.json` and maps lowercase words or two-word phrases to their meaning, written as `der Apfel · elma` for nouns; a question can turn hints off with `"nohint": true`.
+
 German sentences can be played aloud with the speaker button, using the browser's built-in speech synthesis.
 
 ### Skipping Questions
@@ -93,6 +95,7 @@ The app uses `fetch` to load the question banks, so it must be served over HTTP 
 
 ```text
 docs/
+├── glossary-alm.json
 ├── index.html
 ├── lessons-alm.json
 ├── lessons-bio.json
