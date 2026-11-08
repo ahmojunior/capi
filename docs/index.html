@@ -276,11 +276,15 @@
   .tile.done.big { opacity: .75; }
   .tile.err { border-color: var(--red); background: var(--red-wash); color: var(--red); box-shadow: 0 4px 0 var(--red); }
   @media (prefers-reduced-motion: no-preference) {
-    .tile.err { animation: tileshake .35s ease; }
+    /* yanlış eş: kırmızı iki kez yanıp söner ve sallanır */
+    .tile.err { animation: tileshake .35s ease, tileblink .8s steps(1, end); }
     .tile.done { animation: tilepop .3s ease; }
   }
   @keyframes tileshake { 0%, 100% { transform: none; } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
   @keyframes tilepop { 50% { transform: scale(1.05); } }
+  @keyframes tileblink {
+    25%, 75% { border-color: var(--ink); background: var(--paper); color: var(--ink); box-shadow: 0 4px 0 var(--ink); }
+  }
 
   /* ---- alt çubuk ---- */
   footer {
@@ -1190,7 +1194,8 @@ function renderOrder(body, q) {
 }
 
 // kutu eşleştirme: iki sütun karışık dizilir; bir kutuya, sonra karşı sütundaki eşine dokunulur.
-// doğru eş anında yeşile döner, yanlış eş kırmızı sallanır ve hata sayılır; hepsi bulununca cevap kendiliğinden kontrol edilir
+// doğru eş anında yeşile döner, yanlış eş kırmızı yanıp söner ve öğrenci yeniden dener;
+// hepsi bulununca soru doğru sayılır (hatalı denemeler sadece bilgi olarak gösterilir)
 const EMOJI_ONLY = /^[\p{Extended_Pictographic}‍️\s]+$/u;
 function renderTiles(body, q) {
   body.appendChild(el("div", { class: "hint", text: "Bir kutuya, sonra karşı sütundaki eşine dokun." }));
@@ -1235,7 +1240,7 @@ function renderTiles(body, q) {
         x.b.classList.remove("err");
         void x.b.offsetWidth;
         x.b.classList.add("err");
-        setTimeout(() => x.b.classList.remove("err"), 600);
+        setTimeout(() => x.b.classList.remove("err"), 800);
       });
     }
   }
@@ -1294,7 +1299,7 @@ function isCorrect(q) {
   // metne göre karşılaştır: aynı karşılığı taşıyan iki çift (ör. iki "Fiziksel") de doğru sayılsın
   if (q.type === "match") return q.pairs.every((p, i) => q.pairs[s.map[i]][1] === p[1]);
   if (q.type === "order") return s.placed.every((p, i) => p.i === i);
-  if (q.type === "tiles") return s.mistakes === 0;
+  if (q.type === "tiles") return s.done === q.pairs.length;
   if (q.type === "build") {
     const got = normSentence(s.placed.map(p => p.t));
     return [q.words].concat(q.alt || []).some(a => normSentence(a) === got);
@@ -1371,8 +1376,8 @@ function showVerdict(q, kind) {
   const sp = q.type === "build" ? speakButton(buildSentence(q.words), subjectLang(state.key)) : null;
   if (sp) row.appendChild(sp);
   footinner.appendChild(row);
-  if (kind === "bad" && q.type === "tiles" && state.sel) {
-    footinner.appendChild(el("div", { class: "answer", text: state.sel.mistakes + " hatalı eşleştirme denedin. Doğrusu: " + correctText(q) }));
+  if (kind === "ok" && q.type === "tiles" && state.sel && state.sel.mistakes) {
+    footinner.appendChild(el("div", { class: "answer", text: "Hepsini buldun! Arada " + state.sel.mistakes + " kez yanlış eşleştirme denedin." }));
   } else if (kind !== "ok") {
     footinner.appendChild(el("div", { class: "answer", text: "Doğru cevap: " + correctText(q) }));
   }
