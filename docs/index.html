@@ -379,6 +379,20 @@
   }
   .lessonbtn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--ink); }
 
+  /* ---- altın sorular: sınavda çıkacak sorular ---- */
+  .unitrow.gold {
+    background: color-mix(in srgb, var(--alm) 16%, transparent);
+    border: 2px solid var(--ink); box-shadow: var(--shadow);
+    padding: 0 10px; margin: 8px 0 14px;
+  }
+  .unitrow.gold .nm { font-weight: 700; }
+  .unitrow.gold .mini > i { background: var(--alm); }
+  .goldtag {
+    display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .02em;
+    background: var(--alm); color: #11161E; border: 1.5px solid var(--ink);
+    padding: 1px 7px; border-radius: 2px; margin-left: 8px; vertical-align: 1px;
+  }
+
   /* ---- konu anlatımı ---- */
   .lessontitle { font-family: var(--display); font-weight: 800; font-size: clamp(24px, 6.6vw, 30px); line-height: 1.1; letter-spacing: -.02em; margin: 4px 0 0; }
   .lcard {
@@ -565,6 +579,7 @@ function validate(q, i, key) {
   const bad = (m) => { loadErrors.push(where + ": " + m); return false; };
   if (!q || typeof q !== "object") return bad("nesne değil");
   if (!q.id || !q.q || !q.why || !q.unit) return bad("id/q/why/unit eksik");
+  if (q.gold != null && typeof q.gold !== "boolean") return bad("gold boolean değil");
   if (q.type === "mc" || q.type === "fill") {
     if (!Array.isArray(q.choices) || q.choices.length < 2) return bad("choices eksik");
     if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= q.choices.length) return bad("answer index geçersiz");
@@ -655,12 +670,15 @@ function highlight(text) {
 function units(key) {
   const m = new Map();
   for (const q of banks[key]) {
-    const u = m.get(q.unit) || { name: q.unit, n: 0, c: 0, w: 0 };
+    const u = m.get(q.unit) || { name: q.unit, n: 0, c: 0, w: 0, gold: false };
     const s = stat(q.id);
     u.n++; u.c += s.c; u.w += s.w;
+    if (q.gold) u.gold = true;
     m.set(q.unit, u);
   }
-  return [...m.values()];
+  // altın soru içeren konular listenin en üstünde
+  const list = [...m.values()];
+  return list.filter(u => u.gold).concat(list.filter(u => !u.gold));
 }
 function pct(u) {
   const t = u.c + u.w;
@@ -897,11 +915,11 @@ function renderSubject(key) {
     const p = pct(u);
     const main = el("button", { class: "unit", onclick: () => startRound(key, u.name) }, [
       el("div", { class: "row" }, [
-        el("span", { class: "nm", text: u.name }),
+        el("span", { class: "nm" }, u.gold ? ["★ " + u.name] : [u.name]),
         el("span", { class: "pct", text: p == null ? "yeni" : "%" + p })
       ]),
       el("div", { class: "mini" }, [el("i", { style: "width:" + (p == null ? 0 : p) + "%" })]),
-      el("div", { class: "cnt", text: u.n + " soru" })
+      el("div", { class: "cnt", text: u.n + " soru" + (u.gold ? " · sınavda çıkacak" : "") })
     ]);
     const kids = [main];
     if (lessons[key] && lessons[key][u.name]) {
@@ -910,7 +928,7 @@ function renderSubject(key) {
         onclick: () => renderLesson(key, u.name, 0)
       }, ["Konu", el("br"), "anlatımı"]));
     }
-    app.appendChild(el("div", { class: "unitrow" }, kids));
+    app.appendChild(el("div", { class: "unitrow" + (u.gold ? " gold" : "") }, kids));
   }
 }
 
@@ -1003,7 +1021,7 @@ function renderQuestion() {
     : mikeyLine("start");
   state.buddy = buddy("idle", opener);
   app.appendChild(state.buddy.row);
-  app.appendChild(el("div", { class: "unitname", text: q.unit }));
+  app.appendChild(el("div", { class: "unitname" }, q.gold ? [q.unit, el("span", { class: "goldtag", text: "★ Altın soru" })] : [q.unit]));
   app.appendChild(el("h1", { class: "qtext", text: q.q }));
   // src: çevrilecek ya da okunacak cümle; tts varsa yanında dinleme düğmesi çıkar
   if (q.src) {
