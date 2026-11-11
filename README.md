@@ -10,7 +10,7 @@
 
 ## <div align="center">About the Project</div>
 
-**capi** is a Turkish-language study app for reviewing biology, chemistry, math, and German with short, interactive quizzes. Choose a subject, practice across all its topics or focus on one, and review explanations after each answer.
+**capi** is a Turkish-language study app for reviewing biology, chemistry, math, German, and Turkish literature with short, interactive quizzes. Choose a subject, practice across all its topics or focus on one, and review explanations after each answer.
 
 ## <div align="center">Features</div>
 
@@ -18,7 +18,7 @@
 Start a mixed round or choose a specific topic. Each round contains up to 10 questions, and questions you miss or have not seen are more likely to appear in future rounds.
 
 ### Multiple Question Types
-Practice with multiple-choice, fill-in-the-blank, true/false, matching, and ordering questions. Many math questions come with a geometric figure, chart, or data table. Every answer includes feedback and an explanation.
+Practice with multiple-choice, fill-in-the-blank, true/false, matching, ordering, and open-ended written questions. Many math questions come with a geometric figure, chart, or data table. Every answer includes feedback and an explanation.
 
 ### German Practice
 The German course follows the *Essen und Trinken* unit: food vocabulary and articles, plurals, meals, likes and dislikes, shopping, prices, and recipes. Besides the usual question types it adds two Duolingo-style exercises:
@@ -32,6 +32,15 @@ The German course also has a **★ Altın Sorular** (golden questions) topic wit
 German words in questions have **word hints**: words found in the German glossary are underlined with a dotted line, and tapping one opens a small pop-up with its meaning (nouns with their article) and a button to hear it. To avoid giving answers away, hints are hidden in questions that ask for a meaning and for words whose meaning appears in the question or its choices. The glossary lives in `docs/glossary-alm.json` and maps lowercase words or two-word phrases to their meaning, written as `der Apfel · elma` for nouns; a question can turn hints off with `"nohint": true`.
 
 German sentences can be played aloud with the speaker button, using the browser's built-in speech synthesis.
+
+### Literature Practice
+The Edebiyat (Turkish language and literature) course is built for the 10th grade first-term first written exam (Maarif Modeli, *Sözün Ezgisi*): literary periods, poetry and meter, rhyme and *redif*, *koşuk* and *sagu*, *koşma* and the *âşık* tradition, *türkü* and *mani*, Sufi poetry, folk tales, noun and adjective phrases, and spelling. Definitions follow the MEB textbook.
+
+- **Yazılı Provası:** a topic at the top of the list with the questions from MEB's *Yazılıya Hazırlanıyorum* sample exam and a practice exam, each with its poem or text and a lesson on how points are given.
+- **Open-ended questions:** the student writes the answer (or ticks *Cevabı kâğıda yazdım* after writing it on paper), then sees a model answer and the scoring checklist from the answer key. The student ticks the points the answer covers, and the question counts as correct at 70% of the points or more.
+- **Word hints:** old words in poems such as *yad*, *arif*, *mihman*, or *felek* are underlined; tapping one shows its meaning. The glossary lives in `docs/glossary-edb.json`.
+
+Poems keep their line breaks in question cards and lessons; lesson steps can show a poem with the `poem` field.
 
 ### Skipping Questions
 Not sure about an answer? Leave the question blank with **Boş bırak**. The correct answer and explanation are shown right away, skipped questions do not lower your accuracy, and they come back more often in later rounds. Wrong and skipped questions can be repeated together at the end of a round.
@@ -57,8 +66,9 @@ See your topic accuracy and daily study streak. Progress is saved in your browse
 - **Chemistry:** 201 questions across 7 topics
 - **Math:** 192 questions across 6 topics
 - **German:** 212 questions across 8 topics
+- **Literature:** 249 questions across 12 topics
 
-Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, `docs/questions-mat.json`, and `docs/questions-alm.json`. Each entry includes an `id`, `unit`, `type`, question text (`q`), and explanation (`why`), plus fields specific to its question type:
+Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, `docs/questions-mat.json`, `docs/questions-alm.json`, and `docs/questions-edb.json`. Each entry includes an `id`, `unit`, `type`, question text (`q`), and explanation (`why`), plus fields specific to its question type:
 
 | Type | Answer data |
 | --- | --- |
@@ -68,10 +78,11 @@ Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, `do
 | `order` | `items` in the correct order |
 | `build` | `words` in the correct order, optional distractor `extra` words, and optional `alt` word orders that also count as correct |
 | `listen` | `tts` text read aloud and `blanks`, each with a `label` shown next to the box and a numeric `answer` |
+| `write` | `rubric`, a list of scoring points (`t` text and `p` points), and an optional `model` answer |
 
 Any question can also carry an optional `fig` (a figure as a list of drawing commands) or `table` (`h` for the header row and `r` for the rows), a `gold` flag (`true` for golden exam questions), plus a `src` sentence shown in a card and a `tts` text that can be played aloud in the subject's language. In `build` questions, words other than nouns are stored in lowercase; the app capitalizes the first word of the sentence, and answers are compared without regard to case or punctuation. Figure coordinates are precomputed from the actual measurements given in each question.
 
-Topic lessons live in `docs/lessons-bio.json`, `docs/lessons-kim.json`, `docs/lessons-mat.json`, and `docs/lessons-alm.json`, keyed by topic name. Each step has Mikey's line (`say`) and a `title`, plus optional `text`, formulas (`f`), a bullet `list`, `fig`, `table`, a `tip`, a mascot `mood`, and a quick `check` (a question with `q`, `choices`, a zero-based `answer`, and `why`; leave out `choices` and use a boolean `answer` for true/false). A check can also be a list of such questions.
+Topic lessons live in `docs/lessons-bio.json`, `docs/lessons-kim.json`, `docs/lessons-mat.json`, `docs/lessons-alm.json`, and `docs/lessons-edb.json`, keyed by topic name. Each step has Mikey's line (`say`) and a `title`, plus optional `poem`, `text`, formulas (`f`), a bullet `list`, `fig`, `table`, a `tip`, a mascot `mood`, and a quick `check` (a question with `q`, `choices`, a zero-based `answer`, and `why`; leave out `choices` and use a boolean `answer` for true/false). A check can also be a list of such questions.
 
 The app validates question and lesson entries when loading them and skips invalid entries.
 
@@ -96,13 +107,16 @@ The app uses `fetch` to load the question banks, so it must be served over HTTP 
 ```text
 docs/
 ├── glossary-alm.json
+├── glossary-edb.json
 ├── index.html
 ├── lessons-alm.json
 ├── lessons-bio.json
+├── lessons-edb.json
 ├── lessons-kim.json
 ├── lessons-mat.json
 ├── questions-alm.json
 ├── questions-bio.json
+├── questions-edb.json
 ├── questions-kim.json
 └── questions-mat.json
 ```
