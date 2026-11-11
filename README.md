@@ -36,7 +36,7 @@ German sentences can be played aloud with the speaker button, using the browser'
 ### Literature Practice
 The Edebiyat (Turkish language and literature) course is built for the 10th grade first-term first written exam (Maarif Modeli, *Sözün Ezgisi*): literary periods, poetry and meter, rhyme and *redif*, *koşuk* and *sagu*, *koşma* and the *âşık* tradition, *türkü* and *mani*, Sufi poetry, folk tales, noun and adjective phrases, and spelling. Definitions follow the MEB textbook.
 
-- **Yazılı Provası:** a topic at the top of the list with the questions from MEB's *Yazılıya Hazırlanıyorum* sample exam and a practice exam, each with its poem or text and a lesson on how points are given.
+- **Yazılı Provası:** a topic at the top of the list with original questions modeled on the open-ended written exam format (word meaning from context, dating a poem, T diagrams, harmony, noun and adjective phrases, a storyboard, spelling), each with its poem or text and a lesson on how points are given. The texts are either public-domain folk poems (Yunus Emre, Köroğlu, Karacaoğlan, anonymous *türkü*s, *Alp Er Tunga Sagusu*) or written for the app, such as a *koşuk*-style poem, a *mani*, and the tale *Altın Başak*.
 - **Open-ended questions:** the student writes the answer (or ticks *Cevabı kâğıda yazdım* after writing it on paper), then sees a model answer and the scoring checklist from the answer key. The student ticks the points the answer covers, and the question counts as correct at 70% of the points or more.
 - **Word hints:** old words in poems such as *yad*, *arif*, *mihman*, or *felek* are underlined; tapping one shows its meaning. The glossary lives in `docs/glossary-edb.json`.
 
@@ -66,7 +66,7 @@ See your topic accuracy and daily study streak. Progress is saved in your browse
 - **Chemistry:** 201 questions across 7 topics
 - **Math:** 192 questions across 6 topics
 - **German:** 212 questions across 8 topics
-- **Literature:** 249 questions across 12 topics
+- **Literature:** 244 questions across 12 topics
 
 Question banks live in `docs/questions-bio.json`, `docs/questions-kim.json`, `docs/questions-mat.json`, `docs/questions-alm.json`, and `docs/questions-edb.json`. Each entry includes an `id`, `unit`, `type`, question text (`q`), and explanation (`why`), plus fields specific to its question type:
 
