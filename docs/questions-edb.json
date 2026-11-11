@@ -1,0 +1,4265 @@
+[
+ {
+  "id": "edb-yp-01",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 1. soru (10 puan): Dizelerdeki altı çizili “yad eller” ve “arif ol” söz gruplarının anlamını bağlamdan tahmin ediniz.",
+  "src": "Dinle sana bir nasihat edeyim\nHatırdan gönülden geçici olma\nYiğidin başına bir iş gelince\nOnu yad ellere açıcı olma\n\nMecliste arif ol kelamı dinle\nEl iki söylerse sen birin söyle\nElinden geldikçe sen eylik eyle\nHatıra dokunup yıkıcı olma\n                    Karacaoğlan",
+  "rubric": [
+   {
+    "t": "“Yad eller”i bağlama uygun açıkladım: yabancılar, el âlem, başkaları",
+    "p": 5
+   },
+   {
+    "t": "“Arif ol”u bağlama uygun açıkladım: anlayışlı ol, nerede nasıl konuşacağını bil, olgun ol",
+    "p": 5
+   }
+  ],
+  "model": "Yad eller: Yabancılar, el âlem, başkaları, yakın olmayan kimseler.\nArif olmak: Anlayışlı olmak; nerede nasıl davranacağını ve konuşacağını bilmek; olgun ve feraset sahibi olmak.",
+  "why": "Sadece “uzak yerler” ya da sadece “akıllı olmak” gibi yüzeysel sözlük anlamı yazarsan yarım puan alırsın. Anlamı şiirdeki bağlama oturt: Yiğidin derdini yabancılara açma; mecliste anlayışlı ol, söz dinle."
+ },
+ {
+  "id": "edb-yp-02",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Karacaoğlan'ın dizelerinde geçen “Onu yad ellere açıcı olma” dizesinde “yad eller” ne anlama gelir?",
+  "src": "Dinle sana bir nasihat edeyim\nHatırdan gönülden geçici olma\nYiğidin başına bir iş gelince\nOnu yad ellere açıcı olma\n\nMecliste arif ol kelamı dinle\nEl iki söylerse sen birin söyle\nElinden geldikçe sen eylik eyle\nHatıra dokunup yıkıcı olma\n                    Karacaoğlan",
+  "choices": [
+   "Yabancılar, başkaları",
+   "Uzak memleketler",
+   "Yaşlı insanlar",
+   "Düşman askerleri"
+  ],
+  "answer": 0,
+  "why": "Yad = yabancı. “Yad eller” bağlamda yabancılar, el âlem demektir: Yiğidin başına gelen işi başkalarına açma."
+ },
+ {
+  "id": "edb-yp-03",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "“Mecliste arif ol kelamı dinle” dizesinde “arif ol” sözüyle şair ne öğütlüyor?",
+  "src": "Dinle sana bir nasihat edeyim\nHatırdan gönülden geçici olma\nYiğidin başına bir iş gelince\nOnu yad ellere açıcı olma\n\nMecliste arif ol kelamı dinle\nEl iki söylerse sen birin söyle\nElinden geldikçe sen eylik eyle\nHatıra dokunup yıkıcı olma\n                    Karacaoğlan",
+  "choices": [
+   "Anlayışlı ve olgun ol, nerede ne konuşacağını bil",
+   "Çok konuş, herkese fikrini söyle",
+   "Mecliste şiir oku",
+   "Zengin ol, saygı gör"
+  ],
+  "answer": 0,
+  "why": "Arif: anlayışlı, sezgisi güçlü, olgun kişi. Hemen ardından “El iki söylerse sen birin söyle” der; yani az ve yerinde konuş."
+ },
+ {
+  "id": "edb-yp-04",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 2a (4 puan): Öğrenciler kopuza benzeyen bir çalgıyla, halka olup bu dizeleri okuyor. Türk edebiyatının hangi dönemini canlandırıyorlar? Gerekçesiyle açıklayınız.",
+  "src": "Bağlam: Öğrenci kopuza benzeyen bir çalgı alır, arkadaşlarını halka şeklinde oturtur ve dizeleri ritimle okur.\n\nYüce dağa yol açar\nSert kayayı kol biçer\nDar boğazı ok geçer\nEr meydanında belli\n\nKükreyen sel taşkındır\nTitreyen el pişkindir\nTunç bilekler şişkindir\nYiğit harmanda belli",
+  "rubric": [
+   {
+    "t": "Dönemi doğru adlandırdım: İslamiyet Öncesi Türk Edebiyatı / Sözlü Dönem",
+    "p": 2
+   },
+   {
+    "t": "Gerekçe yazdım: kopuz eşliğinde, ezgiyle ve halka şeklinde toplanıp sözlü okunuyor",
+    "p": 2
+   }
+  ],
+  "model": "İslamiyet Öncesi Türk Edebiyatı'nın Sözlü Dönemi canlandırılıyor. Çünkü şiir, kopuza benzeyen bir çalgı eşliğinde, belli bir ritimle ve halka şeklinde toplanan bir topluluğa sözlü olarak okunuyor. Bu, ozan/kam/baksıların toylarda kopuzla koşuk söylemesini hatırlatır.",
+  "why": "Sadece dönemi yazıp gerekçe göstermezsen ya da sadece gerekçe yazıp dönemi adlandırmazsan 2 puan alırsın."
+ },
+ {
+  "id": "edb-yp-05",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 2b (16 puan): Dizelerden örnek vererek canlandırılan dönemin şiir özelliklerinden dört tanesini yazınız.",
+  "src": "Yüce dağa yol açar\nSert kayayı kol biçer\nDar boğazı ok geçer\nEr meydanında belli\n\nKükreyen sel taşkındır\nTitreyen el pişkindir\nTunç bilekler şişkindir\nYiğit harmanda belli",
+  "rubric": [
+   {
+    "t": "1. özellik: adı + dizelerden örnek (ör. dörtlük nazım birimi: şiir iki dörtlükten oluşur)",
+    "p": 4
+   },
+   {
+    "t": "2. özellik: adı + örnek (ör. hece ölçüsü: her dizede 7 hece var)",
+    "p": 4
+   },
+   {
+    "t": "3. özellik: adı + örnek (ör. redif: “-ar/-er”, “-dır/-dir”, “-da belli”)",
+    "p": 4
+   },
+   {
+    "t": "4. özellik: adı + örnek (ör. yarım kafiye: “ç” ve “n” sesleri)",
+    "p": 4
+   }
+  ],
+  "model": "İstenen dört özellik şunlardan seçilebilir:\n1. Ezgili ve sözlüdür: kopuza benzeyen çalgıyla okunmuştur.\n2. Nazım birimi dörtlüktür: şiir iki dörtlükten oluşur.\n3. Hece ölçüsü kullanılmıştır: her dizede 7 hece vardır (Yü-ce-da-ğa-yol-a-çar).\n4. Kahramanlık/yiğitlik teması işlenmiştir: er meydanı, tunç bilekler, yiğit.\n5. Redif kullanılmıştır: 1. dörtlükte “-ar/-er”, 2. dörtlükte “-dır/-dir”, son dizelerde “-da belli”.\n6. Yarım kafiye kullanılmıştır: 1. dörtlükte “ç” (açar, biçer, geçer), 2. dörtlükte ve son dizelerde “n”.\n7. Asonans (a, e, i ünlüleri) ve aliterasyon (k, r ünsüzleri) ile ahenk sağlanmıştır.",
+  "why": "Her madde 4 puan: özelliğin adı 2 puan, dizelerden örnek 2 puan. Örneksiz yazılan özellik ya da terimi yazılmayan örnek yarım puan alır."
+ },
+ {
+  "id": "edb-yp-06",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Bu dizelerde her dizede kaç hece vardır?",
+  "src": "Yüce dağa yol açar\nSert kayayı kol biçer\nDar boğazı ok geçer\nEr meydanında belli\n\nKükreyen sel taşkındır\nTitreyen el pişkindir\nTunç bilekler şişkindir\nYiğit harmanda belli",
+  "choices": [
+   "7",
+   "8",
+   "11",
+   "6"
+  ],
+  "answer": 0,
+  "why": "Yü-ce-da-ğa-yol-a-çar: 7 hece. Ünlüleri saymak yeter (ü, e, a, a, o, a, a). 7'li hece, koşuk ve sagunun en tipik ölçüsüdür."
+ },
+ {
+  "id": "edb-yp-07",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "İlk dörtlükteki “açar, biçer, geçer” sözcüklerinde redif ve kafiye hangisinde doğru verilmiştir?",
+  "src": "Yüce dağa yol açar\nSert kayayı kol biçer\nDar boğazı ok geçer\nEr meydanında belli\n\nKükreyen sel taşkındır\nTitreyen el pişkindir\nTunç bilekler şişkindir\nYiğit harmanda belli",
+  "choices": [
+   "Redif: -ar/-er · Kafiye: ç (yarım kafiye)",
+   "Redif: -çar/-çer · Kafiye: yok",
+   "Redif: yok · Kafiye: -ar/-er (tam kafiye)",
+   "Redif: ç · Kafiye: -ar/-er"
+  ],
+  "answer": 0,
+  "why": "Önce redif: aç-ar, biç-er, geç-er → “-ar/-er” aynı görevli geniş zaman eki = redif. Kökte kalan “ç” sesi = yarım kafiye. MEB cevap anahtarı da böyle."
+ },
+ {
+  "id": "edb-yp-08",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "MEB cevap anahtarına göre ikinci dörtlükteki “taşkındır, pişkindir, şişkindir” sözcüklerinde redif hangisidir?",
+  "src": "Yüce dağa yol açar\nSert kayayı kol biçer\nDar boğazı ok geçer\nEr meydanında belli\n\nKükreyen sel taşkındır\nTitreyen el pişkindir\nTunç bilekler şişkindir\nYiğit harmanda belli",
+  "choices": [
+   "-dır/-dir",
+   "-kındır/-kindir",
+   "-ındır",
+   "Redif yoktur"
+  ],
+  "answer": 0,
+  "why": "Ek-fiil “-dır/-dir” aynı görevde tekrar ettiği için redif; kalan “n” sesi yarım kafiyedir. Her iki dörtlüğün son dizelerinde ise “-da belli” redif, “n” yarım kafiyedir."
+ },
+ {
+  "id": "edb-yp-09",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Bu dizelerde hangi tema ön plandadır?",
+  "src": "Yüce dağa yol açar\nSert kayayı kol biçer\nDar boğazı ok geçer\nEr meydanında belli\n\nKükreyen sel taşkındır\nTitreyen el pişkindir\nTunç bilekler şişkindir\nYiğit harmanda belli",
+  "choices": [
+   "Kahramanlık, yiğitlik",
+   "Ayrılık",
+   "Ölüm",
+   "Doğa sevgisi"
+  ],
+  "answer": 0,
+  "why": "Er meydanı, tunç bilekler, yiğit, kükreyen sel… Kahramanlık (epik) teması öne çıkar. MEB'e göre tema maddesi de bir özellik olarak puan alır."
+ },
+ {
+  "id": "edb-yp-10",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "tf",
+  "q": "Bu dizelerde “a, e, i” ünlülerinin tekrarı asonans; “k, r” ünsüzlerinin tekrarı aliterasyon oluşturur.",
+  "src": "Yüce dağa yol açar\nSert kayayı kol biçer\nDar boğazı ok geçer\nEr meydanında belli\n\nKükreyen sel taşkındır\nTitreyen el pişkindir\nTunç bilekler şişkindir\nYiğit harmanda belli",
+  "answer": true,
+  "why": "MEB cevap anahtarı: a, e, i ünlüleri asonans; k, r ünsüzleri aliterasyon. Asonans = ünlü, aliterasyon = ünsüz tekrarı."
+ },
+ {
+  "id": "edb-yp-11",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 3. soru (10 puan): Koşmada “ayrılık” teması işlenmiş, son dörtlükte kavuşma umudu vurgulanmıştır. Koşmanın yazıldığı dönemdeki “kavuşma umudu” ile günümüzdeki “kavuşma umudunun” teknolojik gelişmelerle nasıl değiştiğini açıklayınız.",
+  "src": "Değmen benim yaslı gamlı gönlüme\nSelvi boylu nazlı yârdan ayrıldım\nBeni felek etti yârimden ırak\nLebi şükker dili baldan ayrıldım\n\nDiyâr-ı gurbetin derd ü mihnetin\nBir yâr için çektim nice zahmetin\nTâze bildim ben de yârin kıymetin\nAh ne deyim efendimden ayrıldım\n\nUmudumu ben Mevlâ'ya bağlarım\nAşk oduna ciğerciğim dağlarım\nGevherî der gece gündüz ağlarım\nAl yanağı gonca gülden ayrıldım\n                    Gevherî",
+  "rubric": [
+   {
+    "t": "Kavuşma umudunu gösteren dizeyi yazdım: “Umudumu ben Mevlâ'ya bağlarım”",
+    "p": 3
+   },
+   {
+    "t": "O dönemde kavuşmanın ilahi güce (Allah'a) bırakıldığını belirttim",
+    "p": 2
+   },
+   {
+    "t": "Günümüzden kavuşmayı sağlayan araç örneği verdim (telefon, görüntülü arama, internet, uçak…)",
+    "p": 2
+   },
+   {
+    "t": "İki dönemi karşılaştıran, anlam bütünlüğü olan bir açıklama yazdım",
+    "p": 3
+   }
+  ],
+  "model": "Şair “Umudumu ben Mevlâ'ya bağlarım” diyerek kavuşmayı tamamen Allah'a, ilahi güce bırakır; çünkü o dönemde ulaşım ve haberleşme imkânları çok kısıtlıdır, gurbete giden yıllarca haber alınamayabilir. Günümüzde ise telefon, görüntülü konuşma, sosyal medya ve hızlı ulaşım araçları (uçak, otobüs) sayesinde sevdiklerimizle anında iletişim kurabilir, kısa sürede yanlarına gidebiliriz. Yani kavuşma umudu eskiden bekleyişe ve duaya dayanırken bugün büyük ölçüde insanın kendi imkânlarına bağlıdır.",
+  "why": "Dizeyi yazmazsan en fazla 7 puan alırsın. Geçmiş + günümüz + örnek + bağlantılı cümleler: dördü bir arada olmalı."
+ },
+ {
+  "id": "edb-yp-12",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Gevherî'nin koşmasında kavuşma umudunu dile getiren dize hangisidir?",
+  "src": "Değmen benim yaslı gamlı gönlüme\nSelvi boylu nazlı yârdan ayrıldım\nBeni felek etti yârimden ırak\nLebi şükker dili baldan ayrıldım\n\nDiyâr-ı gurbetin derd ü mihnetin\nBir yâr için çektim nice zahmetin\nTâze bildim ben de yârin kıymetin\nAh ne deyim efendimden ayrıldım\n\nUmudumu ben Mevlâ'ya bağlarım\nAşk oduna ciğerciğim dağlarım\nGevherî der gece gündüz ağlarım\nAl yanağı gonca gülden ayrıldım\n                    Gevherî",
+  "choices": [
+   "Umudumu ben Mevlâ'ya bağlarım",
+   "Selvi boylu nazlı yârdan ayrıldım",
+   "Bir yâr için çektim nice zahmetin",
+   "Ah ne deyim efendimden ayrıldım"
+  ],
+  "answer": 0,
+  "why": "Son dörtlükteki “Umudumu ben Mevlâ'ya bağlarım” dizesinde şair, kavuşmayı Allah'a (ilahi güce) bırakır. MEB bu dizeyi tespit etmeye 3 puan veriyor."
+ },
+ {
+  "id": "edb-yp-13",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Koşmada şairin adının geçtiği “Gevherî der gece gündüz ağlarım” dizesi neyi gösterir?",
+  "src": "Değmen benim yaslı gamlı gönlüme\nSelvi boylu nazlı yârdan ayrıldım\nBeni felek etti yârimden ırak\nLebi şükker dili baldan ayrıldım\n\nDiyâr-ı gurbetin derd ü mihnetin\nBir yâr için çektim nice zahmetin\nTâze bildim ben de yârin kıymetin\nAh ne deyim efendimden ayrıldım\n\nUmudumu ben Mevlâ'ya bağlarım\nAşk oduna ciğerciğim dağlarım\nGevherî der gece gündüz ağlarım\nAl yanağı gonca gülden ayrıldım\n                    Gevherî",
+  "choices": [
+   "Tapşırma (mahlasın son dörtlükte söylenmesi)",
+   "Kavuştak",
+   "Döşeme",
+   "Redif"
+  ],
+  "answer": 0,
+  "why": "Âşık tarzı şiirde şairin son dörtlükte mahlasını söylemesine tapşırma denir. Koşukta tapşırma yoktur, çünkü koşuklar anonimdir."
+ },
+ {
+  "id": "edb-yp-14",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Gevherî'nin koşmasının teması nedir?",
+  "src": "Değmen benim yaslı gamlı gönlüme\nSelvi boylu nazlı yârdan ayrıldım\nBeni felek etti yârimden ırak\nLebi şükker dili baldan ayrıldım\n\nDiyâr-ı gurbetin derd ü mihnetin\nBir yâr için çektim nice zahmetin\nTâze bildim ben de yârin kıymetin\nAh ne deyim efendimden ayrıldım\n\nUmudumu ben Mevlâ'ya bağlarım\nAşk oduna ciğerciğim dağlarım\nGevherî der gece gündüz ağlarım\nAl yanağı gonca gülden ayrıldım\n                    Gevherî",
+  "choices": [
+   "Ayrılık",
+   "Kahramanlık",
+   "Doğa",
+   "Toplumsal eleştiri"
+  ],
+  "answer": 0,
+  "why": "Her dörtlüğün sonunda “ayrıldım” redifi tekrar eder: tema ayrılık (ve özlem). Aşk/ayrılık işlendiği için konusuna göre bir güzellemedir."
+ },
+ {
+  "id": "edb-yp-15",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 4. soru (10 puan): Koşuk ve koşma örneklerini inceleyerek T diyagramını doldurunuz: Tema, Nazım birimi, Ölçü, Kafiye, Redif.",
+  "src": "KOŞUK\nBulnar mini ulas köz\nKara mengiz kızıl yüz\nAndın tamar tükel tüz\nBulnap yana ol kaçar\n(Günümüz Türkçesiyle: Baygın gözler beni avlıyor, kara benli pembe yüz beni tutsak ediyor. Bütün güzellik ondan damlıyor; beni tutsak ediyor, sonra da kaçıp gidiyor.)\n\nKOŞMA\nAla gözlerini sevdiğim dilber\nKokuya benzettim güller içinde\nİnceciktir belin hilaldir kaşın\nSelviye benzettim dallar içinde\n                    Karacaoğlan",
+  "rubric": [
+   {
+    "t": "Tema: Koşuk → sevgilinin güzelliği · Koşma → sevgilinin güzelliği",
+    "p": 2
+   },
+   {
+    "t": "Nazım birimi: Koşuk → dörtlük · Koşma → dörtlük",
+    "p": 2
+   },
+   {
+    "t": "Ölçü: Koşuk → 7'li hece · Koşma → 11'li hece",
+    "p": 2
+   },
+   {
+    "t": "Kafiye: Koşuk → “z” yarım kafiye (köz, yüz, tüz) · Koşma → “l” yarım kafiye (güller, dallar)",
+    "p": 2
+   },
+   {
+    "t": "Redif: Koşuk → yok · Koşma → “-ler/-lar içinde”",
+    "p": 2
+   }
+  ],
+  "model": "KOŞUK | KOŞMA\nTema: Sevgilinin güzelliği | Sevgilinin güzelliği\nNazım birimi: Dörtlük | Dörtlük\nÖlçü: 7'li hece | 11'li hece\nKafiye: z'ler yarım kafiye | l'ler yarım kafiye\nRedif: Yok | “-ler/-lar içinde”",
+  "why": "Her satır 2 puan. Koşmada önce redifi ayır: gül-ler içinde / dal-lar içinde → “-ler/-lar içinde” redif, kalan “l” yarım kafiye."
+ },
+ {
+  "id": "edb-yp-16",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "match",
+  "q": "T diyagramını tamamla: Her özelliği koşuk ve koşmadaki doğru değerle eşleştir.",
+  "src": "KOŞUK\nBulnar mini ulas köz\nKara mengiz kızıl yüz\nAndın tamar tükel tüz\nBulnap yana ol kaçar\n(Günümüz Türkçesiyle: Baygın gözler beni avlıyor, kara benli pembe yüz beni tutsak ediyor. Bütün güzellik ondan damlıyor; beni tutsak ediyor, sonra da kaçıp gidiyor.)\n\nKOŞMA\nAla gözlerini sevdiğim dilber\nKokuya benzettim güller içinde\nİnceciktir belin hilaldir kaşın\nSelviye benzettim dallar içinde\n                    Karacaoğlan",
+  "pairs": [
+   [
+    "Koşuğun ölçüsü",
+    "7'li hece"
+   ],
+   [
+    "Koşmanın ölçüsü",
+    "11'li hece"
+   ],
+   [
+    "Koşuğun kafiyesi",
+    "z (yarım kafiye)"
+   ],
+   [
+    "Koşmanın kafiyesi",
+    "l (yarım kafiye)"
+   ],
+   [
+    "Koşuğun redifi",
+    "Redif yok"
+   ],
+   [
+    "Koşmanın redifi",
+    "-ler/-lar içinde"
+   ]
+  ],
+  "why": "Bul-nar-mi-ni-u-las-köz = 7, A-la-göz-le-ri-ni-sev-di-ğim-dil-ber = 11. köz/yüz/tüz → z; güller/dallar içinde → redif “-ler/-lar içinde”, kafiye “l”."
+ },
+ {
+  "id": "edb-yp-17",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "tf",
+  "q": "MEB cevap anahtarına göre bu koşuk ile koşmanın teması aynıdır: sevgilinin güzelliği.",
+  "src": "KOŞUK\nBulnar mini ulas köz\nKara mengiz kızıl yüz\nAndın tamar tükel tüz\nBulnap yana ol kaçar\n(Günümüz Türkçesiyle: Baygın gözler beni avlıyor, kara benli pembe yüz beni tutsak ediyor. Bütün güzellik ondan damlıyor; beni tutsak ediyor, sonra da kaçıp gidiyor.)\n\nKOŞMA\nAla gözlerini sevdiğim dilber\nKokuya benzettim güller içinde\nİnceciktir belin hilaldir kaşın\nSelviye benzettim dallar içinde\n                    Karacaoğlan",
+  "answer": true,
+  "why": "İkisi de sevgilinin güzelliğini anlatır: koşukta baygın gözler, kara benli pembe yüz; koşmada ala gözler, ince bel, hilal kaş."
+ },
+ {
+  "id": "edb-yp-18",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 5. soru (15 puan): İlk bentte dize sonlarındaki ses benzerliğinin (a-c-ı) şiirin ahenk ve duygusunu nasıl etkilediğini yazınız.",
+  "src": "Hastane önünde incir ağacı\nDoktor bulamadı bana ilâcı\nBaştabip geliyor zehirden acı\n\nGarip kaldım yüreğime derdoldu\nEllerin vatanı bana yurdoldu\n\nMezarımı kazın bayıra düze\nYönünü çevirin sıladan yüze\nBenden selam söylen sevdiğimize\n\nBaşına koysun karalar bağlasın\nGurbet elde kaldım diye ağlasın\n                    Derleyen: Nida Tüfekçi",
+  "rubric": [
+   {
+    "t": "“a-c-ı” ses tekrarının bir ahenk (ses uyumu) oluşturduğunu yazdım",
+    "p": 5
+   },
+   {
+    "t": "Bu seslerin çaresizlik ve keder duygusunu yoğunlaştırdığını yazdım",
+    "p": 5
+   },
+   {
+    "t": "Metnin duygusal etkisini artırdığını açıkladım",
+    "p": 5
+   }
+  ],
+  "model": "Dize sonlarındaki ağacı, ilâcı, acı sözcüklerinde tekrar eden “a-c-ı” sesleri kulağa hoş gelen bir ses uyumu, yani ahenk oluşturur. Aynı zamanda bu ses grubu “acı” kelimesini çağrıştırır; hastanede ilaç bulunamayan, gurbette kalmış kişinin çaresizliğini ve kederini her dizede yeniden hissettirir. Böylece ses tekrarı, türkünün duygusal etkisini artırır.",
+  "why": "Sadece “Acı, üzüntü veren bir sözcüktür.” demek sıfır puan! Ahenk + keder/çaresizlik + duygusal etki üçlüsünü yaz."
+ },
+ {
+  "id": "edb-yp-19",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "“ağacı / ilâcı / acı” dize sonlarındaki “a-c-ı” ses benzerliği türküye en çok ne katar?",
+  "src": "Hastane önünde incir ağacı\nDoktor bulamadı bana ilâcı\nBaştabip geliyor zehirden acı\n\nGarip kaldım yüreğime derdoldu\nEllerin vatanı bana yurdoldu\n\nMezarımı kazın bayıra düze\nYönünü çevirin sıladan yüze\nBenden selam söylen sevdiğimize\n\nBaşına koysun karalar bağlasın\nGurbet elde kaldım diye ağlasın\n                    Derleyen: Nida Tüfekçi",
+  "choices": [
+   "Ahenk oluşturur ve acı, çaresizlik duygusunu yoğunlaştırır",
+   "Türküyü mizahi bir hâle getirir",
+   "Türkünün hangi bölgeye ait olduğunu gösterir",
+   "Hece ölçüsünü bozar"
+  ],
+  "answer": 0,
+  "why": "Ses tekrarı hem ahenk sağlar hem de “acı” kelimesini çağrıştırarak gurbetteki hastanın kederini güçlendirir."
+ },
+ {
+  "id": "edb-yp-20",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "tf",
+  "q": "“Hastane Önünde İncir Ağacı” türküsünün bentleri farklı sayıda dizeden oluşur; bu yüzden nazım birimi her bentte aynı değildir.",
+  "src": "Hastane önünde incir ağacı\nDoktor bulamadı bana ilâcı\nBaştabip geliyor zehirden acı\n\nGarip kaldım yüreğime derdoldu\nEllerin vatanı bana yurdoldu\n\nMezarımı kazın bayıra düze\nYönünü çevirin sıladan yüze\nBenden selam söylen sevdiğimize\n\nBaşına koysun karalar bağlasın\nGurbet elde kaldım diye ağlasın\n                    Derleyen: Nida Tüfekçi",
+  "answer": true,
+  "why": "Bentler 3, 2, 3 ve 2 dizeliktir. Türkülerde nazım birimi dörtlük olmak zorunda değildir; MEB tanımında da “farklı nazım birimlerinden oluşan” denir."
+ },
+ {
+  "id": "edb-yp-21",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 6a (6 puan): Türküde kullanılan isim ve sıfat tamlamalarına üçer örnek veriniz.",
+  "src": "Mayadağ'dan kalkan kazlar,\nAl topuklu beyaz kızlar,\nYârimin yüreği sızlar.\nEylenemem, aldanamam,\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n\nMayadağ'ın yıldızıyım,\nBen annemin bir kızıyım,\nEfendimin sağ gözüyüm.\nEylenemem, aldanamam\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n                    Anonim",
+  "rubric": [
+   {
+    "t": "Üç isim tamlaması yazdım (ör. yârimin yüreği, Vardar Ovası, sıla parası)",
+    "p": 3
+   },
+   {
+    "t": "Üç sıfat tamlaması yazdım (ör. al topuklu beyaz kızlar, bu yerler, sağ göz)",
+    "p": 3
+   }
+  ],
+  "model": "İsim tamlamaları: yârimin yüreği, Vardar Ovası, sıla parası, Mayadağ'ın yıldızı, annemin kızı, efendimin gözü\nSıfat tamlamaları: Mayadağ'dan kalkan kazlar, al topuklu beyaz kızlar, bu yerler, bir kız, sağ göz",
+  "why": "Her doğru tamlama 1 puan. İsim tamlamasında tamlanan iyelik eki alır (sıla para-sı); sıfat tamlamasında sıfat ek almaz (bu yer-ler)."
+ },
+ {
+  "id": "edb-yp-22",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 6b (9 puan): İsim ve sıfat tamlamalarının türküye olan katkısını türküden en az birer örnek vererek kısaca açıklayınız.",
+  "src": "Mayadağ'dan kalkan kazlar,\nAl topuklu beyaz kızlar,\nYârimin yüreği sızlar.\nEylenemem, aldanamam,\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n\nMayadağ'ın yıldızıyım,\nBen annemin bir kızıyım,\nEfendimin sağ gözüyüm.\nEylenemem, aldanamam\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n                    Anonim",
+  "rubric": [
+   {
+    "t": "İsim tamlamasından örnek verdim (ör. yârimin yüreği)",
+    "p": 2
+   },
+   {
+    "t": "İsim tamlamalarının aidiyet (bir şeyin kime/neye ait olduğu) duygusunu yansıttığını yazdım",
+    "p": 3
+   },
+   {
+    "t": "Sıfat tamlamasından örnek verdim (ör. al topuklu beyaz kızlar)",
+    "p": 2
+   },
+   {
+    "t": "Sıfat tamlamalarının tasvirle zihinde canlı, hareketli bir görüntü oluşturduğunu yazdım",
+    "p": 2
+   }
+  ],
+  "model": "“Yârimin yüreği”, “annemin kızı”, “efendimin gözü” gibi isim tamlamaları kişiler arasındaki bağı, aidiyeti vurgular; söyleyen kişinin ailesine ve sevdiğine ait olduğunu hissettirir. “Al topuklu beyaz kızlar”, “Mayadağ'dan kalkan kazlar” gibi sıfat tamlamaları ise varlıkları niteleyerek tasvir yapar ve okuyucunun zihninde canlı, hareketli bir görüntü oluşturur.",
+  "why": "Anahtar kelimeler: isim tamlaması → AİDİYET; sıfat tamlaması → TASVİR / CANLI GÖRÜNTÜ. Örnek vermeden açıklama yaparsan puan kaybedersin."
+ },
+ {
+  "id": "edb-yp-23",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "match",
+  "q": "Vardar Ovası türküsündeki tamlamaları türüne göre eşleştir.",
+  "src": "Mayadağ'dan kalkan kazlar,\nAl topuklu beyaz kızlar,\nYârimin yüreği sızlar.\nEylenemem, aldanamam,\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n\nMayadağ'ın yıldızıyım,\nBen annemin bir kızıyım,\nEfendimin sağ gözüyüm.\nEylenemem, aldanamam\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n                    Anonim",
+  "pairs": [
+   [
+    "yârimin yüreği",
+    "İsim tamlaması"
+   ],
+   [
+    "sıla parası",
+    "İsim tamlaması"
+   ],
+   [
+    "Mayadağ'ın yıldızı",
+    "İsim tamlaması"
+   ],
+   [
+    "al topuklu beyaz kızlar",
+    "Sıfat tamlaması"
+   ],
+   [
+    "bu yerler",
+    "Sıfat tamlaması"
+   ],
+   [
+    "sağ göz",
+    "Sıfat tamlaması"
+   ]
+  ],
+  "why": "İsim tamlamasında iki isim vardır ve tamlanan iyelik eki alır (yüreğ-i, para-sı, yıldız-ı). Sıfat tamlamasında sıfat ismi niteler ya da belirtir (al topuklu, beyaz, bu, sağ)."
+ },
+ {
+  "id": "edb-yp-24",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Vardar Ovası türküsünde kavuştak (nakarat) hangi dizelerdir?",
+  "src": "Mayadağ'dan kalkan kazlar,\nAl topuklu beyaz kızlar,\nYârimin yüreği sızlar.\nEylenemem, aldanamam,\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n\nMayadağ'ın yıldızıyım,\nBen annemin bir kızıyım,\nEfendimin sağ gözüyüm.\nEylenemem, aldanamam\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n                    Anonim",
+  "choices": [
+   "Vardar Ovası, Vardar Ovası / Kazanamadım sıla parası",
+   "Mayadağ'dan kalkan kazlar / Al topuklu beyaz kızlar",
+   "Eylenemem, aldanamam / Ben bu yerlerde duramam",
+   "Ben annemin bir kızıyım / Efendimin sağ gözüyüm"
+  ],
+  "answer": 0,
+  "why": "Her bentten sonra değişmeden tekrar edilen bölüm kavuştaktır. Asıl konunun işlendiği bölümler ise benttir."
+ },
+ {
+  "id": "edb-yp-25",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "“Eylenemem, aldanamam” dizesindeki “eylenmek” sözcüğünün bağlamdaki anlamı nedir?",
+  "src": "Mayadağ'dan kalkan kazlar,\nAl topuklu beyaz kızlar,\nYârimin yüreği sızlar.\nEylenemem, aldanamam,\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n\nMayadağ'ın yıldızıyım,\nBen annemin bir kızıyım,\nEfendimin sağ gözüyüm.\nEylenemem, aldanamam\nBen bu yerlerde duramam.\n\nVardar Ovası, Vardar Ovası\nKazanamadım sıla parası.\n                    Anonim",
+  "choices": [
+   "Oyalanmak, bir yerde durup kalmak",
+   "Eğlenmek, şakalaşmak",
+   "Ağlamak",
+   "Kandırmak"
+  ],
+  "answer": 0,
+  "why": "Rumeli ağzında “eylenmek” oyalanmak, bir yerde durmak demektir. Hemen ardından gelen “Ben bu yerlerde duramam” dizesi anlamı destekler."
+ },
+ {
+  "id": "edb-yp-26",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 7a (8 puan): Altın Balta masalını film şeridine dönüştürürken kullanacağınız sekiz özet cümle yazınız.",
+  "src": "Altın Balta (özet): Fakir bir adam, zengin komşusundan ödünç aldığı baltayı odun keserken değirmen suyuna düşürür. Ak sakallı ihtiyar değirmenci sudan önce altın, sonra gümüş başlı balta çıkarır; fakir adam ikisine de \"Benim değil.\" der. Kara demir baltayı görünce \"İşte bu benim.\" der. Değirmenci onun dürüstlüğünü över ve altın baltayı ona hediye eder. Adam zenginleşir, fakirlere yardım eder. Bunu duyan zengin komşu baltasını kasten suya atar, altın baltaya \"Bu benim!\" deyince değirmenci kızar ve ona demir baltasını verir. Zengin adam kös kös evine döner.",
+  "rubric": [
+   {
+    "t": "Sekiz cümleyle ana olayı kronolojik (olay sırasına uygun) anlattım",
+    "p": 6
+   },
+   {
+    "t": "Masalın dönüm noktalarını vurguladım (baltanın suya düşmesi, dürüst cevap, ödül; zenginin yalanı ve cezası)",
+    "p": 2
+   }
+  ],
+  "model": "1. Fakir bir adam, zengin komşusundan baltasını ödünç alır.\n2. Odun keserken baltanın başı çıkar ve değirmen suyuna düşer.\n3. Fakir adam ihtiyar değirmenciden yardım ister.\n4. Değirmenci sudan altın ve gümüş başlı baltalar çıkarır; adam ikisine de “Benim değil.” der.\n5. Kara demir baltayı görünce “İşte bu benim.” der.\n6. Değirmenci onun dürüstlüğünü ödüllendirip altın baltayı hediye eder; adam zenginleşir ve fakirlere yardım eder.\n7. Zengin komşu da baltasını bile bile suya atar ve altın baltaya “Bu benim!” der.\n8. Değirmenci yalan söyleyen zengine demir baltasını verir; zengin adam kös kös evine döner.",
+  "why": "Cümleler olay sırasını bozmamalı. Sekizden az cümle ya da sıra hatası orantılı puan kaybettirir."
+ },
+ {
+  "id": "edb-yp-27",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "MEB 7b'deki görsellerden biri ihtiyar değirmenci ile zengin adamı altın baltayla birlikte gülümserken gösteriyor. Bu görsel neden film şeridinde kullanılamaz?",
+  "src": "Altın Balta (özet): Fakir bir adam, zengin komşusundan ödünç aldığı baltayı odun keserken değirmen suyuna düşürür. Ak sakallı ihtiyar değirmenci sudan önce altın, sonra gümüş başlı balta çıkarır; fakir adam ikisine de \"Benim değil.\" der. Kara demir baltayı görünce \"İşte bu benim.\" der. Değirmenci onun dürüstlüğünü över ve altın baltayı ona hediye eder. Adam zenginleşir, fakirlere yardım eder. Bunu duyan zengin komşu baltasını kasten suya atar, altın baltaya \"Bu benim!\" deyince değirmenci kızar ve ona demir baltasını verir. Zengin adam kös kös evine döner.",
+  "choices": [
+   "Masalda değirmenci yalan söyleyen zengine kızar ve altın baltayı ona vermez; zengin adam mutsuz döner",
+   "Masalda zengin adam hiç değirmene gitmez",
+   "Masalda altın balta yoktur",
+   "Değirmenci masalda genç biridir"
+  ],
+  "answer": 0,
+  "why": "MEB çözümü: Görsel 2 kullanılamaz. Masalda değirmenci kızgın, zengin adam mutsuzdur; görselde ise ikisi de mutlu görünüyor. Görsel ile olay arasında uyumsuzluk var."
+ },
+ {
+  "id": "edb-yp-28",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "MEB 7c (6 puan): Aşağıdaki metindeki yazım yanlışlarını bulup sözcüklerin doğru hâllerini yazınız.",
+  "src": "Birine uzatılan şevkatli el, o kişinin hayatında büyük bir fark yaratabilir ve ona umut aşılaya bilir. Bu hem yardım edenin hemde yardım alanın kalbinde pozitiv bir etki bırakır. İyi niyet, sadece bir ışık değil, aynı zamanda etrafımızdaki herşeyi güzelleştiren, ilişkileri onaran ve en zor anlarda bile umudu yeşerden sihirli bir dokunuştur.",
+  "rubric": [
+   {
+    "t": "şevkatli → şefkatli",
+    "p": 1
+   },
+   {
+    "t": "aşılaya bilir → aşılayabilir",
+    "p": 1
+   },
+   {
+    "t": "hemde → hem de",
+    "p": 1
+   },
+   {
+    "t": "pozitiv → pozitif",
+    "p": 1
+   },
+   {
+    "t": "herşeyi → her şeyi",
+    "p": 1
+   },
+   {
+    "t": "yeşerden → yeşerten",
+    "p": 1
+   }
+  ],
+  "model": "şefkatli, aşılayabilir, hem de, pozitif, her şeyi, yeşerten",
+  "why": "Kurallar: -abil/-ebil yeterlilik fiili bitişik yazılır (aşılayabilir). Bağlaç olan “de” ayrı yazılır (hem de). “Her şey” ayrı yazılır. Yeşer-t-en: ettirgen eki “-t”."
+ },
+ {
+  "id": "edb-yp-29",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "“…ona umut aşılaya bilir.” Bu ifadenin doğru yazımı hangisidir?",
+  "src": "Birine uzatılan şevkatli el, o kişinin hayatında büyük bir fark yaratabilir ve ona umut aşılaya bilir. Bu hem yardım edenin hemde yardım alanın kalbinde pozitiv bir etki bırakır. İyi niyet, sadece bir ışık değil, aynı zamanda etrafımızdaki herşeyi güzelleştiren, ilişkileri onaran ve en zor anlarda bile umudu yeşerden sihirli bir dokunuştur.",
+  "choices": [
+   "aşılayabilir",
+   "aşılaya bilir",
+   "aşılayabi lir",
+   "aşılaya-bilir"
+  ],
+  "answer": 0,
+  "why": "Yeterlilik bildiren “-abil/-ebil” fiile bitişik yazılır: yapabilir, gelebilir, aşılayabilir."
+ },
+ {
+  "id": "edb-yp-30",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Metinde yazımı yanlış olan sözcüklerden biri hangisidir?",
+  "src": "Birine uzatılan şevkatli el, o kişinin hayatında büyük bir fark yaratabilir ve ona umut aşılaya bilir. Bu hem yardım edenin hemde yardım alanın kalbinde pozitiv bir etki bırakır. İyi niyet, sadece bir ışık değil, aynı zamanda etrafımızdaki herşeyi güzelleştiren, ilişkileri onaran ve en zor anlarda bile umudu yeşerden sihirli bir dokunuştur.",
+  "choices": [
+   "herşeyi",
+   "güzelleştiren",
+   "dokunuştur",
+   "ilişkileri"
+  ],
+  "answer": 0,
+  "why": "“Her şey” her zaman ayrı yazılır: her şeyi. (Ama “herkes” ve “hiçbir” bitişiktir.)"
+ },
+ {
+  "id": "edb-yp-31",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Altın Balta masalının sonundaki “Gökten üç elma düşmüş. Biri anlatanın, biri dinleyenin, biri de dürüst kişilerin başına…” bölümünün adı nedir?",
+  "choices": [
+   "Dilek",
+   "Döşeme",
+   "Serim",
+   "Düğüm"
+  ],
+  "answer": 0,
+  "why": "Masalın sonunda iyi dileklerin sıralandığı kalıp bölüm dilektir. Başındaki “Bir varmış bir yokmuş…” tekerlemesi ise döşemedir."
+ },
+ {
+  "id": "edb-yp-32",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "order",
+  "q": "Altın Balta masalındaki olayları oluş sırasına diz.",
+  "items": [
+   "Fakir adam baltayı ödünç alır",
+   "Balta değirmen suyuna düşer",
+   "Adam altın ve gümüş baltaya “benim değil” der",
+   "Değirmenci altın baltayı ona hediye eder",
+   "Zengin komşu baltasını kasten suya atar",
+   "Zengin adam kös kös evine döner"
+  ],
+  "why": "Serim: ödünç balta. Düğüm: baltanın düşmesi ve dürüstlük sınavı. Çözüm: dürüst fakire ödül, yalancı zengine ceza."
+ },
+ {
+  "id": "edb-yp-33",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 1 (Zeduva): Bu dizelerin nazım biçimi, söylenme amacı ve ait olduğu gelenek hakkında bilgi veriniz.",
+  "src": "Ördi bulıt ınraşu\nAktı akın münreşü\nKaldı bodun tanlaşu\nKökrer takı manraşur\n…\nKaklar kamug kölerdi\nTaglar başı ilerdi\nAjun tını yılırdı\nTü tü çeçek çergeşür\n\n(Günümüz Türkçesiyle)\nÇıktı bulut gürleyerek / Aktı seller şarlayarak\nKalakaldı halk şaşırarak / Şimşek çakar, gök gürleşir\nBirikintiler göllendi / Dağların başı göründü\nDünyanın soluğu ılındı / Nice çiçekler dizilişir",
+  "rubric": [
+   {
+    "t": "Nazım biçimini yazdım: koşuk",
+    "p": 2
+   },
+   {
+    "t": "Söylenme amacını yazdım: toylarda/şölenlerde, baharın gelişi ve doğanın uyanışını kutlamak, coşku paylaşmak",
+    "p": 2
+   },
+   {
+    "t": "Geleneği yazdım: İslamiyet öncesi sözlü gelenek; ozan, kam, baksı tarafından kopuz eşliğinde söylenir",
+    "p": 2
+   }
+  ],
+  "model": "Nazım biçimi koşuktur. İslamiyet Öncesi Dönem'de toylarda (şenlik, ziyafet) ve eğlencelerde baharın gelişini, doğanın uyanışını kutlamak ve topluluğun coşkusunu paylaşmak için söylenmiştir. Sözlü kültür geleneğine aittir; ozan, kam, baksı gibi halk şairlerince kopuz eşliğinde ezgiyle söylenir, kuşaktan kuşağa sözlü aktarılır.",
+  "why": "Koşuk tanımını MEB'deki gibi yaz: toylarda veya savaş sonrası eğlencelerde, ozan/kam/baksı, kopuz eşliğinde; aşk, doğa, yiğitlik konuları."
+ },
+ {
+  "id": "edb-yp-34",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "“Ördi bulıt ınraşu…” dizelerinin teması nedir?",
+  "src": "Ördi bulıt ınraşu\nAktı akın münreşü\nKaldı bodun tanlaşu\nKökrer takı manraşur\n…\nKaklar kamug kölerdi\nTaglar başı ilerdi\nAjun tını yılırdı\nTü tü çeçek çergeşür\n\n(Günümüz Türkçesiyle)\nÇıktı bulut gürleyerek / Aktı seller şarlayarak\nKalakaldı halk şaşırarak / Şimşek çakar, gök gürleşir\nBirikintiler göllendi / Dağların başı göründü\nDünyanın soluğu ılındı / Nice çiçekler dizilişir",
+  "choices": [
+   "Doğa (baharın gelişi)",
+   "Ölüm",
+   "Kahramanlık",
+   "Gurbet"
+  ],
+  "answer": 0,
+  "why": "Bulutlar gürler, seller akar, dağların başı görünür, çiçekler dizilir: Kıştan bahara geçiş ve doğanın uyanışı anlatılır."
+ },
+ {
+  "id": "edb-yp-35",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 1 (Zeduva): Bu dizelerin tabiatın gözlemlenmesi üzerine kurulması, Türklerin o dönemki yaşantılarıyla ilişkili olarak nasıl açıklanır?",
+  "src": "Ördi bulıt ınraşu\nAktı akın münreşü\nKaldı bodun tanlaşu\nKökrer takı manraşur\n…\nKaklar kamug kölerdi\nTaglar başı ilerdi\nAjun tını yılırdı\nTü tü çeçek çergeşür\n\n(Günümüz Türkçesiyle)\nÇıktı bulut gürleyerek / Aktı seller şarlayarak\nKalakaldı halk şaşırarak / Şimşek çakar, gök gürleşir\nBirikintiler göllendi / Dağların başı göründü\nDünyanın soluğu ılındı / Nice çiçekler dizilişir",
+  "rubric": [
+   {
+    "t": "Türklerin göçebe/yarı göçebe, bozkırda ve doğayla iç içe yaşadığını yazdım",
+    "p": 2
+   },
+   {
+    "t": "Hayvancılık ve geçimin mevsimlere, yağmura, otlağa bağlı olduğunu belirttim",
+    "p": 2
+   },
+   {
+    "t": "Bu yüzden baharın gelişinin sevinçle kutlandığını, doğanın şiire yansıdığını açıkladım",
+    "p": 2
+   }
+  ],
+  "model": "İslamiyet öncesi Türkler göçebe ya da yarı göçebe bir hayat sürer, bozkırda doğayla iç içe yaşardı. Geçimleri hayvancılığa, dolayısıyla yağmura, otlaklara ve mevsimlere bağlıydı. Uzun ve sert kıştan sonra baharın gelişi hayatın yeniden başlaması demekti. Bu yüzden doğa olayları dikkatle gözlemlenmiş, baharın sevinci koşuklarla kutlanmıştır.",
+  "why": "Neden-sonuç kur: yaşam tarzı (göçebe, hayvancılık) → doğaya bağımlılık → şiirde doğa teması."
+ },
+ {
+  "id": "edb-yp-36",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 1 (Zeduva): Bu dizelerin yapısal özellikleri hakkında bilgi veriniz.",
+  "src": "Ördi bulıt ınraşu\nAktı akın münreşü\nKaldı bodun tanlaşu\nKökrer takı manraşur\n…\nKaklar kamug kölerdi\nTaglar başı ilerdi\nAjun tını yılırdı\nTü tü çeçek çergeşür\n\n(Günümüz Türkçesiyle)\nÇıktı bulut gürleyerek / Aktı seller şarlayarak\nKalakaldı halk şaşırarak / Şimşek çakar, gök gürleşir\nBirikintiler göllendi / Dağların başı göründü\nDünyanın soluğu ılındı / Nice çiçekler dizilişir",
+  "rubric": [
+   {
+    "t": "Nazım birimi: dörtlük",
+    "p": 2
+   },
+   {
+    "t": "Ölçü: 7'li hece ölçüsü (Ör-di-bu-lıt-ın-ra-şu)",
+    "p": 2
+   },
+   {
+    "t": "Kafiye/redif: dize sonlarında ses tekrarları var (ör. 2. dörtlükte “-di” redifi: kölerdi, ilerdi, yılırdı)",
+    "p": 2
+   },
+   {
+    "t": "Kafiye düzeni koşuğa uygundur: aaab, cccb",
+    "p": 2
+   }
+  ],
+  "model": "Nazım birimi dörtlüktür. 7'li hece ölçüsüyle söylenmiştir (Ör-di-bu-lıt-ın-ra-şu: 7 hece). Kafiye düzeni koşuklara özgü aaab, cccb şeklindedir: ilk üç dize kendi arasında kafiyelidir, dördüncü dizeler (manraşur, çergeşür) birbirine bağlanır. İkinci dörtlükte “-di/-dı” eki redif olarak tekrar eder.",
+  "why": "Yapı sorusu = şekil özellikleri: nazım birimi, ölçü, kafiye düzeni, kafiye-redif. Hepsini örnekle yaz."
+ },
+ {
+  "id": "edb-yp-37",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 2 (Zeduva): Bu dizelerin nazım biçimini gerekçe göstererek açıklayınız; içerik, ait olduğu gelenek ve üslup açısından inceleyiniz.",
+  "src": "Bahçalarda mor meni\nVerem ettin sen beni\nNasıl verem olmayım\nEller sarıyor seni\n\nBen sana yandım gelin\nYanağı allı gelin\nGaziantep yolunda\nÖldürdün beni gelin\n\nBahçalarda saz olur\nGül açılır yaz olur\nBen yârime gül demem\nGülün ömrü az olur\n\nBen sana yandım gelin\nYanağı allı gelin\nGaziantep yolunda\nÖldürdün beni gelin",
+  "rubric": [
+   {
+    "t": "Nazım biçimi: türkü",
+    "p": 2
+   },
+   {
+    "t": "Gerekçe: bentlerden sonra tekrar eden “Ben sana yandım gelin…” kavuştağı (nakaratı) var; ezgiyle söylenir",
+    "p": 2
+   },
+   {
+    "t": "İçerik: aşk, sevgiliye duyulan özlem ve yanık sevda",
+    "p": 2
+   },
+   {
+    "t": "Gelenek: anonim halk edebiyatı, sözlü gelenek (Gaziantep yöresi)",
+    "p": 2
+   },
+   {
+    "t": "Üslup: sade, içten dil; yöresel söyleyiş (bahçalarda), 7'li hece, tekrarlar",
+    "p": 2
+   }
+  ],
+  "model": "Nazım biçimi türküdür; çünkü asıl sözlerin yer aldığı bentlerden sonra “Ben sana yandım gelin / Yanağı allı gelin…” dizeleri kavuştak olarak tekrar eder ve ezgiyle söylenir. İçerik: Sevgiliye duyulan yanık aşk ve kıskançlık (“Eller sarıyor seni”). Gelenek: Söyleyeni belli olmayan anonim halk edebiyatına ait, sözlü olarak aktarılmış bir Gaziantep türküsüdür. Üslup: Dil sade ve içtendir; “bahçalarda” gibi yöresel söyleyişler, 7'li hece ölçüsü ve tekrarlar ahengi güçlendirir.",
+  "why": "Türkü olduğunu kanıtlayan en güçlü gerekçe kavuştaktır. Bentlerin mani şeklinde (aaxa) olması da türkülerde sık görülür."
+ },
+ {
+  "id": "edb-yp-38",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "“Bahçalarda mor meni…” dizelerinin türkü olduğunu gösteren en belirgin yapı özelliği hangisidir?",
+  "src": "Bahçalarda mor meni\nVerem ettin sen beni\nNasıl verem olmayım\nEller sarıyor seni\n\nBen sana yandım gelin\nYanağı allı gelin\nGaziantep yolunda\nÖldürdün beni gelin\n\nBahçalarda saz olur\nGül açılır yaz olur\nBen yârime gül demem\nGülün ömrü az olur\n\nBen sana yandım gelin\nYanağı allı gelin\nGaziantep yolunda\nÖldürdün beni gelin",
+  "choices": [
+   "Bentlerden sonra “Ben sana yandım gelin…” kavuştağının tekrar etmesi",
+   "Son dörtlükte şairin mahlasının geçmesi",
+   "Aruz ölçüsüyle yazılması",
+   "Beyitlerden oluşması"
+  ],
+  "answer": 0,
+  "why": "Türküler bent + kavuştak yapısındadır. Kavuştak (bağlama), bentlerin sonunda tekrar edilen dizelerdir. Mahlas bulunması âşık tarzı koşmanın özelliğidir."
+ },
+ {
+  "id": "edb-yp-39",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 3 (Zeduva): Sözlü kültür ürünlerinden üç tane örnek veriniz. Bu ürünlerin önemi hakkındaki düşüncelerinizi açıklayınız.",
+  "rubric": [
+   {
+    "t": "Üç sözlü kültür ürünü yazdım (ör. masal, türkü, mani, destan, ninni, ağıt, atasözü, bilmece)",
+    "p": 3
+   },
+   {
+    "t": "Bu ürünlerin halkın ortak duygu, düşünce ve değerlerini kuşaktan kuşağa aktardığını yazdım",
+    "p": 3
+   },
+   {
+    "t": "Kültürel belleği, dili ve millî kimliği koruduğunu; geçmişle bağ kurduğunu açıkladım",
+    "p": 3
+   }
+  ],
+  "model": "Masal, türkü ve mani sözlü kültür ürünleridir (destan, ninni, ağıt, atasözü, bilmece de olabilir). Bu ürünler halkın ortak kabullerinin ürünüdür ve kuşaktan kuşağa sözlü olarak aktarılır. Toplumun duygularını, inançlarını, yaşayışını ve değerlerini yansıtır; kültürel belleği korur, dilin zenginliğini yaşatır ve bizi geçmişimize bağlayarak millî kimliğimizi güçlendirir.",
+  "why": "MEB tanımını kullan: “Halkın ortak kabullerinin ürünü olan ve kuşaktan kuşağa sözlü olarak aktarılan kültür ögeleri.”"
+ },
+ {
+  "id": "edb-yp-40",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "“Yagı ötın öçürgen…” dizelerinin konusu ve nazım biçimi hangisidir?",
+  "src": "Yagı ötın öçürgen\nToydun anı köçürgen\nIşlar üzüp keçürgen\nTegdi okı öldürü\n\nTurgan ulug ışlaka\nTirgi urup aşlaka\nTumlug kadır kışlaka\nKodtı erig umduru\n\n(Günümüz Türkçesiyle)\nSavaş ateşini söndüren / Yerinden düşmanı süren\nİşleri evirip çeviren / Felek oku öldürdü\nAğır işlere giren / Aş dolu sofra kuran\nSert kışlarda doyuran / Erleri hasrette kodu",
+  "choices": [
+   "Ölen bir kahramanın iyilikleri ve ardından duyulan acı · Sagu",
+   "Baharın gelişi · Koşuk",
+   "Sevgiliye özlem · Koşma",
+   "Allah sevgisi · İlahi"
+  ],
+  "answer": 0,
+  "why": "“Felek oku öldürdü”, “Erleri hasrette kodu” gibi dizeler ölen bir yiğidin iyiliklerini ve ardından duyulan üzüntüyü anlatır: sagu. Şekil olarak koşukla aynıdır (dörtlük, 7'li hece)."
+ },
+ {
+  "id": "edb-yp-41",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Bu parça bir masalın hangi bölümünden alınmıştır?",
+  "src": "Zaman zaman içinde, kalbur saman içinde; cinler cirit oynarken eski hamam içinde… Enteşeden, menteşeden derken bir karpuzcu çıktı şu köşeden; ay efendim, vay efendim; karpuzlar da karpuz mu ya, ne tartıya gelir ne teraziye… Baktım, bakakaldım; on para verdim, on tane aldım.",
+  "choices": [
+   "Döşeme",
+   "Dilek",
+   "Düğüm",
+   "Çözüm"
+  ],
+  "answer": 0,
+  "why": "Döşeme, masalın başında dinleyicinin dikkatini çekmek ve onu hayal dünyasına hazırlamak için söylenen tekerleme bölümüdür. Anlamdan çok ses ve ritim ön plandadır."
+ },
+ {
+  "id": "edb-yp-42",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 5 (Zeduva): Bu parça masalın hangi bölümünden alınmıştır? Bu bölümün özelliğini açıklayınız.",
+  "src": "Zaman zaman içinde, kalbur saman içinde; cinler cirit oynarken eski hamam içinde… Enteşeden, menteşeden derken bir karpuzcu çıktı şu köşeden; ay efendim, vay efendim; karpuzlar da karpuz mu ya, ne tartıya gelir ne teraziye… Baktım, bakakaldım; on para verdim, on tane aldım.",
+  "rubric": [
+   {
+    "t": "Bölümün adını yazdım: döşeme",
+    "p": 2
+   },
+   {
+    "t": "Döşemenin masalın başında söylenen tekerleme olduğunu yazdım",
+    "p": 2
+   },
+   {
+    "t": "Amacını açıkladım: dinleyicinin dikkatini çekmek, onu masalın olağanüstü dünyasına hazırlamak; ses ve ritimle eğlendirmek",
+    "p": 2
+   }
+  ],
+  "model": "Parça döşeme bölümünden alınmıştır. Döşeme, masalın başında söylenen, çoğu zaman anlamdan çok ses oyunlarına ve ritme dayanan tekerlemedir (zaman zaman içinde, kalbur saman içinde…). Amacı dinleyicinin dikkatini çekmek ve onu gerçek dışı, olağanüstü masal dünyasına hazırlamaktır.",
+  "why": "Bölüm adı + nerede bulunduğu + amacı: üçünü de yaz."
+ },
+ {
+  "id": "edb-yp-43",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "tiles",
+  "q": "Dizelerdeki isim tamlamalarını çeşidiyle eşleştir.",
+  "src": "Uçtu gönül kuşu hava eyledi\nBülbül mekânında yuva eyledi\nAyrılık tellalı nida eyledi\nBu garip gönlümün mihmanı tez gel\n(tellal: çarşıda pazarda yüksek sesle duyuru yapan kimse; mihman: misafir)",
+  "pairs": [
+   [
+    "gönül kuşu",
+    "Belirtisiz isim tamlaması"
+   ],
+   [
+    "gönlümün mihmanı",
+    "Belirtili isim tamlaması"
+   ],
+   [
+    "bülbül mekânı",
+    "Belirtisiz (tamlanan iyelik eki alır)"
+   ]
+  ],
+  "why": "gönül kuş-u: tamlayan eksiz, tamlanan iyelikli → belirtisiz. gönlüm-ün mihman-ı: tamlayan ilgi eki (-ün), tamlanan iyelik eki (-ı) → belirtili. bülbül mekân-ı(nda) ve ayrılık tellal-ı da belirtisizdir."
+ },
+ {
+  "id": "edb-yp-44",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "match",
+  "q": "Türkü parçalarında geçen sosyal yaşantı ve kültür unsurlarını anlamlarıyla eşleştir.",
+  "pairs": [
+   [
+    "Yarın bayram diye kına yolladım",
+    "Bayram/düğün öncesi kına geleneği"
+   ],
+   [
+    "Kız çeyizin topla, doldur terkiye",
+    "Gelin çıkarma ve çeyiz"
+   ],
+   [
+    "Başındaki puşi benim aldığım",
+    "Sevgiliye başörtüsü hediye etme"
+   ],
+   [
+    "Yorgun yorgun vardım orak biçmeye",
+    "Tarım, hasat zamanı"
+   ],
+   [
+    "Kirve bayramınız karalı geçe",
+    "Kirvelik (sünnet geleneği) ve bayramlaşma"
+   ]
+  ],
+  "why": "Türküler halkın yaşayışını yansıtır: kına yakma, çeyiz hazırlayıp gelini ata bindirip götürme, puşi (yazma) hediyesi, orak biçme, köy çeşmesi, bayramlaşma ve kirvelik."
+ },
+ {
+  "id": "edb-yp-45",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 8 (Zeduva): Kaşıkçı masalını beş karelik bir film şeridine dönüştürüp her karenin olayını yazınız.",
+  "src": "Fakir bir kaşıkçı ormanda sakat bir tilki görür. Saklanıp izler: bir aslan ağzında etle gelir, eti tilkiye bırakır. Kaşıkçı \"Tilki gibi olayım.\" deyip köyün ortasına oturur ve yardım bekler ama kimse ilgilenmez. Yaşlı bir adam ona \"Tilkiyi değil, hem kendine hem başkalarına yardım eden aslanı örnek alsan daha iyi olmaz mı?\" der. Aklı başına gelen kaşıkçı işine döner; hem kendine ekmek parası kazanır hem çevresine yardım eder. Gökten üç elma düşer…",
+  "rubric": [
+   {
+    "t": "1. kare: Fakir kaşıkçı ormanda odun toplarken sakat bir tilki görür",
+    "p": 2
+   },
+   {
+    "t": "2. kare: Saklanıp izler; aslan tilkiye et getirir",
+    "p": 2
+   },
+   {
+    "t": "3. kare: Kaşıkçı tilkiyi örnek alıp köy meydanında boş boş oturur, kimse ilgilenmez",
+    "p": 2
+   },
+   {
+    "t": "4. kare: Yaşlı adam “Aslanı örnek al.” diye öğüt verir",
+    "p": 2
+   },
+   {
+    "t": "5. kare: Kaşıkçı işine döner, hem kazanır hem çevresine yardım eder",
+    "p": 2
+   }
+  ],
+  "model": "1. Fakir kaşıkçı ormanda odun toplarken yerde yatan sakat bir tilki görür.\n2. Ağacın arkasına saklanır; bir aslan ağzında etle gelip eti tilkinin önüne bırakır.\n3. Kaşıkçı tilki gibi olmaya karar verir, köyün ortasına oturup yardım bekler ama kimse onunla ilgilenmez.\n4. Yaşlı bir adam derdini dinler ve “Tilkiyi değil, hem kendine hem başkalarına yardım eden aslanı örnek al.” der.\n5. Aklı başına gelen kaşıkçı işine döner; hem ekmeğini kazanır hem çevresindekilere yardım eder.",
+  "why": "Film şeridi: her kare tek bir sahne, olay sırası bozulmadan, kısa ve görsel cümlelerle. Masalın serim-düğüm-çözüm akışını takip et."
+ },
+ {
+  "id": "edb-yp-46",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 9 (Zeduva): Bu iki parçayı içerik, nazım biçimi, ait olduğu gelenek, söylenme amacı, dil ve anlatım açısından karşılaştırınız.",
+  "src": "Ne kaçarsın benden ey melek sima\nAteş sakınır mı pervanesinden\nBezm-i muhabbette canım efendim\nMey esirgenilmez mestanesinden\n…\nBana senden oldu ey çeşm-i şehlâ\nKimi kimden kime kılayım şekva\nSana ricam budur Hazreti Mevlâ\nAyırma Emrah'ı bir danesinden\n\nAdalardan çıktım yayan\nGardaş atlı bacı yayan\nDi gel bu dertlere dayan\nNenni nenni nenni nenni\nNenni nenni nenni bebek ey\n\nBebeğin beşiği çamdan\nYuvarlandı düştü damdan\nBey babası gelir Van'dan\nNenni nenni nenni nenni",
+  "rubric": [
+   {
+    "t": "İçerik: 1. parça sevgiliye aşk ve sitem · 2. parça bebeği uyutma, anne şefkati ve dertler",
+    "p": 2
+   },
+   {
+    "t": "Nazım biçimi: 1. parça koşma (11'li hece, tapşırma: Emrah) · 2. parça ninni",
+    "p": 2
+   },
+   {
+    "t": "Gelenek: 1. parça âşık tarzı halk edebiyatı (Erzurumlu Emrah) · 2. parça anonim halk edebiyatı",
+    "p": 2
+   },
+   {
+    "t": "Söylenme amacı: 1. aşkını, özlemini dile getirmek · 2. çocuğu uyutmak, sakinleştirmek",
+    "p": 2
+   },
+   {
+    "t": "Dil: 1. Arapça-Farsça kelime ve tamlamalarla ağır (bezm-i muhabbet, çeşm-i şehlâ) · 2. sade, yöresel (gardaş, di gel)",
+    "p": 2
+   }
+  ],
+  "model": "1. parça: İçerik: Sevgiliden kaçmamasını isteyen âşığın aşkı ve sitemi. Nazım biçimi: Koşma (11'li hece, dörtlük, son dörtlükte “Emrah” tapşırması). Gelenek: Âşık tarzı halk edebiyatı; divan şiirinden etkilenmiş bir kalem şairi (Erzurumlu Emrah). Amaç: Sevgiliye duyulan aşkı ve özlemi dile getirmek. Dil: Bezm-i muhabbet, çeşm-i şehlâ, âb-ı zülâl gibi Farsça tamlamalar ve Arapça-Farsça kelimelerle ağır, süslü bir dil.\n2. parça: İçerik: Bebeği uyuturken annenin sevgisi ve dertleri. Nazım biçimi: Ninni (8'li hece, “nenni” nakaratı). Gelenek: Anonim halk edebiyatı. Amaç: Çocuğu uyutmak ve sakinleştirmek. Dil: Sade, içten, yöresel söyleyişler (gardaş, di gel), tekrarlarla ahenkli.",
+  "why": "Karşılaştırma sorularında her ölçütü iki parça için ayrı ayrı yaz; tablo gibi düzenlersen okunması kolay olur."
+ },
+ {
+  "id": "edb-yp-47",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "Erzurumlu Emrah'ın dizelerinde geçen “bezm-i muhabbet, çeşm-i şehlâ” gibi tamlamalar neyi gösterir?",
+  "src": "Ne kaçarsın benden ey melek sima\nAteş sakınır mı pervanesinden\nBezm-i muhabbette canım efendim\nMey esirgenilmez mestanesinden\n…\nBana senden oldu ey çeşm-i şehlâ\nKimi kimden kime kılayım şekva\nSana ricam budur Hazreti Mevlâ\nAyırma Emrah'ı bir danesinden",
+  "choices": [
+   "Şairin divan edebiyatından etkilendiğini (Farsça tamlamalar)",
+   "Şiirin anonim olduğunu",
+   "Şiirin İslamiyet öncesine ait olduğunu",
+   "Şiirin ninni olduğunu"
+  ],
+  "answer": 0,
+  "why": "Farsça tamlamalar (bezm-i muhabbet = sevgi meclisi, çeşm-i şehlâ = süzgün, ela göz) divan şiirinin etkisidir. Adında şehir adı olan Erzurumlu Emrah, divan şiirini bilen bir kalem şairidir."
+ },
+ {
+  "id": "edb-yp-48",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "write",
+  "q": "Prova 10 (Zeduva): kentü (Orhun Yazıtları, 735) > kendü (Divanu Lügati't-Türk, 1073) > kendi (Türkiye Türkçesi). “Kendi” sözcüğünün geçirdiği değişimi açıklayınız; bu değişimin sebeplerini değerlendiriniz.",
+  "rubric": [
+   {
+    "t": "“t” ünsüzünün “d”ye dönüştüğünü (kentü > kendü) yazdım",
+    "p": 2
+   },
+   {
+    "t": "Son ünlü “ü”nün “i”ye dönüştüğünü (kendü > kendi) yazdım",
+    "p": 2
+   },
+   {
+    "t": "Sebep: dilin zaman içinde doğal olarak değişmesi, kolay söyleyiş (ses uyumu, dil ekonomisi)",
+    "p": 2
+   },
+   {
+    "t": "Sebep: farklı coğrafyalar, lehçeler/ağızlar ve kültürel etkileşim",
+    "p": 2
+   }
+  ],
+  "model": "Sözcük, Orhun Yazıtları'nda “kentü”, Divanu Lügati't-Türk'te “kendü”, Türkiye Türkçesinde “kendi” biçimindedir. Önce “t” ünsüzü yumuşayarak “d” olmuş (kentü > kendü), sonra son hecedeki yuvarlak “ü” düzleşerek “i”ye dönüşmüştür (kendü > kendi). Bu değişim, dilin canlı bir varlık olarak zamanla değişmesinden, söyleyiş kolaylığı (sesler arası uyum, dil ekonomisi) arayışından ve Türkçenin farklı coğrafyalarda farklı lehçe ve ağızlarla, başka kültürlerle etkileşim içinde gelişmesinden kaynaklanır. Değişime rağmen sözcüğün kökü korunmuş, Türkçe sürekliliğini sürdürmüştür.",
+  "why": "Her iki ses değişimini örnekle göster, sonra en az iki sebep yaz."
+ },
+ {
+  "id": "edb-yp-49",
+  "unit": "Yazılı Provası",
+  "gold": true,
+  "type": "mc",
+  "q": "kentü > kendü > kendi değişiminde ilk aşamada (kentü > kendü) ne olmuştur?",
+  "choices": [
+   "“t” ünsüzü “d”ye dönüşmüştür",
+   "“ü” ünlüsü “i”ye dönüşmüştür",
+   "Sözcüğe yeni bir ek gelmiştir",
+   "Bir hece düşmüştür"
+  ],
+  "answer": 0,
+  "why": "kenTü > kenDü: t > d (ünsüz yumuşaması). İkinci aşamada kendÜ > kendİ: ü > i (yuvarlak ünlü düzleşmiş)."
+ },
+ {
+  "id": "edb-dn-01",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Türk edebiyatı genel olarak kaç ana döneme ayrılır?",
+  "choices": [
+   "3",
+   "2",
+   "4",
+   "5"
+  ],
+  "answer": 0,
+  "why": "1) İslamiyet Öncesi, 2) İslamiyet Etkisinde Gelişen, 3) Batı Etkisinde Gelişen Türk Edebiyatı."
+ },
+ {
+  "id": "edb-dn-02",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "order",
+  "q": "Türk edebiyatının ana dönemlerini eskiden yeniye sırala.",
+  "items": [
+   "İslamiyet Öncesi Türk Edebiyatı",
+   "İslamiyet Etkisinde Gelişen Türk Edebiyatı",
+   "Batı Etkisinde Gelişen Türk Edebiyatı"
+  ],
+  "why": "Başlangıç–11. yy: İslamiyet öncesi; 11.–19. yy: İslamiyet etkisinde; 1860'tan (Tanzimat) itibaren: Batı etkisinde."
+ },
+ {
+  "id": "edb-dn-03",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Türk edebiyatının ana dönemlere ayrılmasında en belirleyici etken hangisidir?",
+  "choices": [
+   "Din (ve buna bağlı medeniyet) değişimi",
+   "Hükümdarların değişmesi",
+   "Başkentin değişmesi",
+   "Savaşlar"
+  ],
+  "answer": 0,
+  "why": "İslamiyet'in kabulü ve Batı medeniyetine yönelme, edebiyatın zevkini, türlerini ve dilini kökten değiştirmiştir. Dönemler bu kültür ve medeniyet değişimlerine göre ayrılır."
+ },
+ {
+  "id": "edb-dn-04",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "match",
+  "q": "Edebî ürünleri ait oldukları döneme / kola yerleştir.",
+  "pairs": [
+   [
+    "Koşuk",
+    "İslamiyet öncesi sözlü dönem"
+   ],
+   [
+    "Sagu",
+    "İslamiyet öncesi sözlü dönem"
+   ],
+   [
+    "Koşma",
+    "Âşık tarzı halk edebiyatı"
+   ],
+   [
+    "Türkü",
+    "Anonim halk edebiyatı"
+   ],
+   [
+    "Gazel",
+    "Divan edebiyatı"
+   ],
+   [
+    "İlahi",
+    "Dinî-tasavvufi halk edebiyatı"
+   ]
+  ],
+  "why": "Koşuk ve sagu İslamiyet öncesi; koşma âşık tarzı; türkü ve mani anonim; gazel ve kaside divan; ilahi ve nefes dinî-tasavvufi halk edebiyatına aittir."
+ },
+ {
+  "id": "edb-dn-05",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Aşağıdakilerden hangisi İslamiyet Etkisinde Gelişen Türk Edebiyatı'nın kollarından biri değildir?",
+  "choices": [
+   "Tanzimat edebiyatı",
+   "Divan edebiyatı",
+   "Âşık tarzı halk edebiyatı",
+   "Dinî-tasavvufi halk edebiyatı"
+  ],
+  "answer": 0,
+  "why": "Tanzimat, Servetifünun, Millî Edebiyat ve Cumhuriyet dönemi Batı etkisinde gelişen Türk edebiyatının bölümleridir."
+ },
+ {
+  "id": "edb-dn-06",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Halk edebiyatı hangi üç kola ayrılır?",
+  "choices": [
+   "Anonim, âşık tarzı, dinî-tasavvufi",
+   "Sözlü, yazılı, geçiş",
+   "Divan, tekke, tanzimat",
+   "Koşuk, sagu, sav"
+  ],
+  "answer": 0,
+  "why": "Anonim halk edebiyatı (türkü, mani, masal…), âşık tarzı halk edebiyatı (koşma, semai, varsağı…), dinî-tasavvufi halk edebiyatı (ilahi, nefes, nutuk…)."
+ },
+ {
+  "id": "edb-dn-07",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "match",
+  "q": "Hangi ürün nereye ait? Eşleştir.",
+  "pairs": [
+   [
+    "Türkü",
+    "Anonim halk edebiyatı"
+   ],
+   [
+    "Mani",
+    "Anonim halk edebiyatı"
+   ],
+   [
+    "Semai",
+    "Âşık tarzı halk edebiyatı"
+   ],
+   [
+    "Varsağı",
+    "Âşık tarzı halk edebiyatı"
+   ],
+   [
+    "Nefes",
+    "Dinî-tasavvufi halk edebiyatı"
+   ],
+   [
+    "Kaside",
+    "Divan edebiyatı"
+   ]
+  ],
+  "why": "Söyleyeni belli olmayanlar anonim; saz şairinin söyledikleri âşık tarzı; tekke çevresinde söylenenler dinî-tasavvufi; aruzla, saray ve medrese çevresinde yazılanlar divan edebiyatıdır."
+ },
+ {
+  "id": "edb-dn-08",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "İslamiyet öncesi Türk edebiyatı hangi iki döneme ayrılır?",
+  "choices": [
+   "Sözlü dönem ve yazılı dönem",
+   "Divan ve halk",
+   "Geçiş ve tasavvuf",
+   "Koşuk ve sagu dönemi"
+  ],
+  "answer": 0,
+  "why": "Sözlü dönem: koşuk, sagu, sav, destan. Yazılı dönem: Göktürk (Orhun) Yazıtları ve Uygur metinleri."
+ },
+ {
+  "id": "edb-dn-09",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "tf",
+  "q": "Tarih bilimi geçmişi araştırırken destan, anı gibi edebî eserlerden birer kaynak olarak yararlanabilir.",
+  "answer": true,
+  "why": "Edebî eserler yazıldığı dönemin zihniyetini yansıtır. Tarihçi bu eserleri belge olarak kullanır; edebiyat da konusunu tarihten alabilir (destanlar, tarihî romanlar)."
+ },
+ {
+  "id": "edb-dn-10",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Edebiyat ile tarih arasındaki temel fark hangisinde doğru verilmiştir?",
+  "choices": [
+   "Tarih nesnel ve kanıta dayalıdır; edebiyat öznel, kurgusal ve estetik amaçlıdır",
+   "Tarih kurgusaldır; edebiyat bilimseldir",
+   "İkisi de yalnızca bilgi verir",
+   "Edebiyat geçmişi hiç konu almaz"
+  ],
+  "answer": 0,
+  "why": "Tarih bilgi verir ve belgeye dayanır; edebiyat sanatsal zevk uyandırmayı amaçlar, kurmaca ve öznel olabilir."
+ },
+ {
+  "id": "edb-dn-11",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "write",
+  "q": "“Destanlar ve tarihî romanlar bir milletin geçmişini şekillendiren olayları konu edinir.” İfadesinden hareketle edebiyat ile tarih arasındaki ilişkiyi ve iki temel farkı yazınız.",
+  "rubric": [
+   {
+    "t": "İlişki: İkisi de insanı ve toplumu konu alır; edebiyat konusunu tarihten alabilir",
+    "p": 2
+   },
+   {
+    "t": "İlişki: Tarih, edebî eserleri (destan, anı) belge/kaynak olarak kullanır",
+    "p": 2
+   },
+   {
+    "t": "Fark 1: Tarih nesnel ve kanıta dayalıdır; edebiyat öznel, kurgusaldır",
+    "p": 2
+   },
+   {
+    "t": "Fark 2: Tarih bilgi vermeyi, edebiyat sanatsal zevk uyandırmayı amaçlar",
+    "p": 2
+   }
+  ],
+  "model": "İlişki: Edebiyat da tarih de insanı ve toplumun geçmişte yaşadıklarını konu edinir. Edebiyat konusunu tarihten alabilir; tarih de geçmişi araştırırken destan, anı, cenkname gibi edebî eserlerden birinci derece kaynak olarak yararlanır.\nFark 1: Tarih nesnel ve kanıtlara dayalıdır; edebiyat kurgusal, öznel ve estetik değer taşır.\nFark 2: Tarih bilgi vermeyi amaçlarken edebiyat okuyucuda sanatsal zevk uyandırmayı amaçlar.",
+  "why": "İlişki + iki fark ayrı ayrı yazılmalı. “Farkları” derken her iki tarafı da söyle (tarih şöyle, edebiyat böyle)."
+ },
+ {
+  "id": "edb-dn-12",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "İslamiyet'in kabulüyle Türk edebiyatında görülen değişimlerden biri hangisidir?",
+  "choices": [
+   "Arapça ve Farsça kelimeler dile girdi; gazel, mesnevi, ilahi gibi yeni türler doğdu",
+   "Hece ölçüsü tamamen yasaklandı",
+   "Halk edebiyatı ortadan kalktı",
+   "Latin alfabesine geçildi"
+  ],
+  "answer": 0,
+  "why": "Din, bir toplumun dünya görüşünü ve edebî zevkini değiştiren temel unsurdur. İslamiyet'le aruz, beyit, gazel, mesnevi, ilahi, hikmet gibi yeni biçim ve türler girmiştir; halk şiiri ise hece ile yaşamaya devam etmiştir."
+ },
+ {
+  "id": "edb-dn-13",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "order",
+  "q": "Türklerin kullandığı alfabeleri tarih sırasına diz (Türkiye Türkçesi için).",
+  "items": [
+   "Kök Türk (Göktürk) alfabesi",
+   "Uygur alfabesi",
+   "Arap alfabesi",
+   "Latin alfabesi"
+  ],
+  "why": "Göktürk (ilk millî alfabe) → Uygur → İslamiyet'le Arap alfabesi (yaklaşık 1000 yıl) → 1 Kasım 1928 Harf Devrimi ile Latin alfabesi."
+ },
+ {
+  "id": "edb-dn-14",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Türklerin kullandığı ilk millî alfabe hangisidir?",
+  "choices": [
+   "Kök Türk (Göktürk) alfabesi",
+   "Uygur alfabesi",
+   "Arap alfabesi",
+   "Kiril alfabesi"
+  ],
+  "answer": 0,
+  "why": "Orhun Yazıtları Göktürk alfabesiyle yazılmıştır. 38 harflidir ve sağdan sola yazılır."
+ },
+ {
+  "id": "edb-dn-15",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Türkiye'de Latin alfabesine hangi tarihte geçilmiştir?",
+  "choices": [
+   "1 Kasım 1928",
+   "29 Ekim 1923",
+   "1 Kasım 1922",
+   "3 Mart 1924"
+  ],
+  "answer": 0,
+  "why": "1 Kasım 1928'de kabul edilen Harf Devrimi ile Latin harflerine dayanan Türk alfabesine geçildi."
+ },
+ {
+  "id": "edb-dn-16",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "tf",
+  "q": "Kiril alfabesi, Sovyetler Birliği döneminde Orta Asya ve Kafkasya'daki bazı Türk topluluklarına kullandırılmıştır.",
+  "answer": true,
+  "why": "Kiril alfabesi Sovyet döneminde Türk topluluklarına zorunlu olarak kullandırıldı; bugün bazıları Latin alfabesine geçmiştir."
+ },
+ {
+  "id": "edb-dn-17",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Türklerin en uzun süre kullandığı alfabe hangisidir?",
+  "choices": [
+   "Arap alfabesi",
+   "Göktürk alfabesi",
+   "Latin alfabesi",
+   "Uygur alfabesi"
+  ],
+  "answer": 0,
+  "why": "İslamiyet'in kabulünden 1928'e kadar yaklaşık 1000 yıl Arap alfabesi kullanıldı; Osmanlı Türkçesi metinleri bu alfabeyle yazıldı."
+ },
+ {
+  "id": "edb-dn-18",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "tiles",
+  "q": "Geçiş dönemi eserlerini yazarlarıyla eşleştir.",
+  "pairs": [
+   [
+    "Kutadgu Bilig",
+    "Yusuf Has Hacib"
+   ],
+   [
+    "Divanu Lügati't-Türk",
+    "Kaşgarlı Mahmud"
+   ],
+   [
+    "Atabetü'l-Hakayık",
+    "Edip Ahmet Yükneki"
+   ],
+   [
+    "Divan-ı Hikmet",
+    "Ahmet Yesevi"
+   ]
+  ],
+  "why": "Bu dört eser 11.–12. yüzyıl geçiş dönemi eserleridir: İslamiyet öncesi ve İslami kültür iç içedir."
+ },
+ {
+  "id": "edb-dn-19",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "İslami dönemin ilk edebî eseri, ilk mesnevisi ve ilk siyasetnamesi hangisidir?",
+  "choices": [
+   "Kutadgu Bilig",
+   "Divanu Lügati't-Türk",
+   "Atabetü'l-Hakayık",
+   "Divan-ı Hikmet"
+  ],
+  "answer": 0,
+  "why": "Yusuf Has Hacib'in Kutadgu Bilig'i (1069–70) aruzla yazılmış ilk eserimizdir; alegorik bir siyasetnamedir."
+ },
+ {
+  "id": "edb-dn-20",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "tiles",
+  "q": "Kutadgu Bilig'deki sembolik kahramanları temsil ettikleri kavramla eşleştir.",
+  "pairs": [
+   [
+    "Kün Togdı",
+    "Adalet (hükümdar)"
+   ],
+   [
+    "Ay Toldı",
+    "Saadet, devlet (vezir)"
+   ],
+   [
+    "Ögdülmiş",
+    "Akıl (vezirin oğlu)"
+   ],
+   [
+    "Odgurmış",
+    "Akıbet (zahit)"
+   ]
+  ],
+  "why": "Kutadgu Bilig dört sembolik kahraman üzerinden “mutluluk veren bilgi”yi anlatır."
+ },
+ {
+  "id": "edb-dn-21",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Türkçenin Arapça kadar zengin bir dil olduğunu kanıtlamak için yazılan, ilk Türkçe sözlük kabul edilen eser hangisidir?",
+  "choices": [
+   "Divanu Lügati't-Türk",
+   "Kutadgu Bilig",
+   "Divan-ı Hikmet",
+   "Atabetü'l-Hakayık"
+  ],
+  "answer": 0,
+  "why": "Kaşgarlı Mahmud'un eserinde bol miktarda koşuk, sagu ve sav örneği ile bilinen ilk Türk haritası da vardır."
+ },
+ {
+  "id": "edb-dn-22",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Şiirlerine “hikmet” denen ve tasavvufi halk şiirinin temelini atan şair kimdir?",
+  "choices": [
+   "Ahmet Yesevi",
+   "Yunus Emre",
+   "Yusuf Has Hacib",
+   "Edip Ahmet"
+  ],
+  "answer": 0,
+  "why": "Ahmet Yesevi'nin Divan-ı Hikmet'i ilk tasavvufi eserdir; sade dili ve hece ölçüsüyle ilahi türüne zemin hazırlamıştır."
+ },
+ {
+  "id": "edb-dn-23",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Okurda estetik zevk uyandırmayı amaçlayan, kurmaca dünyası olan metinlere ne denir?",
+  "choices": [
+   "Sanatsal (kurmaca) metin",
+   "Öğretici metin",
+   "Bilimsel metin",
+   "Resmî yazı"
+  ],
+  "answer": 0,
+  "why": "Şiir, hikâye, roman, masal, tiyatro sanatsal metinlerdir. Makale, deneme, fıkra, biyografi gibi bilgi veren metinler öğreticidir."
+ },
+ {
+  "id": "edb-dn-24",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "match",
+  "q": "Metinleri türüne göre sınıflandır.",
+  "pairs": [
+   [
+    "Masal",
+    "Sanatsal metin"
+   ],
+   [
+    "Şiir",
+    "Sanatsal metin"
+   ],
+   [
+    "Roman",
+    "Sanatsal metin"
+   ],
+   [
+    "Makale",
+    "Öğretici metin"
+   ],
+   [
+    "Biyografi",
+    "Öğretici metin"
+   ],
+   [
+    "Söyleşi",
+    "Öğretici metin"
+   ]
+  ],
+  "why": "Sanatsal metinde amaç estetik zevk, dil mecazlı ve çağrışımlıdır. Öğretici metinde amaç bilgi vermektir, dil açık ve nesneldir."
+ },
+ {
+  "id": "edb-dn-25",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Kurmaca metinlerde karşıt güçlerin, isteklerin ya da düşüncelerin mücadelesine ne denir?",
+  "choices": [
+   "Çatışma",
+   "Serim",
+   "Bakış açısı",
+   "Tema"
+  ],
+  "answer": 0,
+  "why": "Çatışma olay örgüsünü ilerletir. Masalda iyi ile kötünün çatışması belirgindir (Altın Balta'da dürüst fakir ile yalancı zengin)."
+ },
+ {
+  "id": "edb-dn-26",
+  "unit": "Edebiyat ve Dönemler",
+  "type": "mc",
+  "q": "Her şeyi bilen, kahramanların iç dünyasını da aktaran anlatıcının bakış açısı hangisidir?",
+  "choices": [
+   "İlahi (hâkim) bakış açısı",
+   "Gözlemci bakış açısı",
+   "Kahraman bakış açısı",
+   "Yazar bakış açısı yoktur"
+  ],
+  "answer": 0,
+  "why": "Hâkim anlatıcı her şeyi bilir. Gözlemci yalnızca gördüklerini, kahraman anlatıcı ise (“ben”) kendi yaşadıklarını aktarır. Masallar genellikle 3. kişi ağzından anlatılır."
+ },
+ {
+  "id": "edb-ol-01",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "MEB tanımına göre “edebî metinlerde kelimelerin sıralanışından veya birbirleriyle ilişkisinden doğan ve kulağa hoş gelen ses düzeni” nedir?",
+  "choices": [
+   "Ahenk",
+   "Ezgi",
+   "Tema",
+   "Nazım birimi"
+  ],
+  "answer": 0,
+  "why": "Ahenk = ses uyumu. Ölçü, kafiye, redif, asonans, aliterasyon ve tekrarlar ahengi sağlar."
+ },
+ {
+  "id": "edb-ol-02",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "tiles",
+  "q": "Kavramları MEB tanımlarıyla eşleştir.",
+  "pairs": [
+   [
+    "Ahenk",
+    "Kulağa hoş gelen ses düzeni"
+   ],
+   [
+    "Ezgi",
+    "Kurallara göre düzenlenmiş müzikal ses dizisi"
+   ],
+   [
+    "Ritim",
+    "Vurgu, ses ve durakların düzenli tekrarı"
+   ],
+   [
+    "Tema",
+    "Şiirde verilmek istenen ana duygu"
+   ]
+  ],
+  "why": "Ezgi bir müzik terimidir (türküler ezgiyle söylenir). Ritim; vurgu, uzunluk veya ses özelliklerinin ve durakların düzenli tekrarından doğar."
+ },
+ {
+  "id": "edb-ol-03",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Şiirde işlenen ana duygu olan tema ile konu arasındaki fark hangisinde doğru verilmiştir?",
+  "choices": [
+   "Tema soyut ve geneldir (aşk); konu temanın somut, özel hâlidir (Leyla ile Mecnun'un aşkı)",
+   "Tema somuttur, konu soyuttur",
+   "Tema ile konu aynı şeydir",
+   "Tema yalnızca romanlarda bulunur"
+  ],
+  "answer": 0,
+  "why": "Tema bir iki kelimeyle söylenir: aşk, ayrılık, gurbet, kahramanlık, doğa. Konu ise o temanın şiirde nasıl somutlaştığıdır."
+ },
+ {
+  "id": "edb-ol-04",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Türk edebiyatının millî ölçüsü hangisidir?",
+  "choices": [
+   "Hece ölçüsü",
+   "Aruz ölçüsü",
+   "Serbest ölçü",
+   "Kafiye ölçüsü"
+  ],
+  "answer": 0,
+  "why": "Hece ölçüsü İslamiyet öncesinden beri kullanılır; dizelerdeki hece sayısının eşitliğine dayanır. Halk şiiri her dönem heceyle söylenmiştir."
+ },
+ {
+  "id": "edb-ol-05",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Hece ölçüsünde bir dizenin hece sayısını bulmanın en kolay yolu nedir?",
+  "choices": [
+   "Ünlüleri (sesli harfleri) saymak",
+   "Ünsüzleri saymak",
+   "Kelimeleri saymak",
+   "Ekleri saymak"
+  ],
+  "answer": 0,
+  "why": "Türkçede her hecede bir ünlü vardır: hece sayısı = ünlü sayısı. “Ala gözlü benli dilber” → a-a-ö-ü-e-i-i-e = 8 hece."
+ },
+ {
+  "id": "edb-ol-06",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "fill",
+  "q": "“Ben yürürüm yane yane” dizesi ___ hece ölçüsüyle yazılmıştır.",
+  "choices": [
+   "8'li",
+   "7'li",
+   "11'li",
+   "6'lı"
+  ],
+  "answer": 0,
+  "why": "Ben-yü-rü-rüm-ya-ne-ya-ne = 8 hece, durak 4+4 (Ben yürürüm / yane yane)."
+ },
+ {
+  "id": "edb-ol-07",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "fill",
+  "q": "“Hangi dağda bulsam ben o maralı” dizesi ___ hece ölçüsüyle yazılmıştır.",
+  "choices": [
+   "11'li",
+   "8'li",
+   "7'li",
+   "12'li"
+  ],
+  "answer": 0,
+  "why": "Han-gi-dağ-da-bul-sam-ben-o-ma-ra-lı = 11 hece, durak 6+5 (Hangi dağda bulsam / ben o maralı)."
+ },
+ {
+  "id": "edb-ol-08",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "11'li hece ölçüsünün en yaygın durak biçimleri hangileridir?",
+  "choices": [
+   "6+5 ve 4+4+3",
+   "4+3",
+   "4+4",
+   "5+5+1"
+  ],
+  "answer": 0,
+  "why": "7'li genellikle 4+3, 8'li 4+4, 11'li 6+5 ya da 4+4+3 duraklıdır. Koşmanın kalıbı 11'li hecedir."
+ },
+ {
+  "id": "edb-ol-09",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "match",
+  "q": "Nazım biçimlerini en çok kullanılan hece kalıbıyla eşleştir.",
+  "pairs": [
+   [
+    "Koşuk",
+    "7'li hece"
+   ],
+   [
+    "Mani",
+    "7'li hece"
+   ],
+   [
+    "Koşma",
+    "11'li hece"
+   ],
+   [
+    "Semai",
+    "8'li hece"
+   ],
+   [
+    "Varsağı",
+    "8'li hece"
+   ]
+  ],
+  "why": "Koşuk ve sagu genellikle 7'li (MEB: 7, 8 veya 11'li olabilir); mani 7'li; koşma 11'li; semai ve varsağı 8'li hecedir."
+ },
+ {
+  "id": "edb-ol-10",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Hece ölçüsünün iki temel kuralı hangisidir?",
+  "choices": [
+   "Dizelerde hece sayısının eşit olması ve durakların aynı yerde olması",
+   "Her dizenin aynı harfle başlaması",
+   "Dizelerin açık-kapalı hecelerle dizilmesi",
+   "Her dörtlükte redif olması"
+  ],
+  "answer": 0,
+  "why": "Hece sayısı eşitliği + aynı yerlerde durak. Açık-kapalı hece düzeni aruz ölçüsünün mantığıdır."
+ },
+ {
+  "id": "edb-ol-11",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Hecelerin açıklık ve kapalılığına (kısalık-uzunluk) dayanan, Arap ve Fars edebiyatından geçen ölçü hangisidir?",
+  "choices": [
+   "Aruz ölçüsü",
+   "Hece ölçüsü",
+   "Serbest ölçü",
+   "Millî ölçü"
+  ],
+  "answer": 0,
+  "why": "Aruz İslamiyet'le birlikte 11. yüzyıldan itibaren görülür. Aruzla yazılan ilk eser Kutadgu Bilig'dir. Ünlüyle biten hece açık (.), ünsüzle biten hece kapalı (–) kabul edilir."
+ },
+ {
+  "id": "edb-ol-12",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "tf",
+  "q": "Aruz ölçüsünde ünsüzle biten heceler ve uzun ünlüyle (â, î, û) biten heceler kapalı (uzun) kabul edilir.",
+  "answer": true,
+  "why": "De-niz: “de” açık (.), “niz” kapalı (–). Uzun ünlülü heceler de kapalı sayılır."
+ },
+ {
+  "id": "edb-ol-13",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Dizelerin uzunluğu eşit olmayan, ne hece ne aruz ölçüsüne bağlı şiirlerde hangi ölçü vardır?",
+  "choices": [
+   "Serbest ölçü",
+   "Hece ölçüsü",
+   "Aruz ölçüsü",
+   "Durak ölçüsü"
+  ],
+  "answer": 0,
+  "why": "“İstanbul'u dinliyorum, gözlerim kapalı / Önce hafiften bir rüzgâr esiyor” dizeleri eşit değildir: serbest ölçü. Cumhuriyet döneminde yaygınlaşmıştır."
+ },
+ {
+  "id": "edb-ol-14",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "match",
+  "q": "Nazım birimlerini tanımlarıyla eşleştir.",
+  "pairs": [
+   [
+    "Dize (mısra)",
+    "Şiirin tek satırı"
+   ],
+   [
+    "Beyit",
+    "İki dizelik birim"
+   ],
+   [
+    "Dörtlük",
+    "Dört dizelik birim"
+   ],
+   [
+    "Bent",
+    "Türküde asıl sözlerin bulunduğu bölüm"
+   ]
+  ],
+  "why": "Halk şiirinin nazım birimi genellikle dörtlüktür; divan şiirinde beyit kullanılır. Türküler bent ve kavuştaktan oluşur."
+ },
+ {
+  "id": "edb-ol-15",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Halk şiirinde ve İslamiyet öncesi şiirde en çok kullanılan nazım birimi hangisidir?",
+  "choices": [
+   "Dörtlük",
+   "Beyit",
+   "Bent",
+   "Üçlük"
+  ],
+  "answer": 0,
+  "why": "Koşuk, sagu, koşma, mani, semai, varsağı dörtlüklerle söylenir. Beyit divan şiirinin nazım birimidir."
+ },
+ {
+  "id": "edb-ol-16",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "tf",
+  "q": "Şiir dili günlük dilden farklıdır; imgeli, çok anlamlı ve yoğun bir dildir.",
+  "answer": true,
+  "why": "Şiir; semboller, çağrışımlar ve seslerin ahenkli kullanımıyla oluşur. Bir dize üzerine sayfalarca yorum yazılabilir."
+ },
+ {
+  "id": "edb-ol-17",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Hangisi ahenk unsuru değildir?",
+  "choices": [
+   "Tema",
+   "Kafiye",
+   "Redif",
+   "Ölçü"
+  ],
+  "answer": 0,
+  "why": "Ahenk unsurları şekil ve sesle ilgilidir: ölçü, kafiye, redif, kafiye şeması, asonans, aliterasyon, tekrarlar. Tema ise içerikle ilgilidir."
+ },
+ {
+  "id": "edb-ol-18",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "“Uçtu gönül kuşu hava eyledi” dizesinin hece ölçüsü nedir?",
+  "choices": [
+   "11'li",
+   "8'li",
+   "7'li",
+   "10'lu"
+  ],
+  "answer": 0,
+  "why": "Uç-tu-gö-nül-ku-şu-ha-va-ey-le-di = 11 hece (6+5): Uçtu gönül kuşu / hava eyledi. Bu bir koşma dizesidir."
+ },
+ {
+  "id": "edb-ol-19",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "fill",
+  "q": "“Mayadağ'dan kalkan kazlar” dizesi ___ hece ölçüsüyle söylenmiştir.",
+  "choices": [
+   "8'li",
+   "7'li",
+   "11'li",
+   "9'lu"
+  ],
+  "answer": 0,
+  "why": "Ma-ya-dağ-dan-kal-kan-kaz-lar = 8 hece (4+4)."
+ },
+ {
+  "id": "edb-ol-20",
+  "unit": "Şiir, Ölçü ve Ahenk",
+  "type": "mc",
+  "q": "Milli Edebiyat döneminde aruz–hece tartışmasından hangi ölçü galip çıkmıştır?",
+  "choices": [
+   "Hece ölçüsü",
+   "Aruz ölçüsü",
+   "Serbest ölçü",
+   "Hiçbiri"
+  ],
+  "answer": 0,
+  "why": "Millî Edebiyat'ta “millî ölçü” olarak hece benimsendi. Cumhuriyet'ten sonra serbest şiir yaygınlaştı."
+ },
+ {
+  "id": "edb-kf-01",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "Dize sonlarında görevleri ve anlamları aynı olan ek, kelime ya da kelime gruplarının tekrarına ne denir?",
+  "choices": [
+   "Redif",
+   "Kafiye",
+   "Asonans",
+   "Ölçü"
+  ],
+  "answer": 0,
+  "why": "Redif mutlaka dize sonundadır ve aynı görevdeki ekler (evde/sınıfta “-de/-da”) ya da aynı kelimeler (içinde/içinde) olabilir."
+ },
+ {
+  "id": "edb-kf-02",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "Dize sonlarında anlamları ve görevleri farklı olan ses benzerliklerine ne denir?",
+  "choices": [
+   "Kafiye (uyak)",
+   "Redif",
+   "Aliterasyon",
+   "Durak"
+  ],
+  "answer": 0,
+  "why": "Kafiye kelime kökünde ya da farklı görevli eklerde kalan ses benzerliğidir."
+ },
+ {
+  "id": "edb-kf-03",
+  "unit": "Kafiye ve Redif",
+  "type": "tf",
+  "q": "Kafiye ve redif incelenirken önce redif bulunur, kalan kısımdaki ses benzerliğine bakılarak kafiye belirlenir.",
+  "answer": true,
+  "why": "Altın kural: Önce kelimeyi kök ve eklerine ayır, aynı görevli ekleri (redif) çıkar, sonra kalan seslere bak."
+ },
+ {
+  "id": "edb-kf-04",
+  "unit": "Kafiye ve Redif",
+  "type": "match",
+  "q": "Kafiye türlerini ses benzerliği sayısıyla eşleştir.",
+  "pairs": [
+   [
+    "Yarım kafiye",
+    "Tek ses benzerliği"
+   ],
+   [
+    "Tam kafiye",
+    "İki ses benzerliği"
+   ],
+   [
+    "Zengin kafiye",
+    "Üç ya da daha fazla ses"
+   ],
+   [
+    "Cinaslı kafiye",
+    "Yazılışı aynı, anlamı farklı kelimeler"
+   ]
+  ],
+  "why": "yar/bar → r (yarım); gül/bülbül → ül (tam); diyar/biyar → yar (zengin); asmaya (üzüm asması)/asmaya (idam) → cinaslı."
+ },
+ {
+  "id": "edb-kf-05",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "“Kokuya benzettim güller içinde / Selviye benzettim dallar içinde” dizelerinde redif ve kafiye nedir?",
+  "choices": [
+   "Redif: -ler/-lar içinde · Kafiye: l (yarım)",
+   "Redif: içinde · Kafiye: ller/llar (tam)",
+   "Redif: yok · Kafiye: içinde",
+   "Redif: -ler içinde · Kafiye: gül/dal (zengin)"
+  ],
+  "answer": 0,
+  "why": "gül-ler içinde / dal-lar içinde: çokluk eki + “içinde” redif; kökte kalan “l” yarım kafiye. MEB cevap anahtarı böyle."
+ },
+ {
+  "id": "edb-kf-06",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "“Niçin kondun a bülbül / Kapımdaki asmaya / Ben yârimden ayrılmam / Götürseler asmaya” dörtlüğündeki “asmaya” sözcükleri hangisini oluşturur?",
+  "choices": [
+   "Cinaslı kafiye",
+   "Redif",
+   "Tunç kafiye",
+   "Yarım kafiye"
+  ],
+  "answer": 0,
+  "why": "İlk “asma” üzüm asmasıdır, ikincisi “asmak” (idam etmek) fiilidir. Yazılışları aynı, anlamları farklı → cinas. Anlam farklı olduğu için redif değildir."
+ },
+ {
+  "id": "edb-kf-07",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "“Hasretle sızlayan kalbimiz ince / Uzaktan bir tren sesi gelince” dizelerinde “ince / gelince” arasında hangi kafiye vardır?",
+  "choices": [
+   "Tunç kafiye",
+   "Yarım kafiye",
+   "Cinaslı kafiye",
+   "Redif"
+  ],
+  "answer": 0,
+  "why": "“ince” kelimesi “gelince” kelimesinin içinde aynen geçiyor ve en az üç ses benzerliği var → tunç kafiye (zengin kafiyenin bir çeşidi)."
+ },
+ {
+  "id": "edb-kf-08",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "“aaab, cccb, dddb” şemasında ilk dörtlükteki “aaab” kafiye düzeninin adı nedir?",
+  "choices": [
+   "Düz kafiye",
+   "Çapraz kafiye",
+   "Sarmal kafiye",
+   "Mani tipi kafiye"
+  ],
+  "answer": 0,
+  "why": "aaab düz kafiye; abab çapraz; abba sarmal; aaxa mani tipi kafiyedir. Koşuk ve koşmanın düzeni aaab, cccb, dddb… şeklindedir."
+ },
+ {
+  "id": "edb-kf-09",
+  "unit": "Kafiye ve Redif",
+  "type": "tiles",
+  "q": "Kafiye şemalarını adlarıyla eşleştir.",
+  "pairs": [
+   [
+    "a a a b",
+    "Düz kafiye"
+   ],
+   [
+    "a b a b",
+    "Çapraz kafiye"
+   ],
+   [
+    "a b b a",
+    "Sarmal kafiye"
+   ],
+   [
+    "a a x a",
+    "Mani tipi kafiye"
+   ]
+  ],
+  "why": "Sarmalda 1. ile 4., 2. ile 3. dize; çaprazda 1. ile 3., 2. ile 4. dize kafiyelidir. Manide 3. dize serbesttir."
+ },
+ {
+  "id": "edb-kf-10",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "Dizelerde ünlü (sesli) harflerin ahenk oluşturacak şekilde sık tekrarlanmasına ne denir?",
+  "choices": [
+   "Asonans",
+   "Aliterasyon",
+   "Redif",
+   "Cinas"
+  ],
+  "answer": 0,
+  "why": "“İnce ince bir rüzgâr esiyor” dizesinde “i” ünlüsü tekrar eder → asonans. Kodla: Asonans = ünlü, Aliterasyon = ünsüz."
+ },
+ {
+  "id": "edb-kf-11",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "“Seher sabahında sessiz sokaklar” dizesinde hangi ahenk unsuru belirgindir?",
+  "choices": [
+   "Aliterasyon (s ünsüzü)",
+   "Asonans (a ünlüsü)",
+   "Tunç kafiye",
+   "Cinas"
+  ],
+  "answer": 0,
+  "why": "“s” ünsüzünün sık tekrarı aliterasyondur."
+ },
+ {
+  "id": "edb-kf-12",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "“Bahçalarda mor meni / Verem ettin sen beni / Nasıl verem olmayım / Eller sarıyor seni” dörtlüğünün kafiye şeması nedir?",
+  "choices": [
+   "a a x a",
+   "a b a b",
+   "a b b a",
+   "a a a b"
+  ],
+  "answer": 0,
+  "why": "meni / beni / (olmayım) / seni → 1, 2 ve 4. dizeler kafiyeli, 3. dize serbest: aaxa, yani mani tipi."
+ },
+ {
+  "id": "edb-kf-13",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "“sınıfta” ve “evde” sözcüklerinin sonundaki “-ta/-de” ekleri için ne söylenebilir?",
+  "choices": [
+   "İkisi de bulunma hâli eki olduğu için redif olur",
+   "Sesleri farklı olduğu için redif olmaz",
+   "Kafiye olur",
+   "Cinas olur"
+  ],
+  "answer": 0,
+  "why": "Redifte önemli olan ekin görevidir; ses uyumu ya da sertleşmeyle değişmesi (-de/-da/-te/-ta) fark etmez."
+ },
+ {
+  "id": "edb-kf-14",
+  "unit": "Kafiye ve Redif",
+  "type": "tf",
+  "q": "Redif mutlaka dize sonunda bulunur.",
+  "answer": true,
+  "why": "Dize içindeki tekrarlar redif sayılmaz; onlar tekrir (tekrar) sanatı ya da asonans/aliterasyon olabilir."
+ },
+ {
+  "id": "edb-kf-15",
+  "unit": "Kafiye ve Redif",
+  "type": "mc",
+  "q": "“gül / bülbül” sözcükleri arasında hangi kafiye vardır?",
+  "choices": [
+   "Tam kafiye",
+   "Yarım kafiye",
+   "Zengin kafiye",
+   "Cinaslı kafiye"
+  ],
+  "answer": 0,
+  "why": "“ül” iki ses benzerliği → tam kafiye."
+ },
+ {
+  "id": "edb-kf-16",
+  "unit": "Kafiye ve Redif",
+  "type": "match",
+  "q": "Dize sonlarını çözümle: kalın yazılan kısım redif mi kafiye mi?",
+  "pairs": [
+   [
+    "gözlerim / sözlerim → “-lerim”",
+    "Redif"
+   ],
+   [
+    "yar / bar → “r”",
+    "Kafiye"
+   ],
+   [
+    "açar / biçer → “-ar/-er”",
+    "Redif"
+   ],
+   [
+    "açar / biçer → “ç”",
+    "Kafiye"
+   ]
+  ],
+  "why": "Aynı görevli ekler (çokluk + iyelik “-lerim”, geniş zaman “-ar/-er”) rediftir. Kökteki ses benzerliği (r, ç) kafiyedir."
+ },
+ {
+  "id": "edb-kf-17",
+  "unit": "Kafiye ve Redif",
+  "type": "write",
+  "q": "“Ala gözlerini sevdiğim dilber / Kokuya benzettim güller içinde / İnceciktir belin hilaldir kaşın / Selviye benzettim dallar içinde” dörtlüğünün ahenk unsurlarını (nazım birimi, ölçü, kafiye şeması, kafiye, redif) yazınız.",
+  "rubric": [
+   {
+    "t": "Nazım birimi: dörtlük",
+    "p": 2
+   },
+   {
+    "t": "Ölçü: 11'li hece (6+5)",
+    "p": 2
+   },
+   {
+    "t": "Kafiye şeması: x a x a (abcb)",
+    "p": 2
+   },
+   {
+    "t": "Redif: “-ler/-lar içinde”",
+    "p": 2
+   },
+   {
+    "t": "Kafiye: “l” yarım kafiye",
+    "p": 2
+   }
+  ],
+  "model": "Nazım birimi: Dörtlük\nÖlçü: 11'li hece ölçüsü (A-la-göz-le-ri-ni / sev-di-ğim-dil-ber: 6+5)\nKafiye şeması: x a x a (1. ve 3. dizeler kafiyesiz, 2. ve 4. dizeler kafiyeli)\nRedif: “-ler/-lar içinde” (güller içinde / dallar içinde)\nKafiye: “l” sesi, yarım kafiye",
+  "why": "Önce redifi ayır, sonra kafiyeye bak. Hece sayısını yazarken bir dizeyi hecelere bölüp göstermek puanını garantiler."
+ },
+ {
+  "id": "edb-ko-01",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "MEB tanımına göre koşuk nedir?",
+  "choices": [
+   "Toylarda veya savaş sonrası eğlencelerde ozan, kam, baksılarca kopuz eşliğinde söylenen; aşk, doğa, yiğitlik konulu şiir",
+   "Cenaze törenlerinde ölen kişinin ardından söylenen şiir",
+   "Saz eşliğinde söylenen, son dörtlüğünde mahlas bulunan şiir",
+   "Tekkelerde Allah sevgisini anlatan şiir"
+  ],
+  "answer": 0,
+  "why": "Koşuk: İslamiyet öncesi; toy (şenlik, ziyafet) ve sığır (av) törenleri; ozan/kam/baksı; kopuz; aşk, doğa, yiğitlik; 7'li, 8'li veya 11'li hece; dörtlük; aaab, cccb, dddb."
+ },
+ {
+  "id": "edb-ko-02",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "tiles",
+  "q": "İslamiyet öncesi törenleri anlamlarıyla eşleştir.",
+  "pairs": [
+   [
+    "Sığır",
+    "Av töreni"
+   ],
+   [
+    "Şölen / Toy",
+    "Ziyafet, şenlik"
+   ],
+   [
+    "Yuğ",
+    "Cenaze töreni"
+   ]
+  ],
+  "why": "Koşuklar sığır ve şölenlerde (toylarda), sagular yuğ adı verilen cenaze törenlerinde söylenirdi."
+ },
+ {
+  "id": "edb-ko-03",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "Koşukların kafiye düzeni MEB'e göre hangisidir?",
+  "choices": [
+   "aaab, cccb, dddb…",
+   "abab, cdcd",
+   "aa, ba, ca",
+   "aaxa"
+  ],
+  "answer": 0,
+  "why": "Her dörtlüğün ilk üç dizesi kendi arasında, dördüncü dizeleri birbiriyle kafiyelidir. Koşmanın düzeni de buna benzer: aaab (abab), cccb, dddb…"
+ },
+ {
+  "id": "edb-ko-04",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "İslamiyet öncesi Türk şiirinde şiir söyleyen kişilere verilen adlar hangileridir?",
+  "choices": [
+   "Ozan, kam, baksı, şaman",
+   "Âşık, derviş, abdal",
+   "Şair, divan şairi",
+   "Mürşit, mürit"
+  ],
+  "answer": 0,
+  "why": "Bu kişiler hem din adamı hem şair, hekim ve müzisyendi. Şiirlerini kopuz eşliğinde söylerlerdi."
+ },
+ {
+  "id": "edb-ko-05",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "İslamiyet öncesi şiirde kullanılan çalgı hangisidir?",
+  "choices": [
+   "Kopuz",
+   "Bağlama (saz)",
+   "Ney",
+   "Ud"
+  ],
+  "answer": 0,
+  "why": "Kopuz İslamiyet öncesinin; saz (bağlama) âşık tarzı halk edebiyatının; ney tekke şiirinin çalgısıdır."
+ },
+ {
+  "id": "edb-ko-06",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "Yuğ adı verilen cenaze törenlerinde ölen kişinin iyiliklerini ve duyulan acıyı anlatan şiirlere ne denir?",
+  "choices": [
+   "Sagu",
+   "Koşuk",
+   "Sav",
+   "Destan"
+  ],
+  "answer": 0,
+  "why": "Sagu şekil olarak koşukla aynıdır (dörtlük, 7'li hece); fark içeriktedir: konusu ölümdür."
+ },
+ {
+  "id": "edb-ko-07",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "tiles",
+  "q": "Ölüm üzerine söylenen şiirlerin farklı dönemlerdeki adlarını eşleştir.",
+  "pairs": [
+   [
+    "İslamiyet öncesi",
+    "Sagu"
+   ],
+   [
+    "Halk edebiyatı",
+    "Ağıt"
+   ],
+   [
+    "Divan edebiyatı",
+    "Mersiye"
+   ]
+  ],
+  "why": "Sagu → ağıt → mersiye. Aynı türün üç dönemdeki karşılıkları sınavlarda çok sorulur."
+ },
+ {
+  "id": "edb-ko-08",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "Bu dörtlük hangi nazım biçimine en güzel örnektir?",
+  "src": "Alp Er Tonga öldi mü\nIsız ajun kaldı mu\nÖdlek öçin aldı mu\nEmdi yürek yırtılur\n(Günümüz Türkçesiyle: Alp Er Tunga öldü mü / Kötü dünya kaldı mı / Felek öcünü aldı mı / Şimdi yürek yırtılır)",
+  "choices": [
+   "Sagu",
+   "Koşuk",
+   "Mani",
+   "Koşma"
+  ],
+  "answer": 0,
+  "why": "Hükümdar Alp Er Tunga'nın ölümü üzerine duyulan acı anlatılır: Alp Er Tunga Sagusu. Divanu Lügati't-Türk'te yer alır. Dörtlük, 7'li hece."
+ },
+ {
+  "id": "edb-ko-09",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "tf",
+  "q": "Sagu ile koşuk şekil bakımından aynıdır; aralarındaki fark konularındadır.",
+  "answer": true,
+  "why": "İkisi de dörtlük ve genellikle 7'li hece. Koşukta aşk, doğa, yiğitlik; saguda ölüm ve yas işlenir."
+ },
+ {
+  "id": "edb-ko-10",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "İslamiyet öncesinde atasözlerine verilen ad nedir?",
+  "choices": [
+   "Sav",
+   "Sagu",
+   "Koşuk",
+   "Tekerleme"
+  ],
+  "answer": 0,
+  "why": "Sav, hayat tecrübesinden doğan öğüt veren kısa sözdür. Bugünkü karşılığı atasözüdür."
+ },
+ {
+  "id": "edb-ko-11",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "tiles",
+  "q": "İslamiyet öncesi ürünleri bugünkü karşılıklarıyla eşleştir.",
+  "pairs": [
+   [
+    "Koşuk",
+    "Koşma"
+   ],
+   [
+    "Sagu",
+    "Ağıt"
+   ],
+   [
+    "Sav",
+    "Atasözü"
+   ],
+   [
+    "Kopuz",
+    "Saz (bağlama)"
+   ],
+   [
+    "Ozan, kam, baksı",
+    "Âşık"
+   ]
+  ],
+  "why": "Âşık tarzı halk edebiyatı, İslamiyet öncesi sözlü geleneğin devamıdır: koşuk koşmaya, ozan âşığa, kopuz saza dönüşmüştür."
+ },
+ {
+  "id": "edb-ko-12",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "İslamiyet öncesi Türk şiirinde en çok hangi kafiye kullanılır?",
+  "choices": [
+   "Yarım kafiye",
+   "Zengin kafiye",
+   "Tunç kafiye",
+   "Cinaslı kafiye"
+  ],
+  "answer": 0,
+  "why": "Koşuk ve sagularda genellikle yarım kafiye ve redif görülür (ör. “köz, yüz, tüz” → z)."
+ },
+ {
+  "id": "edb-ko-13",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "Bir milletin hayatında iz bırakmış olağanüstü olayları ve kahramanlıkları anlatan uzun manzum eserlere ne denir?",
+  "choices": [
+   "Destan",
+   "Masal",
+   "Koşuk",
+   "Sagu"
+  ],
+  "answer": 0,
+  "why": "Destanlar millîdir; masallar ise evrenseldir. Destanlar da sözlü kültür ürünüdür."
+ },
+ {
+  "id": "edb-ko-14",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "match",
+  "q": "Destanları ait oldukları Türk topluluklarıyla eşleştir.",
+  "pairs": [
+   [
+    "Yaratılış Destanı",
+    "Altay-Yakut"
+   ],
+   [
+    "Alp Er Tunga Destanı",
+    "Sakalar"
+   ],
+   [
+    "Oğuz Kağan Destanı",
+    "Hunlar"
+   ],
+   [
+    "Ergenekon Destanı",
+    "Göktürkler"
+   ],
+   [
+    "Bozkurt Destanı",
+    "Göktürkler"
+   ],
+   [
+    "Türeyiş Destanı",
+    "Uygurlar"
+   ],
+   [
+    "Göç Destanı",
+    "Uygurlar"
+   ]
+  ],
+  "why": "Altay-Yakut: Yaratılış; Saka: Alp Er Tunga, Şu; Hun: Oğuz Kağan (Attila); Göktürk: Bozkurt, Ergenekon; Uygur: Türeyiş, Göç."
+ },
+ {
+  "id": "edb-ko-15",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "Demir dağın eritilerek dışarı çıkıldığı anlatılan destan hangisidir?",
+  "choices": [
+   "Ergenekon Destanı",
+   "Göç Destanı",
+   "Türeyiş Destanı",
+   "Yaratılış Destanı"
+  ],
+  "answer": 0,
+  "why": "Göktürkler Ergenekon'da 400 yıl kalır; demir dağ eritilerek bozkurt rehberliğinde dışarı çıkılır."
+ },
+ {
+  "id": "edb-ko-16",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "Bozkurt Destanı ile Türeyiş Destanı arasındaki fark hangisinde doğru verilmiştir?",
+  "choices": [
+   "Bozkurt'ta türemeye dişi kurt, Türeyiş'te erkek kurt aracılık eder",
+   "İkisi de Uygurlara aittir",
+   "Bozkurt'ta kurt yoktur",
+   "Türeyiş Göktürklere aittir"
+  ],
+  "answer": 0,
+  "why": "Bozkurt (Göktürk): soy dişi kurttan türer. Türeyiş (Uygur): Hun hükümdarının kızı ile erkek kurttan türeme."
+ },
+ {
+  "id": "edb-ko-17",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "İranlıların Şehname'sinde Afrasiyab adıyla geçen Türk hükümdarı kimdir?",
+  "choices": [
+   "Alp Er Tunga",
+   "Oğuz Kağan",
+   "Bilge Kağan",
+   "Attila"
+  ],
+  "answer": 0,
+  "why": "Saka Türklerinin hükümdarı Alp Er Tunga, Şehname'de Afrasiyab olarak geçer. Onun ölümü üzerine söylenen sagu çok ünlüdür."
+ },
+ {
+  "id": "edb-ko-18",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "Sözlü kültür nedir? (MEB)",
+  "choices": [
+   "Halkın ortak kabullerinin ürünü olan ve kuşaktan kuşağa sözlü olarak aktarılan kültür ögeleri",
+   "Yalnızca yazılı eserlerden oluşan kültür",
+   "Saray çevresinde oluşan edebiyat",
+   "Batı'dan alınan kültür ögeleri"
+  ],
+  "answer": 0,
+  "why": "Masal, türkü, mani, ninni, ağıt, destan, atasözü, bilmece sözlü kültür ürünleridir."
+ },
+ {
+  "id": "edb-ko-19",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "tf",
+  "q": "İslamiyet öncesi sözlü dönem ürünleri anonimdir ve dili, dönemin sade konuşma dilidir.",
+  "answer": true,
+  "why": "Ürünler sözlü aktarıldığı için söyleyeni unutulmuştur (anonim). Yabancı kelime yok denecek kadar azdır. Bize ağır gelmesi, aradan 1000 yılı aşkın zaman geçmesindendir."
+ },
+ {
+  "id": "edb-ko-20",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "mc",
+  "q": "İslamiyet öncesi şiirin özelliklerinden hangisi yanlıştır?",
+  "choices": [
+   "Aruz ölçüsüyle söylenmiştir",
+   "Nazım birimi dörtlüktür",
+   "Kopuz eşliğinde söylenmiştir",
+   "Anonimdir"
+  ],
+  "answer": 0,
+  "why": "İslamiyet öncesi şiir hece ölçüsüyle söylenir. Aruz İslamiyet'le birlikte (11. yüzyıl) gelmiştir."
+ },
+ {
+  "id": "edb-ko-21",
+  "unit": "Koşuk, Sagu ve Destan",
+  "type": "write",
+  "q": "Koşuk ile sagunun benzerliğini ve farkını yazınız; birer örnek veriniz.",
+  "rubric": [
+   {
+    "t": "Benzerlik: ikisi de İslamiyet öncesi sözlü dönem ürünüdür, şekilleri aynıdır (dörtlük, 7'li hece, kopuz)",
+    "p": 3
+   },
+   {
+    "t": "Fark: koşuk sığır/şölen (toy) törenlerinde aşk-doğa-yiğitlik; sagu yuğ törenlerinde ölüm konusunu işler",
+    "p": 3
+   },
+   {
+    "t": "Örnek verdim (ör. Alp Er Tunga Sagusu; Divanu Lügati't-Türk'teki bahar koşukları)",
+    "p": 2
+   }
+  ],
+  "model": "Benzerlik: Koşuk da sagu da İslamiyet öncesi sözlü dönemin anonim ürünleridir; ozan/kam/baksılarca kopuz eşliğinde söylenir. Şekilleri aynıdır: nazım birimi dörtlük, ölçü genellikle 7'li hece, kafiye yarım kafiye ve rediften oluşur.\nFark: Koşuk sığır (av) ve şölen/toy törenlerinde söylenir; aşk, doğa, yiğitlik işlenir. Sagu yuğ adı verilen cenaze törenlerinde söylenir; ölen kişinin iyilikleri ve duyulan acı işlenir.\nÖrnek: Alp Er Tunga Sagusu (Alp Er Tonga öldi mü…) bir sagudur; “Ördi bulıt ınraşu…” baharı anlatan bir koşuktur.",
+  "why": "Benzerlik + fark + örnek: üç parçalı cevap. Farkı söylerken iki tarafı da yaz."
+ },
+ {
+  "id": "edb-km-01",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "MEB'e göre koşma hangi ölçüyle ve kaç heceli dizelerle söylenir?",
+  "choices": [
+   "Hece ölçüsü, 11 heceli dizeler",
+   "Aruz ölçüsü",
+   "Hece ölçüsü, 7 heceli dizeler",
+   "Serbest ölçü"
+  ],
+  "answer": 0,
+  "why": "Koşma: genellikle lirik konularda saz eşliğinde söylenir; koşuklardan evrilmiştir; 11'li hece; kafiye düzeni aaab (abab), cccb, dddb, eeeb…"
+ },
+ {
+  "id": "edb-km-02",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Koşmalar genellikle kaç dörtlükten oluşur?",
+  "choices": [
+   "3 ile 5 dörtlük",
+   "1 dörtlük",
+   "10 ile 12 dörtlük",
+   "Tek beyit"
+  ],
+  "answer": 0,
+  "why": "Koşmalar genellikle en az 3, en fazla 5 dörtlüktür. Son dörtlükte şairin mahlası (tapşırma) bulunur."
+ },
+ {
+  "id": "edb-km-03",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Âşık tarzı şiirde şairin son dörtlükte adını ya da mahlasını söylemesine ne denir?",
+  "choices": [
+   "Tapşırma",
+   "Kavuştak",
+   "Döşeme",
+   "Nakarat"
+  ],
+  "answer": 0,
+  "why": "“Gevherî der gece gündüz ağlarım” dizesinde Gevherî kendini tapşırır. Anonim türkülerde ve koşuklarda tapşırma yoktur."
+ },
+ {
+  "id": "edb-km-04",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "match",
+  "q": "Koşma türlerini konularıyla eşleştir.",
+  "pairs": [
+   [
+    "Güzelleme",
+    "Aşk, sevgili, doğa güzellikleri"
+   ],
+   [
+    "Koçaklama",
+    "Yiğitlik, savaş, kahramanlık"
+   ],
+   [
+    "Taşlama",
+    "Kişi ya da toplum eleştirisi"
+   ],
+   [
+    "Ağıt",
+    "Birinin ölümü üzerine duyulan acı"
+   ]
+  ],
+  "why": "MEB: Koşmalar konularına göre güzelleme, koçaklama, taşlama ve ağıt olarak ayrılır. Önce şekle (koşma), sonra konuya bakılır."
+ },
+ {
+  "id": "edb-km-05",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "tiles",
+  "q": "Âşıkları en bilinen türleriyle eşleştir.",
+  "pairs": [
+   [
+    "Karacaoğlan",
+    "Güzelleme"
+   ],
+   [
+    "Köroğlu",
+    "Koçaklama"
+   ],
+   [
+    "Seyrani",
+    "Taşlama"
+   ]
+  ],
+  "why": "Karacaoğlan aşk ve doğa şairidir; Köroğlu ve Dadaloğlu koçaklamalarıyla, Seyrani taşlamalarıyla tanınır."
+ },
+ {
+  "id": "edb-km-06",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Bu dörtlük konusuna göre hangi koşma türüdür?",
+  "src": "Benden selam olsun Bolu Beyi'ne\nÇıkıp şu dağlara yaslanmalıdır\nOk gıcırtısından kalkan sesinden\nDağlar seda verip seslenmelidir",
+  "choices": [
+   "Koçaklama",
+   "Güzelleme",
+   "Taşlama",
+   "Ağıt"
+  ],
+  "answer": 0,
+  "why": "Bolu Beyi'ne meydan okuyan, ok gıcırtısı ve kalkan sesiyle dağları inleten Köroğlu'nun sözleri yiğitlik ve savaş havası taşır → koçaklama."
+ },
+ {
+  "id": "edb-km-07",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Bu dizelerin şairi, “Ferman padişahın dağlar bizimdir” sözüyle de tanınan Türkmen şairi kimdir?",
+  "src": "Kalktı göç eyledi Avşar elleri\nAğır ağır giden eller bizimdir\nArap atlar yakın eder ırağı\nYüce dağdan aşan yollar bizimdir",
+  "choices": [
+   "Dadaloğlu",
+   "Karacaoğlan",
+   "Gevherî",
+   "Yunus Emre"
+  ],
+  "answer": 0,
+  "why": "Dadaloğlu, Avşar Türkmenlerinin iskâna (zorla yerleştirilmeye) karşı direnişini koçaklamalarla anlatır."
+ },
+ {
+  "id": "edb-km-08",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "“Ala gözlerini sevdiğim dilber / Kokuya benzettim güller içinde” dizeleri konusuna göre hangi türdür?",
+  "choices": [
+   "Güzelleme",
+   "Koçaklama",
+   "Taşlama",
+   "Ağıt"
+  ],
+  "answer": 0,
+  "why": "Sevgilinin güzelliği anlatılır → güzelleme. Karacaoğlan güzellemenin en büyük ustasıdır."
+ },
+ {
+  "id": "edb-km-09",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Âşık tarzı halk şiirinde kullanılan çalgı hangisidir?",
+  "choices": [
+   "Saz (bağlama)",
+   "Kopuz",
+   "Ney",
+   "Kanun"
+  ],
+  "answer": 0,
+  "why": "MEB: Âşıklık geleneğinde halk ozanı saz eşliğinde şiirini söyler, hikâyesini anlatır. Kopuz, sazın atasıdır."
+ },
+ {
+  "id": "edb-km-10",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Âşıkların şiirlerinin yazıldığı defterlere ne ad verilir?",
+  "choices": [
+   "Cönk",
+   "Divan",
+   "Mecmua",
+   "Tezkire"
+  ],
+  "answer": 0,
+  "why": "Cönk, âşık şiirlerinin derlendiği uzun, ince defterlerdir. Divan, divan şairlerinin şiir kitabıdır."
+ },
+ {
+  "id": "edb-km-11",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "match",
+  "q": "Âşık tarzı nazım biçimlerini özellikleriyle eşleştir.",
+  "pairs": [
+   [
+    "Koşma",
+    "11'li hece, en yaygın biçim"
+   ],
+   [
+    "Semai",
+    "8'li hece, kendine özgü ezgi"
+   ],
+   [
+    "Varsağı",
+    "8'li hece, “bre, hey” ünlemleri, yiğitçe söyleyiş"
+   ],
+   [
+    "Destan",
+    "Uzun; savaş, afet, toplumsal olaylar"
+   ]
+  ],
+  "why": "Semai ve varsağı 8'li hecedir; varsağıyı “bre, hey, behey” gibi ünlemlerden tanırsın. Âşık tarzı destan diğerlerinden uzunluğuyla ayrılır."
+ },
+ {
+  "id": "edb-km-12",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "“Bre”, “hey”, “behey” gibi ünlemlerle söylenen, Toroslar'daki Türkmenler arasında doğmuş âşık nazım biçimi hangisidir?",
+  "choices": [
+   "Varsağı",
+   "Semai",
+   "Koşma",
+   "Mani"
+  ],
+  "answer": 0,
+  "why": "Varsağı adını Varsak Türkmenlerinden alır; en güzel örneklerini Karacaoğlan vermiştir."
+ },
+ {
+  "id": "edb-km-13",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "tf",
+  "q": "Koşma, İslamiyet öncesi koşuğun İslamiyet sonrası halk edebiyatındaki devamıdır.",
+  "answer": true,
+  "why": "MEB: Koşmalar koşuklardan zaman içinde evrilerek ortaya çıkmıştır."
+ },
+ {
+  "id": "edb-km-14",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "match",
+  "q": "Koşuk ile koşmayı karşılaştır: Her özelliği doğru şiirle eşleştir.",
+  "pairs": [
+   [
+    "Kopuz eşliğinde söylenir",
+    "Koşuk"
+   ],
+   [
+    "Saz eşliğinde söylenir",
+    "Koşma"
+   ],
+   [
+    "Genellikle 7'li hece",
+    "Koşuk"
+   ],
+   [
+    "11'li hece",
+    "Koşma"
+   ],
+   [
+    "Mahlas (tapşırma) yoktur, anonimdir",
+    "Koşuk"
+   ],
+   [
+    "Son dörtlükte tapşırma vardır",
+    "Koşma"
+   ]
+  ],
+  "why": "Ortak noktalar: nazım birimi dörtlük, hece ölçüsü, benzer kafiye düzeni, aşk-doğa-yiğitlik konuları."
+ },
+ {
+  "id": "edb-km-15",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "write",
+  "q": "Koşuk ve koşmayı dönem, söyleyen kişi, çalgı, ölçü ve mahlas açısından karşılaştırınız.",
+  "rubric": [
+   {
+    "t": "Dönem: koşuk İslamiyet öncesi sözlü dönem · koşma İslamiyet sonrası âşık tarzı halk edebiyatı",
+    "p": 2
+   },
+   {
+    "t": "Söyleyen: koşuk ozan/kam/baksı · koşma âşık (halk ozanı)",
+    "p": 2
+   },
+   {
+    "t": "Çalgı: koşuk kopuz · koşma saz (bağlama)",
+    "p": 2
+   },
+   {
+    "t": "Ölçü: koşuk genellikle 7'li hece · koşma 11'li hece",
+    "p": 2
+   },
+   {
+    "t": "Mahlas: koşukta yok (anonim) · koşmada son dörtlükte tapşırma var",
+    "p": 2
+   }
+  ],
+  "model": "Dönem: Koşuk İslamiyet öncesi sözlü döneme, koşma İslamiyet etkisindeki âşık tarzı halk edebiyatına aittir.\nSöyleyen: Koşuğu ozan, kam, baksı; koşmayı âşıklar söyler.\nÇalgı: Koşuk kopuz, koşma saz eşliğinde söylenir.\nÖlçü: İkisi de hece ölçüsüyle ve dörtlüklerle söylenir; koşuk genellikle 7'li, koşma 11'li hecedir.\nMahlas: Koşuklar anonimdir, mahlas yoktur; koşmada son dörtlükte şairin tapşırması bulunur.",
+  "why": "Bu tablo sınavın garanti sorularından. Her ölçütte iki tarafı da yaz."
+ },
+ {
+  "id": "edb-km-16",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Adında şehir adı bulunan (Erzurumlu Emrah, Bayburtlu Zihni gibi) âşıklar için genellikle ne söylenebilir?",
+  "choices": [
+   "Divan şiirinden etkilenmiş, aruzu da kullanan kalem şairleridir",
+   "Hiç okuma yazma bilmeyen saz şairleridir",
+   "Tasavvuf şairleridir",
+   "Koşuk söyleyen ozanlardır"
+  ],
+  "answer": 0,
+  "why": "Şehirli, eğitimli âşıklar divan şiirini bilir; dilleri Arapça-Farsça kelimelerle ağırlaşır. İstisna: Ercişli Emrah saz şairidir."
+ },
+ {
+  "id": "edb-km-17",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Adı “-oğlan/-oğlu” ile biten Karacaoğlan, Köroğlu, Dadaloğlu için hangisi doğrudur?",
+  "choices": [
+   "Divan şiirinden etkilenmemiş, sade dille hece ölçüsüyle söylemişlerdir",
+   "Aruzu çok kullanmışlardır",
+   "Divan sahibi kalem şairleridir",
+   "İslamiyet öncesi ozanlardır"
+  ],
+  "answer": 0,
+  "why": "Bu âşıklar halkın arasından çıkmış saz şairleridir; dilleri sadedir ve aruz kullanmazlar."
+ },
+ {
+  "id": "edb-km-18",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "tiles",
+  "q": "Âşıkları eserleriyle ya da öne çıkan özellikleriyle eşleştir.",
+  "pairs": [
+   [
+    "Kayıkçı Kul Mustafa",
+    "Genç Osman Destanı"
+   ],
+   [
+    "Âşık Ömer",
+    "Şairname"
+   ],
+   [
+    "Bayburtlu Zihni",
+    "Sergüzeştname"
+   ],
+   [
+    "Erzurumlu Emrah",
+    "Çok âşık yetiştiren kalem şairi"
+   ],
+   [
+    "Dertli",
+    "Divan etkisinde, aruzu da kullanmış"
+   ]
+  ],
+  "why": "Kayıkçı Kul Mustafa, Bağdat seferindeki Genç Osman'ı anlatır. Âşık Ömer, Bayburtlu Zihni, Dertli ve Erzurumlu Emrah divan şiirinden de etkilenmiştir."
+ },
+ {
+  "id": "edb-km-19",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "Bu dörtlüğün nazım biçimi ve konusu hangisidir?",
+  "src": "Kalktı göç eyledi Avşar elleri\nAğır ağır giden eller bizimdir\nArap atlar yakın eder ırağı\nYüce dağdan aşan yollar bizimdir",
+  "choices": [
+   "Koşma · Göçebe Türkmenlerin özgürlüğü ve yiğitliği",
+   "Mani · Aşk",
+   "Sagu · Ölüm",
+   "Türkü · Gurbet"
+  ],
+  "answer": 0,
+  "why": "11'li hece, dörtlük, “-lar bizimdir” redifi; Dadaloğlu'nun koçaklama tarzındaki koşmasıdır."
+ },
+ {
+  "id": "edb-km-20",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "mc",
+  "q": "“Kalktı göç eyledi Avşar elleri / … / Yüce dağdan aşan yollar bizimdir” dizelerinde “eller bizimdir / yollar bizimdir” için doğru çözümleme hangisidir?",
+  "src": "Kalktı göç eyledi Avşar elleri\nAğır ağır giden eller bizimdir\nArap atlar yakın eder ırağı\nYüce dağdan aşan yollar bizimdir",
+  "choices": [
+   "Redif: -ler/-lar bizimdir · Kafiye: l (yarım)",
+   "Redif: bizimdir · Kafiye: eller/yollar (tam)",
+   "Redif: yok",
+   "Redif: -ler · Kafiye: bizimdir"
+  ],
+  "answer": 0,
+  "why": "el-ler bizimdir / yol-lar bizimdir: çokluk eki + “bizimdir” redif, kökteki “l” yarım kafiye."
+ },
+ {
+  "id": "edb-km-21",
+  "unit": "Koşma ve Âşık Tarzı",
+  "type": "write",
+  "q": "Gevherî'nin “Değmen benim yaslı gamlı gönlüme…” koşmasının şekil ve içerik özelliklerini yazınız (nazım biçimi, nazım birimi, ölçü, tema, tür, tapşırma).",
+  "rubric": [
+   {
+    "t": "Nazım biçimi: koşma · nazım birimi: dörtlük",
+    "p": 2
+   },
+   {
+    "t": "Ölçü: 11'li hece (Değ-men-be-nim-yas-lı / gam-lı-gön-lü-me)",
+    "p": 2
+   },
+   {
+    "t": "Tema: ayrılık (özlem)",
+    "p": 2
+   },
+   {
+    "t": "Tür: güzelleme (aşk, sevgiliden ayrılık)",
+    "p": 2
+   },
+   {
+    "t": "Tapşırma: “Gevherî der gece gündüz ağlarım”",
+    "p": 2
+   }
+  ],
+  "model": "Nazım biçimi koşmadır; nazım birimi dörtlüktür (3 dörtlük). 11'li hece ölçüsüyle (6+5) söylenmiştir. Teması ayrılıktır; sevgiliden ayrılan âşığın özlemi anlatıldığı için konusuna göre güzellemedir. Her dörtlüğün sonundaki “-dan ayrıldım” redifi ayrılık duygusunu pekiştirir. Son dörtlükte “Gevherî der gece gündüz ağlarım” dizesiyle tapşırma yapılmıştır. Gevherî divan şiirinden etkilendiği için “diyâr-ı gurbet, derd ü mihnet” gibi Farsça tamlamalar kullanmıştır.",
+  "why": "Şekil (biçim, birim, ölçü) + içerik (tema, tür) + tapşırma. Her birini dizeden örnekle desteklersen tam puan."
+ },
+ {
+  "id": "edb-tr-01",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "MEB tanımına göre türkü nedir?",
+  "choices": [
+   "Hece ölçüsünün genellikle 7, 8 ve 11'li kalıplarıyla bir ezgi eşliğinde söylenen, farklı nazım birimlerinden oluşan anonim halk edebiyatı nazım biçimi",
+   "Son dörtlüğünde mahlas bulunan, 11'li heceyle söylenen âşık şiiri",
+   "Yalnızca dört dizeden oluşan, aaxa kafiyeli şiir",
+   "Aruzla yazılan divan şiiri"
+  ],
+  "answer": 0,
+  "why": "MEB: Günümüzde söyleyeni ve besteleyeni bilinen türküler de bulunmaktadır."
+ },
+ {
+  "id": "edb-tr-02",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "tiles",
+  "q": "Türkünün bölümlerini tanımlarıyla eşleştir.",
+  "pairs": [
+   [
+    "Bent",
+    "Asıl konunun işlendiği bölüm"
+   ],
+   [
+    "Kavuştak (bağlama)",
+    "Bentlerin sonunda tekrar edilen dize(ler)"
+   ]
+  ],
+  "why": "MEB: Türküler bent ve kavuştak adı verilen iki bölümden oluşur. Kavuştak, nakarat gibidir."
+ },
+ {
+  "id": "edb-tr-03",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "“Gençliğim eyvah, gençliğim eyvah…” gibi türküde her bentten sonra tekrar edilen bölüme ne denir?",
+  "choices": [
+   "Kavuştak",
+   "Bent",
+   "Döşeme",
+   "Tapşırma"
+  ],
+  "answer": 0,
+  "why": "Kavuştak (bağlama/nakarat) bentlerin sonunda tekrarlanır."
+ },
+ {
+  "id": "edb-tr-04",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "tf",
+  "q": "Türkülerde nazım birimi her zaman dörtlüktür.",
+  "answer": false,
+  "why": "Türküler farklı nazım birimlerinden oluşabilir: üçlük, dörtlük, beşlik… “Hastane Önünde İncir Ağacı” türküsünde 3 ve 2 dizelik bentler vardır."
+ },
+ {
+  "id": "edb-tr-05",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "“Türkü” sözcüğünün kökeni nedir?",
+  "choices": [
+   "Türk + Arapça aitlik eki “-î” → Türkî (Türk'e ait)",
+   "Farsça “tür” (yol) kelimesi",
+   "Kopuzun eski adı",
+   "Bir türkü ozanının adı"
+  ],
+  "answer": 0,
+  "why": "Türkî = Türk'e ait olan. Zamanla “türkü” biçimini almıştır."
+ },
+ {
+  "id": "edb-tr-06",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "match",
+  "q": "Türkü sınıflandırmalarını örnekleriyle eşleştir.",
+  "pairs": [
+   [
+    "Uzun hava",
+    "Serbest ritimli, uzun ve açık söyleyiş"
+   ],
+   [
+    "Kırık hava",
+    "Belli ritimli, oyun havası (horon, zeybek)"
+   ],
+   [
+    "Gurbet türküsü",
+    "Konusuna göre"
+   ],
+   [
+    "Beşlik türkü",
+    "Yapısına göre (bent 5 dize)"
+   ]
+  ],
+  "why": "Türküler ezgisine (uzun hava, kırık hava), konusuna (aşk, gurbet, ölüm, kahramanlık…) ve yapısına (üçlük, dörtlük, beşlik) göre sınıflandırılır."
+ },
+ {
+  "id": "edb-tr-07",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "MEB'e göre “varyant” ne demektir?",
+  "choices": [
+   "Bir eserin anlatanlar değiştikçe araya katılan sözlerle oluşan farklı biçimleri",
+   "Türkünün nakaratı",
+   "Masalın başındaki tekerleme",
+   "Şairin takma adı"
+  ],
+  "answer": 0,
+  "why": "Masal, destan, mani ve türkülerin sözlü aktarıldıkları için farklı yörelerde farklı varyantları oluşur."
+ },
+ {
+  "id": "edb-tr-08",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "tf",
+  "q": "Türkülerde söylendiği yörenin ağız özellikleri görülebilir.",
+  "answer": true,
+  "why": "“Bahçalarda”, “gardaş”, “geliyi”, “gurban” gibi yöresel söyleyişler türkülerde sık görülür."
+ },
+ {
+  "id": "edb-tr-09",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "Anonim halk edebiyatının en kısa nazım biçimi hangisidir?",
+  "choices": [
+   "Mani",
+   "Türkü",
+   "Koşma",
+   "Destan"
+  ],
+  "answer": 0,
+  "why": "Mani genellikle tek dörtlüktür, 7'li hece ile söylenir ve kafiye düzeni aaxa'dır."
+ },
+ {
+  "id": "edb-tr-10",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "Manilerin en belirgin kafiye şeması hangisidir?",
+  "choices": [
+   "aaxa",
+   "abab",
+   "abba",
+   "aaab"
+  ],
+  "answer": 0,
+  "why": "1, 2 ve 4. dizeler kafiyeli, 3. dize serbesttir. İlk iki dize çoğu zaman doldurmadır; asıl söz son iki dizede söylenir."
+ },
+ {
+  "id": "edb-tr-11",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "Mani için hangisi yanlıştır?",
+  "choices": [
+   "Son dörtlükte şairin mahlası bulunur",
+   "Genellikle 7'li heceyle söylenir",
+   "Anonimdir",
+   "İlk iki dize genellikle doldurmadır"
+  ],
+  "answer": 0,
+  "why": "Mani anonimdir, mahlas bulunmaz. Tapşırma âşık tarzı şiirin özelliğidir."
+ },
+ {
+  "id": "edb-tr-12",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "“Bahçalarda saz olur / Gül açılır yaz olur / Ben yârime gül demem / Gülün ömrü az olur” dörtlüğünde asıl söz hangi dizelerdedir?",
+  "choices": [
+   "3. ve 4. dizeler",
+   "1. ve 2. dizeler",
+   "Yalnızca 1. dize",
+   "Hiçbiri"
+  ],
+  "answer": 0,
+  "why": "Manide ilk iki dize ses ve kafiye için “doldurma”dır; asıl duygu son iki dizede söylenir: Gülün ömrü kısa olduğu için sevgiliyi güle benzetmez."
+ },
+ {
+  "id": "edb-tr-13",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "Çocukları uyutmak ve sakinleştirmek için ezgiyle söylenen anonim ürün hangisidir?",
+  "choices": [
+   "Ninni",
+   "Mani",
+   "Ağıt",
+   "Koçaklama"
+  ],
+  "answer": 0,
+  "why": "Ninniler de bir tür türküdür. “Nenni nenni” tekrarları ahengi sağlar."
+ },
+ {
+  "id": "edb-tr-14",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "“Bebeğin beşiği çamdan / Yuvarlandı düştü damdan / Bey babası gelir Van'dan” dizelerinin hece ölçüsü nedir?",
+  "choices": [
+   "8'li",
+   "7'li",
+   "11'li",
+   "6'lı"
+  ],
+  "answer": 0,
+  "why": "Be-be-ğin-be-şi-ği-çam-dan = 8 hece. Redif “-dan”; “çam / dam” arasında “am” tam kafiyesi var."
+ },
+ {
+  "id": "edb-tr-15",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "tf",
+  "q": "Anonim halk edebiyatındaki ağıtlarda son dörtlükte şair adı bulunmaz; âşık tarzı ağıtta ise mahlas bulunur.",
+  "answer": true,
+  "why": "Konu ve şekil aynı olsa da fark son dörtlükte, yani tapşırmanın olup olmamasındadır."
+ },
+ {
+  "id": "edb-tr-16",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "mc",
+  "q": "Türküler için hangisi yanlıştır?",
+  "choices": [
+   "Aruz ölçüsüyle söylenir",
+   "Ezgiyle söylenir",
+   "Bent ve kavuştaktan oluşur",
+   "Her konuda söylenebilir"
+  ],
+  "answer": 0,
+  "why": "Türküler hece ölçüsüyle (7, 8, 11'li kalıplar) söylenir."
+ },
+ {
+  "id": "edb-tr-17",
+  "unit": "Türkü, Mani ve Ninni",
+  "type": "write",
+  "q": "Türküler için “halkın sesi” denir. Türkülerin halkın yaşayışını nasıl yansıttığını iki örnekle açıklayınız.",
+  "rubric": [
+   {
+    "t": "Türkülerin halkın ortak duygu ve düşüncelerini, yaşayışını yansıttığını yazdım",
+    "p": 3
+   },
+   {
+    "t": "Birinci örnek: türküden bir gelenek/yaşam unsuru (ör. kına, çeyiz, orak biçme, gurbet)",
+    "p": 2
+   },
+   {
+    "t": "İkinci örnek: başka bir unsur",
+    "p": 2
+   },
+   {
+    "t": "Örneklerin neyi gösterdiğini açıkladım",
+    "p": 2
+   }
+  ],
+  "model": "Türküler anonim olduğu için tek bir kişinin değil, bütün halkın duygularını yansıtır. Örneğin “Yarın bayram diye kına yolladım” dizesinde bayram ve düğün öncesi kına geleneği; “Kız çeyizin topla topla doldur terkiye” dizesinde gelinin çeyiziyle ata bindirilip götürülmesi görülür. “Yorgun yorgun vardım orak biçmeye” dizesi ise tarımla geçinen köy hayatını, hasat zamanını anlatır. “Gurbet elde kaldım diye ağlasın” dizesi de geçim için sıladan ayrılan insanların acısını yansıtır.",
+  "why": "Örnek dizeyi yaz, ardından o dizenin hangi geleneği/yaşamı gösterdiğini söyle."
+ },
+ {
+  "id": "edb-ts-01",
+  "unit": "Tasavvuf Şiiri",
+  "type": "mc",
+  "q": "Dinî-tasavvufi halk edebiyatı en çok hangi çevrede gelişmiştir?",
+  "choices": [
+   "Tekke ve zaviyeler",
+   "Saray ve konaklar",
+   "Köy meydanları",
+   "Kahvehaneler"
+  ],
+  "answer": 0,
+  "why": "Tekke şiiri Allah sevgisini, tasavvufi düşünceyi ve insanın manevi olgunlaşmasını işler."
+ },
+ {
+  "id": "edb-ts-02",
+  "unit": "Tasavvuf Şiiri",
+  "type": "match",
+  "q": "Dinî-tasavvufi türleri konularıyla eşleştir.",
+  "pairs": [
+   [
+    "İlahi",
+    "Allah ve Peygamber sevgisi"
+   ],
+   [
+    "Nefes",
+    "Alevi-Bektaşi geleneğinde söylenen ilahi"
+   ],
+   [
+    "Nutuk",
+    "Tarikata yeni girenlere edep ve kuralları öğretme"
+   ],
+   [
+    "Devriye",
+    "Varlığın Allah'tan gelip yine O'na dönmesi"
+   ],
+   [
+    "Şathiye",
+    "Görünüşte dinî inançlarla alay eder gibi söylenen mizahi şiir"
+   ]
+  ],
+  "why": "Bu türler nazım biçimi değil, konuya göre ortaya çıkan türlerdir; çoğu koşma biçiminde söylenir."
+ },
+ {
+  "id": "edb-ts-03",
+  "unit": "Tasavvuf Şiiri",
+  "type": "mc",
+  "q": "Tasavvuf şiirinin en lirik şairi, ilahi türünün en önemli temsilcisi kimdir?",
+  "choices": [
+   "Yunus Emre",
+   "Karacaoğlan",
+   "Dadaloğlu",
+   "Köroğlu"
+  ],
+  "answer": 0,
+  "why": "Yunus Emre'nin Divan'ı ve Risaletü'n-Nushiyye adlı eserleri vardır. Sade Türkçesiyle Anadolu Türkçesinin gelişimine büyük katkı sağlamıştır."
+ },
+ {
+  "id": "edb-ts-04",
+  "unit": "Tasavvuf Şiiri",
+  "type": "tiles",
+  "q": "Tasavvuf şairlerini eserleriyle eşleştir.",
+  "pairs": [
+   [
+    "Yunus Emre",
+    "Risaletü'n-Nushiyye"
+   ],
+   [
+    "Kaygusuz Abdal",
+    "Budalaname"
+   ],
+   [
+    "Hacı Bektaş Veli",
+    "Makalat"
+   ],
+   [
+    "Erzurumlu İbrahim Hakkı",
+    "Marifetname"
+   ]
+  ],
+  "why": "Kaygusuz Abdal Alevi-Bektaşi şairidir. Hacı Bektaş Veli Bektaşiliğin kurucusu kabul edilir. Erzurumlu İbrahim Hakkı'nın Marifetname'si ansiklopedik bir eserdir."
+ },
+ {
+  "id": "edb-ts-05",
+  "unit": "Tasavvuf Şiiri",
+  "type": "match",
+  "q": "Tasavvuf terimlerini anlamlarıyla eşleştir.",
+  "pairs": [
+   [
+    "Mürşit",
+    "Yol gösterici, rehber"
+   ],
+   [
+    "Mürit",
+    "Mürşide bağlı öğrenci"
+   ],
+   [
+    "Masiva",
+    "Allah dışındaki her şey"
+   ],
+   [
+    "İnsan-ı kâmil",
+    "Manevi olgunluğa ulaşmış insan"
+   ],
+   [
+    "Çile",
+    "Nefsi terbiye için geçirilen sıkıntılı eğitim"
+   ]
+  ],
+  "why": "Vahdet-i vücut (varlığın birliği) ve fenafillah (Allah'ta yok olma) da sık geçen kavramlardır."
+ },
+ {
+  "id": "edb-ts-06",
+  "unit": "Tasavvuf Şiiri",
+  "type": "tf",
+  "q": "İlahi, nefes ve nutuk birer nazım biçimi değil, konularına göre ortaya çıkan türlerdir.",
+  "answer": true,
+  "why": "Bu şiirler genellikle koşma biçiminde (hece ölçüsü, dörtlük) söylenir; konusu ilahi aşk, öğüt, tarikat kuralları vb. olur."
+ },
+ {
+  "id": "edb-ts-07",
+  "unit": "Tasavvuf Şiiri",
+  "type": "mc",
+  "q": "Alevi-Bektaşi geleneğinde söylenen, nefesleriyle tanınan şair hangisidir?",
+  "choices": [
+   "Pir Sultan Abdal",
+   "Karacaoğlan",
+   "Gevherî",
+   "Âşık Ömer"
+  ],
+  "answer": 0,
+  "why": "Pir Sultan Abdal ve Kaygusuz Abdal Alevi-Bektaşi şiirinin önemli adlarıdır."
+ },
+ {
+  "id": "edb-ts-08",
+  "unit": "Tasavvuf Şiiri",
+  "type": "mc",
+  "q": "Bayramiye tarikatının kurucusu olan tasavvuf şairi kimdir?",
+  "choices": [
+   "Hacı Bayram Veli",
+   "Hacı Bektaş Veli",
+   "Yunus Emre",
+   "Ahmet Yesevi"
+  ],
+  "answer": 0,
+  "why": "Hacı Bayram Veli Ankara'da yaşamış, Bayramiye tarikatını kurmuş ve birçok mürit yetiştirmiştir."
+ },
+ {
+  "id": "edb-ts-09",
+  "unit": "Tasavvuf Şiiri",
+  "type": "mc",
+  "q": "Tekke şiirinin dili için hangisi doğrudur?",
+  "choices": [
+   "Sade ve samimidir; divan şiirine göre daha anlaşılırdır",
+   "Tamamen Arapçadır",
+   "İslamiyet öncesi Türkçesidir",
+   "Yalnızca Farsça yazılmıştır"
+  ],
+  "answer": 0,
+  "why": "Tekke şairleri halka seslendiği için sade bir dil kullanır; hem hece hem aruz kullanılabilir."
+ },
+ {
+  "id": "edb-ts-10",
+  "unit": "Tasavvuf Şiiri",
+  "type": "mc",
+  "q": "Ahmet Yesevi'nin şiirlerine verilen ad nedir?",
+  "choices": [
+   "Hikmet",
+   "Nefes",
+   "Nutuk",
+   "Şathiye"
+  ],
+  "answer": 0,
+  "why": "Divan-ı Hikmet, tasavvufi halk şiirinin ilk ve temel eseridir. Hikmetler öğüt veren şiirlerdir."
+ },
+ {
+  "id": "edb-ms-01",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "MEB tanımına göre masal nedir?",
+  "choices": [
+   "Kahramanları insan, hayvan ve olağanüstü varlıklar olan; olayların hayalî tasarlandığı, zaman ve mekânın belirgin olmadığı, eğlendirerek eğitmeyi amaçlayan tür",
+   "Bir milletin tarihî kahramanlıklarını anlatan manzum tür",
+   "Gerçek olayları belgeye dayanarak anlatan tür",
+   "Son dörtlüğünde mahlas bulunan şiir"
+  ],
+  "answer": 0,
+  "why": "Masalda zaman ve mekân belirsizdir (“evvel zaman içinde”, “uzak bir ülkede”), olağanüstü unsurlar vardır, sonunda iyiler kazanır."
+ },
+ {
+  "id": "edb-ms-02",
+  "unit": "Masal",
+  "type": "order",
+  "q": "Masalın bölümlerini sırasıyla diz.",
+  "items": [
+   "Döşeme",
+   "Serim",
+   "Düğüm",
+   "Çözüm",
+   "Dilek"
+  ],
+  "why": "MEB: Döşeme (tekerleme) → serim (olay, kişi, zaman, mekân tanıtılır) → düğüm (olaylar ve çatışmalar) → çözüm (olaylar sonuca ulaşır) → dilek (iyi dilekler)."
+ },
+ {
+  "id": "edb-ms-03",
+  "unit": "Masal",
+  "type": "tiles",
+  "q": "Masalın bölümlerini tanımlarıyla eşleştir.",
+  "pairs": [
+   [
+    "Döşeme",
+    "Dinleyiciyi masala hazırlayan tekerleme"
+   ],
+   [
+    "Serim",
+    "Olay, kişi, zaman ve mekânın tanıtılması"
+   ],
+   [
+    "Düğüm",
+    "Olayların ve çatışmanın geliştiği bölüm"
+   ],
+   [
+    "Çözüm",
+    "Olayların sonuca ulaştığı bölüm"
+   ],
+   [
+    "Dilek",
+    "İyi dileklerle bitiş tekerlemesi"
+   ]
+  ],
+  "why": "Serim, düğüm, çözüm hikâye ve romanda da vardır. Masalı ayırt eden bölümler döşeme ve dilektir."
+ },
+ {
+  "id": "edb-ms-04",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "“Bir varmış bir yokmuş, evvel zaman içinde, kalbur saman içinde…” sözleri masalın hangi bölümündedir?",
+  "choices": [
+   "Döşeme",
+   "Dilek",
+   "Serim",
+   "Çözüm"
+  ],
+  "answer": 0,
+  "why": "Masalın başında söylenen tekerleme döşemedir. Amacı dinleyicinin dikkatini çekip onu masal dünyasına hazırlamaktır."
+ },
+ {
+  "id": "edb-ms-05",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "“Gökten üç elma düşmüş: biri anlatanın, biri dinleyenin, biri de dürüst kişilerin başına…” sözleri masalın hangi bölümüdür?",
+  "choices": [
+   "Dilek",
+   "Döşeme",
+   "Düğüm",
+   "Serim"
+  ],
+  "answer": 0,
+  "why": "MEB: Masalın sonunda dilek bölümü bulunur; bir tekerleme söylenir ve masal söyleyicisi ile dinleyenler için iyi dilekler yer alır."
+ },
+ {
+  "id": "edb-ms-06",
+  "unit": "Masal",
+  "type": "tf",
+  "q": "Masallarda zaman ve mekân belirsizdir.",
+  "answer": true,
+  "why": "“Evvel zaman içinde”, “vaktiyle köyün birinde”, “uzak bir ülkede” gibi ifadeler belirsiz zaman ve mekân bildirir."
+ },
+ {
+  "id": "edb-ms-07",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "Masallar için hangisi yanlıştır?",
+  "choices": [
+   "Millîdir; yalnızca tek bir milletin tarihini anlatır",
+   "Anonimdir",
+   "Olağanüstü unsurlar içerir",
+   "Genellikle iyiler kazanır"
+  ],
+  "answer": 0,
+  "why": "Masallar evrenseldir: benzer masallar farklı milletlerde görülür. Destanlar ise millîdir."
+ },
+ {
+  "id": "edb-ms-08",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "Masalın amacı MEB'e göre nedir?",
+  "choices": [
+   "Dinleyenleri eğlendirerek eğitmek",
+   "Tarihî bilgi vermek",
+   "Bir olayı belgelemek",
+   "Şairin adını duyurmak"
+  ],
+  "answer": 0,
+  "why": "Altın Balta'nın dersi dürüstlük; Kaşıkçı masalının dersi tembellik yerine çalışıp başkalarına yardım etmektir."
+ },
+ {
+  "id": "edb-ms-09",
+  "unit": "Masal",
+  "type": "match",
+  "q": "Masal ve fablı karşılaştır: özelliği doğru türle eşleştir.",
+  "pairs": [
+   [
+    "Döşeme ve dilek bölümleri vardır",
+    "Masal"
+   ],
+   [
+    "Sonunda açıkça bir ders (ahlak) verilir",
+    "Fabl"
+   ],
+   [
+    "Kahramanlar genellikle hayvanlardır, insan gibi davranır",
+    "Fabl"
+   ],
+   [
+    "Dev, peri, cin gibi olağanüstü varlıklar bulunur",
+    "Masal"
+   ],
+   [
+    "La Fontaine, Ezop",
+    "Fabl"
+   ]
+  ],
+  "why": "Fabllar manzum ya da mensur olabilir, döşeme ve dilek bölümleri yoktur. Masalda ise iyi-kötü çatışması ve mutlu son vardır."
+ },
+ {
+  "id": "edb-ms-10",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "Bir metnin masal mı fabl mı olduğunu anlamak için en ayırt edici ipucu hangisidir?",
+  "choices": [
+   "Döşeme ve dilek bölümlerinin bulunup bulunmaması",
+   "Kişi sayısı",
+   "Metnin uzunluğu",
+   "Başlığın olup olmaması"
+  ],
+  "answer": 0,
+  "why": "Döşeme ve dilek masala özgüdür. Fabl genellikle doğrudan olayla başlar ve bir öğütle (bazen atasözüyle) biter."
+ },
+ {
+  "id": "edb-ms-11",
+  "unit": "Masal",
+  "type": "tiles",
+  "q": "Dünya masallarını derleyen ya da yazanlarla eşleştir.",
+  "pairs": [
+   [
+    "Grimm Kardeşler",
+    "Pamuk Prenses, Hansel ile Gretel"
+   ],
+   [
+    "Charles Perrault",
+    "Külkedisi, Çizmeli Kedi"
+   ],
+   [
+    "Andersen",
+    "Kibritçi Kız, Çirkin Ördek Yavrusu"
+   ],
+   [
+    "Bin Bir Gece Masalları",
+    "Alaaddin'in Sihirli Lambası"
+   ]
+  ],
+  "why": "Bin Bir Gece Masalları'nda Şehrazat, hükümdar Şehriyar'a her gece bir masal anlatır. Kelile ve Dimne ise Hint kaynaklı ünlü bir fabl kitabıdır."
+ },
+ {
+  "id": "edb-ms-12",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "Altın Balta masalında çatışma hangi iki tutum arasındadır?",
+  "choices": [
+   "Dürüstlük ile açgözlülük/yalan",
+   "Cesaret ile korkaklık",
+   "Zenginlik ile bilgi",
+   "Gençlik ile yaşlılık"
+  ],
+  "answer": 0,
+  "why": "Dürüst fakir adam ödüllendirilir, yalan söyleyen açgözlü zengin cezalandırılır. Masallarda iyi kazanır, kötü cezasını bulur."
+ },
+ {
+  "id": "edb-ms-13",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "Kaşıkçı masalının ana fikri hangisidir?",
+  "choices": [
+   "Başkasının sırtından geçinmek yerine çalışıp hem kendine hem başkalarına faydalı olmak gerekir",
+   "Tilkiler kurnazdır",
+   "Ormanda yalnız dolaşmamak gerekir",
+   "Aslanlar hayvanların kralıdır"
+  ],
+  "answer": 0,
+  "why": "Yaşlı adamın öğüdü: “Tilkiyi örnek alıp boş boş oturmak yerine aslanı örnek alıp hem kendine hem başkalarına yardımın dokunsa daha iyi olmaz mı?”"
+ },
+ {
+  "id": "edb-ms-14",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "Film şeridi (MEB) nedir?",
+  "choices": [
+   "Bir hikâyenin her sahnesini bir kareye dönüştüren görsel taslağı",
+   "Masalın başındaki tekerleme",
+   "Türkünün nakaratı",
+   "Bir romanın özeti"
+  ],
+  "answer": 0,
+  "why": "Film şeridi sinema ve animasyonda kullanılır; hikâye akışını görselleştirmeye ve sahne geçişlerini planlamaya yarar. Sınavda kareleri kelimelerle anlatman istenir."
+ },
+ {
+  "id": "edb-ms-15",
+  "unit": "Masal",
+  "type": "tf",
+  "q": "Masallar genellikle 3. kişi ağzından anlatılır ve düz yazı (nesir) biçimindedir.",
+  "answer": true,
+  "why": "Anlatıcı “-mış” ekiyle duyulan geçmiş zamanda anlatır: “fakir bir adam yaşarmış”."
+ },
+ {
+  "id": "edb-ms-16",
+  "unit": "Masal",
+  "type": "mc",
+  "q": "Masallarda olaylar hangi kipte anlatılır?",
+  "choices": [
+   "Duyulan (öğrenilen) geçmiş zaman: “-mış”",
+   "Gelecek zaman: “-ecek”",
+   "Emir kipi",
+   "Şimdiki zaman: “-yor”"
+  ],
+  "answer": 0,
+  "why": "“Bir varmış bir yokmuş… fakir bir kaşıkçı yaşarmış”. Anlatıcı olayları başkasından duymuş gibi aktarır."
+ },
+ {
+  "id": "edb-ms-17",
+  "unit": "Masal",
+  "type": "write",
+  "q": "Masal ile destanı iki yönden karşılaştırınız.",
+  "rubric": [
+   {
+    "t": "Masal hayal ürünüdür, olaylar tamamen kurmacadır; destanda tarihî bir olay ya da gerçek bir kahraman çekirdeği vardır",
+    "p": 3
+   },
+   {
+    "t": "Masal evrenseldir; destan millîdir (bir milletin ortak hafızası)",
+    "p": 3
+   },
+   {
+    "t": "Biçim: masal düz yazıdır, destan genellikle manzumdur (şiir)",
+    "p": 2
+   }
+  ],
+  "model": "Masallar halkın hayal gücünden doğar; zaman ve mekân belirsizdir, olaylar tamamen kurmacadır. Destanlarda ise bir milletin hayatında iz bırakmış tarihî bir olay ya da kahraman vardır ve olağanüstülüklerle anlatılır. Masallar evrenseldir, farklı milletlerde benzerleri bulunur; destanlar millîdir. Ayrıca masallar düz yazı, destanlar genellikle manzumdur.",
+  "why": "Karşılaştırmada iki ölçüt seç ve her ölçütte ikisini ayrı ayrı yaz."
+ },
+ {
+  "id": "edb-it-01",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "İsim tamlamasında birinci sözcüğe ve ikinci sözcüğe ne ad verilir?",
+  "choices": [
+   "Tamlayan ve tamlanan",
+   "Tamlanan ve tamlayan",
+   "Sıfat ve isim",
+   "Özne ve yüklem"
+  ],
+  "answer": 0,
+  "why": "Kodla: tamla-YAN önde, tamla-NAN arkada. “Kitabın kapağı”: kitabın = tamlayan, kapağı = tamlanan."
+ },
+ {
+  "id": "edb-it-02",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "İsim tamlamasında tamlanan hangi eki alır?",
+  "choices": [
+   "İyelik eki (-ı, -i, -u, -ü / -sı, -si)",
+   "İlgi eki (-ın, -in)",
+   "Çoğul eki",
+   "Bulunma eki"
+  ],
+  "answer": 0,
+  "why": "Tamlanan her zaman iyelik eki alır (kapağ-ı, para-sı). Tamlayan ise belirtili tamlamada ilgi eki (-ın, -in, -un, -ün / -nın) alır."
+ },
+ {
+  "id": "edb-it-03",
+  "unit": "İsim Tamlamaları",
+  "type": "match",
+  "q": "Tamlamaları türleriyle eşleştir.",
+  "pairs": [
+   [
+    "kitabın kapağı",
+    "Belirtili isim tamlaması"
+   ],
+   [
+    "yârimin yüreği",
+    "Belirtili isim tamlaması"
+   ],
+   [
+    "kitap kapağı",
+    "Belirtisiz isim tamlaması"
+   ],
+   [
+    "sıla parası",
+    "Belirtisiz isim tamlaması"
+   ],
+   [
+    "okul bahçesinin duvarı",
+    "Zincirleme isim tamlaması"
+   ]
+  ],
+  "why": "Belirtili: tamlayan -ın, tamlanan -ı. Belirtisiz: tamlayan eksiz, tamlanan -ı. Zincirleme: en az üç isim, iç içe tamlamalar."
+ },
+ {
+  "id": "edb-it-04",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "Hangisi belirtisiz isim tamlamasıdır?",
+  "choices": [
+   "Vardar Ovası",
+   "Mayadağ'ın yıldızı",
+   "annemin kızı",
+   "ellerin vatanı"
+  ],
+  "answer": 0,
+  "why": "Vardar Ova-sı: tamlayan ek almamış, tamlanan iyelik almış → belirtisiz. Diğerlerinde tamlayan ilgi eki (-ın, -in) almıştır."
+ },
+ {
+  "id": "edb-it-05",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "Hangisi belirtili isim tamlamasıdır?",
+  "choices": [
+   "efendimin gözü",
+   "incir ağacı",
+   "gönül kuşu",
+   "ayrılık tellalı"
+  ],
+  "answer": 0,
+  "why": "efendim-in göz-ü: tamlayan ilgi eki (-in), tamlanan iyelik eki (-ü) almış → belirtili."
+ },
+ {
+  "id": "edb-it-06",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "“Okul bahçesinin duvarı” tamlamasının türü nedir?",
+  "choices": [
+   "Zincirleme isim tamlaması",
+   "Belirtili isim tamlaması",
+   "Belirtisiz isim tamlaması",
+   "Sıfat tamlaması"
+  ],
+  "answer": 0,
+  "why": "[okul bahçesi]nin duvarı: önce “okul bahçesi” (belirtisiz) kurulur, o da “duvar”a tamlayan olur. En az üç isimli iç içe tamlama = zincirleme."
+ },
+ {
+  "id": "edb-it-07",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "“Benim evim çok uzak.” cümlesinden “benim” atılırsa “Evim çok uzak.” olur. Bu durumda “evim” için ne söylenir?",
+  "choices": [
+   "Tamlayanı düşmüş isim tamlamasıdır",
+   "Sıfat tamlamasıdır",
+   "Tamlama değildir",
+   "Zincirleme tamlamadır"
+  ],
+  "answer": 0,
+  "why": "“Evim” sözcüğündeki iyelik eki tamlayanı (benim) gösterir: tamlayanı düşmüş belirtili isim tamlaması. “Mezarımı kazın” dizesindeki “mezarım” da böyledir."
+ },
+ {
+  "id": "edb-it-08",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "“Okulun yeni ve temiz bahçesi” tamlamasında dikkat edilmesi gereken özellik nedir?",
+  "choices": [
+   "Tamlayan ile tamlanan arasına sıfatlar girmiştir",
+   "Tamlayan düşmüştür",
+   "Tamlama devriktir",
+   "Tamlama belirtisizdir"
+  ],
+  "answer": 0,
+  "why": "Okul-un … bahçe-si: belirtili isim tamlamasının arasına “yeni ve temiz” sıfatları girmiştir; tamlama bozulmaz."
+ },
+ {
+  "id": "edb-it-09",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "“Duvarı yıkılmıştı bahçenin.” cümlesindeki tamlamanın özelliği nedir?",
+  "choices": [
+   "Devrik (tamlanan önce gelmiş) isim tamlamasıdır",
+   "Belirtisiz tamlamadır",
+   "Sıfat tamlamasıdır",
+   "Zincirleme tamlamadır"
+  ],
+  "answer": 0,
+  "why": "Bahçenin duvarı → duvarı … bahçenin. Belirtili tamlamalarda öğeler yer değiştirebilir; daha çok şiirde görülür."
+ },
+ {
+  "id": "edb-it-10",
+  "unit": "İsim Tamlamaları",
+  "type": "tf",
+  "q": "İsim tamlamasında tamlanan mutlaka iyelik eki alır; tamlayan ise ilgi eki almayabilir.",
+  "answer": true,
+  "why": "Belirtisiz tamlamada tamlayan eksizdir (kitap kapağı), ama tamlanan yine iyelik eki alır."
+ },
+ {
+  "id": "edb-it-11",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "Ekleri atıldığında anlamlı bir tamlama kalmıyorsa (çocuk ayakkabı-sı → *çocuk ayakkabı) bu tamlama nedir?",
+  "choices": [
+   "İsim tamlaması",
+   "Sıfat tamlaması",
+   "Fiil",
+   "Zarf"
+  ],
+  "answer": 0,
+  "why": "Taktik: Ekleri sil. “Bozuk yollar → bozuk yol” hâlâ anlamlı: sıfat tamlaması. “Çocuk ayakkabısı → çocuk ayakkabı” olmuyor: isim tamlaması."
+ },
+ {
+  "id": "edb-it-12",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "Gevherî'nin “Diyâr-ı gurbetin derd ü mihnetin” dizesindeki “diyâr-ı gurbet” tamlamasının Türkçe karşılığı ve türü nedir?",
+  "choices": [
+   "“Gurbet diyarı (gurbet ülkesi)” · Farsça kurallarla kurulmuş isim tamlaması",
+   "“Diyarın gurbeti” · sıfat tamlaması",
+   "Tamlama değildir",
+   "“Gurbet ve diyar” · bağlaç"
+  ],
+  "answer": 0,
+  "why": "Farsça tamlamada sıralama terstir: tamlanan önce gelir, “-ı/-i” ile bağlanır. Diyâr-ı gurbet = gurbet diyarı; bezm-i muhabbet = muhabbet meclisi."
+ },
+ {
+  "id": "edb-it-13",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "“Bu garip gönlümün mihmanı tez gel” dizesindeki isim tamlaması hangisidir ve türü nedir?",
+  "choices": [
+   "gönlümün mihmanı · belirtili isim tamlaması",
+   "garip gönül · belirtisiz isim tamlaması",
+   "bu garip · sıfat tamlaması",
+   "tez gel · belirtili isim tamlaması"
+  ],
+  "answer": 0,
+  "why": "gönlüm-ün mihman-ı: tamlayan ilgi ekli, tamlanan iyelik ekli → belirtili. “Bu garip gönül” ise sıfat tamlamasıdır."
+ },
+ {
+  "id": "edb-it-14",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "“Hastane önünde incir ağacı” dizesinde kaç isim tamlaması vardır?",
+  "choices": [
+   "2 (hastane önü, incir ağacı)",
+   "1",
+   "3",
+   "Hiç yok"
+  ],
+  "answer": 0,
+  "why": "Hastane ön-ü(nde) ve incir ağac-ı: ikisi de belirtisiz isim tamlamasıdır."
+ },
+ {
+  "id": "edb-it-15",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "MEB cevap anahtarına göre isim tamlamaları türküye en çok hangi duyguyu katar?",
+  "choices": [
+   "Aidiyet (bir şeyin kime/neye ait olduğu)",
+   "Mizah",
+   "Korku",
+   "Merak"
+  ],
+  "answer": 0,
+  "why": "“Yârimin yüreği, annemin kızı, efendimin gözü” kişiler arasındaki bağı ve aidiyeti vurgular. Sıfat tamlamaları ise tasvir yaparak canlı görüntü oluşturur."
+ },
+ {
+  "id": "edb-it-16",
+  "unit": "İsim Tamlamaları",
+  "type": "mc",
+  "q": "Hangisinde zincirleme isim tamlaması vardır?",
+  "choices": [
+   "Rüzgârın sesinin güzelliği beni büyüledi.",
+   "Kitabın kapağı yırtılmış.",
+   "Deniz manzarası harikaydı.",
+   "Beyaz kızlar geldi."
+  ],
+  "answer": 0,
+  "why": "rüzgârın sesi → [rüzgârın sesinin] güzelliği: iç içe tamlama. Diğerleri tek tamlama ya da sıfat tamlamasıdır."
+ },
+ {
+  "id": "edb-it-17",
+  "unit": "İsim Tamlamaları",
+  "type": "order",
+  "q": "“Türk dili edebiyatı dersi” zincirleme tamlamasının kuruluşunu adım adım sırala.",
+  "items": [
+   "Türk dili",
+   "Türk dili edebiyatı",
+   "Türk dili edebiyatı dersi"
+  ],
+  "why": "Her adımda önceki tamlama yeni isme tamlayan olur. Zincirleme tamlamada en az üç isim bulunur."
+ },
+ {
+  "id": "edb-it-18",
+  "unit": "İsim Tamlamaları",
+  "type": "write",
+  "q": "“Mayadağ'ın yıldızıyım / Ben annemin bir kızıyım / Efendimin sağ gözüyüm” dizelerindeki isim tamlamalarını bulup türlerini yazınız.",
+  "rubric": [
+   {
+    "t": "Mayadağ'ın yıldızı: belirtili isim tamlaması",
+    "p": 2
+   },
+   {
+    "t": "annemin kızı: belirtili isim tamlaması (arasına “bir” girmiş)",
+    "p": 2
+   },
+   {
+    "t": "efendimin gözü: belirtili isim tamlaması (arasına “sağ” girmiş)",
+    "p": 2
+   }
+  ],
+  "model": "Mayadağ'ın yıldızı → belirtili isim tamlaması (Mayadağ-'ın / yıldız-ı)\nannemin (bir) kızı → belirtili isim tamlaması; tamlayan ile tamlanan arasına “bir” sözcüğü girmiştir\nefendimin (sağ) gözü → belirtili isim tamlaması; araya “sağ” sözcüğü girmiştir",
+  "why": "Araya giren sözcükler tamlamayı bozmaz. Ekleri göster: -ın/-in (ilgi) + -ı/-ü (iyelik)."
+ },
+ {
+  "id": "edb-sf-01",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "Sıfat (ön ad) nedir?",
+  "choices": [
+   "İsimlerin önüne gelip onları niteleyen ya da belirten sözcüktür",
+   "İş, oluş bildiren sözcüktür",
+   "İsimlerin yerine kullanılan sözcüktür",
+   "Fiilleri niteleyen sözcüktür"
+  ],
+  "answer": 0,
+  "why": "Sıfat tek başına kullanılamaz, mutlaka bir ismi niteler ya da belirtir: sıfat + isim = sıfat tamlaması (beyaz kız, bu yer)."
+ },
+ {
+  "id": "edb-sf-02",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "Varlıkların renk, biçim, durum gibi özelliklerini bildiren ve isme “Nasıl?” sorusu sorularak bulunan sıfat türü hangisidir?",
+  "choices": [
+   "Niteleme sıfatı",
+   "İşaret sıfatı",
+   "Belgisiz sıfat",
+   "Sayı sıfatı"
+  ],
+  "answer": 0,
+  "why": "Nasıl kızlar? → beyaz kızlar. Nasıl topuklu? → al topuklu. Bunlar niteleme sıfatıdır."
+ },
+ {
+  "id": "edb-sf-03",
+  "unit": "Sıfatlar",
+  "type": "match",
+  "q": "Altı çizili sıfatları türleriyle eşleştir.",
+  "pairs": [
+   [
+    "BEYAZ kızlar",
+    "Niteleme sıfatı"
+   ],
+   [
+    "BU yerler",
+    "İşaret sıfatı"
+   ],
+   [
+    "ÜÇ elma",
+    "Sayı sıfatı"
+   ],
+   [
+    "BAZI insanlar",
+    "Belgisiz sıfat"
+   ],
+   [
+    "HANGİ balta?",
+    "Soru sıfatı"
+   ]
+  ],
+  "why": "Belirtme sıfatları dörde ayrılır: işaret, sayı, belgisiz, soru. Niteleme sıfatı ise “Nasıl?” sorusunun cevabıdır."
+ },
+ {
+  "id": "edb-sf-04",
+  "unit": "Sıfatlar",
+  "type": "tiles",
+  "q": "Sayı sıfatlarını türleriyle eşleştir.",
+  "pairs": [
+   [
+    "Üç elma",
+    "Asıl sayı sıfatı"
+   ],
+   [
+    "Beşinci sayfa",
+    "Sıra sayı sıfatı"
+   ],
+   [
+    "Altışar soru",
+    "Üleştirme sayı sıfatı"
+   ],
+   [
+    "Yarım ekmek",
+    "Kesir sayı sıfatı"
+   ]
+  ],
+  "why": "Kaç? → asıl; kaçıncı? → sıra (ilk, son da sıra sayı sıfatıdır); kaçar? → üleştirme; yarım, çeyrek, %70 → kesir."
+ },
+ {
+  "id": "edb-sf-05",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "“Ben annemin bir kızıyım” dizesindeki “bir” sözcüğü ne tür bir sıfattır?",
+  "choices": [
+   "Sayı sıfatı (tek, bir tane)",
+   "Belgisiz sıfat",
+   "Niteleme sıfatı",
+   "Soru sıfatı"
+  ],
+  "answer": 0,
+  "why": "Burada “bir” annenin tek kızı olduğunu, sayıyı bildirir. “Bir gün büyük adam olacağım” cümlesinde ise “bir” belirsizlik bildirdiği için belgisiz sıfattır."
+ },
+ {
+  "id": "edb-sf-06",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "Hangisinde “bir” sözcüğü belgisiz sıfattır?",
+  "choices": [
+   "Bir gün mutlaka köyüme döneceğim.",
+   "Sınavda bir soruyu boş bıraktım.",
+   "Bir elma, iki armut aldım.",
+   "Bir kilo un lazım."
+  ],
+  "answer": 0,
+  "why": "“Hangi gün?” belli değil → belgisiz sıfat. Diğerlerinde “bir” sayıyı (kaç tane) bildirir."
+ },
+ {
+  "id": "edb-sf-07",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "“Bu masayı kaldırın.” ve “Bunu kaldırın.” cümlelerindeki “bu” ve “bunu” için ne söylenir?",
+  "choices": [
+   "“Bu” işaret sıfatı, “bunu” işaret zamiridir",
+   "İkisi de sıfattır",
+   "İkisi de zamirdir",
+   "“Bu” zarf, “bunu” sıfattır"
+  ],
+  "answer": 0,
+  "why": "Sıfat ek almaz ve isimle birlikte kullanılır. Ek alıp ismin yerini tutarsa zamir olur."
+ },
+ {
+  "id": "edb-sf-08",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "Hangisinde “güzel” sözcüğü sıfat değildir?",
+  "choices": [
+   "Masalı çok güzel anlattı.",
+   "Güzel bir türkü dinledik.",
+   "Güzel yüzlü kız gülümsedi.",
+   "Güzel günler göreceğiz."
+  ],
+  "answer": 0,
+  "why": "“Nasıl anlattı?” → güzel: fiili nitelediği için zarftır. Sıfat yalnızca isimleri niteler."
+ },
+ {
+  "id": "edb-sf-09",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "“Yemyeşil bir yayla” tamlamasındaki “yemyeşil” sözcüğü hangi tür sıfattır?",
+  "choices": [
+   "Pekiştirme sıfatı (niteleme sıfatının alt türü)",
+   "Belgisiz sıfat",
+   "Sayı sıfatı",
+   "İşaret sıfatı"
+  ],
+  "answer": 0,
+  "why": "Yeşil → yemyeşil, mavi → masmavi, yalnız → yapayalnız. Pekiştirme, niteleme sıfatının anlamını güçlendirir."
+ },
+ {
+  "id": "edb-sf-10",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "“Yaşlılar bize masal anlattı.” cümlesinde “yaşlılar” sözcüğü için ne söylenir?",
+  "choices": [
+   "Adlaşmış sıfattır",
+   "Belgisiz sıfattır",
+   "Sıfat tamlamasıdır",
+   "Zarftır"
+  ],
+  "answer": 0,
+  "why": "Yaşlı insanlar → yaşlılar. Nitelediği isim düşünce sıfat ismin yerini alır ve ek alabilir: adlaşmış sıfat."
+ },
+ {
+  "id": "edb-sf-11",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "“Hangisini beğendin?” cümlesindeki “hangisini” sözcüğü nedir?",
+  "choices": [
+   "Soru zamiri",
+   "Soru sıfatı",
+   "Soru zarfı",
+   "İşaret sıfatı"
+  ],
+  "answer": 0,
+  "why": "Soru sıfatı olması için önünde isim olmalı (hangi balta?). Ek alıp ismin yerini tuttuğu için zamirdir."
+ },
+ {
+  "id": "edb-sf-12",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "“Mayadağ'dan kalkan kazlar” tamlamasında sıfat görevindeki söz hangisidir?",
+  "choices": [
+   "Mayadağ'dan kalkan",
+   "kazlar",
+   "Mayadağ'dan",
+   "Sıfat yoktur"
+  ],
+  "answer": 0,
+  "why": "Nasıl kazlar? → Mayadağ'dan kalkan kazlar. “Kalkan” fiilden türeyen bir sıfattır (sıfat-fiil); öbek hâlinde ismi niteler. MEB bunu sıfat tamlaması örneği olarak verir."
+ },
+ {
+  "id": "edb-sf-13",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "Sıfat tamlamalarının şiire en büyük katkısı nedir? (MEB)",
+  "choices": [
+   "Tasvir yaparak okuyucunun zihninde canlı, hareketli bir görüntü oluşturmak",
+   "Aidiyet duygusu vermek",
+   "Ölçüyü bozmak",
+   "Şiiri anonim yapmak"
+  ],
+  "answer": 0,
+  "why": "“Al topuklu beyaz kızlar” göz önünde bir resim canlandırır. İsim tamlamaları ise aidiyeti vurgular."
+ },
+ {
+  "id": "edb-sf-14",
+  "unit": "Sıfatlar",
+  "type": "tf",
+  "q": "Sıfatlar çekim eki almaz; ek alırlarsa çoğu zaman isimleşir ya da zamirleşir.",
+  "answer": true,
+  "why": "Tüm öğrenciler → tümü (zamir). Yaşlı insanlar → yaşlılar (adlaşmış sıfat)."
+ },
+ {
+  "id": "edb-sf-15",
+  "unit": "Sıfatlar",
+  "type": "mc",
+  "q": "Hangisinde üleştirme sayı sıfatı doğru yazılmıştır?",
+  "choices": [
+   "Her öğrenciye altışar soru verildi.",
+   "Her öğrenciye 6'şar soru verildi.",
+   "Her öğrenciye altı şar soru verildi.",
+   "Her öğrenciye 6 şar soru verildi."
+  ],
+  "answer": 0,
+  "why": "Üleştirme sayıları rakamla değil, yazıyla yazılır: altışar, ikişer, beşer."
+ },
+ {
+  "id": "edb-sf-16",
+  "unit": "Sıfatlar",
+  "type": "match",
+  "q": "Vardar Ovası türküsündeki sıfat tamlamalarını sıfatın türüyle eşleştir.",
+  "pairs": [
+   [
+    "al topuklu kızlar",
+    "Niteleme sıfatı"
+   ],
+   [
+    "beyaz kızlar",
+    "Niteleme sıfatı"
+   ],
+   [
+    "bu yerler",
+    "İşaret sıfatı"
+   ],
+   [
+    "bir kız",
+    "Sayı sıfatı"
+   ],
+   [
+    "sağ göz",
+    "Niteleme sıfatı"
+   ]
+  ],
+  "why": "“Sağ göz”de sağ, gözün hangisi olduğunu (konumunu) niteleyen bir niteleme sıfatıdır."
+ },
+ {
+  "id": "edb-sf-17",
+  "unit": "Sıfatlar",
+  "type": "write",
+  "q": "Aşağıdaki dizelerden üç sıfat tamlaması bulup sıfatın türünü yazınız: “Mayadağ'dan kalkan kazlar / Al topuklu beyaz kızlar / … / Ben bu yerlerde duramam”",
+  "rubric": [
+   {
+    "t": "Mayadağ'dan kalkan kazlar → niteleme (sıfat-fiil öbeği)",
+    "p": 2
+   },
+   {
+    "t": "al topuklu beyaz kızlar → niteleme sıfatları",
+    "p": 2
+   },
+   {
+    "t": "bu yerler → işaret sıfatı",
+    "p": 2
+   }
+  ],
+  "model": "Mayadağ'dan kalkan kazlar: “Mayadağ'dan kalkan” kazları niteler (niteleme).\nAl topuklu beyaz kızlar: “al topuklu” ve “beyaz” kızları niteler (niteleme).\nBu yerler: “bu” yerleri işaret eder (işaret sıfatı, belirtme sıfatı).",
+  "why": "Sıfat tamlamasını yazarken hem sıfatı hem nitelenen ismi yaz; türünü “Nasıl?” (niteleme) ya da işaret/sayı/belgisiz/soru diye belirt."
+ },
+ {
+  "id": "edb-yz-01",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "Hangisinin yazımı doğrudur?",
+  "choices": [
+   "aşılayabilir",
+   "aşılaya bilir",
+   "aşılayabi lir",
+   "aşılaya-bilir"
+  ],
+  "answer": 0,
+  "why": "Yeterlilik fiili “-abil/-ebil” bitişik yazılır: gelebilir, okuyabilir, aşılayabilir."
+ },
+ {
+  "id": "edb-yz-02",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "Hangisinin yazımı doğrudur?",
+  "choices": [
+   "Hem yardım edenin hem de yardım alanın kalbinde…",
+   "Hem yardım edenin hemde yardım alanın kalbinde…",
+   "Hem yardım edenin hem-de yardım alanın…",
+   "Hemde yardım edenin hemde yardım alanın…"
+  ],
+  "answer": 0,
+  "why": "Bağlaç olan “de/da” her zaman ayrı yazılır: hem de, ben de, o da."
+ },
+ {
+  "id": "edb-yz-03",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "Hangisinin yazımı yanlıştır?",
+  "choices": [
+   "herşey",
+   "her şey",
+   "herkes",
+   "hiçbir"
+  ],
+  "answer": 0,
+  "why": "“Her şey” ayrı yazılır. “Herkes” ve “hiçbir” ise bitişiktir. (“Hiç kimse” ayrı yazılır.)"
+ },
+ {
+  "id": "edb-yz-04",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "“Şevkatli” sözcüğünün doğru yazımı hangisidir?",
+  "choices": [
+   "şefkatli",
+   "şevkatli",
+   "şefkattli",
+   "şevkadlı"
+  ],
+  "answer": 0,
+  "why": "Arapça kökenli “şefkat” (acıma, sevgiyle koruma) f ile yazılır. “Şevk” ise heves, istek demektir; ikisi farklı kelimelerdir."
+ },
+ {
+  "id": "edb-yz-05",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "“Pozitiv” sözcüğünün doğru yazımı hangisidir?",
+  "choices": [
+   "pozitif",
+   "pozitiv",
+   "positif",
+   "pozitıf"
+  ],
+  "answer": 0,
+  "why": "Batı kökenli “positif” Türkçeye “pozitif” olarak girmiştir; sonda “f” yazılır (negatif, aktif, pasif)."
+ },
+ {
+  "id": "edb-yz-06",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "“…umudu yeşerden sihirli bir dokunuş” ifadesindeki yanlış yazılan sözcüğün doğrusu hangisidir?",
+  "choices": [
+   "yeşerten",
+   "yeşeren",
+   "yeşerdden",
+   "yeşertden"
+  ],
+  "answer": 0,
+  "why": "Yeşer-t-en: ettirgen eki “-t” ile “yeşertmek” (yeşil hâle getirmek) fiilinden sıfat-fiil. “Yeşermek” yeşil olmak, “yeşertmek” yeşil olmasını sağlamaktır."
+ },
+ {
+  "id": "edb-yz-07",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "Hangi cümlede “de” bağlacı yanlış yazılmıştır?",
+  "choices": [
+   "Annemde bu türküyü çok severdi.",
+   "Ben de bu türküyü severim.",
+   "Kardeşim de geldi.",
+   "Masalı o da dinledi."
+  ],
+  "answer": 0,
+  "why": "“Annem de bu türküyü severdi” olmalı. Bağlaç olan “de” cümleden çıkarılınca anlam bozulmaz; ayrı yazılır. Bulunma eki “-de” ise bitişiktir: “Kitap annemde.”"
+ },
+ {
+  "id": "edb-yz-08",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "“Mayadağ'dan” sözcüğünde kesme işareti neden kullanılmıştır?",
+  "choices": [
+   "Özel ada gelen ek ayrıldığı için",
+   "Sözcük yabancı olduğu için",
+   "Sözcük kısaltma olduğu için",
+   "Ünlü düştüğü için"
+  ],
+  "answer": 0,
+  "why": "Özel adlara getirilen çekim ekleri kesme işaretiyle ayrılır: Mayadağ'dan, Van'dan, Gaziantep'te, Karacaoğlan'ın."
+ },
+ {
+  "id": "edb-yz-09",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "tiles",
+  "q": "Şiirlerde geçen eski sözcükleri anlamlarıyla eşleştir.",
+  "pairs": [
+   [
+    "yad",
+    "yabancı"
+   ],
+   [
+    "arif",
+    "anlayışlı, olgun"
+   ],
+   [
+    "mihman",
+    "misafir"
+   ],
+   [
+    "tellal",
+    "çarşıda duyuru yapan kişi"
+   ],
+   [
+    "ırak",
+    "uzak"
+   ]
+  ],
+  "why": "Bağlamdan anlam tahmini: “yad ellere açma” → yabancılara açma; “beni yârimden ırak etti” → uzak etti."
+ },
+ {
+  "id": "edb-yz-10",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "tiles",
+  "q": "Gevherî'nin koşmasındaki sözcükleri anlamlarıyla eşleştir.",
+  "pairs": [
+   [
+    "felek",
+    "kader, talih"
+   ],
+   [
+    "leb",
+    "dudak"
+   ],
+   [
+    "şükker",
+    "şeker"
+   ],
+   [
+    "mihnet",
+    "sıkıntı, eziyet"
+   ],
+   [
+    "gonca",
+    "açılmamış gül"
+   ]
+  ],
+  "why": "“Lebi şükker” = dudağı şeker gibi tatlı. “Derd ü mihnet” = dert ve sıkıntı. “Gonca gül” = henüz açılmamış gül."
+ },
+ {
+  "id": "edb-yz-11",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "Bilmediğin bir sözcüğün anlamını tahmin etmenin en doğru yolu hangisidir?",
+  "choices": [
+   "Sözcüğün geçtiği dizeye ve çevresindeki sözcüklere (bağlama) bakmak",
+   "Sözcüğün harf sayısına bakmak",
+   "Sözcüğü atlamak",
+   "Sözcüğün ilk harfine bakmak"
+  ],
+  "answer": 0,
+  "why": "MEB 1. soru tam olarak bunu ister: “bağlama uygun” anlam. Yüzeysel sözlük anlamı yarım puan alır."
+ },
+ {
+  "id": "edb-yz-12",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "Türkçenin yazılı metinlerle takip edilebilen en eski dönemine ait eserler hangileridir?",
+  "choices": [
+   "Orhun (Göktürk) Yazıtları",
+   "Divanu Lügati't-Türk",
+   "Kutadgu Bilig",
+   "Divan-ı Hikmet"
+  ],
+  "answer": 0,
+  "why": "Orhun Yazıtları 8. yüzyıldandır (735). Divanu Lügati't-Türk 1072-74, Kutadgu Bilig 1069-70 yıllarına aittir."
+ },
+ {
+  "id": "edb-yz-13",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "kendü > kendi değişiminde ne olmuştur?",
+  "choices": [
+   "Yuvarlak “ü” ünlüsü düz “i” ünlüsüne dönüşmüştür",
+   "“d” ünsüzü “t”ye dönüşmüştür",
+   "Bir hece eklenmiştir",
+   "Kelimenin anlamı tamamen değişmiştir"
+  ],
+  "answer": 0,
+  "why": "kentü (Orhun) > kendü (DLT) > kendi (Türkiye Türkçesi). Önce t > d, sonra ü > i. Kelimenin anlamı ise korunmuştur."
+ },
+ {
+  "id": "edb-yz-14",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "tf",
+  "q": "Sözcüklerin zaman içinde ses değişikliğine uğraması, dilin canlı bir varlık olarak sürekli değişmesinin bir sonucudur.",
+  "answer": true,
+  "why": "Kolay söyleyiş, coğrafya, lehçe ve ağız farkları, başka dillerle etkileşim değişime yol açar."
+ },
+ {
+  "id": "edb-yz-15",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "“Umudumu ben Mevlâ'ya bağlarım” dizesinde “Mevlâ” sözcüğünün anlamı nedir?",
+  "choices": [
+   "Allah",
+   "Sevgili",
+   "Padişah",
+   "Usta"
+  ],
+  "answer": 0,
+  "why": "Mevlâ: Allah, Tanrı. Şair kavuşmayı ilahi güce bırakır."
+ },
+ {
+  "id": "edb-yz-16",
+  "unit": "Yazım ve Söz Varlığı",
+  "type": "mc",
+  "q": "Hangisinin yazımı doğrudur?",
+  "choices": [
+   "hiçbir zaman",
+   "hiç bir zaman",
+   "hiçbirzaman",
+   "hiç-bir zaman"
+  ],
+  "answer": 0,
+  "why": "“Hiçbir” bitişik, “zaman” ayrı yazılır: hiçbir zaman, hiçbir şey. “Birçok” da bitişiktir; “pek çok” ayrıdır."
+ }
+]

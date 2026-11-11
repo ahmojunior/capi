@@ -25,6 +25,7 @@
     --kim: #FF5FA2;
     --mat: #6CCBFF;
     --alm: #FFC93C;
+    --edb: #C3A6FF;
     --hl: var(--bio);
     --shadow: 3px 3px 0 var(--ink);
     --display: "Bricolage Grotesque", system-ui, sans-serif;
@@ -54,6 +55,7 @@
   [data-subject="kim"] { --hl: var(--kim); }
   [data-subject="mat"] { --hl: var(--mat); }
   [data-subject="alm"] { --hl: var(--alm); }
+  [data-subject="edb"] { --hl: var(--edb); }
 
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
@@ -228,7 +230,7 @@
     background: var(--paper); padding: 12px 14px; margin: 14px 0 8px;
     font-size: 17px; line-height: 1.4; font-weight: 500;
   }
-  .srccard .txt { flex: 1; min-width: 0; }
+  .srccard .txt { flex: 1; min-width: 0; white-space: pre-line; }
   .speak {
     flex: none; width: 42px; height: 42px; padding: 0; cursor: pointer;
     display: grid; place-items: center;
@@ -385,7 +387,7 @@
 
   .review h2 { font-family: var(--display); font-weight: 700; font-size: 19px; margin: 26px 0 4px; }
   .miss { border-left: 3px solid var(--red); padding: 2px 0 2px 12px; margin: 16px 0; }
-  .miss .q { font-weight: 600; font-size: 15px; line-height: 1.35; }
+  .miss .q { font-weight: 600; font-size: 15px; line-height: 1.35; white-space: pre-line; }
   .miss .a { font-size: 14px; color: var(--red); margin-top: 3px; }
   .miss .e { font-size: 14px; color: var(--ink-soft); margin-top: 3px; }
   .warn { color: var(--red); font-size: 14px; }
@@ -452,6 +454,23 @@
     padding: 1px 7px; border-radius: 2px; margin-left: 8px; vertical-align: 1px;
   }
 
+  /* ---- açık uçlu (yazılı) soru: yaz, model cevapla karşılaştır, kendini puanla ---- */
+  .wbox {
+    width: 100%; min-height: 150px; resize: vertical; display: block;
+    font-family: var(--body); font-size: 16px; line-height: 1.45; color: var(--ink);
+    background: var(--paper); border: 2px solid var(--ink); border-radius: 2px; box-shadow: var(--shadow);
+    padding: 10px 12px; margin: 4px 0 10px;
+  }
+  .wbox:disabled { opacity: .8; box-shadow: none; }
+  .paperbtn { font-family: var(--body); font-size: 14px; background: none; border: 1.5px dashed var(--ink-soft); color: var(--ink-soft); border-radius: 2px; padding: 8px 12px; cursor: pointer; }
+  .paperbtn.on { border-style: solid; border-color: var(--ink); color: var(--ink); background: color-mix(in srgb, var(--hl) 35%, transparent); }
+  .model { border: 2px solid var(--green); background: var(--green-wash); border-radius: 2px; padding: 10px 12px; margin: 14px 0 6px; white-space: pre-line; font-size: 15px; }
+  .model b { display: block; font-family: var(--display); margin-bottom: 4px; }
+  .rubrichead { font-family: var(--display); font-weight: 700; font-size: 17px; margin: 16px 0 2px; }
+  .choice .pts { margin-left: auto; flex: none; font-size: 13px; font-weight: 700; color: var(--ink-soft); padding-left: 8px; }
+  .choice.sel .pts { color: var(--ink); }
+  .score { font-family: var(--display); font-weight: 800; }
+
   /* ---- konu anlatımı ---- */
   .lessontitle { font-family: var(--display); font-weight: 800; font-size: clamp(24px, 6.6vw, 30px); line-height: 1.1; letter-spacing: -.02em; margin: 4px 0 0; }
   .lcard {
@@ -460,6 +479,7 @@
   }
   .lcard h2 { font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: -.01em; margin: 0 0 8px; }
   .lcard p { margin: 0 0 10px; }
+  .lcard p.poem { white-space: pre-line; font-style: italic; border-left: 3px solid var(--hl); padding-left: 10px; }
   .lcard ul { margin: 0 0 10px; padding-left: 20px; }
   .lcard li { margin: 4px 0; }
   .formula {
@@ -521,7 +541,7 @@
   .lcheck.miss { border-color: var(--red); }
   .lchead { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); }
   .lcq { font-family: var(--display); font-weight: 700; font-size: 18px; line-height: 1.25; margin: 4px 0 6px; }
-  .lcsrc { font-style: italic; border-left: 3px solid var(--hl); padding-left: 8px; margin: 6px 0; }
+  .lcsrc { font-style: italic; border-left: 3px solid var(--hl); padding-left: 8px; margin: 6px 0; white-space: pre-line; }
   .lcheck .choice { margin: 7px 0; min-height: 46px; padding: 10px 12px; }
   .lcverdict { font-family: var(--display); font-weight: 800; font-size: 18px; margin: 8px 0 2px; display: flex; align-items: center; gap: 10px; }
   .lcheck.good .lcverdict { color: var(--green); }
@@ -653,8 +673,15 @@ const SUBJECTS = [
   { key: "bio", name: "Biyoloji",  file: "questions-bio.json", lessons: "lessons-bio.json" },
   { key: "kim", name: "Kimya",     file: "questions-kim.json", lessons: "lessons-kim.json" },
   { key: "mat", name: "Matematik", file: "questions-mat.json", lessons: "lessons-mat.json" },
-  { key: "alm", name: "Almanca",   file: "questions-alm.json", lessons: "lessons-alm.json", lang: "de-DE", glossary: "glossary-alm.json" }
+  { key: "alm", name: "Almanca",   file: "questions-alm.json", lessons: "lessons-alm.json", lang: "de-DE", glossary: "glossary-alm.json" },
+  { key: "edb", name: "Edebiyat",  file: "questions-edb.json", lessons: "lessons-edb.json", glossary: "glossary-edb.json", locale: "tr",
+    goldNote: "MEB yazılı provası", goldTag: "★ Yazılı provası" }
 ];
+// sözlük ve karşılaştırmalar için küçük harf dönüşümü: Almancada "I" → "i", Türkçede "I" → "ı"
+function subjectLocale(key) {
+  const s = SUBJECTS.find(x => x.key === key);
+  return (s && s.locale) || "de";
+}
 const ROUND_SIZE = 10;
 const KEYS = ["a", "b", "c", "d", "e"];
 
@@ -736,6 +763,10 @@ function validate(q, i, key) {
     if (typeof q.tts !== "string" || !q.tts) return bad("tts eksik");
     if (!Array.isArray(q.blanks) || !q.blanks.length) return bad("blanks eksik");
     if (q.blanks.some(b => !b || !b.label || normNumber(b.answer) === "")) return bad("blank biçimi bozuk");
+  } else if (q.type === "write") {
+    if (!Array.isArray(q.rubric) || !q.rubric.length) return bad("rubric eksik");
+    if (q.rubric.some(r => !r || !r.t || !(r.p > 0))) return bad("rubric biçimi bozuk");
+    if (q.model != null && typeof q.model !== "string") return bad("model metin değil");
   } else if (q.type === "build") {
     const words = (a) => Array.isArray(a) && a.length > 0 && a.every(w => typeof w === "string" && w);
     if (!words(q.words) || q.words.length < 2) return bad("words eksik");
@@ -773,7 +804,7 @@ async function loadBanks() {
         if (!res.ok) throw new Error("HTTP " + res.status);
         const data = await res.json();
         const g = new Map();
-        for (const k in data) if (typeof data[k] === "string" && data[k]) g.set(k.toLocaleLowerCase("de"), data[k]);
+        for (const k in data) if (typeof data[k] === "string" && data[k]) g.set(k.toLocaleLowerCase(subjectLocale(s.key)), data[k]);
         glossaries[s.key] = g;
       } catch (e) {
         loadErrors.push(s.name + " sözlüğü yüklenemedi: " + e.message);
@@ -896,8 +927,9 @@ function hintFilter(key, q) {
   const pool = [q.q, (q.choices || []).join(" | "), correctText(q), (q.pairs || []).flat().join(" | ")]
     .join(" | ").toLocaleLowerCase("tr");
   // tek kelimelik cevap balonun başlığında geçmesin (ör. "___ Apfel" sorusunda "der Apfel")
-  const ans = String(correctText(q)).trim().toLocaleLowerCase("de");
-  const inHead = gloss => gloss.includes("·") && gloss.split("·")[0].toLocaleLowerCase("de").split(/\s+/).includes(ans);
+  const loc = subjectLocale(key);
+  const ans = String(correctText(q)).trim().toLocaleLowerCase(loc);
+  const inHead = gloss => gloss.includes("·") && gloss.split("·")[0].toLocaleLowerCase(loc).split(/\s+/).includes(ans);
   return (gloss) => !inHead(gloss) && !glossParts(gloss).some(t => pool.includes(t));
 }
 // metni kelimelere böler; sözlükte olanlar (iki kelimelik kalıplar önce) düğmeye dönüşür
@@ -910,7 +942,8 @@ function glossText(text, key, allow) {
   while ((m = re.exec(text))) toks.push({ w: m[0], i: m.index, end: m.index + m[0].length });
   const out = [];
   let pos = 0;
-  const base = w => w.split(/['’]/)[0].toLocaleLowerCase("de");
+  const loc = subjectLocale(key);
+  const base = w => w.split(/['’]/)[0].toLocaleLowerCase(loc);
   for (let k = 0; k < toks.length; k++) {
     let hit = null;
     // iki kelimelik kalıp (ör. "wie viel", "guten Appetit") yalnızca arada sadece boşluk varsa
@@ -1078,9 +1111,17 @@ const MIKEY_LINES_ALM = {
   happy: ["Sehr gut! Çok iyi!", "Super!", "Toll! Harika!", "Prima!"],
   sad:   ["Kein Problem! Sorun yok.", "Weiter so, devam!"]
 };
+// Edebiyat derste Mikey biraz şairane konuşur
+const MIKEY_LINES_EDB = {
+  start: ["Kalem senin, kâğıt senin!", "Önce redif, sonra kafiye!", "Dizeleri sesli oku, ahengi duy."],
+  happy: ["Tam puan!", "Hocan bunu görse 100 verir!", "Şair gibi çözdün!"],
+  sad:   ["Model cevaba bak, puanı oradan toplarız.", "Örnek vermeyi unutma, yarım puan kaçmasın!"]
+};
+const MIKEY_LINES_BY = { alm: MIKEY_LINES_ALM, edb: MIKEY_LINES_EDB };
 function mikeyLine(kind) {
   let a = MIKEY_LINES[kind];
-  if (document.body.dataset.subject === "alm" && MIKEY_LINES_ALM[kind]) a = a.concat(MIKEY_LINES_ALM[kind]);
+  const extra = MIKEY_LINES_BY[document.body.dataset.subject];
+  if (extra && extra[kind]) a = a.concat(extra[kind]);
   return a[Math.floor(Math.random() * a.length)];
 }
 function mikey(mood) {
@@ -1173,7 +1214,7 @@ function renderSubject(key) {
         el("span", { class: "pct", text: p == null ? "yeni" : "%" + p })
       ]),
       el("div", { class: "mini" }, [el("i", { style: "width:" + (p == null ? 0 : p) + "%" })]),
-      el("div", { class: "cnt", text: u.n + " soru" + (u.gold ? " · sınavda çıkacak" : "") })
+      el("div", { class: "cnt", text: u.n + " soru" + (u.gold ? " · " + (subj.goldNote || "sınavda çıkacak") : "") })
     ]);
     const kids = [main];
     if (lessons[key] && lessons[key][u.name]) {
@@ -1201,6 +1242,7 @@ function lessonDone(key, unit) { return !!(store.les && store.les[lessonKey(key,
 // adım içeriğini sırayla gösterilecek parçalara böler
 function lessonBeats(key, st, si) {
   const beats = [];
+  if (st.poem) beats.push({ k: "poem", t: st.poem });
   (st.text || []).forEach(t => beats.push({ k: "text", t }));
   if (st.f && st.f.length) beats.push({ k: "f", f: st.f });
   if (st.list && st.list.length) {
@@ -1305,6 +1347,7 @@ function renderLesson(key, unit, i) {
 
   function beatNode(b) {
     if (b.k === "text") return el("p", { text: b.t });
+    if (b.k === "poem") return el("p", { class: "poem", text: b.t });
     if (b.k === "f") return el("div", { class: "formula" }, b.f.flatMap((t, k) => k ? [el("br"), t] : [t]));
     if (b.k === "list") return el("ul", { class: "beatlist" }, b.items.map(t => el("li", { text: t })));
     if (b.k === "fig") return el("div", {}, [renderFig(st.fig)]);
@@ -1597,7 +1640,8 @@ function renderQuestion() {
     : mikeyLine("start");
   state.buddy = buddy("idle", opener);
   app.appendChild(state.buddy.row);
-  app.appendChild(el("div", { class: "unitname" }, q.gold ? [q.unit, el("span", { class: "goldtag", text: "★ Altın soru" })] : [q.unit]));
+  const subj = SUBJECTS.find(s => s.key === state.key);
+  app.appendChild(el("div", { class: "unitname" }, q.gold ? [q.unit, el("span", { class: "goldtag", text: subj.goldTag || "★ Altın soru" })] : [q.unit]));
   const hints = hintFilter(state.key, q);
   app.appendChild(el("h1", { class: "qtext" }, glossText(q.q, state.key, hints)));
   // src: çevrilecek ya da okunacak cümle; tts varsa yanında dinleme düğmesi çıkar
@@ -1620,6 +1664,7 @@ function renderQuestion() {
   else if (q.type === "order") renderOrder(body, q);
   else if (q.type === "build") renderBuild(body, q);
   else if (q.type === "listen") renderListen(body, q);
+  else if (q.type === "write") renderWrite(body, q);
 
   setFooterCheck();
 }
@@ -1651,6 +1696,7 @@ function hasAnswer() {
   if (q.type === "order") return s && s.placed && s.placed.length === q.items.length;
   if (q.type === "build") return s && s.placed && s.placed.length > 0;
   if (q.type === "tiles") return s && s.done === q.pairs.length;
+  if (q.type === "write") return s && (s.paper || s.text.trim().length >= 2);
   return false;
 }
 
@@ -1901,6 +1947,65 @@ function renderBuild(body, q) {
   }
   draw();
 }
+// açık uçlu yazılı sorusu: öğrenci cevabını yazar (ya da kâğıda yazar). Kontrol et'e basınca
+// model cevap ve puanlama ölçütleri açılır; öğrenci cevabında olanları işaretler, Puanla'ya basar.
+// Toplam puanın %70'i ve üstü doğru sayılır.
+const WRITE_PASS = 0.7;
+function writeTotal(q) { return q.rubric.reduce((a, r) => a + r.p, 0); }
+function writeScore(q, sel) { return q.rubric.reduce((a, r, i) => a + (sel && sel.marks && sel.marks[i] ? r.p : 0), 0); }
+function renderWrite(body, q) {
+  state.sel = { text: "", paper: false, grading: false, graded: false, marks: q.rubric.map(() => false), body };
+  const sel = state.sel;
+  body.appendChild(el("div", { class: "hint", text: "Yazılı kâğıdına yazar gibi cevapla. Sonra model cevapla karşılaştırıp kendini puanlayacaksın (" + writeTotal(q) + " puan)." }));
+  const box = el("textarea", { class: "wbox", rows: "6", placeholder: "Cevabın…", "aria-label": "Cevabın", spellcheck: "false" });
+  box.addEventListener("input", () => { sel.text = box.value; refreshCheck(); });
+  body.appendChild(box);
+  const paper = el("button", { class: "paperbtn", type: "button", "aria-pressed": "false", onclick: () => {
+    if (sel.grading || state.answered) return;
+    sel.paper = !sel.paper;
+    paper.classList.toggle("on", sel.paper);
+    paper.setAttribute("aria-pressed", String(sel.paper));
+    paper.textContent = sel.paper ? "✓ Cevabı kâğıda yazdım" : "Cevabı kâğıda yazdım";
+    refreshCheck();
+  } }, ["Cevabı kâğıda yazdım"]);
+  body.appendChild(paper);
+}
+function modelBox(q) {
+  return el("div", { class: "model" }, [el("b", { text: "Model cevap" }), q.model || q.rubric.map(r => "• " + r.t).join("\n")]);
+}
+function openGrading(q) {
+  const sel = state.sel;
+  sel.grading = true;
+  const body = sel.body;
+  body.querySelectorAll(".wbox, .paperbtn").forEach(x => { x.disabled = true; });
+  const model = modelBox(q);
+  body.appendChild(model);
+  body.appendChild(el("div", { class: "rubrichead", text: "Cevabında hangileri var?" }));
+  body.appendChild(el("div", { class: "hint", text: "Dürüst ol, yalnızca gerçekten yazdıklarını işaretle. %70 ve üstü doğru sayılır." }));
+  const total = writeTotal(q);
+  q.rubric.forEach((r, i) => {
+    const key = el("span", { class: "key", text: "" });
+    const b = el("button", { class: "choice rub", type: "button", "aria-pressed": "false", onclick: () => {
+      if (state.answered) return;
+      sel.marks[i] = !sel.marks[i];
+      b.classList.toggle("sel", sel.marks[i]);
+      b.setAttribute("aria-pressed", String(sel.marks[i]));
+      key.textContent = sel.marks[i] ? "✓" : "";
+      update();
+    } }, [key, el("span", { class: "label", text: r.t }), el("span", { class: "pts", text: r.p + " p" })]);
+    b.dataset.i = i;
+    body.appendChild(b);
+  });
+  if (state.buddy) state.buddy.say("think", "Şimdi model cevapla karşılaştır!");
+  foot.className = "";
+  footinner.innerHTML = "";
+  const go = el("button", { class: "btn solid main", onclick: () => { sel.graded = true; submit(); } }, []);
+  function update() { go.textContent = "Puanla · " + writeScore(q, sel) + "/" + total; }
+  update();
+  footinner.appendChild(el("div", { class: "btnrow" }, [go]));
+  setTimeout(() => model.scrollIntoView && model.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }), 30);
+}
+
 // isim olmayan bloklar veride küçük harfle durur; cümlenin başına gelen blok büyük harfle gösterilir
 function capFirst(t) { return t ? t.charAt(0).toLocaleUpperCase("de") + t.slice(1) : t; }
 function buildSentence(words) { return capFirst(words.join(" ")); }
@@ -1919,6 +2024,7 @@ function isCorrect(q) {
   if (q.type === "match") return q.pairs.every((p, i) => q.pairs[s.map[i]][1] === p[1]);
   if (q.type === "order") return s.placed.every((p, i) => p.i === i);
   if (q.type === "tiles") return s.done === q.pairs.length;
+  if (q.type === "write") return writeScore(q, s) >= WRITE_PASS * writeTotal(q);
   if (q.type === "build") {
     const got = normSentence(s.placed.map(p => p.t));
     return [q.words].concat(q.alt || []).some(a => normSentence(a) === got);
@@ -1933,12 +2039,15 @@ function correctText(q) {
   if (q.type === "order") return q.items.map((t, i) => (i + 1) + ". " + t).join("  ");
   if (q.type === "build") return buildSentence(q.words);
   if (q.type === "listen") return q.blanks.map(b => b.answer + " " + b.label).join(", ");
+  if (q.type === "write") return q.model || q.rubric.map(r => r.t).join("; ");
   return "";
 }
 
 function submit() {
   if (state.answered || !hasAnswer()) return;
   const q = state.list[state.i];
+  // açık uçlu soruda ilk basış puanlama ekranını açar
+  if (q.type === "write" && !state.sel.graded) { if (!state.sel.grading) openGrading(q); return; }
   state.answered = true;
   const ok = isCorrect(q);
   record(q.id, ok);
@@ -1977,6 +2086,15 @@ function revealChoices(q) {
     if (line && state.sel) line.classList.add(isCorrect(q) ? "ok" : "bad");
   } else if (q.type === "tiles") {
     app.querySelectorAll(".tile").forEach(b => { b.disabled = true; b.classList.remove("sel"); });
+  } else if (q.type === "write") {
+    app.querySelectorAll(".wbox, .paperbtn").forEach(x => { x.disabled = true; });
+    app.querySelectorAll(".choice.rub").forEach(b => { b.disabled = true; if (b.classList.contains("sel")) b.classList.add("ok"); });
+    // boş bırakılınca model cevap ve ölçütler yine de görünsün
+    const box = app.querySelector(".wbox");
+    if (box && !app.querySelector(".model")) {
+      box.parentNode.appendChild(modelBox(q));
+      if (q.model) box.parentNode.appendChild(el("div", { class: "hint" }, ["Puan ölçütleri: " + q.rubric.map(r => r.t + " (" + r.p + " p)").join(" · ")]));
+    }
   } else if (q.type === "listen") {
     // her kutu ayrı ayrı: doğrular yeşil, yanlış ya da boş olanların yanında doğrusu
     app.querySelectorAll(".lrow").forEach((row, i) => {
@@ -2013,7 +2131,12 @@ function showVerdict(q, kind) {
   const sp = q.type === "build" ? speakButton(buildSentence(q.words), subjectLang(state.key)) : null;
   if (sp) row.appendChild(sp);
   footinner.appendChild(row);
-  if (kind === "ok" && q.type === "tiles" && state.sel && state.sel.mistakes) {
+  if (q.type === "write") {
+    footinner.appendChild(el("div", { class: "answer" }, kind === "skip"
+      ? ["Model cevap ve puan ölçütleri yukarıda."]
+      : ["Puanın: ", el("span", { class: "score", text: writeScore(q, state.sel) + "/" + writeTotal(q) }),
+         kind === "ok" ? " · yazılıda bu cevap tam puana yakın!" : " · işaretlemediğin ölçütlere bak."]));
+  } else if (kind === "ok" && q.type === "tiles" && state.sel && state.sel.mistakes) {
     footinner.appendChild(el("div", { class: "answer", text: "Hepsini buldun! Arada " + state.sel.mistakes + " kez yanlış eşleştirme denedin." }));
   } else if (kind !== "ok" && q.type === "listen") {
     footinner.appendChild(el("div", { class: "answer", text: "Doğrularını kutuların yanında görebilirsin." }));
