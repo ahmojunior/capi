@@ -26,6 +26,7 @@
     --mat: #6CCBFF;
     --alm: #FFC93C;
     --edb: #C3A6FF;
+    --ing: #FF9F5A;
     --hl: var(--bio);
     --shadow: 3px 3px 0 var(--ink);
     --display: "Bricolage Grotesque", system-ui, sans-serif;
@@ -56,6 +57,7 @@
   [data-subject="mat"] { --hl: var(--mat); }
   [data-subject="alm"] { --hl: var(--alm); }
   [data-subject="edb"] { --hl: var(--edb); }
+  [data-subject="ing"] { --hl: var(--ing); }
 
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
@@ -675,9 +677,12 @@ const SUBJECTS = [
   { key: "mat", name: "Matematik", file: "questions-mat.json", lessons: "lessons-mat.json" },
   { key: "alm", name: "Almanca",   file: "questions-alm.json", lessons: "lessons-alm.json", lang: "de-DE", glossary: "glossary-alm.json" },
   { key: "edb", name: "Edebiyat",  file: "questions-edb.json", lessons: "lessons-edb.json", glossary: "glossary-edb.json", locale: "tr",
-    goldNote: "yazılı tipi sorular", goldTag: "★ Yazılı provası" }
+    goldNote: "yazılı tipi sorular", goldTag: "★ Yazılı provası" },
+  { key: "ing", name: "İngilizce", file: "questions-ing.json", lessons: "lessons-ing.json", lang: "en-GB", glossary: "glossary-ing.json", locale: "en",
+    listenHint: "“forty-two” → 42, “seven thirty” → 7:30",
+    goldNote: "kitaptaki kelime listesi", goldTag: "★ Kelime listesi" }
 ];
-// sözlük ve karşılaştırmalar için küçük harf dönüşümü: Almancada "I" → "i", Türkçede "I" → "ı"
+// sözlük ve karşılaştırmalar için küçük harf dönüşümü: Almanca ve İngilizcede "I" → "i", Türkçede "I" → "ı"
 function subjectLocale(key) {
   const s = SUBJECTS.find(x => x.key === key);
   return (s && s.locale) || "de";
@@ -917,7 +922,7 @@ function subjectLang(key) {
 
 // sözlükteki kelimelerin altı noktalı çizilir; dokununca küçük bir balonda anlamı çıkar.
 // cevabı ele verecek ipuçları gösterilmez: anlamı soran sorular ve anlamı soruda/şıklarda geçen kelimeler
-const MEANING_ASK = /demek|anlam|nasıl söylenir|nasıl okunur|kaçtır|kaç\?/i;
+const MEANING_ASK = /demek|anlam|nasıl söylenir|nasıl okunur|kaçtır|kaç\?|\bmeans?\b|meaning|definition/i;
 function glossParts(gloss) {
   const tr = gloss.includes("·") ? gloss.split("·").pop() : gloss;
   return tr.split(/[,/()]/).map(t => t.trim().toLocaleLowerCase("tr")).filter(t => t.length >= 2);
@@ -1117,7 +1122,13 @@ const MIKEY_LINES_EDB = {
   happy: ["Tam puan!", "Hocan bunu görse 100 verir!", "Şair gibi çözdün!"],
   sad:   ["Model cevaba bak, puanı oradan toplarız.", "Örnek vermeyi unutma, yarım puan kaçmasın!"]
 };
-const MIKEY_LINES_BY = { alm: MIKEY_LINES_ALM, edb: MIKEY_LINES_EDB };
+// İngilizce derste Mikey temanın kalıplarıyla konuşur
+const MIKEY_LINES_ING = {
+  start: ["Rise and shine! Hadi başlayalım!", "You can do it! Yaparsın!", "Don't be in a rush! Acele yok."],
+  happy: ["Well done! Aferin!", "Brilliant!", "Spot on! Tam isabet!", "Awesome!"],
+  sad:   ["No worries! Sorun yok.", "Keep going, devam!", "Every little bit helps!"]
+};
+const MIKEY_LINES_BY = { alm: MIKEY_LINES_ALM, edb: MIKEY_LINES_EDB, ing: MIKEY_LINES_ING };
 function mikeyLine(kind) {
   let a = MIKEY_LINES[kind];
   const extra = MIKEY_LINES_BY[document.body.dataset.subject];
@@ -1869,7 +1880,7 @@ function renderTiles(body, q) {
 
 // dinleme: metin sesli okunur (yazısı gizli), öğrenci her satırdaki miktarı rakamla yazar.
 // "zweihundert" duyulunca 200 yazılır; rakam dışındaki her şey (birim, boşluk) karşılaştırmada yok sayılır
-const NUMBER_WORDS = { ein: "1", eins: "1", eine: "1", bir: "1" };
+const NUMBER_WORDS = { ein: "1", eins: "1", eine: "1", bir: "1", one: "1" };
 function normNumber(v) {
   const t = String(v == null ? "" : v).trim().toLocaleLowerCase("tr");
   if (NUMBER_WORDS[t]) return NUMBER_WORDS[t];
@@ -1889,7 +1900,8 @@ function renderListen(body, q) {
     // ses yoksa metni yazılı göster: sayılar yine kelimeyle yazılı olduğu için soru anlamını korur
     body.appendChild(el("div", { class: "srccard" }, [q.tts]));
   }
-  body.appendChild(el("div", { class: "hint", text: "Duyduğun miktarları rakamla yaz. Örneğin „zweihundert“ → 200." }));
+  const subj = SUBJECTS.find(x => x.key === state.key);
+  body.appendChild(el("div", { class: "hint", text: "Duyduğun sayıları rakamla yaz. Örneğin " + ((subj && subj.listenHint) || "„zweihundert“ → 200") + "." }));
   const list = el("div", { class: "lgrid" }, []);
   const inputs = [];
   q.blanks.forEach((b, i) => {
